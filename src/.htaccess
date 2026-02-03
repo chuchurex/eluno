@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.lawofone\.cl$ [NC]
+RewriteRule ^(.*)$ https://lawofone.cl/$1 [L,R=301]
+
+# Serve review.html directly (no redirects/rewrites)
+RewriteRule ^review\.html$ - [L]

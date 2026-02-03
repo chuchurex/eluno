@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+// =====================================================
+// TOGGLE BUTTONS
+// =====================================================
+
+.toggle {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  @extend %panel-base;
+  color: $gold;
+  padding: 0.5rem $spacing-sm;
+  cursor: pointer;
+  font-family: $font-heading;
+  font-size: 0.9rem;
+}
+
+.nav-toggle {
+  top: $spacing-sm;
+  left: $spacing-sm;
+}
+
+.notes-toggle {
+  top: $spacing-sm;
+  right: $spacing-sm;
+}
+
+.theme-toggle {
+  display: block !important; // Always visible, including desktop
+  position: fixed; // Fixed to viewport
+  top: $spacing-sm;
+  right: calc(260px + 10px); // 260px sidebar width + 10px from its left edge
+  font-size: 1rem;
+  padding: 0.4rem $spacing-sm;
+  z-index: 150;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 90;
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "siteTitle": "O Um",
+  "bookTitle": "O Um",
+  "description": "Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.",
+  "introduction": {
+    "title": "",
+    "content": [
+      "Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA."
+    ]
+  },
+  "nav": {
+    "index": "Índice",
+    "chapter": "Cap.",
+    "notes": "Notas",
+    "about": "Sobre",
+    "notesPanel": "Notas e Definições",
+    "notesEmpty": "Clique em qualquer <span class=\"term-hint\">termo destacado</span> no texto para ver sua definição aqui.",
+    "tableOfContents": "Índice de Conteúdos",
+    "previousChapter": "Capítulo Anterior",
+    "nextChapter": "Próximo Capítulo",
+    "backToIndex": "Voltar ao Índice",
+    "readChapter": "Ler capítulo",
+    "learnMore": "Saiba mais"
+  },
+  "media": {
+    "downloadPdf": "Baixar PDF do capítulo",
+    "downloadAudio": "Baixar áudio MP3 do capítulo",
+    "download": "Baixar",
+    "listenAudio": "Ouvir audiolivro do capítulo",
+    "listen": "Ouvir",
+    "labelAudio": "MP3",
+    "labelPdf": "PDF",
+    "labelYoutube": "YouTube"
+  },
+    "footer": {
+    "draft": "Primeira Edição",
+    "date": "2025",
+    "feedbackTitle": "Comentários",
+    "formName": "Seu Nome",
+    "formEmail": "Seu Email",
+    "formMessage": "Sua Mensagem",
+    "formSubmit": "Enviar Feedback",
+    "formSuccess": "Obrigado! Seu feedback foi recebido.",
+    "attribution": "Este trabalho é uma interpretação do Material Ra, publicado originalmente por L/L Research.",
+    "originalSessions": "Sessões originais gratuitas em",
+    "derivedFrom": "Conteúdo derivado do material de L/L Research"
+  },
+  "meta": {
+    "chapters": "",
+    "version": "v0.2 · Janeiro 2026"
+  },
+  "footerVersion": "",
+  "disclaimer": {
+    "title": "Sobre Esta Interpretação",
+    "text1": "O Material Ra foi entregue em um formato preciso de pergunta e resposta, com Ra escolhendo cada palavra intencionalmente. Este projeto transforma esse formato em prosa narrativa—um processo que necessariamente envolve interpretação através da compreensão do autor.",
+    "text2": "Este trabalho foi criado com assistência de IA, o que pode introduzir imprecisões ou inconsistências. Deve ser usado apenas como uma ferramenta complementar, não como um estudo primário do material.",
+    "text3": "Encorajamos todos os buscadores a ler as sessões originais em",
+    "text3b": "e formar sua própria relação com as palavras reais de Ra."
+  }
+}

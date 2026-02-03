@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
+*.swo
+.vscode/settings.json
+.agent/
+
+# Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+id_rsa*
+
+# Media (stored on static.eluno.org)
+audiobook/
+books/
+video/
+*.mp3
+*.mp4
+*.pdf
+
+# Private context
+private-context.md
+context*.md
+CONTEXT*.md
+inbox/
+
+# AI agent instructions (private)
+CLAUDE.md
+CLAUDE_OPERATOR_GUIDE.md
+AGENTS.md
+SECURITY_TASKS.md
+
+# Backups
+backups/

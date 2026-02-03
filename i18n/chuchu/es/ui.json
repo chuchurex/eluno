@@ -1,0 +1,30 @@
+{
+  "siteTitle": "Chuchu",
+  "bookTitle": "Enseñanzas de la Ley del Uno",
+  "subtitle": "Una exploración profunda del Material Ra",
+  "language": "es",
+  "languageName": "Español",
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "chapters": "Capítulos"
+  },
+  "home": {
+    "readButton": "Comenzar a Leer",
+    "chapterPrefix": "Capítulo"
+  },
+  "chapter": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "downloadPDF": "Descargar PDF"
+  },
+  "about": {
+    "title": "Acerca de este Proyecto",
+    "content": "Información sobre el proyecto Chuchu y las Enseñanzas de la Ley del Uno."
+  },
+  "footer": {
+    "credits": "© 2026 Chuchu - Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "basedOn": "Basado en el Material Ra"
+  }
+}

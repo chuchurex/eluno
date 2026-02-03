@@ -1,0 +1,212 @@
+{
+  "text:genesis-logos": {
+    "category": "sacred-texts",
+    "title": "O Logos em Gênesis e João",
+    "summary": "O termo Logos aparece em João 1:1. Também na filosofia grega como o princípio racional do cosmos.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Logos"
+  },
+  "trad:kabbalah-ein-sof": {
+    "category": "traditions",
+    "title": "Ein Sof na Cabala",
+    "summary": "O Infinito anterior à manifestação aparece na Cabala como Ein Sof e no Vedanta como Nirguna Brahman.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Ein_Sof"
+  },
+  "trad:kabbalah-tzimtzum": {
+    "category": "traditions",
+    "title": "Tzimtzum: Contração Divina",
+    "summary": "Na Cabala luriana, Tzimtzum é a contração do Infinito para criar espaço para o finito.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Tzimtzum"
+  },
+  "phys:photon": {
+    "category": "physics",
+    "title": "O Fóton como Fundamento",
+    "summary": "A física moderna confirma que o fóton é fundamental para toda matéria. Toda matéria pode ser entendida como luz condensada.",
+    "learnMore": "https://pt.wikipedia.org/wiki/F%C3%B3ton"
+  },
+  "astro:spiral-galaxies": {
+    "category": "astronomy",
+    "title": "Galáxias Espirais",
+    "summary": "A maioria das galáxias tem estrutura espiral. A Via Láctea é uma galáxia espiral barrada.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Gal%C3%A1xia_espiral"
+  },
+  "phys:spiral-nature": {
+    "category": "physics",
+    "title": "Espirais na Natureza",
+    "summary": "O padrão espiral aparece em todas as escalas: galáxias, furacões, DNA, conchas de nautilo.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Espiral_%C3%A1urea"
+  },
+  "phys:holographic-principle": {
+    "category": "physics",
+    "title": "O Princípio Holográfico",
+    "summary": "O princípio holográfico sugere que toda informação de um volume pode ser codificada em sua superfície.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Princ%C3%ADpio_hologr%C3%A1fico"
+  },
+  "phys:electromagnetic-spectrum": {
+    "category": "physics",
+    "title": "Radiação Eletromagnética",
+    "summary": "O espectro inclui desde ondas de rádio até raios gama. Todos são fótons diferenciados pela frequência.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Espectro_eletromagn%C3%A9tico"
+  },
+  "astro:lenticular-shape": {
+    "category": "astronomy",
+    "title": "Forma Lenticular",
+    "summary": "A forma de disco achatado comum a sistemas solares e galáxias espirais vistas de perfil.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Gal%C3%A1xia_lenticular"
+  },
+  "phys:musical-octave": {
+    "category": "physics",
+    "title": "A Oitava Musical",
+    "summary": "Uma oitava é o intervalo entre uma nota e outra com o dobro de sua frequência.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Oitava"
+  },
+  "trad:gurdjieff-octave": {
+    "category": "traditions",
+    "title": "Lei das Oitavas de Gurdjieff",
+    "summary": "Gurdjieff ensinou que todos os processos seguem a Lei do Sete com intervalos entre Mi-Fá e Si-Dó.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Quarto_Caminho"
+  },
+  "phys:color-spectrum": {
+    "category": "physics",
+    "title": "O Espectro de Cores",
+    "summary": "O espectro visível tem sete cores correspondentes às sete densidades.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Espectro_vis%C3%ADvel"
+  },
+  "trad:chakra-system": {
+    "category": "traditions",
+    "title": "O Sistema de Chakras",
+    "summary": "O sistema yóguico identifica sete centros de energia com suas cores correspondentes.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Chakra"
+  },
+  "trad:four-elements": {
+    "category": "traditions",
+    "title": "Os Quatro Elementos Clássicos",
+    "summary": "Fogo, ar, água, terra aparecem na filosofia grega e em muitas tradições.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Quatro_elementos"
+  },
+  "math:fractals": {
+    "category": "mathematics",
+    "title": "Fractais",
+    "summary": "A geometria fractal mostra que muitas formas naturais exibem auto-similaridade em todas as escalas.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Fractal"
+  },
+  "trad:indras-net": {
+    "category": "traditions",
+    "title": "Rede de Indra",
+    "summary": "Uma teia infinita com uma joia em cada nó, onde cada joia reflete todas as outras.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Rede_de_Indra"
+  },
+  "phys:bohm-implicate-order": {
+    "category": "physics",
+    "title": "Ordem Implicada de Bohm",
+    "summary": "David Bohm propôs que o todo está dobrado dentro de cada parte do universo.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Ordem_implicada"
+  },
+  "phys:atomic-void": {
+    "category": "physics",
+    "title": "Vazio Atômico",
+    "summary": "Um átomo é principalmente espaço vazio. A solidez é uma ilusão eletromagnética.",
+    "learnMore": "https://pt.wikipedia.org/wiki/%C3%81tomo"
+  },
+  "trad:vedanta-maya": {
+    "category": "traditions",
+    "title": "Maya no Vedanta",
+    "summary": "Maya é a ilusão do mundo fenomênico que oculta a realidade última.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Maya_(religi%C3%A3o)"
+  },
+  "phys:quantum-mechanics": {
+    "category": "physics",
+    "title": "Mecânica Quântica",
+    "summary": "Partículas são ondas de probabilidade que colapsam apenas quando observadas.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Mec%C3%A2nica_qu%C3%A2ntica"
+  },
+  "sci:hoffman-consciousness": {
+    "category": "science",
+    "title": "Donald Hoffman e a Consciência",
+    "summary": "O cientista cognitivo Donald Hoffman argumenta que a consciência é fundamental e que o espaço-tempo é uma interface de usuário, não a realidade última.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Donald_Hoffman"
+  },
+  "phil:plato-cave": {
+    "category": "philosophy",
+    "title": "A Alegoria da Caverna de Platão",
+    "summary": "Na República de Platão, prisioneiros em uma caverna confundem sombras com a realidade, simbolizando como confundimos aparências com verdade até alcançar a iluminação filosófica.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Alegoria_da_caverna"
+  },
+  "phil:technology-ethics": {
+    "category": "philosophy",
+    "title": "Ética da Tecnologia",
+    "summary": "O exame filosófico de como o poder tecnológico deve ser guiado pela sabedoria e consideração ética, não meramente pela capacidade.",
+    "learnMore": "https://pt.wikipedia.org/wiki/%C3%89tica_da_tecnologia"
+  },
+  "astro:asteroid-belt": {
+    "category": "astronomy",
+    "title": "O Cinturão de Asteroides",
+    "summary": "Região entre Marte e Júpiter com milhões de objetos rochosos. Algumas teorias sugerem que poderia ser restos de um planeta que nunca se formou ou foi destruído.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Cintura_de_asteroides"
+  },
+  "hist:giza-pyramids": {
+    "category": "history",
+    "title": "As Pirâmides de Gizé",
+    "summary": "Monumentos do antigo Egito construídos há aproximadamente 4.500 anos. A Grande Pirâmide foi a estrutura mais alta feita pelo homem por mais de 3.800 anos.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Pir%C3%A2mides_de_Giz%C3%A9"
+  },
+  "trad:hinduism-karma": {
+    "category": "traditions",
+    "title": "O Karma",
+    "summary": "Princípio de causa e efeito onde as ações influenciam experiências futuras. Presente no hinduísmo, budismo e jainismo como lei fundamental de equilíbrio espiritual.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Carma"
+  },
+  "psych:jung-collective-unconscious": {
+    "category": "psychology",
+    "title": "O Inconsciente Coletivo",
+    "summary": "Conceito de Carl Jung: uma camada da psique compartilhada por toda a humanidade, contendo arquétipos e memórias ancestrais comuns a todos.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Inconsciente_coletivo"
+  },
+  "trad:eschatology-comparative": {
+    "category": "traditions",
+    "title": "Escatologia Comparada",
+    "summary": "Estudo das crenças sobre o fim dos tempos e transformação do mundo em diversas tradições: o Apocalipse cristão, o Kali Yuga hindu, o Maitreya budista.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Escatologia"
+  },
+  "psych:jung-unconscious": {
+    "category": "psychology",
+    "title": "O Inconsciente em Jung",
+    "summary": "Para Carl Jung, o inconsciente contém não apenas material reprimido, mas também potenciais criativos, sabedoria ancestral e conexão com o transcendente.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Inconsciente"
+  },
+  "trad:chakra-kundalini": {
+    "category": "traditions",
+    "title": "Kundalini e os Chakras",
+    "summary": "Nas tradições iogues, kundalini é a energia adormecida na base da coluna que, ao despertar, sobe ativando cada centro de energia até alcançar a coroa.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Kundalini"
+  },
+  "trad:buddhism-dukkha": {
+    "category": "traditions",
+    "title": "Dukkha: O Sofrimento",
+    "summary": "Primeira Nobre Verdade do budismo: a existência implica insatisfação inerente. Não é pessimismo, mas reconhecimento de que o apego causa sofrimento, e a libertação é possível.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Dukkha"
+  },
+  "psych:jung-synchronicity": {
+    "category": "psychology",
+    "title": "Sincronicidade",
+    "summary": "Conceito de Carl Jung: coincidências significativas sem relação causal, mas conectadas por seu significado. Sugere uma conexão profunda entre mente e matéria.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Sincronicidade"
+  },
+  "bio:meditation-brain": {
+    "category": "biology",
+    "title": "Meditação e o Cérebro",
+    "summary": "Estudos neurocientíficos mostram que a meditação regular produz mudanças mensuráveis: aumenta a massa cinzenta, reduz a atividade da amígdala e fortalece o córtex pré-frontal.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Medita%C3%A7%C3%A3o"
+  },
+  "trad:contemplative-prayer": {
+    "category": "traditions",
+    "title": "Oração Contemplativa",
+    "summary": "Prática presente no misticismo cristão, sufismo e hinduísmo: silenciar a mente para experimentar a presença divina diretamente, além de palavras e imagens.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Contempla%C3%A7%C3%A3o"
+  },
+  "trad:hermetic-principles": {
+    "category": "traditions",
+    "title": "Princípios Herméticos",
+    "summary": "Sete leis universais do Caibalion: Mentalismo, Correspondência, Vibração, Polaridade, Ritmo, Causa e Efeito, Gênero. Resumo da antiga sabedoria atribuída a Hermes Trismegisto.",
+    "learnMore": "https://pt.wikipedia.org/wiki/Caibalion"
+  }
+}

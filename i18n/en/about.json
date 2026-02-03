@@ -1,0 +1,77 @@
+{
+  "id": "about",
+  "title": "About This Project",
+  "subtitle": "",
+  "sections": [
+    {
+      "id": "what",
+      "title": "",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A rewrite of the Ra Material (The Law of One) in narrative book format. The original material, received by Don Elkins, Carla L. Rueckert, and Jim McCarty between 1981 and 1984, is in question-and-answer format. This project transforms it into continuous prose for easier reading."
+        },
+        {
+          "type": "paragraph",
+          "text": "This work was created by <a href=\"https://chuchurex.cl\" target=\"_blank\">Carlos Martínez</a> with the help of Claude (Opus 4.5) by Anthropic."
+        }
+      ]
+    },
+    {
+      "id": "ai-disclosure",
+      "title": "AI Assistance Disclosure",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This project was created with assistance from Claude (Opus 4.5) by Anthropic. While every effort has been made to maintain accuracy and fidelity to the original material, AI-generated content may contain inaccuracies, inconsistencies, or misinterpretations."
+        },
+        {
+          "type": "paragraph",
+          "text": "This work should be used as a supplementary study tool only. For authoritative understanding, always refer to the original Ra Material at <a href=\"https://www.llresearch.org\" target=\"_blank\">llresearch.org</a>."
+        }
+      ]
+    },
+    {
+      "id": "prologue",
+      "title": "",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "There are stories about searching the world for treasure only to find it at home. The Blue Bird. The Alchemist. The rabbi who travels to Prague and discovers the treasure was buried under his own kitchen. And of course, Ángel searching for the seven-colored flower."
+        },
+        {
+          "type": "paragraph",
+          "text": "The pattern is always the same: only after walking the path can you see what was always there."
+        },
+        {
+          "type": "paragraph",
+          "text": "Four years ago I began the search. Many thanks to Pablo and Quetzali for giving me the best initial guidance. When life demanded I search with more urgency, I found the Ra Material. It was what connected everything I had learned before: the contemplative traditions, modern physics, the questions I didn't know how to formulate."
+        },
+        {
+          "type": "paragraph",
+          "text": "The original material is dense: three years of sessions where topics appear, disappear, and return. I tried to organize it for myself in simpler words. I used Claude (Opus 4.5) by Anthropic as a tool. Those notes ended up becoming this book."
+        },
+        {
+          "type": "paragraph",
+          "text": "This book closes a path that began with a loss and ended with another. Between both, I found these teachings. Now I offer them and move on."
+        },
+        {
+          "type": "paragraph",
+          "text": "To my family: Marcela, Víctor, Sandra, Carlos, Jorge, Estefanía, Bruno, Tomás, Luci, and Ariel. To Claudia, Nancy, Gabriel, and Ximena, fellow travelers. To Jim, Austin, and all who keep the source alive at L/L Research."
+        },
+        {
+          "type": "paragraph",
+          "text": "I leave you my distortion of the Law of One."
+        },
+        {
+          "type": "paragraph",
+          "text": "<em>Adonai,</em><br>Carlos Cristóbal (chuchurex)<br>2025"
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "updated": "",
+    "madeWith": ""
+  }
+}

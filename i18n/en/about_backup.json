@@ -1,0 +1,191 @@
+{
+  "id": "about",
+  "title": "About This Project",
+  "subtitle": "A Chronicle of How the Infinite Manifested Through a Domain Purchase on Christmas Eve",
+  "sections": [
+    {
+      "id": "origin",
+      "title": "Genesis (The Other One)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "On **December 24, 2025**, someone committed an act of faith: purchasing the domain **lawofone.cl** with the intention of synthesizing five volumes of channeled philosophy into accessible prose."
+        },
+        {
+          "type": "paragraph",
+          "text": "The decision required no committee approval, no feasibility study, no sleep. Some would call this impulsive. Others might recognize the characteristic urgency of those who sense a project demanding to exist."
+        }
+      ]
+    },
+    {
+      "id": "day1",
+      "title": "December 25: The Initial Commit",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Christmas Day. At **7:50 PM**, GitHub received its first offering: *\"SASS modular + i18n system + chapters 1-2 in EN/ES/PT\"*."
+        },
+        {
+          "type": "paragraph",
+          "text": "Three languages from day one. Spanish and Portuguese because they are languages close to the author, allowing verification of translation fidelity. But also because this trilingual architecture from the start will facilitate future expansion to other languages—an investment in the accessibility this material deserves."
+        },
+        {
+          "type": "paragraph",
+          "text": "By **11:16 PM**, Chapter 3 was complete: a full treatise on the densities of consciousness, rendered in three languages."
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "title": "December 26: The Productive Delirium",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This day produced **30+ commits in 24 hours**. The git log reads like documentation of a controlled obsession."
+        },
+        {
+          "type": "timeline",
+          "items": [
+            { "time": "00:44", "text": "First site deployment." },
+            { "time": "12:08", "text": "Communication sent to the keepers of the original material at L/L Research." },
+            { "time": "12:25", "text": "Spanish grammar correction for 'octava.'" },
+            { "time": "16:56", "text": "Chapter 5: Polarity—The Two Paths." },
+            { "time": "21:55", "text": "Chapter 6: Wanderers." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day3",
+      "title": "December 27: Accessibility and Witness",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Attention shifted to ensuring the content could reach all who sought it. DOM reordering for screen readers. Glossary refinements. The kind of work that lacks glamour but determines whether a site serves its purpose or merely exists."
+        },
+        {
+          "type": "paragraph",
+          "text": "On this day, the project received its first external viewing: Gabriel Lugo examined the work. External perspective is the mirror in which a project first sees itself as others might see it."
+        },
+        {
+          "type": "paragraph",
+          "text": "There is something appropriate about a text on universal consciousness being made accessible to those who navigate the web differently than most."
+        }
+      ]
+    },
+    {
+      "id": "day4",
+      "title": "December 28: References and Recursion",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The day this very page came into being."
+        },
+        {
+          "type": "paragraph",
+          "text": "The significant development: a **references system** connecting philosophical claims to verifiable knowledge. Click on \"photon\" and learn what physics knows. Click on \"spiral galaxies\" and discover astronomical confirmation. The mystical becomes more interesting, not less, when it touches observable reality."
+        },
+        {
+          "type": "paragraph",
+          "text": "Twenty references across three languages. Markers throughout Chapter 1. And this documentation, which exists partly to inform and partly because every project eventually requires a narrative of its own becoming."
+        }
+      ]
+    },
+    {
+      "id": "publications",
+      "title": "Publication Log",
+      "content": [
+        {
+          "type": "timeline",
+          "items": [
+            { "time": "Dec-25 19:50", "text": "Chapters 1-2: Cosmology and Genesis, The Creator and Creation" },
+            { "time": "Dec-25 23:16", "text": "Chapter 3: The Densities of Consciousness" },
+            { "time": "Dec-26 13:32", "text": "Chapter 4: The Hierarchy of Beings" },
+            { "time": "Dec-26 16:56", "text": "Chapter 5: Polarity—The Two Paths" },
+            { "time": "Dec-26 21:55", "text": "Chapter 6: Wanderers—Star Seeds Among Us" },
+            { "time": "Dec-28 17:07", "text": "Chapter 8: The Veil of Forgetting" },
+            { "time": "Dec-28 18:17", "text": "Chapter 9: Death and the Journey Between Lives" },
+            { "time": "Dec-28 18:44", "text": "Chapter 10: The Energy Centers" },
+            { "time": "Dec-28 20:03", "text": "Chapter 11: Catalyst and Experience" },
+            { "time": "Dec-28 21:15", "text": "Chapter 12: Higher Self and Inner Guidance" },
+            { "time": "Dec-28 22:30", "text": "Chapters 13-15: Free Will, The Harvest, Living the Law of One" },
+            { "time": "Dec-28 23:45", "text": "Chapters 7 & 16: The Harvest, The Return" },
+            { "time": "Dec-29 00:15", "text": "Introduction and Epilogue added" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stats",
+      "title": "Quantified",
+      "content": [
+        {
+          "type": "stats",
+          "items": [
+            { "number": "5", "label": "Days Elapsed" },
+            { "number": "16", "label": "Chapters Complete" },
+            { "number": "3", "label": "Languages" },
+            { "number": "50+", "label": "Git Commits" },
+            { "number": "20", "label": "References" },
+            { "number": "1", "label": "AI Collaborator" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "On Collaboration",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This project was created with **Claude Opus 4.5**, Anthropic's current frontier model, operating through **Claude Code**—a tool that can read, write, and reason about entire codebases while maintaining conversation."
+        },
+        {
+          "type": "paragraph",
+          "text": "The human provides direction, discernment, and the ineffable quality of knowing when something \"feels right.\" The AI provides words, code, translations, and the ability to work at hours when humans typically require sleep."
+        },
+        {
+          "type": "paragraph",
+          "text": "Every chapter, translation, CSS rule, and line of documentation emerged through dialogue. Not extraction from a database, but conversation between different forms of intelligence working toward a shared purpose."
+        },
+        {
+          "type": "quote",
+          "text": "\"Ra says the Creator knows Itself through its many portions. Perhaps this extends to collaborations that would have seemed impossible a decade ago.\""
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "title": "Continuation",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The book is complete with all 16 chapters published. What remains is Phase 3 of the references system, UI refinements, and corresponding tests."
+        },
+        {
+          "type": "paragraph",
+          "text": "The site is live. The content accumulates. The collaboration continues. What began as a Christmas Eve impulse has acquired the weight and momentum of something that intends to be completed."
+        }
+      ]
+    },
+    {
+      "id": "credits",
+      "title": "Acknowledgments",
+      "content": [
+        {
+          "type": "credits",
+          "items": [
+            { "role": "Chuchu", "link": "https://chuchurex.cl", "contribution": "Vision, domain acquisition, approval authority" },
+            { "role": "Claude Opus 4.5", "link": "https://www.anthropic.com/claude", "contribution": "Text, code, translations, documentation" },
+            { "role": "L/L Research", "link": "https://www.llresearch.org", "contribution": "Stewardship of the original material" },
+            { "role": "The Ra Material", "link": "https://www.lawofone.info", "contribution": "The philosophical framework underlying everything" }
+          ]
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "updated": "Last updated: December 29, 2025, 00:15",
+    "madeWith": "Assembled with care and curiosity"
+  }
+}

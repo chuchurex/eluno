@@ -1,0 +1,212 @@
+{
+  "text:genesis-logos": {
+    "category": "sacred-texts",
+    "title": "The Logos in Genesis and John",
+    "summary": "The term Logos appears in John 1:1. Also in Greek philosophy as the rational principle of the cosmos.",
+    "learnMore": "https://en.wikipedia.org/wiki/Logos"
+  },
+  "trad:kabbalah-ein-sof": {
+    "category": "traditions",
+    "title": "Ein Sof in Kabbalah",
+    "summary": "The Infinite prior to manifestation appears in Kabbalah as Ein Sof and in Vedanta as Nirguna Brahman.",
+    "learnMore": "https://en.wikipedia.org/wiki/Ein_Sof"
+  },
+  "trad:kabbalah-tzimtzum": {
+    "category": "traditions",
+    "title": "Tzimtzum: Divine Contraction",
+    "summary": "In Lurianic Kabbalah, Tzimtzum is the contraction of the Infinite to create space for the finite.",
+    "learnMore": "https://en.wikipedia.org/wiki/Tzimtzum"
+  },
+  "phys:photon": {
+    "category": "physics",
+    "title": "The Photon as Foundation",
+    "summary": "Modern physics confirms that the photon is fundamental to all matter. All matter can be understood as condensed light.",
+    "learnMore": "https://en.wikipedia.org/wiki/Photon"
+  },
+  "astro:spiral-galaxies": {
+    "category": "astronomy",
+    "title": "Spiral Galaxies",
+    "summary": "Most galaxies have spiral structure. The Milky Way is a barred spiral galaxy.",
+    "learnMore": "https://en.wikipedia.org/wiki/Spiral_galaxy"
+  },
+  "phys:spiral-nature": {
+    "category": "physics",
+    "title": "Spirals in Nature",
+    "summary": "The spiral pattern appears at all scales: galaxies, hurricanes, DNA, nautilus shells.",
+    "learnMore": "https://en.wikipedia.org/wiki/Golden_spiral"
+  },
+  "phys:holographic-principle": {
+    "category": "physics",
+    "title": "The Holographic Principle",
+    "summary": "The holographic principle suggests all information in a volume can be encoded on its surface.",
+    "learnMore": "https://en.wikipedia.org/wiki/Holographic_principle"
+  },
+  "phys:electromagnetic-spectrum": {
+    "category": "physics",
+    "title": "Electromagnetic Radiation",
+    "summary": "The spectrum includes radio waves through gamma rays. All are photons differentiated by frequency.",
+    "learnMore": "https://en.wikipedia.org/wiki/Electromagnetic_spectrum"
+  },
+  "astro:lenticular-shape": {
+    "category": "astronomy",
+    "title": "Lenticular Shape",
+    "summary": "The flattened disk shape common to solar systems and spiral galaxies seen edge-on.",
+    "learnMore": "https://en.wikipedia.org/wiki/Lenticular_galaxy"
+  },
+  "phys:musical-octave": {
+    "category": "physics",
+    "title": "The Musical Octave",
+    "summary": "An octave is the interval between a note and another with double its frequency.",
+    "learnMore": "https://en.wikipedia.org/wiki/Octave"
+  },
+  "trad:gurdjieff-octave": {
+    "category": "traditions",
+    "title": "Gurdjieff Law of Octaves",
+    "summary": "Gurdjieff taught that all processes follow the Law of Seven with intervals between Mi-Fa and Si-Do.",
+    "learnMore": "https://en.wikipedia.org/wiki/Fourth_Way"
+  },
+  "phys:color-spectrum": {
+    "category": "physics",
+    "title": "The Color Spectrum",
+    "summary": "The visible spectrum has seven colors corresponding to the seven densities.",
+    "learnMore": "https://en.wikipedia.org/wiki/Visible_spectrum"
+  },
+  "trad:chakra-system": {
+    "category": "traditions",
+    "title": "The Chakra System",
+    "summary": "The yogic system identifies seven energy centers with matching colors.",
+    "learnMore": "https://en.wikipedia.org/wiki/Chakra"
+  },
+  "trad:four-elements": {
+    "category": "traditions",
+    "title": "The Four Classical Elements",
+    "summary": "Fire, air, water, earth appear in Greek philosophy and many traditions.",
+    "learnMore": "https://en.wikipedia.org/wiki/Classical_element"
+  },
+  "math:fractals": {
+    "category": "mathematics",
+    "title": "Fractals",
+    "summary": "Fractal geometry shows many natural forms exhibit self-similarity at all scales.",
+    "learnMore": "https://en.wikipedia.org/wiki/Fractal"
+  },
+  "trad:indras-net": {
+    "category": "traditions",
+    "title": "Indra Net",
+    "summary": "An infinite web with a jewel at each node, where each jewel reflects all others.",
+    "learnMore": "https://en.wikipedia.org/wiki/Indra%27s_net"
+  },
+  "phys:bohm-implicate-order": {
+    "category": "physics",
+    "title": "Bohm Implicate Order",
+    "summary": "David Bohm proposed that the whole is folded within each part of the universe.",
+    "learnMore": "https://en.wikipedia.org/wiki/Implicate_and_explicate_order"
+  },
+  "phys:atomic-void": {
+    "category": "physics",
+    "title": "Atomic Void",
+    "summary": "An atom is mostly empty space. Solidity is an electromagnetic illusion.",
+    "learnMore": "https://en.wikipedia.org/wiki/Atom"
+  },
+  "trad:vedanta-maya": {
+    "category": "traditions",
+    "title": "Maya in Vedanta",
+    "summary": "Maya is the illusion of the phenomenal world that conceals ultimate reality.",
+    "learnMore": "https://en.wikipedia.org/wiki/Maya_(religion)"
+  },
+  "phys:quantum-mechanics": {
+    "category": "physics",
+    "title": "Quantum Mechanics",
+    "summary": "Particles are probability waves that collapse only when observed.",
+    "learnMore": "https://en.wikipedia.org/wiki/Quantum_mechanics"
+  },
+  "sci:hoffman-consciousness": {
+    "category": "science",
+    "title": "Donald Hoffman on Consciousness",
+    "summary": "Cognitive scientist Donald Hoffman argues that consciousness is fundamental and that spacetime is a user interface, not ultimate reality.",
+    "learnMore": "https://en.wikipedia.org/wiki/Donald_D._Hoffman"
+  },
+  "phil:plato-cave": {
+    "category": "philosophy",
+    "title": "Plato's Allegory of the Cave",
+    "summary": "In Plato's Republic, prisoners in a cave mistake shadows for reality, symbolizing how we confuse appearances for truth until we achieve philosophical enlightenment.",
+    "learnMore": "https://en.wikipedia.org/wiki/Allegory_of_the_cave"
+  },
+  "phil:technology-ethics": {
+    "category": "philosophy",
+    "title": "Technology Ethics",
+    "summary": "The philosophical examination of how technological power should be guided by wisdom and ethical consideration, not merely capability.",
+    "learnMore": "https://en.wikipedia.org/wiki/Ethics_of_technology"
+  },
+  "astro:asteroid-belt": {
+    "category": "astronomy",
+    "title": "The Asteroid Belt",
+    "summary": "A region between Mars and Jupiter containing millions of rocky objects. Some theories suggest it could be remnants of a planet that never formed or was destroyed.",
+    "learnMore": "https://en.wikipedia.org/wiki/Asteroid_belt"
+  },
+  "hist:giza-pyramids": {
+    "category": "history",
+    "title": "The Pyramids of Giza",
+    "summary": "Ancient Egyptian monuments built approximately 4,500 years ago. The Great Pyramid was the tallest man-made structure for over 3,800 years.",
+    "learnMore": "https://en.wikipedia.org/wiki/Giza_pyramid_complex"
+  },
+  "trad:hinduism-karma": {
+    "category": "traditions",
+    "title": "Karma",
+    "summary": "The principle of cause and effect where actions influence future experiences. Present in Hinduism, Buddhism, and Jainism as a fundamental law of spiritual balance.",
+    "learnMore": "https://en.wikipedia.org/wiki/Karma"
+  },
+  "psych:jung-collective-unconscious": {
+    "category": "psychology",
+    "title": "The Collective Unconscious",
+    "summary": "Carl Jung's concept: a layer of the psyche shared by all humanity, containing archetypes and ancestral memories common to everyone.",
+    "learnMore": "https://en.wikipedia.org/wiki/Collective_unconscious"
+  },
+  "trad:eschatology-comparative": {
+    "category": "traditions",
+    "title": "Comparative Eschatology",
+    "summary": "The study of beliefs about the end times and world transformation across traditions: Christian Apocalypse, Hindu Kali Yuga, Buddhist Maitreya.",
+    "learnMore": "https://en.wikipedia.org/wiki/Eschatology"
+  },
+  "psych:jung-unconscious": {
+    "category": "psychology",
+    "title": "The Unconscious in Jung",
+    "summary": "For Carl Jung, the unconscious contains not only repressed material but also creative potentials, ancestral wisdom, and connection to the transcendent.",
+    "learnMore": "https://en.wikipedia.org/wiki/Unconscious_mind"
+  },
+  "trad:chakra-kundalini": {
+    "category": "traditions",
+    "title": "Kundalini and the Chakras",
+    "summary": "In yogic traditions, kundalini is dormant energy at the spine's base that, when awakened, rises through each energy center to reach the crown.",
+    "learnMore": "https://en.wikipedia.org/wiki/Kundalini"
+  },
+  "trad:buddhism-dukkha": {
+    "category": "traditions",
+    "title": "Dukkha: Suffering",
+    "summary": "First Noble Truth of Buddhism: existence involves inherent unsatisfactoriness. Not pessimism but recognition that attachment causes suffering, and liberation is possible.",
+    "learnMore": "https://en.wikipedia.org/wiki/Dukkha"
+  },
+  "psych:jung-synchronicity": {
+    "category": "psychology",
+    "title": "Synchronicity",
+    "summary": "Carl Jung's concept: meaningful coincidences without causal connection yet linked by significance. Suggests a deep connection between mind and matter.",
+    "learnMore": "https://en.wikipedia.org/wiki/Synchronicity"
+  },
+  "bio:meditation-brain": {
+    "category": "biology",
+    "title": "Meditation and the Brain",
+    "summary": "Neuroscience studies show regular meditation produces measurable changes: increases gray matter, reduces amygdala activity, strengthens prefrontal cortex.",
+    "learnMore": "https://en.wikipedia.org/wiki/Research_on_meditation"
+  },
+  "trad:contemplative-prayer": {
+    "category": "traditions",
+    "title": "Contemplative Prayer",
+    "summary": "Practice found in Christian mysticism, Sufism, and Hinduism: silencing the mind to directly experience divine presence, beyond words and images.",
+    "learnMore": "https://en.wikipedia.org/wiki/Contemplation"
+  },
+  "trad:hermetic-principles": {
+    "category": "traditions",
+    "title": "Hermetic Principles",
+    "summary": "Seven universal laws from the Kybalion: Mentalism, Correspondence, Vibration, Polarity, Rhythm, Cause and Effect, Gender. Summary of ancient wisdom attributed to Hermes Trismegistus.",
+    "learnMore": "https://en.wikipedia.org/wiki/Kybalion"
+  }
+}

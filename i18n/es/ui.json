@@ -1,0 +1,57 @@
+{
+  "siteTitle": "El Uno",
+  "bookTitle": "El Uno",
+  "description": "Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.",
+  "introduction": {
+    "title": "",
+    "content": [
+      "Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA."
+    ]
+  },
+  "nav": {
+    "index": "Índice",
+    "chapter": "Cap.",
+    "notes": "Notas",
+    "about": "Acerca de",
+    "notesPanel": "Notas y Definiciones",
+    "notesEmpty": "Haz clic en cualquier <span class=\"term-hint\">término resaltado</span> en el texto para ver su definición aquí.",
+    "tableOfContents": "Tabla de Contenidos",
+    "previousChapter": "Capítulo Anterior",
+    "nextChapter": "Capítulo Siguiente",
+    "backToIndex": "Volver al Índice",
+    "readChapter": "Leer capítulo",
+    "learnMore": "Saber más"
+  },
+  "media": {
+    "downloadPdf": "Descargar PDF del capítulo",
+    "downloadAudio": "Descargar audio MP3 del capítulo",
+    "download": "Descargar",
+    "labelAudio": "MP3",
+    "labelPdf": "PDF"
+  },
+    "footer": {
+    "draft": "Primera Edición",
+    "date": "2025",
+    "feedbackTitle": "Comentarios",
+    "formName": "Tu Nombre",
+    "formEmail": "Tu Email",
+    "formMessage": "Tu Mensaje",
+    "formSubmit": "Enviar Feedback",
+    "formSuccess": "¡Gracias! Tu feedback ha sido recibido.",
+    "attribution": "Este trabajo es una interpretación del Material Ra, publicado originalmente por L/L Research.",
+    "originalSessions": "Sesiones originales gratis en",
+    "derivedFrom": "Contenido derivado del material de L/L Research"
+  },
+  "meta": {
+    "chapters": "",
+    "version": "v0.2 · Enero 2026"
+  },
+  "footerVersion": "",
+  "disclaimer": {
+    "title": "Sobre Esta Interpretación",
+    "text1": "El Material Ra fue entregado en un formato preciso de pregunta y respuesta, con Ra eligiendo cada palabra intencionalmente. Este proyecto transforma ese formato en prosa narrativa—un proceso que necesariamente involucra interpretación a través de la comprensión del autor.",
+    "text2": "Este trabajo fue creado con asistencia de IA, lo cual puede introducir inexactitudes o inconsistencias. Debe usarse solo como una herramienta complementaria, no como un estudio primario del material.",
+    "text3": "Animamos a todos los buscadores a leer las sesiones originales en",
+    "text3b": "y formar su propia relación con las palabras reales de Ra."
+  }
+}
