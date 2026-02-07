@@ -421,6 +421,25 @@ function ensureDir(dirPath) {
 }
 
 /**
+ * Copy directory recursively
+ */
+function copyDirRecursive(src, dest) {
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      ensureDir(destPath);
+      copyDirRecursive(srcPath, destPath);
+      console.log(`  ✓ ${entry.name}/`);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`  ✓ ${entry.name}`);
+    }
+  }
+}
+
+/**
  * Build a single language
  */
 function buildLanguage(lang) {
@@ -543,16 +562,10 @@ function build() {
   console.log('\n📦 Creating shared assets...');
   createGlossaryScript();
 
-  // Copy static files (redirects, etc)
+  // Copy static files (redirects, etc) - recursive
   const staticDir = path.join(__dirname, '../static');
   if (fs.existsSync(staticDir)) {
-    fs.readdirSync(staticDir).forEach(file => {
-      fs.copyFileSync(
-        path.join(staticDir, file),
-        path.join(CONFIG.outputDir, file)
-      );
-      console.log(`  ✓ ${file}`);
-    });
+    copyDirRecursive(staticDir, CONFIG.outputDir);
   }
 
   console.log('\n═══════════════════════════════════════════');
