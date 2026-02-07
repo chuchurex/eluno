@@ -18,9 +18,11 @@
   },
   "scripts": {
     "build": "npm run sass:build && eluno-build",
+    "build:v2": "node scripts/build-v2.js && npm run sass:build",
     "sass:build": "sass node_modules/@eluno/core/scss/main.scss:dist/css/main.css --style=compressed",
     "sass:watch": "sass --watch node_modules/@eluno/core/scss/main.scss:dist/css/main.css",
     "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=3001\"",
+    "dev:v2": "npm run build:v2 && npm run dev",
     "deploy": "eluno-deploy",
     "build:pdf": "eluno-pdf"
   }
