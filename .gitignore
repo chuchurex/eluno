@@ -41,8 +41,11 @@ inbox/
 # AI agent instructions (private)
 CLAUDE.md
 CLAUDE_OPERATOR_GUIDE.md
+CLAUDE_CODE_AGENT.md
 AGENTS.md
 SECURITY_TASKS.md
+TODO_AUDIO_LINKS.md
+.CLAUDE/
 
 # Backups
 backups/
