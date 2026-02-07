@@ -1,0 +1,185 @@
+{
+  "chapter": "ch1",
+  "title": "Cosmology and Genesis",
+  "base_url": "https://www.lawofone.info/s/",
+  "provenance": [
+    {
+      "section_id": "ch1-infinite",
+      "section_title": "The Infinite and the Awakening of Consciousness",
+      "segments": [
+        {
+          "paragraphs": [1, 2, 3, 4],
+          "sources": ["13.5", "13.6", "13.7"],
+          "note": "The Infinite, consciousness awakening, self-recognition"
+        },
+        {
+          "paragraphs": [5, 6],
+          "sources": ["13.7", "13.8", "13.9"],
+          "note": "Intelligent Infinity, Logos as Love"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-paradox",
+      "section_title": "The First Paradox: From the One to the Many",
+      "segments": [
+        {
+          "paragraphs": [1, 2, 3],
+          "sources": ["13.12", "13.13"],
+          "note": "Finitude conceived by Infinity, exploration of multiplicity"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["13.12", "15.21"],
+          "note": "First distortion: Free Will"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["13.12", "15.22", "27.13"],
+          "note": "Second distortion: Love/Logos"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["13.9", "13.12", "27.14"],
+          "note": "Third distortion: Light"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-architecture",
+      "section_title": "The Architecture of Creation",
+      "segments": [
+        {
+          "paragraphs": [1, 2, 3],
+          "sources": ["13.13", "13.15", "13.16"],
+          "note": "Co-Creators, universes, galaxies"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["13.16", "29.1"],
+          "note": "Sub-Logos (suns)"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["13.16", "13.17"],
+          "note": "Densities as states of being"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["13.13", "13.14"],
+          "note": "Holographic principle - each part contains the whole"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-light",
+      "section_title": "Light: Foundation of the Material World",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["13.9", "27.14", "27.15"],
+          "note": "Nature of Light as building block"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["13.9", "40.1"],
+          "note": "Spiral pattern, geometric paradox"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-densities",
+      "section_title": "The Densities: The Octave of Creation",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["16.51", "28.1"],
+          "note": "Octave structure, seven densities"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["13.21", "19.2"],
+          "note": "First density: elements"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["13.21", "19.2"],
+          "note": "Second density: movement and growth"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["13.21", "16.50", "19.12"],
+          "note": "Third density: self-awareness and the choice"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["16.50", "20.9"],
+          "note": "Fourth density: love"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["16.50", "25.4"],
+          "note": "Fifth density: wisdom"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["16.50", "36.15"],
+          "note": "Sixth density: unity"
+        },
+        {
+          "paragraphs": [9],
+          "sources": ["16.50"],
+          "note": "Seventh density: gateway"
+        },
+        {
+          "paragraphs": [10],
+          "sources": ["16.51", "28.16"],
+          "note": "Eighth density: next octave"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-fractal",
+      "section_title": "The Fractal Structure of Reality",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["16.51", "13.13"],
+          "note": "Sub-densities within densities"
+        },
+        {
+          "paragraphs": [3, 4],
+          "sources": ["13.13", "13.14"],
+          "note": "Holographic principle, each part contains whole"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-illusion",
+      "section_title": "The Nature of Illusion",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["10.14", "27.17"],
+          "note": "Illusion as focused reality, not false"
+        },
+        {
+          "paragraphs": [3, 4],
+          "sources": ["10.14", "27.17", "42.10"],
+          "note": "Purpose of illusion, catalyst"
+        }
+      ]
+    },
+    {
+      "section_id": "ch1-mystery",
+      "section_title": "The Mystery that Remains",
+      "segments": [
+        {
+          "paragraphs": [1, 2, 3, 4, 5],
+          "sources": ["1.1", "4.20", "52.11"],
+          "note": "Mystery that remains, Infinity exceeds comprehension"
+        }
+      ]
+    }
+  ]
+}
