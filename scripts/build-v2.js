@@ -543,6 +543,18 @@ function build() {
   console.log('\n📦 Creating shared assets...');
   createGlossaryScript();
 
+  // Copy static files (redirects, etc)
+  const staticDir = path.join(__dirname, '../static');
+  if (fs.existsSync(staticDir)) {
+    fs.readdirSync(staticDir).forEach(file => {
+      fs.copyFileSync(
+        path.join(staticDir, file),
+        path.join(CONFIG.outputDir, file)
+      );
+      console.log(`  ✓ ${file}`);
+    });
+  }
+
   console.log('\n═══════════════════════════════════════════');
   console.log(' ✅ Build complete!');
   console.log(`    Output: ${CONFIG.outputDir}`);
