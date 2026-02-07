@@ -28,6 +28,9 @@ const CONFIG = {
   outputDir: path.join(__dirname, '../dist'),
   provenanceDir: path.join(__dirname, '../i18n/provenance'),
 
+  // v2 beta: only build these chapters (add more as they're reviewed)
+  enabledChapters: [1, 2],
+
   // lawofone.info URL patterns by language
   lawOfOneUrls: {
     en: 'https://www.lawofone.info/s/',
@@ -375,11 +378,16 @@ function generateIndexHtml(lang, chapters) {
 
 /**
  * Load all chapters for a language
+ * Only loads chapters listed in CONFIG.enabledChapters
  */
 function loadChapters(lang) {
   const chaptersDir = path.join(CONFIG.inputDir, lang, 'chapters');
+
+  // Filter to only enabled chapters
+  const enabledSet = new Set(CONFIG.enabledChapters);
   const files = fs.readdirSync(chaptersDir)
     .filter(f => f.match(/^\d+\.json$/))
+    .filter(f => enabledSet.has(parseInt(f)))
     .sort((a, b) => parseInt(a) - parseInt(b));
 
   return files.map(file => {
