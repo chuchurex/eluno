@@ -24,7 +24,9 @@ body {
   background: $bg;
   color: $text;
   line-height: 1.4;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 
   &::before {
     content: '';

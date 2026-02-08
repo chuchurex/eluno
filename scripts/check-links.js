@@ -164,12 +164,12 @@ function checkLocalFile(url, sourceFile) {
 
 // Check external URL (with rate limiting)
 async function checkExternalUrl(url, timeout = 10000) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     try {
       const urlObj = new URL(url);
       const protocol = urlObj.protocol === 'https:' ? https : http;
 
-      const req = protocol.request(url, { method: 'HEAD', timeout }, (res) => {
+      const req = protocol.request(url, { method: 'HEAD', timeout }, res => {
         resolve({
           status: res.statusCode,
           ok: res.statusCode >= 200 && res.statusCode < 400,
@@ -178,7 +178,7 @@ async function checkExternalUrl(url, timeout = 10000) {
         });
       });
 
-      req.on('error', (err) => {
+      req.on('error', err => {
         resolve({ status: 0, ok: false, error: err.message });
       });
 
@@ -285,7 +285,9 @@ function checkReferences(lang) {
       usedRefs.add(ref);
 
       if (!refIds.has(ref)) {
-        results.warnings.push(`Missing reference in ${lang}: ${ref} (used in ${path.basename(chapterFile)})`);
+        results.warnings.push(
+          `Missing reference in ${lang}: ${ref} (used in ${path.basename(chapterFile)})`
+        );
       }
     }
   }
@@ -312,9 +314,13 @@ function checkDuplicateIds(content, filePath) {
 
 // Main analysis function
 async function analyze() {
-  console.log(`${colors.bold}${colors.blue}========================================${colors.reset}`);
+  console.log(
+    `${colors.bold}${colors.blue}========================================${colors.reset}`
+  );
   console.log(`${colors.bold}${colors.blue}  eluno.org Link & Content Checker${colors.reset}`);
-  console.log(`${colors.bold}${colors.blue}========================================${colors.reset}\n`);
+  console.log(
+    `${colors.bold}${colors.blue}========================================${colors.reset}\n`
+  );
 
   // 1. Get all HTML files
   console.log(`${colors.yellow}[1/7] Scanning HTML files...${colors.reset}`);
@@ -404,7 +410,9 @@ async function analyze() {
   }
 
   if (results.redirectIssues.length > 0) {
-    console.log(`  ${colors.red}✗ Found ${results.redirectIssues.length} redirect issues${colors.reset}\n`);
+    console.log(
+      `  ${colors.red}✗ Found ${results.redirectIssues.length} redirect issues${colors.reset}\n`
+    );
   } else {
     console.log(`  ${colors.green}✓ All ${redirectCount} redirects OK${colors.reset}\n`);
   }
@@ -417,13 +425,17 @@ async function analyze() {
   }
 
   if (results.missingGlossaryTerms.length > 0) {
-    console.log(`  ${colors.red}✗ Found ${results.missingGlossaryTerms.length} missing glossary terms${colors.reset}\n`);
+    console.log(
+      `  ${colors.red}✗ Found ${results.missingGlossaryTerms.length} missing glossary terms${colors.reset}\n`
+    );
   } else {
     console.log(`  ${colors.green}✓ All glossary terms defined${colors.reset}\n`);
   }
 
   // 7. Check external links (sample)
-  console.log(`${colors.yellow}[7/7] Checking external links (this may take a while)...${colors.reset}`);
+  console.log(
+    `${colors.yellow}[7/7] Checking external links (this may take a while)...${colors.reset}`
+  );
   const uniqueExternal = [...new Set(results.externalLinks.map(l => l.url))];
   console.log(`  Checking ${uniqueExternal.length} unique external URLs...\n`);
 
@@ -433,9 +445,7 @@ async function analyze() {
     checkedCount++;
 
     if (!result.ok) {
-      const sourceFiles = results.externalLinks
-        .filter(l => l.url === url)
-        .map(l => l.file);
+      const sourceFiles = results.externalLinks.filter(l => l.url === url).map(l => l.file);
 
       results.brokenExternal.push({
         url,
@@ -467,13 +477,19 @@ async function analyze() {
 }
 
 function printSummary() {
-  console.log(`${colors.bold}${colors.blue}========================================${colors.reset}`);
+  console.log(
+    `${colors.bold}${colors.blue}========================================${colors.reset}`
+  );
   console.log(`${colors.bold}${colors.blue}            SUMMARY REPORT${colors.reset}`);
-  console.log(`${colors.bold}${colors.blue}========================================${colors.reset}\n`);
+  console.log(
+    `${colors.bold}${colors.blue}========================================${colors.reset}\n`
+  );
 
   // Broken internal links
   if (results.brokenInternal.length > 0) {
-    console.log(`${colors.bold}${colors.red}BROKEN INTERNAL LINKS (${results.brokenInternal.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.red}BROKEN INTERNAL LINKS (${results.brokenInternal.length}):${colors.reset}`
+    );
     const unique = [...new Map(results.brokenInternal.map(l => [l.url, l])).values()];
     for (const link of unique) {
       const relativePath = path.relative(DIST_DIR, link.file);
@@ -485,7 +501,9 @@ function printSummary() {
 
   // Broken media
   if (results.brokenMedia.length > 0) {
-    console.log(`${colors.bold}${colors.red}MISSING MEDIA FILES (${results.brokenMedia.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.red}MISSING MEDIA FILES (${results.brokenMedia.length}):${colors.reset}`
+    );
     const unique = [...new Map(results.brokenMedia.map(l => [l.url, l])).values()];
     for (const media of unique) {
       const relativePath = path.relative(DIST_DIR, media.file);
@@ -497,18 +515,24 @@ function printSummary() {
 
   // Broken external links
   if (results.brokenExternal.length > 0) {
-    console.log(`${colors.bold}${colors.red}BROKEN EXTERNAL LINKS (${results.brokenExternal.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.red}BROKEN EXTERNAL LINKS (${results.brokenExternal.length}):${colors.reset}`
+    );
     for (const link of results.brokenExternal) {
       console.log(`  ${colors.red}✗${colors.reset} ${link.url}`);
       console.log(`    ${colors.yellow}Status: ${link.status || link.error}${colors.reset}`);
-      console.log(`    ${colors.yellow}Files: ${link.files.map(f => path.relative(DIST_DIR, f)).join(', ')}${colors.reset}`);
+      console.log(
+        `    ${colors.yellow}Files: ${link.files.map(f => path.relative(DIST_DIR, f)).join(', ')}${colors.reset}`
+      );
     }
     console.log();
   }
 
   // Redirect issues
   if (results.redirectIssues.length > 0) {
-    console.log(`${colors.bold}${colors.red}REDIRECT ISSUES (${results.redirectIssues.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.red}REDIRECT ISSUES (${results.redirectIssues.length}):${colors.reset}`
+    );
     for (const issue of results.redirectIssues) {
       console.log(`  ${colors.red}✗${colors.reset} ${issue.from} → ${issue.to}`);
       console.log(`    ${colors.yellow}${issue.issue}${colors.reset}`);
@@ -518,7 +542,9 @@ function printSummary() {
 
   // Missing glossary terms
   if (results.missingGlossaryTerms.length > 0) {
-    console.log(`${colors.bold}${colors.red}MISSING GLOSSARY TERMS (${results.missingGlossaryTerms.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.red}MISSING GLOSSARY TERMS (${results.missingGlossaryTerms.length}):${colors.reset}`
+    );
     for (const term of results.missingGlossaryTerms) {
       const relativePath = path.relative(I18N_DIR, term.file);
       console.log(`  ${colors.red}✗${colors.reset} {term:${term.term}} (${term.lang})`);
@@ -529,7 +555,9 @@ function printSummary() {
 
   // Duplicate IDs
   if (results.duplicateIds.length > 0) {
-    console.log(`${colors.bold}${colors.yellow}DUPLICATE IDS (${results.duplicateIds.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.yellow}DUPLICATE IDS (${results.duplicateIds.length}):${colors.reset}`
+    );
     for (const dup of results.duplicateIds) {
       const relativePath = path.relative(DIST_DIR, dup.file);
       console.log(`  ${colors.yellow}!${colors.reset} id="${dup.id}" appears ${dup.count}x`);
@@ -540,7 +568,9 @@ function printSummary() {
 
   // Warnings
   if (results.warnings.length > 0) {
-    console.log(`${colors.bold}${colors.yellow}WARNINGS (${results.warnings.length}):${colors.reset}`);
+    console.log(
+      `${colors.bold}${colors.yellow}WARNINGS (${results.warnings.length}):${colors.reset}`
+    );
     for (const warning of results.warnings) {
       console.log(`  ${colors.yellow}!${colors.reset} ${warning}`);
     }
@@ -548,19 +578,24 @@ function printSummary() {
   }
 
   // Final stats
-  const totalIssues = results.brokenInternal.length +
-                      results.brokenMedia.length +
-                      results.brokenExternal.length +
-                      results.redirectIssues.length +
-                      results.missingGlossaryTerms.length;
+  const totalIssues =
+    results.brokenInternal.length +
+    results.brokenMedia.length +
+    results.brokenExternal.length +
+    results.redirectIssues.length +
+    results.missingGlossaryTerms.length;
 
-  console.log(`${colors.bold}${colors.blue}========================================${colors.reset}`);
+  console.log(
+    `${colors.bold}${colors.blue}========================================${colors.reset}`
+  );
   if (totalIssues === 0) {
     console.log(`${colors.bold}${colors.green}  ✓ NO CRITICAL ISSUES FOUND!${colors.reset}`);
   } else {
     console.log(`${colors.bold}${colors.red}  ✗ ${totalIssues} ISSUES FOUND${colors.reset}`);
   }
-  console.log(`${colors.bold}${colors.blue}========================================${colors.reset}`);
+  console.log(
+    `${colors.bold}${colors.blue}========================================${colors.reset}`
+  );
 
   console.log(`\n${colors.bold}Statistics:${colors.reset}`);
   console.log(`  HTML files scanned: ${results.htmlFiles.length}`);

@@ -6,15 +6,23 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "First Distortion definition", "refs": ["27.8", "27.9", "27.10"]},
-        {"topic": "Quarantine and free will", "refs": ["16.1", "16.2", "16.6", "16.7"]},
-        {"topic": "Mystery as advertising", "refs": ["7.12"]},
-        {"topic": "Guardians and quarantine", "refs": ["12.3", "12.5", "12.6"]},
-        {"topic": "Negative entities and free will", "refs": ["72.7", "72.8"]},
-        {"topic": "Veil as extension of First Distortion", "refs": ["79.10", "79.11"]},
-        {"topic": "No mistakes, only surprises", "refs": ["69.17"]}
+        { "topic": "First Distortion definition", "refs": ["27.8", "27.9", "27.10"] },
+        { "topic": "Quarantine and free will", "refs": ["16.1", "16.2", "16.6", "16.7"] },
+        { "topic": "Mystery as advertising", "refs": ["7.12"] },
+        { "topic": "Guardians and quarantine", "refs": ["12.3", "12.5", "12.6"] },
+        { "topic": "Negative entities and free will", "refs": ["72.7", "72.8"] },
+        { "topic": "Veil as extension of First Distortion", "refs": ["79.10", "79.11"] },
+        { "topic": "No mistakes, only surprises", "refs": ["69.17"] }
       ],
-      "glossary_terms": ["free-will", "law-of-confusion", "quarantine", "veil", "calling", "first-distortion", "guardians"]
+      "glossary_terms": [
+        "free-will",
+        "law-of-confusion",
+        "quarantine",
+        "veil",
+        "calling",
+        "first-distortion",
+        "guardians"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",

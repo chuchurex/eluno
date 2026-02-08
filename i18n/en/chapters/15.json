@@ -6,15 +6,22 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "Daily meditation importance", "refs": ["Q'uo Vol 9", "Q'uo Vol 10"]},
-        {"topic": "Momentary centering", "refs": ["Q'uo Vol 10"]},
-        {"topic": "Service as way of life", "refs": ["Q'uo Vol 9", "17.30"]},
-        {"topic": "Maintaining consciousness", "refs": ["Q'uo Vol 10"]},
-        {"topic": "Worship and gratitude", "refs": ["Q'uo Vol 10"]},
-        {"topic": "Working with others", "refs": ["Q'uo Vol 9", "Q'uo Vol 10"]},
-        {"topic": "Sacred and mundane integration", "refs": ["Q'uo Vol 10"]}
+        { "topic": "Daily meditation importance", "refs": ["Q'uo Vol 9", "Q'uo Vol 10"] },
+        { "topic": "Momentary centering", "refs": ["Q'uo Vol 10"] },
+        { "topic": "Service as way of life", "refs": ["Q'uo Vol 9", "17.30"] },
+        { "topic": "Maintaining consciousness", "refs": ["Q'uo Vol 10"] },
+        { "topic": "Worship and gratitude", "refs": ["Q'uo Vol 10"] },
+        { "topic": "Working with others", "refs": ["Q'uo Vol 9", "Q'uo Vol 10"] },
+        { "topic": "Sacred and mundane integration", "refs": ["Q'uo Vol 10"] }
       ],
-      "glossary_terms": ["meditation", "service-to-others", "catalyst", "balancing", "faith", "free-will"]
+      "glossary_terms": [
+        "meditation",
+        "service-to-others",
+        "catalyst",
+        "balancing",
+        "faith",
+        "free-will"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",

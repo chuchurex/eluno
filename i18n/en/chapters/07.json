@@ -6,23 +6,51 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "What is harvest", "refs": ["6.15", "13.23", "14.14", "14.15", "14.16", "14.17"]},
-        {"topic": "Steps of light", "refs": ["82.29", "48.7", "48.8"]},
-        {"topic": "Harvest thresholds", "refs": ["17.31", "17.32", "17.33"]},
-        {"topic": "Earth's current state", "refs": ["13.22", "13.23", "17.1", "40.8", "40.9", "40.10", "40.11"]},
-        {"topic": "Transition period", "refs": ["40.8", "63.8", "63.13", "63.14", "63.20", "63.21", "63.25"]},
-        {"topic": "Fourth density positive", "refs": ["17.1", "40.12", "63.8", "63.9", "63.25"]},
-        {"topic": "Fourth density negative", "refs": ["47.4", "47.5", "66.30", "66.31"]},
-        {"topic": "Non-harvestable entities", "refs": ["10.9", "13.23", "63.9"]},
-        {"topic": "Three destinations", "refs": ["63.9", "63.10", "63.11", "63.12"]},
-        {"topic": "Dual-activated bodies", "refs": ["63.13", "63.14", "63.15"]}
+        {
+          "topic": "What is harvest",
+          "refs": ["6.15", "13.23", "14.14", "14.15", "14.16", "14.17"]
+        },
+        { "topic": "Steps of light", "refs": ["82.29", "48.7", "48.8"] },
+        { "topic": "Harvest thresholds", "refs": ["17.31", "17.32", "17.33"] },
+        {
+          "topic": "Earth's current state",
+          "refs": ["13.22", "13.23", "17.1", "40.8", "40.9", "40.10", "40.11"]
+        },
+        {
+          "topic": "Transition period",
+          "refs": ["40.8", "63.8", "63.13", "63.14", "63.20", "63.21", "63.25"]
+        },
+        { "topic": "Fourth density positive", "refs": ["17.1", "40.12", "63.8", "63.9", "63.25"] },
+        { "topic": "Fourth density negative", "refs": ["47.4", "47.5", "66.30", "66.31"] },
+        { "topic": "Non-harvestable entities", "refs": ["10.9", "13.23", "63.9"] },
+        { "topic": "Three destinations", "refs": ["63.9", "63.10", "63.11", "63.12"] },
+        { "topic": "Dual-activated bodies", "refs": ["63.13", "63.14", "63.15"] }
       ],
-      "glossary_terms": ["harvest", "densities", "polarization", "the-choice", "service-to-others", "service-to-self", "social-memory-complex", "wanderers", "catalyst", "veil", "free-will"]
+      "glossary_terms": [
+        "harvest",
+        "densities",
+        "polarization",
+        "the-choice",
+        "service-to-others",
+        "service-to-self",
+        "social-memory-complex",
+        "wanderers",
+        "catalyst",
+        "veil",
+        "free-will"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",
       "tone": "clarifying, hopeful without naivety, urgent without fear",
-      "terminology": ["density", "distortion", "harvest", "graduation", "polarization", "steps of light"]
+      "terminology": [
+        "density",
+        "distortion",
+        "harvest",
+        "graduation",
+        "polarization",
+        "steps of light"
+      ]
     }
   },
   "sections": [

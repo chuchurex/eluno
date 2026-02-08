@@ -32,7 +32,7 @@
     "labelPdf": "PDF",
     "labelYoutube": "YouTube"
   },
-    "footer": {
+  "footer": {
     "draft": "First Edition",
     "date": "2025",
     "feedbackTitle": "Comments",

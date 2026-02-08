@@ -6,20 +6,36 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "Energy flow and nature", "refs": ["54.27", "54.29", "54.30", "54.31"]},
-        {"topic": "First step of balancing", "refs": ["15.9", "15.12", "15.13"]},
-        {"topic": "Red ray center", "refs": ["15.12", "41.25", "32.2", "39.11"]},
-        {"topic": "Orange ray center", "refs": ["15.12", "32.2", "41.25"]},
-        {"topic": "Yellow ray center", "refs": ["15.12", "41.25", "48.7"]},
-        {"topic": "Green ray center", "refs": ["15.12", "32.5", "34.14", "34.15", "48.7", "54.31"]},
-        {"topic": "Blue ray center", "refs": ["15.12", "48.7", "39.10", "54.31"]},
-        {"topic": "Indigo ray center", "refs": ["15.12", "39.10", "54.31", "54.32"]},
-        {"topic": "Violet ray center", "refs": ["15.12", "39.10", "54.30"]},
-        {"topic": "Crystalline structures", "refs": ["51.7", "51.8"]},
-        {"topic": "Positive vs negative patterns", "refs": ["39.11", "39.12", "47.4", "34.16"]},
-        {"topic": "Sexual energy transfer", "refs": ["32.2", "32.5", "32.6", "32.7", "26.38"]}
+        { "topic": "Energy flow and nature", "refs": ["54.27", "54.29", "54.30", "54.31"] },
+        { "topic": "First step of balancing", "refs": ["15.9", "15.12", "15.13"] },
+        { "topic": "Red ray center", "refs": ["15.12", "41.25", "32.2", "39.11"] },
+        { "topic": "Orange ray center", "refs": ["15.12", "32.2", "41.25"] },
+        { "topic": "Yellow ray center", "refs": ["15.12", "41.25", "48.7"] },
+        {
+          "topic": "Green ray center",
+          "refs": ["15.12", "32.5", "34.14", "34.15", "48.7", "54.31"]
+        },
+        { "topic": "Blue ray center", "refs": ["15.12", "48.7", "39.10", "54.31"] },
+        { "topic": "Indigo ray center", "refs": ["15.12", "39.10", "54.31", "54.32"] },
+        { "topic": "Violet ray center", "refs": ["15.12", "39.10", "54.30"] },
+        { "topic": "Crystalline structures", "refs": ["51.7", "51.8"] },
+        { "topic": "Positive vs negative patterns", "refs": ["39.11", "39.12", "47.4", "34.16"] },
+        { "topic": "Sexual energy transfer", "refs": ["32.2", "32.5", "32.6", "32.7", "26.38"] }
       ],
-      "glossary_terms": ["energy-centers", "red-ray", "orange-ray", "yellow-ray", "green-ray", "blue-ray", "indigo-ray", "violet-ray", "polarization", "catalyst", "adept", "intelligent-infinity"]
+      "glossary_terms": [
+        "energy-centers",
+        "red-ray",
+        "orange-ray",
+        "yellow-ray",
+        "green-ray",
+        "blue-ray",
+        "indigo-ray",
+        "violet-ray",
+        "polarization",
+        "catalyst",
+        "adept",
+        "intelligent-infinity"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",

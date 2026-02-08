@@ -29,7 +29,7 @@
     "labelAudio": "MP3",
     "labelPdf": "PDF"
   },
-    "footer": {
+  "footer": {
     "draft": "Primera Edición",
     "date": "2025",
     "feedbackTitle": "Comentarios",

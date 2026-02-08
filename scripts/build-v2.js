@@ -85,9 +85,7 @@ function parseTerms(text, glossary) {
       console.warn(`  ⚠ Term not found in glossary: ${keyword}`);
       return match; // Leave as-is if not found
     }
-    const definition = Array.isArray(term.content)
-      ? term.content[0]
-      : term.content;
+    const definition = Array.isArray(term.content) ? term.content[0] : term.content;
     const escapedDef = definition.replace(/"/g, '&quot;');
     return `<span class="term" data-term="${keyword}" data-definition="${escapedDef}" tabindex="0">${term.title}</span>`;
   });
@@ -254,11 +252,13 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     .substring(0, 160);
 
   // Language switcher
-  const langSwitcher = CONFIG.languages.map(l => {
-    const isActive = l === lang ? ' class="active"' : '';
-    const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
-    return `<a href="/${l}/chapters/${slug}.html"${isActive}>${langName}</a>`;
-  }).join('\n          ');
+  const langSwitcher = CONFIG.languages
+    .map(l => {
+      const isActive = l === lang ? ' class="active"' : '';
+      const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
+      return `<a href="/${l}/chapters/${slug}.html"${isActive}>${langName}</a>`;
+    })
+    .join('\n          ');
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
@@ -275,9 +275,9 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
   <meta property="og:locale" content="${lang}">
 
   <!-- Alternate languages -->
-  ${CONFIG.languages.map(l =>
-    `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${slug}.html">`
-  ).join('\n  ')}
+  ${CONFIG.languages
+    .map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${slug}.html">`)
+    .join('\n  ')}
 
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -321,16 +321,20 @@ function generateIndexHtml(lang, chapters) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
 
-  const tocHtml = chapters.map(ch => {
-    const slug = slugify(ch.title);
-    return `<li><a href="chapters/${slug}.html"><span class="toc-number">${ch.numberText}</span> ${ch.title}</a></li>`;
-  }).join('\n        ');
+  const tocHtml = chapters
+    .map(ch => {
+      const slug = slugify(ch.title);
+      return `<li><a href="chapters/${slug}.html"><span class="toc-number">${ch.numberText}</span> ${ch.title}</a></li>`;
+    })
+    .join('\n        ');
 
-  const langSwitcher = CONFIG.languages.map(l => {
-    const isActive = l === lang ? ' class="active"' : '';
-    const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
-    return `<a href="/${l}/"${isActive}>${langName}</a>`;
-  }).join('\n          ');
+  const langSwitcher = CONFIG.languages
+    .map(l => {
+      const isActive = l === lang ? ' class="active"' : '';
+      const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
+      return `<a href="/${l}/"${isActive}>${langName}</a>`;
+    })
+    .join('\n          ');
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
@@ -341,9 +345,7 @@ function generateIndexHtml(lang, chapters) {
   <meta name="description" content="${bookTitle} — The Law of One in a philosophical lens">
 
   <!-- Alternate languages -->
-  ${CONFIG.languages.map(l =>
-    `<link rel="alternate" hreflang="${l}" href="/${l}/">`
-  ).join('\n  ')}
+  ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/">`).join('\n  ')}
 
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -385,7 +387,8 @@ function loadChapters(lang) {
 
   // Filter to only enabled chapters
   const enabledSet = new Set(CONFIG.enabledChapters);
-  const files = fs.readdirSync(chaptersDir)
+  const files = fs
+    .readdirSync(chaptersDir)
     .filter(f => f.match(/^\d+\.json$/))
     .filter(f => enabledSet.has(parseInt(f)))
     .sort((a, b) => parseInt(a) - parseInt(b));
@@ -468,14 +471,7 @@ function buildLanguage(lang) {
   // Build each chapter
   chapters.forEach(chapter => {
     const provenance = loadProvenance(chapter.number);
-    const html = generateChapterHtml(
-      chapter,
-      lang,
-      glossary,
-      references,
-      provenance,
-      chapters
-    );
+    const html = generateChapterHtml(chapter, lang, glossary, references, provenance, chapters);
 
     const slug = slugify(chapter.title);
     const outputPath = path.join(chaptersDir, `${slug}.html`);
@@ -556,9 +552,7 @@ function build() {
   const args = process.argv.slice(2);
   const langArg = args.find(a => a.startsWith('--lang='))?.split('=')[1];
 
-  const languagesToBuild = langArg
-    ? [langArg]
-    : CONFIG.languages;
+  const languagesToBuild = langArg ? [langArg] : CONFIG.languages;
 
   // Ensure output directory
   ensureDir(CONFIG.outputDir);

@@ -8,8 +8,9 @@
 
 const { execSync } = require('child_process');
 
-const branch = process.env.CF_PAGES_BRANCH ||
-               execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf8' }).trim();
+const branch =
+  process.env.CF_PAGES_BRANCH ||
+  execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf8' }).trim();
 
 console.log(`\n🔍 Detected branch: ${branch}`);
 

@@ -8,82 +8,45 @@
       "primary": [
         {
           "topic": "Definition of wanderers",
-          "refs": [
-            "12.26",
-            "12.27",
-            "12.28"
-          ]
+          "refs": ["12.26", "12.27", "12.28"]
         },
         {
           "topic": "Risks and dangers",
-          "refs": [
-            "12.28",
-            "12.29",
-            "36.16",
-            "36.17"
-          ]
+          "refs": ["12.28", "12.29", "36.16", "36.17"]
         },
         {
           "topic": "Physical difficulties",
-          "refs": [
-            "12.30",
-            "12.31"
-          ]
+          "refs": ["12.30", "12.31"]
         },
         {
           "topic": "Reasons for incarnating",
-          "refs": [
-            "52.8",
-            "52.9",
-            "65.11"
-          ]
+          "refs": ["52.8", "52.9", "65.11"]
         },
         {
           "topic": "Three functions",
-          "refs": [
-            "65.12"
-          ]
+          "refs": ["65.12"]
         },
         {
           "topic": "Forgetting and penetration",
-          "refs": [
-            "36.17",
-            "36.19",
-            "65.18",
-            "65.19"
-          ]
+          "refs": ["36.17", "36.19", "65.18", "65.19"]
         },
         {
           "topic": "Pre-incarnative choices",
-          "refs": [
-            "59.3"
-          ]
+          "refs": ["59.3"]
         }
       ],
       "secondary": [
         {
           "source": "Q'uo Vol 09",
-          "topics": [
-            "wanderer experience",
-            "mission",
-            "loneliness"
-          ]
+          "topics": ["wanderer experience", "mission", "loneliness"]
         },
         {
           "source": "Q'uo Vol 10",
-          "topics": [
-            "service",
-            "being vs doing",
-            "meditation"
-          ]
+          "topics": ["service", "being vs doing", "meditation"]
         },
         {
           "source": "Q'uo Vol 11",
-          "topics": [
-            "sympathy",
-            "warriors of love",
-            "vibratory mismatch"
-          ]
+          "topics": ["sympathy", "warriors of love", "vibratory mismatch"]
         }
       ],
       "glossary_terms": [
@@ -102,14 +65,7 @@
     "writing_parameters": {
       "voice": "first person plural",
       "tone": "compassionate, validating yet grounding, philosophical",
-      "terminology": [
-        "density",
-        "distortion",
-        "wanderer",
-        "catalyst",
-        "veil",
-        "harvest"
-      ]
+      "terminology": ["density", "distortion", "wanderer", "catalyst", "veil", "harvest"]
     }
   },
   "sections": [

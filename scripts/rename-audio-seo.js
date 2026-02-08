@@ -109,7 +109,10 @@ async function main() {
   console.log(`Directory: ${audioDir}\n`);
 
   const chapterTitles = loadChapterTitles(lang);
-  const files = fs.readdirSync(audioDir).filter(f => f.endsWith('.mp3')).sort();
+  const files = fs
+    .readdirSync(audioDir)
+    .filter(f => f.endsWith('.mp3'))
+    .sort();
 
   const renames = [];
   let renamed = 0;

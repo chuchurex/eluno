@@ -6,16 +6,24 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "Fourth density already here", "refs": ["17.1", "40.11"]},
-        {"topic": "Earth changes as symptom", "refs": ["17.1", "33.12"]},
-        {"topic": "Thoughts becoming things", "refs": ["40.9", "40.10"]},
-        {"topic": "Transition duration", "refs": ["40.8"]},
-        {"topic": "Seniority of vibration", "refs": ["33.12"]},
-        {"topic": "Dual-activated entities", "refs": ["63.13", "63.14", "63.15", "63.17"]},
-        {"topic": "Best way to serve", "refs": ["17.30"]},
-        {"topic": "Fourth-density sphere forming", "refs": ["63.20", "63.21", "63.25"]}
+        { "topic": "Fourth density already here", "refs": ["17.1", "40.11"] },
+        { "topic": "Earth changes as symptom", "refs": ["17.1", "33.12"] },
+        { "topic": "Thoughts becoming things", "refs": ["40.9", "40.10"] },
+        { "topic": "Transition duration", "refs": ["40.8"] },
+        { "topic": "Seniority of vibration", "refs": ["33.12"] },
+        { "topic": "Dual-activated entities", "refs": ["63.13", "63.14", "63.15", "63.17"] },
+        { "topic": "Best way to serve", "refs": ["17.30"] },
+        { "topic": "Fourth-density sphere forming", "refs": ["63.20", "63.21", "63.25"] }
       ],
-      "glossary_terms": ["harvest", "fourth-density", "dual-activated", "seniority-of-vibration", "catalyst", "polarization", "service-to-others"]
+      "glossary_terms": [
+        "harvest",
+        "fourth-density",
+        "dual-activated",
+        "seniority-of-vibration",
+        "catalyst",
+        "polarization",
+        "service-to-others"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",

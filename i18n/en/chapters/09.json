@@ -6,19 +6,30 @@
   "metadata": {
     "sources": {
       "primary": [
-        {"topic": "The moment of death", "refs": ["47.9", "47.10", "47.11", "48.7", "51.10"]},
-        {"topic": "Earthbound spirits", "refs": ["47.12", "47.13"]},
-        {"topic": "The seven bodies", "refs": ["47.4", "47.5", "47.6", "47.7", "47.8"]},
-        {"topic": "The indigo body as form-maker", "refs": ["51.10", "48.7", "71.6"]},
-        {"topic": "Time/space nature", "refs": ["71.6", "70.17"]},
-        {"topic": "Incarnation review", "refs": ["82.24", "82.25", "82.26", "82.27", "82.28"]},
-        {"topic": "Healing between incarnations", "refs": ["71.6", "48.7", "21.9"]},
-        {"topic": "Planning next incarnation", "refs": ["21.9", "21.10", "21.11", "48.8"]},
-        {"topic": "Karma", "refs": ["34.4", "34.5"]},
-        {"topic": "Guides and Higher Self", "refs": ["36.1", "36.7", "48.8"]},
-        {"topic": "Seniority of vibration", "refs": ["48.8"]}
+        { "topic": "The moment of death", "refs": ["47.9", "47.10", "47.11", "48.7", "51.10"] },
+        { "topic": "Earthbound spirits", "refs": ["47.12", "47.13"] },
+        { "topic": "The seven bodies", "refs": ["47.4", "47.5", "47.6", "47.7", "47.8"] },
+        { "topic": "The indigo body as form-maker", "refs": ["51.10", "48.7", "71.6"] },
+        { "topic": "Time/space nature", "refs": ["71.6", "70.17"] },
+        { "topic": "Incarnation review", "refs": ["82.24", "82.25", "82.26", "82.27", "82.28"] },
+        { "topic": "Healing between incarnations", "refs": ["71.6", "48.7", "21.9"] },
+        { "topic": "Planning next incarnation", "refs": ["21.9", "21.10", "21.11", "48.8"] },
+        { "topic": "Karma", "refs": ["34.4", "34.5"] },
+        { "topic": "Guides and Higher Self", "refs": ["36.1", "36.7", "48.8"] },
+        { "topic": "Seniority of vibration", "refs": ["48.8"] }
       ],
-      "glossary_terms": ["time-space", "form-maker", "veil", "higher-self", "karma", "harvest", "densities", "free-will", "catalyst", "polarization"]
+      "glossary_terms": [
+        "time-space",
+        "form-maker",
+        "veil",
+        "higher-self",
+        "karma",
+        "harvest",
+        "densities",
+        "free-will",
+        "catalyst",
+        "polarization"
+      ]
     },
     "writing_parameters": {
       "voice": "first person plural",
