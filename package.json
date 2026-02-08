@@ -23,8 +23,8 @@
     "sass": "^1.97.3"
   },
   "scripts": {
-    "build": "node scripts/build-auto.js && npm run sass:build",
-    "build:v2": "node scripts/build-v2.js && npm run sass:build",
+    "build": "node scripts/build-auto.cjs && npm run sass:build",
+    "build:v2": "node scripts/build-v2.cjs && npm run sass:build",
     "sass:build": "sass node_modules/@eluno/core/scss/main.scss:dist/css/main.css --style=compressed",
     "sass:watch": "sass --watch node_modules/@eluno/core/scss/main.scss:dist/css/main.css",
     "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=3001\"",

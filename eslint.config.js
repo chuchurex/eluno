@@ -9,12 +9,12 @@ export default [
   // CommonJS scripts (legacy)
   {
     files: [
-      'scripts/build-auto.js',
-      'scripts/build-v2.js',
-      'scripts/check-links.js',
-      'scripts/generate-covers.js',
-      'scripts/rename-audio-seo.js',
-      'scripts/update-mp3-tags.js'
+      'scripts/build-auto.cjs',
+      'scripts/build-v2.cjs',
+      'scripts/check-links.cjs',
+      'scripts/generate-covers.cjs',
+      'scripts/rename-audio-seo.cjs',
+      'scripts/update-mp3-tags.cjs'
     ],
     languageOptions: {
       ecmaVersion: 2022,

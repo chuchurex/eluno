@@ -29,7 +29,7 @@ const CONFIG = {
   provenanceDir: path.join(__dirname, '../i18n/provenance'),
 
   // v2 beta: only build these chapters (add more as they're reviewed)
-  enabledChapters: [1, 2, 3, 4, 5],
+  enabledChapters: [1, 2, 3, 4, 5, 6],
 
   // lawofone.info URL patterns by language
   lawOfOneUrls: {

@@ -16,7 +16,7 @@ console.log(`\n🔍 Detected branch: ${branch}`);
 
 if (branch === 'v2') {
   console.log('📦 Running v2 build (provenance system)...\n');
-  execSync('node scripts/build-v2.js', { stdio: 'inherit' });
+  execSync('node scripts/build-v2.cjs', { stdio: 'inherit' });
 } else {
   console.log('📦 Running legacy build...\n');
   execSync('npx eluno-build', { stdio: 'inherit' });
