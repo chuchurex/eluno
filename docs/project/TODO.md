@@ -131,6 +131,45 @@ Este archivo sirve como guía para cualquier agente o desarrollador que continú
 
 ---
 
+## ⚠️ Reglas de Media (CRÍTICO)
+
+> **Problema detectado (2026-02-08):** Los `media.json` de EN/PT contenían rutas a PDFs que nunca fueron generados ni subidos, causando enlaces rotos (404).
+
+### Regla 1: No declarar rutas sin archivos
+**NUNCA** agregar rutas en `i18n/{lang}/media.json` hasta que:
+1. El archivo exista localmente (generado con `npm run build:pdf`)
+2. El archivo haya sido subido a `static.eluno.org` (con `npm run publish:media`)
+3. Se haya verificado con `curl` que responde HTTP 200
+
+### Regla 2: Flujo correcto para nuevos medios
+```bash
+# 1. Generar el archivo
+npm run build:pdf -- --lang=en --chapter=1
+
+# 2. Verificar que existe localmente
+ls -la dist/pdf/en/
+
+# 3. Subir a Hostinger
+npm run publish:media
+
+# 4. Verificar en producción
+curl -I https://static.eluno.org/eluno/pdf/en/the-one-ch-01-cosmology-and-genesis.pdf
+
+# 5. SOLO ENTONCES agregar la ruta a media.json
+```
+
+### Regla 3: Campos vacíos = sin enlace
+Si un idioma no tiene PDFs/audio generados, su `media.json` debe tener campos vacíos:
+```json
+{
+  "all": { "pdf": "", "audio": "" },
+  "1": { "pdf": "", "audio": "" }
+}
+```
+El build system no mostrará botones de descarga si el campo está vacío.
+
+---
+
 ## 🛠️ Mejoras de Arquitectura (Original)
 
 - [ ] **Optimización de Puppeteer:** Reutilizar instancia del navegador en `build-pdf.js` durante generación masiva.
