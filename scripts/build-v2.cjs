@@ -77,7 +77,7 @@ const CONFIG = {
 
 /**
  * Parse {term:keyword} markup
- * Returns HTML with tooltip span
+ * Returns HTML with term span that links to notes sidebar
  */
 function parseTerms(text, glossary) {
   return text.replace(/\{term:([a-z0-9-]+)\}/gi, (match, keyword) => {
@@ -86,9 +86,7 @@ function parseTerms(text, glossary) {
       console.warn(`  ⚠ Term not found in glossary: ${keyword}`);
       return match; // Leave as-is if not found
     }
-    const definition = Array.isArray(term.content) ? term.content[0] : term.content;
-    const escapedDef = definition.replace(/"/g, '&quot;');
-    return `<span class="term" data-term="${keyword}" data-definition="${escapedDef}" tabindex="0">${term.title}</span>`;
+    return `<span class="term" data-term="${keyword}">${term.title}</span>`;
   });
 }
 
@@ -221,25 +219,216 @@ function renderSection(section, glossary, references, provenance, lang) {
 }
 
 /**
+ * Generate navigation sidebar HTML
+ */
+function generateNavSidebar(chapter, allChapters, lang, ui) {
+  const bookTitle = CONFIG.bookTitles[lang];
+
+  // Language selector
+  const langSelector = CONFIG.languages
+    .map((l, i) => {
+      const active = l === lang ? ' class="active"' : '';
+      const prefix = i > 0 ? ' | ' : '';
+      return `${prefix}<a href="/${l}/ch${chapter.number}/"${active}>${l.toUpperCase()}</a>`;
+    })
+    .join('');
+
+  // Chapter links
+  const chapterLinks = allChapters
+    .map(ch => {
+      const isActive = ch.id === chapter.id;
+      const slug = slugify(ch.title);
+
+      let html = `            <div class="nav-chapter-group${isActive ? ' active' : ''}" id="nav-group-${ch.id}">\n`;
+      html += `                <div class="nav-chapter-header">\n`;
+      html += `                    <a href="/${lang}/chapters/${slug}.html" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${ch.title}</a>\n`;
+
+      if (isActive) {
+        html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
+        html += `                </div>\n`;
+        html += `                <div class="nav-sections-list">\n`;
+        ch.sections.forEach(sec => {
+          html += `                    <a href="#${sec.id}" class="nav-link sub" onclick="if(window.innerWidth<=1100)closeAll()">${sec.title}</a>\n`;
+        });
+        html += `                </div>\n`;
+      } else {
+        html += `                </div>\n`;
+      }
+
+      html += `            </div>\n`;
+      return html;
+    })
+    .join('');
+
+  return `        <nav class="nav" id="sidebar">
+            <div class="nav-lang-selector">${langSelector}</div>
+            <div class="nav-back">
+                <a href="/${lang}/" class="nav-link">← ${ui.home}</a>
+            </div>
+            <div class="nav-section">
+${chapterLinks}            </div>
+        </nav>`;
+}
+
+/**
+ * Generate notes sidebar HTML
+ */
+function generateNotesSidebar(glossary, ui) {
+  const notesLabel = ui.notesPanel || 'Notes & Definitions';
+  const emptyMsg = ui.notesEmpty || 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.';
+
+  // Generate note items for each glossary term
+  const noteItems = Object.entries(glossary)
+    .map(([id, term]) => {
+      const contentHtml = Array.isArray(term.content)
+        ? term.content.map(p => {
+            let processed = p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+            return `                    <p>${processed}</p>`;
+          }).join('\n')
+        : `                    <p>${term.content}</p>`;
+
+      return `            <div class="note" id="note-${id}">
+                <div class="note-title">${term.title}</div>
+                <div class="note-content">
+${contentHtml}
+                </div>
+            </div>`;
+    })
+    .join('\n');
+
+  return `        <aside class="notes" id="notes">
+            <div class="notes-head">${notesLabel}</div>
+            <div class="notes-empty" id="notes-empty">${emptyMsg}</div>
+
+${noteItems}
+        </aside>`;
+}
+
+/**
+ * Generate chapter navigation (prev/next)
+ */
+function generateChapterPrevNext(chapter, allChapters, lang, ui) {
+  const chapterIndex = allChapters.findIndex(c => c.id === chapter.id);
+  const prevChapter = allChapters[chapterIndex - 1];
+  const nextChapter = allChapters[chapterIndex + 1];
+  const bookTitle = CONFIG.bookTitles[lang];
+
+  let html = `            <nav class="chapter-nav" aria-label="Chapter navigation">\n`;
+
+  if (prevChapter) {
+    const prevSlug = slugify(prevChapter.title);
+    html += `                <a href="/${lang}/chapters/${prevSlug}.html" class="chapter-nav-link prev">\n`;
+    html += `                    <span class="chapter-nav-label">← ${ui.previous}</span>\n`;
+    html += `                    <span class="chapter-nav-title">${prevChapter.title}</span>\n`;
+    html += `                </a>\n`;
+  } else {
+    html += `                <a href="/${lang}/" class="chapter-nav-link prev">\n`;
+    html += `                    <span class="chapter-nav-label">← ${ui.home}</span>\n`;
+    html += `                    <span class="chapter-nav-title">${bookTitle}</span>\n`;
+    html += `                </a>\n`;
+  }
+
+  if (nextChapter) {
+    const nextSlug = slugify(nextChapter.title);
+    html += `                <a href="/${lang}/chapters/${nextSlug}.html" class="chapter-nav-link next">\n`;
+    html += `                    <span class="chapter-nav-label">${ui.next} →</span>\n`;
+    html += `                    <span class="chapter-nav-title">${nextChapter.title}</span>\n`;
+    html += `                </a>\n`;
+  } else {
+    html += `                <span class="chapter-nav-link next disabled"></span>\n`;
+  }
+
+  html += `            </nav>\n`;
+  return html;
+}
+
+/**
+ * Generate footer HTML
+ */
+function generateFooter(ui) {
+  return `            <footer class="footer">
+                <div class="footer-attribution">
+                    <p>${ui.footerAttribution || 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.'}</p>
+                    <p>${ui.footerSessions || 'Original sessions free at'} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>
+                    <p class="footer-copyright">© ${ui.footerCopyright || 'Content derived from L/L Research material'}</p>
+                </div>
+            </footer>`;
+}
+
+/**
+ * Generate common scripts
+ */
+function generateScripts() {
+  return `    <script>
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            let currentTheme = 'dark';
+            if (savedTheme) currentTheme = savedTheme;
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                updateThemeButton('light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                updateThemeButton('dark');
+            }
+        }
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'light' ? 'dark' : 'light';
+            if (newTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        }
+        function updateThemeButton(theme) {
+            const btns = document.querySelectorAll('.theme-toggle');
+            btns.forEach(btn => {
+                btn.innerHTML = theme === 'light' ? '☾' : '☀';
+            });
+        }
+        initTheme();
+
+        // Navigation functions
+        function toggleNav(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('notes')?.classList.remove('open')}
+        function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
+        function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes')?.classList.remove('open');document.getElementById('overlay').classList.remove('active')}
+        function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
+
+        // Terms and notes functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){
+                e.preventDefault();
+                const noteId='note-'+this.dataset.term;
+                const note=document.getElementById(noteId);
+                if(!note)return;
+                document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));
+                document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));
+                const ne=document.getElementById('notes-empty');
+                if(ne)ne.style.display='none';
+                this.classList.add('active');
+                note.classList.add('active');
+                if(window.innerWidth<=1100){
+                    document.getElementById('notes').classList.add('open');
+                    document.getElementById('overlay').classList.add('active');
+                }
+                note.scrollIntoView({behavior:'smooth',block:'nearest'});
+            }));
+        });
+    </script>`;
+}
+
+/**
  * Generate full chapter HTML
  */
 function generateChapterHtml(chapter, lang, glossary, references, provenance, allChapters) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
   const slug = slugify(chapter.title);
-
-  // Navigation
-  const chapterIndex = allChapters.findIndex(c => c.id === chapter.id);
-  const prevChapter = allChapters[chapterIndex - 1];
-  const nextChapter = allChapters[chapterIndex + 1];
-
-  const prevLink = prevChapter
-    ? `<a href="${slugify(prevChapter.title)}.html" class="nav-prev">← ${ui.previous}</a>`
-    : '<span class="nav-prev disabled"></span>';
-
-  const nextLink = nextChapter
-    ? `<a href="${slugify(nextChapter.title)}.html" class="nav-next">${ui.next} →</a>`
-    : '<span class="nav-next disabled"></span>';
 
   // Sections
   const sectionsHtml = chapter.sections
@@ -252,65 +441,66 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     .replace(/\{[^}]+\}/g, '') // Remove markup
     .substring(0, 160);
 
-  // Language switcher
-  const langSwitcher = CONFIG.languages
-    .map(l => {
-      const isActive = l === lang ? ' class="active"' : '';
-      const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
-      return `<a href="/${l}/chapters/${slug}.html"${isActive}>${langName}</a>`;
-    })
-    .join('\n          ');
+  // Generate components
+  const navSidebar = generateNavSidebar(chapter, allChapters, lang, ui);
+  const notesSidebar = generateNotesSidebar(glossary, ui);
+  const chapterPrevNext = generateChapterPrevNext(chapter, allChapters, lang, ui);
+  const footer = generateFooter(ui);
+  const scripts = generateScripts();
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${chapter.title} — ${bookTitle}</title>
-  <meta name="description" content="${metaDescription}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${chapter.title} — ${bookTitle}</title>
+    <meta name="description" content="${metaDescription}">
 
-  <!-- OpenGraph -->
-  <meta property="og:title" content="${chapter.title} — ${bookTitle}">
-  <meta property="og:description" content="${metaDescription}">
-  <meta property="og:type" content="article">
-  <meta property="og:locale" content="${lang}">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="${chapter.title} — ${bookTitle}">
+    <meta property="og:description" content="${metaDescription}">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="${lang}">
 
-  <!-- Alternate languages -->
-  ${CONFIG.languages
-    .map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${slug}.html">`)
-    .join('\n  ')}
+    <!-- Alternate languages -->
+    ${CONFIG.languages
+      .map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${slug}.html">`)
+      .join('\n    ')}
 
-  <link rel="stylesheet" href="/css/main.css">
+    <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/fonts/fonts.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="chapter-page">
-  <header class="site-header">
-    <nav class="lang-switcher">
-      ${langSwitcher}
-    </nav>
-    <nav class="chapter-nav">
-      ${prevLink}
-      <a href="/${lang}/" class="nav-home">${bookTitle}</a>
-      ${nextLink}
-    </nav>
-  </header>
+<body>
+    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
+    <button class="toggle notes-toggle" onclick="toggleNotes()">${ui.glossary}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-  <main>
-    <article class="chapter" data-chapter="${chapter.id}">
-      <header class="chapter-header">
-        <p class="chapter-number">${chapter.numberText}</p>
-        <h1 class="chapter-title">${chapter.title}</h1>
-      </header>
+    <div class="layout">
+        <main class="main">
+            <article class="chapter" id="${chapter.id}">
+                <header class="ch-head">
+                    <div class="ch-head-top">
+                        <div class="ch-num">${chapter.numberText}</div>
+                    </div>
+                    <h1 class="ch-title">${chapter.title}</h1>
+                </header>
 
-      ${sectionsHtml}
-    </article>
-  </main>
+${sectionsHtml}
+            </article>
 
-  <footer class="site-footer">
-    <p>© L/L Research — Philosophical reinterpretation under authorization</p>
-    <p>${ui.sources}: <a href="https://www.lawofone.info" target="_blank" rel="noopener">lawofone.info</a></p>
-  </footer>
+${chapterPrevNext}
+${footer}
+        </main>
 
-  <script src="/js/glossary-tooltips.js" defer></script>
+${navSidebar}
+
+${notesSidebar}
+    </div>
+
+${scripts}
 </body>
 </html>`;
 }
