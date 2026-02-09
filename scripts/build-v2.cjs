@@ -32,10 +32,11 @@ const CONFIG = {
   enabledChapters: [1, 2, 3, 4, 5, 6, 7],
 
   // lawofone.info URL patterns by language
+  // Note: ES uses subdomain (es.lawofone.info), PT not available (falls back to EN)
   lawOfOneUrls: {
     en: 'https://www.lawofone.info/s/',
-    es: 'https://www.lawofone.info/es/s/',
-    pt: 'https://www.lawofone.info/pt/s/'
+    es: 'https://es.lawofone.info/s/',
+    pt: 'https://www.lawofone.info/s/'
   },
 
   // Book titles by language
