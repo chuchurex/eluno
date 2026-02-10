@@ -56,7 +56,18 @@ const CONFIG = {
       next: 'Next',
       home: 'Home',
       downloadPdf: 'Download PDF',
-      listenAudio: 'Listen'
+      listenAudio: 'Listen',
+      subtitle: 'A philosophical rewrite of the Ra Material',
+      intro: 'Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance.',
+      disclaimerTitle: 'About This Interpretation',
+      disclaimer: [
+        'The Ra Material was delivered in a precise question-and-answer format, with Ra choosing each word intentionally. This project transforms that format into narrative prose—a process that necessarily involves interpretation through the author\'s understanding.',
+        'This work was created with AI assistance, which may introduce inaccuracies or inconsistencies. It should be used only as a supplementary tool, not as a primary study of the material.',
+        'We encourage all seekers to read the original sessions at <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a> and form their own relationship with Ra\'s actual words.'
+      ],
+      tableOfContents: 'Table of Contents',
+      footerAttribution: 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.',
+      footerSessions: 'Original sessions free at'
     },
     es: {
       chapter: 'Capítulo',
@@ -66,7 +77,18 @@ const CONFIG = {
       next: 'Siguiente',
       home: 'Inicio',
       downloadPdf: 'Descargar PDF',
-      listenAudio: 'Escuchar'
+      listenAudio: 'Escuchar',
+      subtitle: 'Una reescritura filosófica del Material Ra',
+      intro: 'Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA.',
+      disclaimerTitle: 'Sobre Esta Interpretación',
+      disclaimer: [
+        'El Material Ra fue entregado en un formato preciso de preguntas y respuestas, con Ra eligiendo cada palabra intencionalmente. Este proyecto transforma ese formato en prosa narrativa—un proceso que necesariamente involucra interpretación a través del entendimiento del autor.',
+        'Este trabajo fue creado con asistencia de IA, lo cual puede introducir inexactitudes o inconsistencias. Debe usarse solo como herramienta complementaria, no como estudio primario del material.',
+        'Animamos a todos los buscadores a leer las sesiones originales en <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a> y formar su propia relación con las palabras reales de Ra.'
+      ],
+      tableOfContents: 'Índice',
+      footerAttribution: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.',
+      footerSessions: 'Sesiones originales gratis en'
     }
   }
 };
@@ -512,55 +534,116 @@ function generateIndexHtml(lang, chapters) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
 
+  // Chapter cards
   const tocHtml = chapters
     .map(ch => {
       const slug = slugify(ch.title);
-      return `<li><a href="chapters/${slug}.html"><span class="toc-number">${ch.numberText}</span> ${ch.title}</a></li>`;
+      return `          <a href="chapters/${slug}.html" class="toc-chapter">
+            <span class="toc-chapter-num">${ch.numberText}</span>
+            <span class="toc-chapter-title">${ch.title}</span>
+            <span class="toc-chapter-arrow">→</span>
+          </a>`;
     })
-    .join('\n        ');
+    .join('\n');
 
+  // Language selector
   const langSwitcher = CONFIG.languages
     .map(l => {
       const isActive = l === lang ? ' class="active"' : '';
       const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
       return `<a href="/${l}/"${isActive}>${langName}</a>`;
     })
-    .join('\n          ');
+    .join(' | ');
+
+  // Disclaimer paragraphs
+  const disclaimerHtml = ui.disclaimer
+    .map(p => `          <p>${p}</p>`)
+    .join('\n');
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${bookTitle}</title>
-  <meta name="description" content="${bookTitle} — The Law of One in a philosophical lens">
+  <title>${bookTitle} | eluno.org</title>
+  <meta name="description" content="${ui.subtitle}">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="${bookTitle}">
+  <meta property="og:description" content="${ui.subtitle}">
+  <meta property="og:type" content="book">
+  <meta property="og:locale" content="${lang}">
 
   <!-- Alternate languages -->
   ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/">`).join('\n  ')}
 
+  <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="index-page">
-  <header class="site-header">
-    <nav class="lang-switcher">
-      ${langSwitcher}
-    </nav>
-  </header>
+<body>
+  <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
 
-  <main>
-    <h1 class="book-title">${bookTitle}</h1>
+  <div class="layout index-layout">
+    <main class="main">
+      <header class="toc-header">
+        <div class="toc-lang-selector">${langSwitcher}</div>
+        <h1 class="toc-title">${bookTitle}</h1>
+        <p class="toc-subtitle">${ui.subtitle}</p>
+      </header>
 
-    <nav class="toc">
-      <h2>Table of Contents</h2>
-      <ol class="toc-list">
-        ${tocHtml}
-      </ol>
-    </nav>
-  </main>
+      <section class="introduction">
+        <p class="intro-text">${ui.intro}</p>
+      </section>
 
-  <footer class="site-footer">
-    <p>© L/L Research — Philosophical reinterpretation under authorization</p>
-  </footer>
+      <section class="disclaimer-banner">
+        <h3 class="disclaimer-title">${ui.disclaimerTitle}</h3>
+${disclaimerHtml}
+      </section>
+
+      <section class="toc-section">
+        <h2 class="toc-section-title">${ui.tableOfContents}</h2>
+        <div class="toc-chapters">
+${tocHtml}
+        </div>
+      </section>
+
+      <footer class="footer-attribution">
+        <p>${ui.footerAttribution}</p>
+        <p>${ui.footerSessions} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        updateThemeButton('light');
+      } else {
+        updateThemeButton('dark');
+      }
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const newTheme = current === 'light' ? 'dark' : 'light';
+      if (newTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      localStorage.setItem('theme', newTheme);
+      updateThemeButton(newTheme);
+    }
+    function updateThemeButton(theme) {
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.innerHTML = theme === 'light' ? '☾' : '☀';
+      });
+    }
+    initTheme();
+  </script>
 </body>
 </html>`;
 }
