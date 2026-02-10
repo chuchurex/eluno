@@ -222,7 +222,8 @@
   "karma": {
     "title": "Karma",
     "content": [
-      "Las consecuencias de acciones que deben ser equilibradas. No es castigo sino una ley natural de causa y efecto que opera a través de las encarnaciones. Las entidades pueden elegir aliviar el karma a través de experiencias específicas o formas de servicio. Las entidades de Maldek eligieron la encarnación en segunda densidad como alivio kármico.",
+      "En esta enseñanza, el karma no se entiende como castigo, retribución cósmica, o un libro de débitos y créditos, sino como inercia—el impulso de la conciencia creado por acciones deliberadas y no amorosas. Solo las acciones conscientes de naturaleza no amorosa generan karma; las acciones inconscientes, aquellas tomadas en ignorancia en lugar de en desprecio deliberado, no lo hacen.",
+      "Esta fuerza inercial se traslada a través de las encarnaciones, moldeando la experiencia futura hasta que se resuelve. La resolución del karma es específica: el perdón—ya sea de otro o de uno mismo—remueve la rueda de acción. Cada acto de perdón genuino detiene alguna porción del impulso; cada agravio sostenido lo mantiene girando.",
       "Para los errantes, el karma representa un riesgo particular: si un errante genera suficiente enredo kármico durante su encarnación en tercera densidad, puede quedar atado al ciclo de encarnación en tercera densidad hasta que las distorsiones sean equilibradas."
     ]
   },
@@ -314,17 +315,29 @@
   "form-maker": {
     "title": "Cuerpo Formador",
     "content": [
-      "El cuerpo de rayo índigo, también llamado cuerpo etérico. Es el primer cuerpo que se activa tras la muerte.",
-      "Este cuerpo es un análogo de la energía inteligente misma—capaz de moldear la forma según la conciencia.",
-      "El cuerpo formador y el Yo Superior trabajan juntos para ubicar a la entidad en la configuración adecuada para la sanación entre encarnaciones."
+      "El cuerpo de rayo índigo, activado tras la muerte del vehículo físico. A diferencia del cuerpo de rayo amarillo, que restringe la conciencia dentro de parámetros físicos fijos, el cuerpo formador está compuesto de energía inteligente en microcosmos y responde fluidamente a la conciencia, moldeándose según la voluntad y percepción de la entidad.",
+      "Sirve como el vehículo principal para la experiencia entre encarnaciones, en el reino metafísico del tiempo/espacio. Se describe como un análogo del Logos mismo—capaz de moldear la forma según la conciencia lo dirija."
     ]
   },
   "time-space": {
     "title": "Tiempo/Espacio",
     "content": [
-      "La contraparte metafísica del espacio/tiempo. En tiempo/espacio, el espacio es fijo mientras que el tiempo se vuelve fluido.",
-      "Entre encarnaciones, las entidades existen en tiempo/espacio donde pueden revisar experiencias desde cualquier punto, revisitando momentos y comprendiendo lo que estaba oculto durante la vida.",
-      "Los sueños ofrecen un eco tenue de este reino, donde el tiempo se comporta extrañamente y el pasado o futuro pueden vislumbrarse."
+      "La contraparte metafísica del mundo físico (espacio/tiempo). En tiempo/espacio, la relación entre tiempo y espacio se invierte: el tiempo se convierte en un paisaje tridimensional—todos los momentos simultáneamente accesibles y navegables—mientras el espacio se colapsa a un solo locus.",
+      "Este es el reino experimentado entre encarnaciones, donde tienen lugar la revisión de encarnación, la sanación y la planificación de la próxima vida. El tiempo/espacio no es un lugar separado sino la cara interior de la misma realidad habitada durante la encarnación, a veces descrito como los planos interiores de una esfera planetaria."
+    ]
+  },
+  "space-time": {
+    "title": "Espacio/Tiempo",
+    "content": [
+      "El modo físico de existencia experimentado durante la encarnación. En espacio/tiempo, el espacio es tridimensional—una entidad puede moverse libremente a través de largo, ancho y alto—mientras el tiempo fluye como un hilo único e irreversible.",
+      "El espacio/tiempo es el reino de la experiencia vivida, del catalizador, del velo del olvido. Está emparejado con el tiempo/espacio como dos caras de un solo tejido: el espacio/tiempo es la realidad experimentada desde afuera; el tiempo/espacio es la realidad experimentada desde adentro."
+    ]
+  },
+  "incarnation-review": {
+    "title": "Revisión de Encarnación",
+    "content": [
+      "La autoevaluación conducida por la entidad después de la muerte, en las condiciones del tiempo/espacio. La revisión no es un juicio externo—no hay tribunal, ni auditor, ni autoridad que pronuncie sentencia.",
+      "Más bien, la entidad, asistida por su Yo Superior, examina la totalidad de su encarnación sin el velo: cada elección, cada acción, cada momento de amor dado o retenido, experimentado desde todas las perspectivas incluyendo las de los seres afectados. La revisión evalúa el grado de polarización alcanzado, el catalizador usado y no usado, y los sesgos desarrollados. Es tanto humillante como liberadora, ya que el autoengaño se vuelve imposible y la comprensión reemplaza a la culpa."
     ]
   },
   "energy-centers": {
