@@ -28,8 +28,8 @@ const CONFIG = {
   outputDir: path.join(__dirname, '../dist'),
   provenanceDir: path.join(__dirname, '../i18n/provenance'),
 
-  // v2 beta: only build these chapters (add more as they're reviewed)
-  enabledChapters: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  // v3 beta: only build these chapters (add more as they're reviewed)
+  enabledChapters: [1],
 
   // lawofone.info URL patterns by language
   // Note: ES uses subdomain (es.lawofone.info), PT not available (falls back to EN)
