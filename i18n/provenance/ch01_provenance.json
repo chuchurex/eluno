@@ -8,14 +8,40 @@
       "section_title": "The Infinite and the Awakening of Consciousness",
       "segments": [
         {
-          "paragraphs": [1, 2, 3, 4],
-          "sources": ["13.5", "13.6", "13.7"],
-          "note": "The Infinite, consciousness awakening, self-recognition"
+          "paragraphs": [1, 2],
+          "sources": ["13.5"],
+          "urls": ["https://www.lawofone.info/s/13#5"],
+          "note": "The first known thing in creation is infinity; the Infinite as formless totality"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["13.6"],
+          "urls": ["https://www.lawofone.info/s/13#6"],
+          "note": "Infinity became aware — the first movement"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["13.7"],
+          "urls": ["https://www.lawofone.info/s/13#7"],
+          "note": "Awareness leads to focus; Logos/Love as focusing of infinity"
         },
         {
           "paragraphs": [5, 6],
-          "sources": ["13.7", "13.8", "13.9"],
-          "note": "Intelligent Infinity, Logos as Love"
+          "sources": ["27.6", "27.7"],
+          "urls": ["https://www.lawofone.info/s/27#6", "https://www.lawofone.info/s/27#7"],
+          "note": "Intelligent Infinity as undifferentiated unity; rhythm of the great heartbeat"
+        },
+        {
+          "paragraphs": [7, 8],
+          "sources": ["27.7", "28.1"],
+          "urls": ["https://www.lawofone.info/s/27#7", "https://www.lawofone.info/s/28#1"],
+          "note": "Intelligent Energy as kinetic principle; dual meaning of intelligent infinity"
+        },
+        {
+          "paragraphs": [9],
+          "sources": ["13.7", "27.8"],
+          "urls": ["https://www.lawofone.info/s/13#7", "https://www.lawofone.info/s/27#8"],
+          "note": "The Creator as infinity aware of itself"
         }
       ]
     },
@@ -24,24 +50,49 @@
       "section_title": "The First Paradox: From the One to the Many",
       "segments": [
         {
-          "paragraphs": [1, 2, 3],
-          "sources": ["13.12", "13.13"],
-          "note": "Finitude conceived by Infinity, exploration of multiplicity"
+          "paragraphs": [1, 2],
+          "sources": ["13.12"],
+          "urls": ["https://www.lawofone.info/s/13#12"],
+          "note": "Intelligent infinity discerns concept of finity; first paradox and distortion"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["13.12", "13.11"],
+          "urls": ["https://www.lawofone.info/s/13#12", "https://www.lawofone.info/s/13#11"],
+          "note": "Investment in exploration of many-ness; steps simultaneous and infinite"
         },
         {
           "paragraphs": [4],
-          "sources": ["13.12", "15.21"],
-          "note": "First distortion: Free Will"
+          "sources": ["15.21", "27.8", "27.9", "27.10"],
+          "urls": [
+            "https://www.lawofone.info/s/15#21",
+            "https://www.lawofone.info/s/27#8",
+            "https://www.lawofone.info/s/27#9",
+            "https://www.lawofone.info/s/27#10"
+          ],
+          "note": "Free Will as first distortion; Creator knowing itself; Law of Confusion"
         },
         {
           "paragraphs": [5],
-          "sources": ["13.12", "15.22", "27.13"],
-          "note": "Second distortion: Love/Logos"
+          "sources": ["15.21", "27.12"],
+          "urls": ["https://www.lawofone.info/s/15#21", "https://www.lawofone.info/s/27#12"],
+          "note": "Love/Logos as second distortion; creative principle, great activator"
         },
         {
           "paragraphs": [6],
-          "sources": ["13.9", "13.12", "27.14"],
-          "note": "Third distortion: Light"
+          "sources": ["15.21", "27.14", "27.16"],
+          "urls": [
+            "https://www.lawofone.info/s/15#21",
+            "https://www.lawofone.info/s/27#14",
+            "https://www.lawofone.info/s/27#16"
+          ],
+          "note": "Light as third distortion; vibration producing photon"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["15.21"],
+          "urls": ["https://www.lawofone.info/s/15#21"],
+          "note": "Many hierarchies of distortions from the three primal ones"
         }
       ]
     },
@@ -50,24 +101,49 @@
       "section_title": "The Architecture of Creation",
       "segments": [
         {
-          "paragraphs": [1, 2, 3],
-          "sources": ["13.13", "13.15", "13.16"],
-          "note": "Co-Creators, universes, galaxies"
+          "paragraphs": [1, 2],
+          "sources": ["13.8", "13.15"],
+          "urls": ["https://www.lawofone.info/s/13#8", "https://www.lawofone.info/s/13#15"],
+          "note": "Creation from greater to lesser; holographic patterns creating universes"
         },
         {
-          "paragraphs": [4],
-          "sources": ["13.16", "29.1"],
-          "note": "Sub-Logos (suns)"
+          "paragraphs": [3, 4],
+          "sources": ["13.9", "13.13", "28.8", "28.9"],
+          "urls": [
+            "https://www.lawofone.info/s/13#9",
+            "https://www.lawofone.info/s/13#13",
+            "https://www.lawofone.info/s/28#8",
+            "https://www.lawofone.info/s/28#9"
+          ],
+          "note": "Co-creators forming universes; galaxy as product of single Logos (250 billion stars)"
         },
         {
-          "paragraphs": [5],
-          "sources": ["13.16", "13.17"],
-          "note": "Densities as states of being"
+          "paragraphs": [5, 6],
+          "sources": ["28.20", "29.1", "29.2", "29.4", "29.5"],
+          "urls": [
+            "https://www.lawofone.info/s/28#20",
+            "https://www.lawofone.info/s/29#1",
+            "https://www.lawofone.info/s/29#2",
+            "https://www.lawofone.info/s/29#4",
+            "https://www.lawofone.info/s/29#5"
+          ],
+          "note": "Sub-Logos (stars) differentiating within Logos guidelines; local natural laws"
         },
         {
-          "paragraphs": [6],
-          "sources": ["13.13", "13.14"],
-          "note": "Holographic principle - each part contains the whole"
+          "paragraphs": [7],
+          "sources": ["29.6", "29.7", "29.8"],
+          "urls": [
+            "https://www.lawofone.info/s/29#6",
+            "https://www.lawofone.info/s/29#7",
+            "https://www.lawofone.info/s/29#8"
+          ],
+          "note": "Sub-sub-Logos; each entity as creative focus; entire creation alive"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["13.15", "13.16"],
+          "urls": ["https://www.lawofone.info/s/13#15", "https://www.lawofone.info/s/13#16"],
+          "note": "Spiral energy progression; planetary chaos organizing into awareness"
         }
       ]
     },
@@ -77,64 +153,133 @@
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["13.9", "27.14", "27.15"],
-          "note": "Nature of Light as building block"
+          "sources": ["13.9"],
+          "urls": ["https://www.lawofone.info/s/13#9"],
+          "note": "Light as vibratory distortion, building block of matter, intelligent and full of energy"
         },
         {
           "paragraphs": [3],
-          "sources": ["13.9", "40.1"],
-          "note": "Spiral pattern, geometric paradox"
+          "sources": ["27.14", "27.16", "29.12"],
+          "urls": [
+            "https://www.lawofone.info/s/27#14",
+            "https://www.lawofone.info/s/27#16",
+            "https://www.lawofone.info/s/29#12"
+          ],
+          "note": "Love creates vibration; vibration produces photon"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["27.15"],
+          "urls": ["https://www.lawofone.info/s/27#15"],
+          "note": "Each Love from one frequency (unity); strength rather than frequency"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["27.16", "28.4", "28.5"],
+          "urls": [
+            "https://www.lawofone.info/s/27#16",
+            "https://www.lawofone.info/s/28#4",
+            "https://www.lawofone.info/s/28#5"
+          ],
+          "note": "Photon condensing via quantized rotations; Love as ordering force"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["13.9", "13.17"],
+          "urls": ["https://www.lawofone.info/s/13#9", "https://www.lawofone.info/s/13#17"],
+          "note": "Straight-line spiral paradox; lenticular forms of galaxies and planets"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["40.1"],
+          "urls": ["https://www.lawofone.info/s/40#1"],
+          "note": "White light of sub-Logos; light transfiguring darkness; black hole as re-absorption"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["27.17", "28.2"],
+          "urls": ["https://www.lawofone.info/s/27#17", "https://www.lawofone.info/s/28#2"],
+          "note": "Vibratory patterns configured by Love; rays as apportionings; crystallized minerals"
         }
       ]
     },
     {
       "section_id": "ch1-densities",
-      "section_title": "The Densities: The Octave of Creation",
+      "section_title": "The Densities as Octave of Creation",
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["16.51", "28.1"],
-          "note": "Octave structure, seven densities"
+          "sources": ["13.15", "16.21"],
+          "urls": ["https://www.lawofone.info/s/13#15", "https://www.lawofone.info/s/16#21"],
+          "note": "Seven densities as octave; path of learning as circle; cycle characteristics"
         },
         {
           "paragraphs": [3],
-          "sources": ["13.21", "19.2"],
-          "note": "First density: elements"
+          "sources": ["13.16", "13.17", "40.3"],
+          "urls": [
+            "https://www.lawofone.info/s/13#16",
+            "https://www.lawofone.info/s/13#17",
+            "https://www.lawofone.info/s/40#3"
+          ],
+          "note": "First density: awareness, elements, red ray; chaos organizing into awareness"
         },
         {
           "paragraphs": [4],
-          "sources": ["13.21", "19.2"],
-          "note": "Second density: movement and growth"
+          "sources": ["13.17", "13.18", "13.19", "40.3"],
+          "urls": [
+            "https://www.lawofone.info/s/13#17",
+            "https://www.lawofone.info/s/13#18",
+            "https://www.lawofone.info/s/13#19",
+            "https://www.lawofone.info/s/40#3"
+          ],
+          "note": "Second density: growth, movement toward light, orange ray"
         },
         {
           "paragraphs": [5],
-          "sources": ["13.21", "16.50", "19.12"],
-          "note": "Third density: self-awareness and the choice"
+          "sources": ["13.21", "13.22", "30.5", "40.3"],
+          "urls": [
+            "https://www.lawofone.info/s/13#21",
+            "https://www.lawofone.info/s/13#22",
+            "https://www.lawofone.info/s/30#5",
+            "https://www.lawofone.info/s/40#3"
+          ],
+          "note": "Third density: self-awareness, the choice, yellow ray; mind/body/spirit complex"
         },
         {
           "paragraphs": [6],
-          "sources": ["16.50", "20.9"],
-          "note": "Fourth density: love"
+          "sources": ["13.23", "16.21"],
+          "urls": ["https://www.lawofone.info/s/13#23", "https://www.lawofone.info/s/16#21"],
+          "note": "Fourth density: love/understanding, green ray"
         },
         {
           "paragraphs": [7],
-          "sources": ["16.50", "25.4"],
-          "note": "Fifth density: wisdom"
+          "sources": ["16.21"],
+          "urls": ["https://www.lawofone.info/s/16#21"],
+          "note": "Fifth density: wisdom, blue ray"
         },
         {
           "paragraphs": [8],
-          "sources": ["16.50", "36.15"],
-          "note": "Sixth density: unity"
+          "sources": ["16.21"],
+          "urls": ["https://www.lawofone.info/s/16#21"],
+          "note": "Sixth density: unity, indigo ray"
         },
         {
           "paragraphs": [9],
-          "sources": ["16.50"],
-          "note": "Seventh density: gateway"
+          "sources": ["40.3"],
+          "urls": ["https://www.lawofone.info/s/40#3"],
+          "note": "Each density primarily its ray plus attraction of next ray pulling forward"
         },
         {
           "paragraphs": [10],
-          "sources": ["16.51", "28.16"],
-          "note": "Eighth density: next octave"
+          "sources": ["16.21", "16.22"],
+          "urls": ["https://www.lawofone.info/s/16#21", "https://www.lawofone.info/s/16#22"],
+          "note": "Seventh density: gateway, violet ray; becoming one with all"
+        },
+        {
+          "paragraphs": [11],
+          "sources": ["28.15", "28.16"],
+          "urls": ["https://www.lawofone.info/s/28#15", "https://www.lawofone.info/s/28#16"],
+          "note": "Eighth density as first of next octave; infinite number of octaves assumed"
         }
       ]
     },
@@ -144,13 +289,39 @@
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["16.51", "13.13"],
-          "note": "Sub-densities within densities"
+          "sources": ["13.8", "13.13"],
+          "urls": ["https://www.lawofone.info/s/13#8", "https://www.lawofone.info/s/13#13"],
+          "note": "Holographic patterns appearing as entire creation; fundamental architecture"
         },
         {
-          "paragraphs": [3, 4],
-          "sources": ["13.13", "13.14"],
-          "note": "Holographic principle, each part contains whole"
+          "paragraphs": [3],
+          "sources": ["28.2", "13.16"],
+          "urls": ["https://www.lawofone.info/s/28#2", "https://www.lawofone.info/s/13#16"],
+          "note": "Universe as recapitulation of intelligent infinity; sub-densities within densities"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["13.13"],
+          "urls": ["https://www.lawofone.info/s/13#13"],
+          "note": "Any portion contains the One Creator as in holographic picture"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["30.5", "29.8"],
+          "urls": ["https://www.lawofone.info/s/30#5", "https://www.lawofone.info/s/29#8"],
+          "note": "Simplest iota contains Creator; self-knowledge as path to cosmic knowledge"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["54.8", "13.13"],
+          "urls": ["https://www.lawofone.info/s/54#8", "https://www.lawofone.info/s/13#13"],
+          "note": "Mind/body/spirit as tone poem; personal harmonization as cosmic participation"
+        },
+        {
+          "paragraphs": [7],
+          "sources": [],
+          "urls": [],
+          "note": "Synthesis: galaxy mirrors atom, octave mirrors spectrum, incarnation mirrors cosmic rhythm"
         }
       ]
     },
@@ -160,13 +331,47 @@
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["10.14", "27.17"],
-          "note": "Illusion as focused reality, not false"
+          "sources": ["13.13", "29.2"],
+          "urls": ["https://www.lawofone.info/s/13#13", "https://www.lawofone.info/s/29#2"],
+          "note": "Illusion as focused reality; local coordinate systems of natural laws"
         },
         {
-          "paragraphs": [3, 4],
-          "sources": ["10.14", "27.17", "42.10"],
-          "note": "Purpose of illusion, catalyst"
+          "paragraphs": [3],
+          "sources": ["28.4", "29.14", "27.17"],
+          "urls": [
+            "https://www.lawofone.info/s/28#4",
+            "https://www.lawofone.info/s/29#14",
+            "https://www.lawofone.info/s/27#17"
+          ],
+          "note": "Material world from vibrating light; condensation through Love's ordering"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["27.17"],
+          "urls": ["https://www.lawofone.info/s/27#17"],
+          "note": "Each density as distinct illusion; third density's particular intensity"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["29.18"],
+          "urls": ["https://www.lawofone.info/s/29#18"],
+          "note": "Purpose of illusion: enabling the choice; forgetting enables remembering"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["29.16", "29.18", "29.19"],
+          "urls": [
+            "https://www.lawofone.info/s/29#16",
+            "https://www.lawofone.info/s/29#18",
+            "https://www.lawofone.info/s/29#19"
+          ],
+          "note": "Gravity as spiritual event; spiritual mass and coalescence; black holes as re-absorption"
+        },
+        {
+          "paragraphs": [7],
+          "sources": [],
+          "urls": [],
+          "note": "Plato's cave analogy — external philosophical reference integrated naturally"
         }
       ]
     },
@@ -175,9 +380,34 @@
       "section_title": "The Mystery that Remains",
       "segments": [
         {
-          "paragraphs": [1, 2, 3, 4, 5],
-          "sources": ["1.1", "4.20", "52.11"],
-          "note": "Mystery that remains, Infinity exceeds comprehension"
+          "paragraphs": [1],
+          "sources": [],
+          "urls": [],
+          "note": "Synthesis: map vs. territory"
+        },
+        {
+          "paragraphs": [2],
+          "sources": ["28.1"],
+          "urls": ["https://www.lawofone.info/s/28#1"],
+          "note": "Mystery-clad being; unity cannot be specified by physics; activated by free will"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["28.16"],
+          "urls": ["https://www.lawofone.info/s/28#16"],
+          "note": "Infinite octaves; cyclical mystery; consciousness periodically coalescing"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["28.1"],
+          "urls": ["https://www.lawofone.info/s/28#1"],
+          "note": "Understandings begin and end in mystery"
+        },
+        {
+          "paragraphs": [5, 6, 7],
+          "sources": ["13.13"],
+          "urls": ["https://www.lawofone.info/s/13#13"],
+          "note": "Everything begins and ends in mystery — closing echo of Ra's words"
         }
       ]
     }
