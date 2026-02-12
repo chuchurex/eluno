@@ -243,15 +243,17 @@ function renderSection(section, glossary, references, provenance, lang) {
 /**
  * Generate navigation sidebar HTML
  */
-function generateNavSidebar(chapter, allChapters, lang, ui) {
+function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
   const bookTitle = CONFIG.bookTitles[lang];
 
-  // Language selector
+  // Language selector — link to the correct slug for each language
   const langSelector = CONFIG.languages
+    .filter(l => chapterSlugMap[l] && chapterSlugMap[l][chapter.number])
     .map((l, i) => {
       const active = l === lang ? ' class="active"' : '';
       const prefix = i > 0 ? ' | ' : '';
-      return `${prefix}<a href="/${l}/ch${chapter.number}/"${active}>${l.toUpperCase()}</a>`;
+      const targetSlug = chapterSlugMap[l][chapter.number];
+      return `${prefix}<a href="/${l}/chapters/${targetSlug}.html"${active}>${l.toUpperCase()}</a>`;
     })
     .join('');
 
@@ -447,7 +449,7 @@ function generateScripts() {
 /**
  * Generate full chapter HTML
  */
-function generateChapterHtml(chapter, lang, glossary, references, provenance, allChapters) {
+function generateChapterHtml(chapter, lang, glossary, references, provenance, allChapters, chapterSlugMap) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
   const slug = slugify(chapter.title);
@@ -464,7 +466,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     .substring(0, 160);
 
   // Generate components
-  const navSidebar = generateNavSidebar(chapter, allChapters, lang, ui);
+  const navSidebar = generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap);
   const notesSidebar = generateNotesSidebar(glossary, ui);
   const chapterPrevNext = generateChapterPrevNext(chapter, allChapters, lang, ui);
   const footer = generateFooter(ui);
@@ -486,7 +488,8 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
 
     <!-- Alternate languages -->
     ${CONFIG.languages
-      .map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${slug}.html">`)
+      .filter(l => chapterSlugMap[l] && chapterSlugMap[l][chapter.number])
+      .map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${chapterSlugMap[l][chapter.number]}.html">`)
       .join('\n    ')}
 
     <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -727,7 +730,7 @@ function copyDirRecursive(src, dest) {
 /**
  * Build a single language
  */
-function buildLanguage(lang) {
+function buildLanguage(lang, chapterSlugMap) {
   console.log(`\n📖 Building ${lang.toUpperCase()}...`);
 
   const chapters = loadChapters(lang);
@@ -745,7 +748,7 @@ function buildLanguage(lang) {
   // Build each chapter
   chapters.forEach(chapter => {
     const provenance = loadProvenance(chapter.number);
-    const html = generateChapterHtml(chapter, lang, glossary, references, provenance, chapters);
+    const html = generateChapterHtml(chapter, lang, glossary, references, provenance, chapters, chapterSlugMap);
 
     const slug = slugify(chapter.title);
     const outputPath = path.join(chaptersDir, `${slug}.html`);
@@ -815,6 +818,22 @@ function createGlossaryScript() {
 }
 
 /**
+ * Build a map of chapter slugs per language for cross-language linking.
+ * Returns { en: { 1: 'cosmology-and-genesis' }, es: { 1: 'cosmologia-y-genesis' }, ... }
+ */
+function buildChapterSlugMap() {
+  const slugMap = {};
+  for (const lang of CONFIG.languages) {
+    slugMap[lang] = {};
+    const chapters = loadChapters(lang);
+    for (const ch of chapters) {
+      slugMap[lang][ch.number] = slugify(ch.title);
+    }
+  }
+  return slugMap;
+}
+
+/**
  * Main build function
  */
 function build() {
@@ -828,11 +847,14 @@ function build() {
 
   const languagesToBuild = langArg ? [langArg] : CONFIG.languages;
 
+  // Pre-build cross-language slug map (always for all languages)
+  const chapterSlugMap = buildChapterSlugMap();
+
   // Ensure output directory
   ensureDir(CONFIG.outputDir);
 
   // Build each language
-  languagesToBuild.forEach(buildLanguage);
+  languagesToBuild.forEach(lang => buildLanguage(lang, chapterSlugMap));
 
   // Create shared assets
   console.log('\n📦 Creating shared assets...');
