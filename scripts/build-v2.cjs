@@ -67,7 +67,8 @@ const CONFIG = {
       ],
       tableOfContents: 'Table of Contents',
       footerAttribution: 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.',
-      footerSessions: 'Original sessions free at'
+      footerSessions: 'Original sessions free at',
+      noSources: 'No source citations for this section.'
     },
     es: {
       chapter: 'Capítulo',
@@ -88,7 +89,8 @@ const CONFIG = {
       ],
       tableOfContents: 'Índice',
       footerAttribution: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.',
-      footerSessions: 'Sesiones originales gratis en'
+      footerSessions: 'Sesiones originales gratis en',
+      noSources: 'Sin citas de fuentes para esta sección.'
     }
   }
 };
@@ -224,18 +226,22 @@ function renderContentBlock(block, glossary, references) {
 /**
  * Render a section
  */
-function renderSection(section, glossary, references, provenance, lang) {
+function renderSection(section, glossary, references, provenance, lang, chapterNum, sectionIdx) {
+  const ui = CONFIG.ui[lang] || CONFIG.ui.en;
+  const sectionNumber = `${chapterNum}.${sectionIdx}`;
   const contentHtml = section.content
     .map(block => renderContentBlock(block, glossary, references))
     .join('\n        ');
 
-  const provenanceHtml = renderProvenanceLinks(section.id, provenance, lang);
+  const infoIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M8 4v1M8 7v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>`;
 
   return `
-      <section id="${section.id}">
-        <h3>${section.title}</h3>
+      <section class="section" id="${section.id}" data-section-title="${section.title}" data-section-number="${sectionNumber}">
+        <h3 class="sec-title">
+          <span class="sec-title-text">${section.title}</span>
+          <button class="sec-context-btn" data-target="${section.id}" aria-label="${ui.sources}" title="${ui.sources}">${infoIcon}</button>
+        </h3>
         ${contentHtml}
-        ${provenanceHtml}
       </section>
   `;
 }
@@ -297,35 +303,74 @@ ${chapterLinks}            </div>
 /**
  * Generate notes sidebar HTML
  */
-function generateNotesSidebar(glossary, ui) {
-  const notesLabel = ui.notesPanel || 'Notes & Definitions';
+function generateContextSidebar(chapter, glossary, provenance, lang, ui) {
   const emptyMsg = ui.notesEmpty || 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.';
+  const sourcesLabel = ui.sources || 'Sources';
+  const noSourcesMsg = ui.noSources || 'No source citations for this section.';
 
-  // Generate note items for each glossary term
+  // Generate note items for each glossary term (same as before)
   const noteItems = Object.entries(glossary)
     .map(([id, term]) => {
       const contentHtml = Array.isArray(term.content)
         ? term.content.map(p => {
             let processed = p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
             processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-            return `                    <p>${processed}</p>`;
+            return `                        <p>${processed}</p>`;
           }).join('\n')
-        : `                    <p>${term.content}</p>`;
+        : `                        <p>${term.content}</p>`;
 
-      return `            <div class="note" id="note-${id}">
-                <div class="note-title">${term.title}</div>
-                <div class="note-content">
+      return `                <div class="note" id="note-${id}">
+                    <div class="note-title">${term.title}</div>
+                    <div class="note-content">
 ${contentHtml}
-                </div>
-            </div>`;
+                    </div>
+                </div>`;
     })
     .join('\n');
 
-  return `        <aside class="notes" id="notes">
-            <div class="notes-head">${notesLabel}</div>
-            <div class="notes-empty" id="notes-empty">${emptyMsg}</div>
+  // Generate per-section source blocks
+  const baseUrl = CONFIG.lawOfOneUrls[lang] || CONFIG.lawOfOneUrls.en;
+  const sourceBlocks = chapter.sections
+    .map(section => {
+      if (!provenance) return '';
 
+      const secProv = provenance.provenance.find(p => p.section_id === section.id);
+      if (!secProv || !secProv.segments || secProv.segments.length === 0) return '';
+
+      const allSources = new Set();
+      secProv.segments.forEach(seg => {
+        seg.sources.forEach(src => allSources.add(src));
+      });
+
+      if (allSources.size === 0) return '';
+
+      const links = Array.from(allSources).map(src => {
+        const [session, question] = src.split('.');
+        const url = `${baseUrl}${session}#${question}`;
+        return `<a href="${url}" target="_blank" rel="noopener">${src}</a>`;
+      });
+
+      return `                <div class="notes-sources" data-section="${section.id}">${links.join(', ')}</div>`;
+    })
+    .filter(Boolean)
+    .join('\n');
+
+  return `        <aside class="notes" id="notes">
+            <div class="notes-context" id="notes-context">
+                <div class="notes-context-label" id="notes-context-label">${chapter.number}. ${chapter.title}</div>
+                <div class="notes-context-title" id="notes-context-title"></div>
+            </div>
+
+            <div class="notes-term-area" id="notes-term-area">
+                <div class="notes-term-empty" id="notes-term-empty">${emptyMsg}</div>
 ${noteItems}
+            </div>
+
+            <div class="notes-sources-area" id="notes-sources-area">
+                <div class="notes-sources-head">${sourcesLabel}</div>
+                <div class="notes-sources-empty" id="notes-sources-empty">${noSourcesMsg}</div>
+${sourceBlocks}
+            </div>
         </aside>`;
 }
 
@@ -432,7 +477,7 @@ function generateScripts() {
                 if(!note)return;
                 document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));
                 document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));
-                const ne=document.getElementById('notes-empty');
+                const ne=document.getElementById('notes-term-empty');
                 if(ne)ne.style.display='none';
                 this.classList.add('active');
                 note.classList.add('active');
@@ -442,6 +487,85 @@ function generateScripts() {
                 }
                 note.scrollIntoView({behavior:'smooth',block:'nearest'});
             }));
+
+            // === Scroll-Spy & Contextual Sidebar ===
+            (function() {
+                var sections = document.querySelectorAll('.section[id]');
+                var contextTitle = document.getElementById('notes-context-title');
+                var sourcesEmpty = document.getElementById('notes-sources-empty');
+                var allSourceBlocks = document.querySelectorAll('.notes-sources[data-section]');
+                var currentSectionId = null;
+
+                function updateSidebarContext(sectionId) {
+                    if (sectionId === currentSectionId) return;
+                    currentSectionId = sectionId;
+                    var sectionEl = document.getElementById(sectionId);
+                    if (!sectionEl) return;
+                    var title = sectionEl.getAttribute('data-section-title') || '';
+                    var sectionNum = sectionEl.getAttribute('data-section-number') || '';
+
+                    // Fade transition
+                    contextTitle.style.opacity = '0';
+                    setTimeout(function() {
+                        contextTitle.textContent = sectionNum + ' ' + title;
+                        contextTitle.style.opacity = '1';
+                    }, 150);
+
+                    // Show/hide matching sources
+                    var hasSource = false;
+                    allSourceBlocks.forEach(function(block) {
+                        if (block.getAttribute('data-section') === sectionId) {
+                            block.style.display = 'block';
+                            hasSource = true;
+                        } else {
+                            block.style.display = 'none';
+                        }
+                    });
+                    if (sourcesEmpty) {
+                        sourcesEmpty.style.display = hasSource ? 'none' : 'block';
+                    }
+
+                    // Highlight active section in left nav
+                    document.querySelectorAll('.nav-link.sub').forEach(function(link) {
+                        link.classList.toggle('current', link.getAttribute('href') === '#' + sectionId);
+                    });
+                }
+
+                // IntersectionObserver for scroll-spy
+                if ('IntersectionObserver' in window && sections.length > 0) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        var topEntry = null;
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
+                                    topEntry = entry;
+                                }
+                            }
+                        });
+                        if (topEntry) {
+                            updateSidebarContext(topEntry.target.id);
+                        }
+                    }, {
+                        rootMargin: '-10% 0px -60% 0px',
+                        threshold: 0
+                    });
+                    sections.forEach(function(section) { observer.observe(section); });
+                }
+
+                // Section info button click handler
+                document.querySelectorAll('.sec-context-btn').forEach(function(btn) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        var targetId = this.getAttribute('data-target');
+                        updateSidebarContext(targetId);
+                        if (window.innerWidth <= 1100) {
+                            document.getElementById('notes').classList.add('open');
+                            document.getElementById('overlay').classList.add('active');
+                            document.getElementById('sidebar').classList.remove('open');
+                        }
+                    });
+                });
+            })();
         });
     </script>`;
 }
@@ -456,7 +580,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
 
   // Sections
   const sectionsHtml = chapter.sections
-    .map(section => renderSection(section, glossary, references, provenance, lang))
+    .map((section, idx) => renderSection(section, glossary, references, provenance, lang, chapter.number, idx + 1))
     .join('\n');
 
   // First paragraph for meta description
@@ -467,7 +591,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
 
   // Generate components
   const navSidebar = generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap);
-  const notesSidebar = generateNotesSidebar(glossary, ui);
+  const notesSidebar = generateContextSidebar(chapter, glossary, provenance, lang, ui);
   const chapterPrevNext = generateChapterPrevNext(chapter, allChapters, lang, ui);
   const footer = generateFooter(ui);
   const scripts = generateScripts();

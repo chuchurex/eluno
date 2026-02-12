@@ -27,7 +27,7 @@
     "build:v1": "node scripts/build-auto.cjs && npm run sass:build",
     "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
     "sass:watch": "sass --watch src/scss/main.scss:dist/css/main.css",
-    "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=4002\"",
+    "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=4025\"",
     "dev:v2": "npm run build:v2 && npm run dev",
     "deploy": "eluno-deploy",
     "build:pdf": "eluno-pdf",
