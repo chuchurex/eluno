@@ -25,7 +25,7 @@
     "sass": "^1.97.3"
   },
   "scripts": {
-    "build": "npm run sass:build && npx eluno-build",
+    "build": "node scripts/build-v2.cjs && npm run sass:build",
     "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
     "sass:watch": "sass --watch src/scss/main.scss:dist/css/main.css",
     "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=4025\"",
