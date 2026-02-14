@@ -22,14 +22,14 @@ const path = require('path');
 // ─────────────────────────────────────────────────────────────
 
 const CONFIG = {
-  languages: ['en', 'es'], // PT added later
+  languages: ['en', 'es', 'pt'],
   baseLang: 'en',
   inputDir: path.join(__dirname, '../i18n'),
   outputDir: path.join(__dirname, '../dist'),
   provenanceDir: path.join(__dirname, '../i18n/provenance'),
 
   // v3 beta: only build these chapters (add more as they're reviewed)
-  enabledChapters: [1],
+  enabledChapters: [1, 2],
 
   // lawofone.info URL patterns by language
   // Note: ES uses subdomain (es.lawofone.info), PT not available (falls back to EN)
@@ -91,6 +91,28 @@ const CONFIG = {
       footerAttribution: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sesiones originales gratis en',
       noSources: 'Sin citas de fuentes para esta sección.'
+    },
+    pt: {
+      chapter: 'Capítulo',
+      sources: 'Fontes',
+      glossary: 'Glossário',
+      previous: 'Anterior',
+      next: 'Próximo',
+      home: 'Início',
+      downloadPdf: 'Baixar PDF',
+      listenAudio: 'Ouvir',
+      subtitle: 'Uma reescrita filosófica do Material Ra',
+      intro: 'Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA.',
+      disclaimerTitle: 'Sobre Esta Interpretação',
+      disclaimer: [
+        'O Material Ra foi entregue em um formato preciso de perguntas e respostas, com Ra escolhendo cada palavra intencionalmente. Este projeto transforma esse formato em prosa narrativa — um processo que necessariamente envolve interpretação através do entendimento do autor.',
+        'Este trabalho foi criado com assistência de IA, o que pode introduzir imprecisões ou inconsistências. Deve ser usado apenas como ferramenta complementar, não como estudo primário do material.',
+        'Encorajamos todos os buscadores a ler as sessões originais em <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a> e formar sua própria relação com as palavras reais de Ra.'
+      ],
+      tableOfContents: 'Índice',
+      footerAttribution: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research.',
+      footerSessions: 'Sessões originais grátis em',
+      noSources: 'Sem citações de fontes para esta seção.'
     }
   }
 };
