@@ -1,53 +1,58 @@
-# 📚 Documentación del Proyecto eluno.org
+# Documentación — El Uno (eluno.org)
 
 ## Estructura
 
 ```
 docs/
-├── writing/          # Cómo escribir contenido
-│   ├── CHAPTER_PIPELINE.md       # Pipeline completo: investigación → deploy
-│   ├── WRITING_PROTOCOL.md      # Protocolo de escritura (voz, estilo)
-│   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro original
+├── writing/                    # Pipeline de escritura
+│   ├── CHAPTER_PIPELINE.md     # Pipeline completo: investigación → deploy (8 fases)
+│   ├── WRITING_PROTOCOL.md     # Protocolo de escritura (voz, estilo)
+│   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro (16 capítulos)
 │
-├── tech/             # Arquitectura y deploy
-│   ├── ARCHITECTURE.md          # Arquitectura técnica completa
-│   ├── DEPLOY.md                # Guía de deployment
-│   └── DEVELOPMENT.md           # Desarrollo local
+├── project/                    # Estado y planificación
+│   ├── PROJECT_STATUS.md       # Estado actual del proyecto
+│   ├── ROADMAP.md              # Roadmap de desarrollo
+│   ├── TODO.md                 # Tareas técnicas pendientes
+│   └── CONTRIBUTING.md         # Guía para colaboradores
 │
-├── audiobook/        # Generación de audiolibros
-│   ├── AUDIOBOOK_GUIDE.md       # Guía de generación TTS
-│   └── STATUS.md                # Estado del audiobook
+├── tech/                       # Arquitectura y deploy
+│   ├── ARCHITECTURE.md         # Arquitectura técnica v3
+│   ├── DEPLOY.md               # Guía de deployment
+│   └── DEVELOPMENT.md          # Desarrollo local
 │
-├── video/            # Generación de videos YouTube
-│   ├── YOUTUBE_VIDEO_GUIDE.md   # Guía completa FFmpeg + upload
-│   └── upload_results.json      # IDs de 16 videos publicados
+├── audiobook/                  # Generación de audiolibros
+│   ├── AUDIOBOOK_GUIDE.md      # Guía de generación TTS
+│   └── STATUS.md               # Estado del audiobook
 │
-└── legal/            # Atribuciones y créditos
-    └── CREDITS_ATTRIBUTION.md   # Créditos L/L Research
+├── legal/                      # Atribuciones y créditos
+│   └── CREDITS_ATTRIBUTION.md  # Créditos L/L Research
+│
+└── private/                    # (gitignored) Archivos históricos
+    └── archive-v1/             # Docs de la versión 1 del proyecto
 ```
 
-## Voces TTS (Fish Audio)
+## Slash Commands disponibles
 
-| Voz | ID |
-|-----|-----|
-| **Actual** | `f53102becdf94a51af6d64010bc658f2` |
-| **Clon Chuchu** | `60f3d0bf60cd4f5e88d1116e22eb19a7` |
+### Pipeline de escritura (`/write:*`)
+| Comando | Fase | Descripción |
+|---------|------|-------------|
+| `/write:step1 XX` | 3a | Escribir primera mitad del capítulo |
+| `/write:step2 XX` | 3b | Escribir segunda mitad |
+| `/write:qa XX` | 4 | QA + generar JSON limpio |
+| `/write:glossary XX` | 5 | Generar glosario + provenance |
+| `/write:publish XX` | 6-8 | Integrar, traducir, build, deploy |
 
-## Prompts por Libro
+### Proyecto (`/project:*`)
+| Comando | Descripción |
+|---------|-------------|
+| `/project:context` | Cargar contexto para nueva sesión |
+| `/project:todo` | Gestionar tareas pendientes |
+| `/project:roadmap` | Ver roadmap de desarrollo |
 
-Cada libro tiene su `PROMPT.md` con propósito, voz y estructura:
-
-| Libro | Prompt |
-|-------|--------|
-| Eluno (original) | `packages/eluno/PROMPT.md` |
-| Todo | `packages/todo/PROMPT.md` |
-| Jesús | `packages/jesus/PROMPT.md` |
-| Sanación | `packages/sanacion/PROMPT.md` |
-| Otra Mirada | `packages/otramirada/PROMPT.md` |
-
-## Para Colaboradores
-
-1. Lee `writing/WRITING_PROTOCOL.md` antes de escribir
-2. Revisa `tech/ARCHITECTURE.md` para entender el sistema
-3. Cada libro tiene su `PROMPT.md` — léelo primero
-
+### Audiobook (`/audiobook:*`)
+| Comando | Descripción |
+|---------|-------------|
+| `/audiobook:generate` | Generar MP3s con TTS |
+| `/audiobook:concat` | Concatenar capítulos |
+| `/audiobook:tag` | Actualizar tags ID3 |
+| `/audiobook:status` | Estado de generación |
