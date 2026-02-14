@@ -5,6 +5,7 @@
 ```
 docs/
 ├── writing/          # Cómo escribir contenido
+│   ├── CHAPTER_PIPELINE.md       # Pipeline completo: investigación → deploy
 │   ├── WRITING_PROTOCOL.md      # Protocolo de escritura (voz, estilo)
 │   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro original
 │
