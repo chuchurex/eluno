@@ -1,0 +1,70 @@
+{
+  "_template_version": "1.0",
+  "_instructions": [
+    "1. Copy this file as chXX_manifest.json",
+    "2. Fill in chapter-specific data",
+    "3. Run: python3 extract_sources.py chXX_manifest.json --ra-dir /path/to/project --output ./chXX_output",
+    "4. Upload the output .md files to the claude.ai project for writing conversations",
+    "5. The ra_sessions lists come from PROMPT_CHXX.md and RA_THEMATIC_INDEX.md",
+    "6. The ra_section_mapping connects sessions to specific sections of the chapter"
+  ],
+
+  "chapter": 0,
+  "title": "Chapter Title",
+  "part": "I — Foundations",
+  "closure": "Type D (Bridge → ChN+1)",
+  "target_words": "4000-5000",
+
+  "sections": [
+    {
+      "id": "chX-section-id",
+      "title": "Section Title",
+      "angle": "What this section argues or explores"
+    }
+  ],
+
+  "writing_split": {
+    "_note": "How to divide sections between writing conversations",
+    "conv_write_1": ["chX-section-1", "chX-section-2", "chX-section-3"],
+    "conv_write_2": ["chX-section-4", "chX-section-5"]
+  },
+
+  "ra_sessions": {
+    "_note": "Session lists from PROMPT_CHXX.md. Expand ranges inline (13.5-13.8 → 13.5, 13.6, 13.7, 13.8) or leave as ranges for the script to expand.",
+    "primary": [],
+    "secondary": [],
+    "tertiary": []
+  },
+
+  "ra_section_mapping": {
+    "_note": "Maps sessions to sections. Each section lists its primary and secondary sessions. Sessions can appear in multiple sections.",
+    "chX-section-id": {
+      "primary": [],
+      "secondary": [],
+      "notes": "Context for the writer about this section's angle"
+    }
+  },
+
+  "quo_sessions": {
+    "_note": "Q'uo extraction config. Use specific multi-word phrases, not generic terms like 'love' or 'Creator'. min_terms=2 requires at least 2 matching terms per session.",
+    "volume_10": {
+      "dates": [],
+      "search_terms": [],
+      "min_terms": 2,
+      "max_results": 8
+    },
+    "volume_11": {
+      "dates": [],
+      "search_terms": [],
+      "min_terms": 2,
+      "max_results": 8
+    }
+  },
+
+  "differentiation": {
+    "_note": "What this chapter must NOT repeat from previous chapters, and what it CAN reference briefly.",
+    "do_not_repeat": [],
+    "can_reference_briefly": [],
+    "previous_chapters_to_load": ["ch01_EN.json"]
+  }
+}
