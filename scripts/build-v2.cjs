@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 /**
+ * DEPRECATED — Use `npx eluno-build` instead (from @eluno/core)
+ * This script is kept for reference only. The `npm run build` command
+ * now uses `npx eluno-build` directly. Will be removed in a future PR.
+ *
  * Build Script v2 — eluno.org
  *
  * Generates static HTML from JSON chapters with:
