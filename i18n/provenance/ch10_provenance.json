@@ -4,498 +4,436 @@
   "base_url": "https://www.lawofone.info/s/",
   "provenance": [
     {
-      "section_id": "ch10-architecture",
-      "section_title": "The Living Architecture",
+      "section_id": "ch10-the-spectrum",
+      "section_title": "The Spectrum of Being",
       "segments": [
         {
-          "paragraphs": [1],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Bridge from Ch9 closing paragraph"
+          "paragraphs": [1, 2],
+          "sources": ["15.12", "54.27"],
+          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/54#27"],
+          "note": "Introduction to the seven energy centers as a spectrum"
         },
         {
-          "paragraphs": [2, 3],
-          "sources": ["15.12"],
-          "urls": ["https://www.lawofone.info/s/15#12"],
-          "note": "Seven centers as nexi through which Creator knows Itself; each corresponding to color/density/body"
-        },
-        {
-          "paragraphs": [4, 5],
+          "paragraphs": [3],
           "sources": ["synthesis"],
           "urls": [],
-          "note": "Part IV framing; diagnostic value introduction"
+          "note": "Bridge from Ch9 to Ch10"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["54.27"],
+          "urls": ["https://www.lawofone.info/s/54#27"],
+          "note": "Two streams of energy: inner light and instreaming from below"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["49.5"],
+          "urls": ["https://www.lawofone.info/s/49#5"],
+          "note": "Two spirals meeting, kundalini concept"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["39.10", "15.12"],
+          "urls": ["https://www.lawofone.info/s/39#10", "https://www.lawofone.info/s/15#12"],
+          "note": "Seven centers as a single unified system"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["49.5"],
+          "urls": ["https://www.lawofone.info/s/49#5"],
+          "note": "Warning against forcing energy upward without understanding"
         }
       ]
     },
     {
-      "section_id": "ch10-flow",
-      "section_title": "The Flow of Light",
+      "section_id": "ch10-red-ray",
+      "section_title": "Red Ray: The Foundation",
       "segments": [
         {
-          "paragraphs": [1],
-          "sources": ["41.14"],
-          "urls": ["https://www.lawofone.info/s/41#14"],
-          "note": "Origin of energy: free will acting upon Love; nature of energy as Light"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["41.14", "41.18"],
-          "urls": ["https://www.lawofone.info/s/41#14", "https://www.lawofone.info/s/41#18"],
-          "note": "Inner light as north pole star; upward-seeking aspiration"
+          "paragraphs": [1, 2],
+          "sources": ["15.12", "39.10"],
+          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/39#10"],
+          "note": "Red ray as foundation, never to be condescended to"
         },
         {
           "paragraphs": [3],
-          "sources": ["41.14", "41.15", "41.16", "41.17", "41.18"],
+          "sources": ["41.14", "50.2"],
+          "urls": ["https://www.lawofone.info/s/41#14", "https://www.lawofone.info/s/50#2"],
+          "note": "Survival, body as body, second-density echo"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["26.38", "31.4"],
+          "urls": ["https://www.lawofone.info/s/26#38", "https://www.lawofone.info/s/31#4"],
+          "note": "Sexual function at red-ray level, random transfer"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["50.2"],
+          "urls": ["https://www.lawofone.info/s/50#2"],
+          "note": "Honoring the body as prerequisite, south pole influx"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["34.16"],
+          "urls": ["https://www.lawofone.info/s/34#16"],
+          "note": "Red ray as basis for all vibratory levels, harvest assessment"
+        }
+      ]
+    },
+    {
+      "section_id": "ch10-orange-ray",
+      "section_title": "Orange Ray: The Self",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["32.2", "41.14"],
+          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/41#14"],
+          "note": "Orange ray as individual power expression"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["15.12"],
+          "urls": ["https://www.lawofone.info/s/15#12"],
+          "note": "Orange-ray blockages: self-conscious understanding"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["32.2"],
+          "urls": ["https://www.lawofone.info/s/32#2"],
+          "note": "Treating other-selves as non-entities"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["41.14"],
+          "urls": ["https://www.lawofone.info/s/41#14"],
+          "note": "Current orange-ray phenomena: entities rejecting society"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["synthesis"],
+          "urls": [],
+          "note": "The work of knowing the self"
+        }
+      ]
+    },
+    {
+      "section_id": "ch10-yellow-ray",
+      "section_title": "Yellow Ray: The Group",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["41.25", "32.2"],
+          "urls": ["https://www.lawofone.info/s/41#25", "https://www.lawofone.info/s/32#2"],
+          "note": "Yellow ray as social/group power"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["39.10"],
+          "urls": ["https://www.lawofone.info/s/39#10"],
+          "note": "Yellow as appropriate color for third density, springboard triad"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["32.2", "54.25"],
+          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/54#25"],
+          "note": "Bellicose action, warrior energy, negative path uses"
+        },
+        {
+          "paragraphs": [5, 6],
+          "sources": ["54.25"],
+          "urls": ["https://www.lawofone.info/s/54#25"],
+          "note": "Balanced yellow ray, positive vs negative use"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["15.12"],
+          "urls": ["https://www.lawofone.info/s/15#12"],
+          "note": "Blockages in first three centers impede seeking"
+        }
+      ]
+    },
+    {
+      "section_id": "ch10-green-ray",
+      "section_title": "Green Ray: The Heart",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["15.12", "54.31", "48.7"],
           "urls": [
-            "https://www.lawofone.info/s/41#14",
-            "https://www.lawofone.info/s/41#15",
-            "https://www.lawofone.info/s/41#16",
-            "https://www.lawofone.info/s/41#17",
-            "https://www.lawofone.info/s/41#18"
+            "https://www.lawofone.info/s/15#12",
+            "https://www.lawofone.info/s/54#31",
+            "https://www.lawofone.info/s/48#7"
           ],
-          "note": "South pole entry; undifferentiated light colored by each center"
+          "note": "Green ray as gateway, springboard to infinite intelligence"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["31.5"],
+          "urls": ["https://www.lawofone.info/s/31#5"],
+          "note": "Universal love: giving without expectation"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["26.38"],
+          "urls": ["https://www.lawofone.info/s/26#38"],
+          "note": "Green-ray energy transfer between entities"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["48.7"],
+          "urls": ["https://www.lawofone.info/s/48#7"],
+          "note": "High-seniority entity progression through green"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["41.25"],
+          "urls": ["https://www.lawofone.info/s/41#25"],
+          "note": "Green-ray limitation: ineffectual against blockage"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["32.14"],
+          "urls": ["https://www.lawofone.info/s/32#14"],
+          "note": "Vulnerability to lower-ray distortions"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["synthesis"],
+          "urls": [],
+          "note": "The heart as beginning of real work"
+        }
+      ]
+    },
+    {
+      "section_id": "ch10-blue-ray",
+      "section_title": "Blue Ray: The Voice",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["48.7", "15.12", "41.25"],
+          "urls": [
+            "https://www.lawofone.info/s/48#7",
+            "https://www.lawofone.info/s/15#12",
+            "https://www.lawofone.info/s/41#25"
+          ],
+          "note": "Blue ray as first outgoing center, radiation of self"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["15.12"],
+          "urls": ["https://www.lawofone.info/s/15#12"],
+          "note": "Blue-ray blockages: difficulty expressing self"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["48.7"],
+          "urls": ["https://www.lawofone.info/s/48#7"],
+          "note": "Honesty as requirement, rare quality"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["32.14"],
+          "urls": ["https://www.lawofone.info/s/32#14"],
+          "note": "Immediate availability after green-ray achievement"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["84.20"],
+          "urls": ["https://www.lawofone.info/s/84#20"],
+          "note": "Blue-ray energy transfer, refined communication"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["41.25"],
+          "urls": ["https://www.lawofone.info/s/41#25"],
+          "note": "Blue-ray entity as co-Creator"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["47.3", "39.12"],
+          "urls": ["https://www.lawofone.info/s/47#3", "https://www.lawofone.info/s/39#12"],
+          "note": "Blue ray missing from negative path"
+        }
+      ]
+    },
+    {
+      "section_id": "ch10-indigo-ray",
+      "section_title": "Indigo Ray: The Gateway",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["32.14", "39.10"],
+          "urls": ["https://www.lawofone.info/s/32#14", "https://www.lawofone.info/s/39#10"],
+          "note": "Indigo as gateway to intelligent infinity, work of adept"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["32.6"],
+          "urls": ["https://www.lawofone.info/s/32#6"],
+          "note": "Awareness of Creator as self, sacramental nature"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["32.14", "12.31"],
+          "urls": ["https://www.lawofone.info/s/32#14", "https://www.lawofone.info/s/12#31"],
+          "note": "Opened through self-acceptance, unworthiness as blockage"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["50.9"],
+          "urls": ["https://www.lawofone.info/s/50#9"],
+          "note": "Adept touching intelligent infinity, channeling radiance"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["26.38"],
+          "urls": ["https://www.lawofone.info/s/26#38"],
+          "note": "Rare indigo-ray transfer, sacramental body complex"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["73.10"],
+          "urls": ["https://www.lawofone.info/s/73#10"],
+          "note": "Visualization and ritual begin in indigo ray"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["39.10"],
+          "urls": ["https://www.lawofone.info/s/39#10"],
+          "note": "Available to all who accept self as Creator"
+        }
+      ]
+    },
+    {
+      "section_id": "ch10-violet-ray",
+      "section_title": "Violet Ray: The Totality",
+      "segments": [
+        {
+          "paragraphs": [1, 2],
+          "sources": ["15.12"],
+          "urls": ["https://www.lawofone.info/s/15#12"],
+          "note": "Violet ray cannot be manipulated, total expression"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["32.7"],
+          "urls": ["https://www.lawofone.info/s/32#7"],
+          "note": "Sum and substance of entity, constant like red ray"
         },
         {
           "paragraphs": [4],
           "sources": ["41.19"],
           "urls": ["https://www.lawofone.info/s/41#19"],
-          "note": "Lens metaphor; sequential dependence of higher on lower centers"
+          "note": "Harvest consideration, balance over brilliance"
         },
         {
           "paragraphs": [5],
-          "sources": ["41.19", "47.3"],
-          "urls": ["https://www.lawofone.info/s/41#19", "https://www.lawofone.info/s/47#3"],
-          "note": "Balanced entity; Maslow parallel (external reference integrated)"
+          "sources": ["40.4", "41.19"],
+          "urls": ["https://www.lawofone.info/s/40#4", "https://www.lawofone.info/s/41#19"],
+          "note": "Harmony over height of activation"
         },
         {
           "paragraphs": [6],
-          "sources": ["47.3", "47.4"],
-          "urls": ["https://www.lawofone.info/s/47#3", "https://www.lawofone.info/s/47#4"],
-          "note": "Violet ray as thermometer; cannot be manipulated"
+          "sources": ["47.8"],
+          "urls": ["https://www.lawofone.info/s/47#8"],
+          "note": "Buddha body, complete expression"
         },
         {
           "paragraphs": [7],
-          "sources": ["38.5", "39.10"],
-          "urls": ["https://www.lawofone.info/s/38#5", "https://www.lawofone.info/s/39#10"],
-          "note": "Crystallization concept — regularized, faceted energy; unique to each entity"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-red",
-      "section_title": "Red Ray: The Foundation",
-      "segments": [
-        {
-          "paragraphs": [1, 2],
-          "sources": ["15.12", "41.19"],
-          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/41#19"],
-          "note": "Red ray as foundation; always active; distortion affects everything above"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["41.19", "84.9"],
-          "urls": ["https://www.lawofone.info/s/41#19", "https://www.lawofone.info/s/84#9"],
-          "note": "Not to be transcended; body needs as spiritual foundation"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["external", "41.19"],
-          "urls": ["https://www.lawofone.info/s/41#19"],
-          "note": "Polyvagal theory parallel (external science reference)"
-        },
-        {
-          "paragraphs": [5],
           "sources": ["synthesis"],
           "urls": [],
-          "note": "Level 2 practical application: honoring body needs as spiritual practice"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-orange",
-      "section_title": "Orange Ray: The Self Encounters the Other",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["15.12", "32.2"],
-          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/32#2"],
-          "note": "Orange ray: personal identity, one-to-one relationship"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["32.2", "41.19"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/41#19"],
-          "note": "Self-rejection extending outward; relationships as transactions"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["external", "32.2"],
-          "urls": ["https://www.lawofone.info/s/32#2"],
-          "note": "Buber I-Thou / I-It parallel (external philosophy reference)"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["32.2", "84.9", "84.10", "84.11"],
-          "urls": [
-            "https://www.lawofone.info/s/32#2",
-            "https://www.lawofone.info/s/84#9",
-            "https://www.lawofone.info/s/84#10",
-            "https://www.lawofone.info/s/84#11"
-          ],
-          "note": "Two directions of blockage: treating other as object, or offering self as object"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Subjective experience when open; many incarnations spent here"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-yellow",
-      "section_title": "Yellow Ray: The Self in the World",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["15.12", "32.2"],
-          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/32#2"],
-          "note": "Yellow ray and group encounter"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["32.2", "41.19"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/41#19"],
-          "note": "Dominance/submission distortions"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["32.2", "48.7"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/48#7"],
-          "note": "Self-awareness in collective context; questions of power"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["42.2", "41.19"],
-          "urls": ["https://www.lawofone.info/s/42#2", "https://www.lawofone.info/s/41#19"],
-          "note": "Three lower centers as personality; sequential requirement"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-green",
-      "section_title": "Green Ray: The Open Heart",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["40.4", "32.2"],
-          "urls": ["https://www.lawofone.info/s/40#4", "https://www.lawofone.info/s/32#2"],
-          "note": "SPRINGBOARD concept: green ray as center from which 3rd density beings springboard to intelligent infinity"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["32.2", "41.19"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/41#19"],
-          "note": "Universal love; seeing all as other-selves"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["external", "32.2"],
-          "urls": ["https://www.lawofone.info/s/32#2"],
-          "note": "Sufi heart tradition parallel (external tradition reference)"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["41.25", "32.2"],
-          "urls": ["https://www.lawofone.info/s/41#25", "https://www.lawofone.info/s/32#2"],
-          "note": "Green ray activation threshold; incarnations cease to be automatic"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["41.19", "41.20", "41.21"],
-          "urls": [
-            "https://www.lawofone.info/s/41#19",
-            "https://www.lawofone.info/s/41#20",
-            "https://www.lawofone.info/s/41#21"
-          ],
-          "note": "First genuine mutual energy transfer between beings"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["32.2"],
-          "urls": ["https://www.lawofone.info/s/32#2"],
-          "note": "Green ray blockages: conditional compassion, intellectual understanding without feeling"
-        },
-        {
-          "paragraphs": [7],
-          "sources": ["41.25", "47.8"],
-          "urls": ["https://www.lawofone.info/s/41#25", "https://www.lawofone.info/s/47#8"],
-          "note": "Overactivation distortion; pushing heart open before foundation is clear"
-        },
-        {
-          "paragraphs": [8],
-          "sources": ["external", "32.2"],
-          "urls": ["https://www.lawofone.info/s/32#2"],
-          "note": "Carl Rogers unconditional positive regard parallel (external psychology reference)"
-        },
-        {
-          "paragraphs": [9],
-          "sources": ["40.4"],
-          "urls": ["https://www.lawofone.info/s/40#4"],
-          "note": "Springboard available to all; no special requirement except willingness to love"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-blue",
-      "section_title": "Blue Ray: The Voice of the Self",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["32.2", "48.7"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/48#7"],
-          "note": "First outward-radiating center; communication as work"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["48.7", "48.8"],
-          "urls": ["https://www.lawofone.info/s/48#7", "https://www.lawofone.info/s/48#8"],
-          "note": "Honesty in great scarcity; free communication without armor"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["32.2", "48.8"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/48#8"],
-          "note": "Twofold blockage: grasping own nature and communicating it"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["50.12"],
-          "urls": ["https://www.lawofone.info/s/50#12"],
-          "note": "Clear channel; beginning of healer/teacher capacities"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-indigo",
-      "section_title": "Indigo Ray: The Gateway",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["32.2", "49.2"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/49#2"],
-          "note": "Gateway to intelligent infinity; the adept's center"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["49.2", "49.3", "49.4", "49.5", "49.6"],
-          "urls": [
-            "https://www.lawofone.info/s/49#2",
-            "https://www.lawofone.info/s/49#3",
-            "https://www.lawofone.info/s/49#4",
-            "https://www.lawofone.info/s/49#5",
-            "https://www.lawofone.info/s/49#6"
-          ],
-          "note": "Requires lower centers clear; cannot approach through force alone"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["49.5", "49.6"],
-          "urls": ["https://www.lawofone.info/s/49#5", "https://www.lawofone.info/s/49#6"],
-          "note": "Unworthiness as most common blockage; last defense of separation"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["49.4", "49.5", "49.6"],
-          "urls": [
-            "https://www.lawofone.info/s/49#4",
-            "https://www.lawofone.info/s/49#5",
-            "https://www.lawofone.info/s/49#6"
-          ],
-          "note": "Faith and will defined; not doctrine or force but trust and focused intention"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["49.6", "50.12"],
-          "urls": ["https://www.lawofone.info/s/49#6", "https://www.lawofone.info/s/50#12"],
-          "note": "Meditation as indigo-ray work; quieting surface mind"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-violet",
-      "section_title": "Violet Ray: The Measure of the Whole",
-      "segments": [
-        {
-          "paragraphs": [1, 2],
-          "sources": ["32.2", "47.3"],
-          "urls": ["https://www.lawofone.info/s/32#2", "https://www.lawofone.info/s/47#3"],
-          "note": "Unique center; cannot be worked directly; sum total; harvest indicator"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["47.3", "47.4"],
-          "urls": ["https://www.lawofone.info/s/47#3", "https://www.lawofone.info/s/47#4"],
-          "note": "Practical implication: work on components, violet reflects the result"
+          "note": "Improve violet by working on everything else"
         }
       ]
     },
     {
       "section_id": "ch10-blockages",
-      "section_title": "Working with Blockages",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["42.2"],
-          "urls": ["https://www.lawofone.info/s/42#2"],
-          "note": "Perfection not the goal; sufficient clarity for graduation"
-        },
-        {
-          "paragraphs": [2, 3],
-          "sources": ["41.14", "41.15", "41.16", "41.17", "41.18", "41.19", "42.2"],
-          "urls": [
-            "https://www.lawofone.info/s/41#14",
-            "https://www.lawofone.info/s/41#19",
-            "https://www.lawofone.info/s/42#2"
-          ],
-          "note": "Diagnostic model: locate blockage, work there; sequential nature of system"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["34.9", "34.10"],
-          "urls": ["https://www.lawofone.info/s/34#9", "https://www.lawofone.info/s/34#10"],
-          "note": "Recognition step: honest self-observation"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["34.14", "34.15", "34.16"],
-          "urls": [
-            "https://www.lawofone.info/s/34#14",
-            "https://www.lawofone.info/s/34#15",
-            "https://www.lawofone.info/s/34#16"
-          ],
-          "note": "Acceptance step: paradox of accepting blockage to release it"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["34.16", "49.4"],
-          "urls": ["https://www.lawofone.info/s/34#16", "https://www.lawofone.info/s/49#4"],
-          "note": "Intention step: will and faith as tools for reprogramming"
-        },
-        {
-          "paragraphs": [7],
-          "sources": ["34.9", "34.10", "34.11", "34.12", "34.13", "34.14", "34.15", "34.16"],
-          "urls": [
-            "https://www.lawofone.info/s/34#9",
-            "https://www.lawofone.info/s/34#10",
-            "https://www.lawofone.info/s/34#14",
-            "https://www.lawofone.info/s/34#16"
-          ],
-          "note": "Daily balancing practice: review strong reactions, invite complement"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-transfer",
-      "section_title": "The Sacred Current",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["31.3", "32.2"],
-          "urls": ["https://www.lawofone.info/s/31#3", "https://www.lawofone.info/s/32#2"],
-          "note": "Energy transfer between beings: sexual, healing, teaching"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["84.9", "84.10", "84.11", "84.12", "84.13"],
-          "urls": [
-            "https://www.lawofone.info/s/84#9",
-            "https://www.lawofone.info/s/84#10",
-            "https://www.lawofone.info/s/84#13"
-          ],
-          "note": "Red ray random; orange/yellow personal/power; insatiable appetite seeking green"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["84.13", "84.14", "84.15"],
-          "urls": [
-            "https://www.lawofone.info/s/84#13",
-            "https://www.lawofone.info/s/84#14",
-            "https://www.lawofone.info/s/84#15"
-          ],
-          "note": "Green ray mutual transfer; receptive/radiative dynamics; both polarize"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["84.17", "84.18"],
-          "urls": ["https://www.lawofone.info/s/84#17", "https://www.lawofone.info/s/84#18"],
-          "note": "Blue ray transfer: complete honesty, armor falls"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["84.19", "84.20"],
-          "urls": ["https://www.lawofone.info/s/84#19", "https://www.lawofone.info/s/84#20"],
-          "note": "Indigo ray sacramental transfer; distributor metaphor"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["31.3", "48.2", "50.12"],
-          "urls": [
-            "https://www.lawofone.info/s/31#3",
-            "https://www.lawofone.info/s/48#2",
-            "https://www.lawofone.info/s/50#12"
-          ],
-          "note": "Non-sexual transfer: healing, teaching; polarization of giver and receiver"
-        }
-      ]
-    },
-    {
-      "section_id": "ch10-polarity",
-      "section_title": "Two Patterns, One Light",
+      "section_title": "Blockages and Balance",
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["39.10", "39.11"],
-          "urls": ["https://www.lawofone.info/s/39#10", "https://www.lawofone.info/s/39#11"],
-          "note": "Positive pattern: uniform crystalline flow; heart as axis"
+          "sources": ["12.31"],
+          "urls": ["https://www.lawofone.info/s/12#31"],
+          "note": "Disease as blocked energy, self-healing through realization"
         },
         {
           "paragraphs": [3],
-          "sources": ["39.10", "39.11", "39.12"],
-          "urls": [
-            "https://www.lawofone.info/s/39#10",
-            "https://www.lawofone.info/s/39#11",
-            "https://www.lawofone.info/s/39#12"
-          ],
-          "note": "Negative pattern: bypass green, red→orange→yellow→indigo"
+          "sources": ["42.11"],
+          "urls": ["https://www.lawofone.info/s/42#11"],
+          "note": "Identifying blockages through self-observation"
         },
         {
           "paragraphs": [4],
-          "sources": ["39.12", "47.3", "47.4", "47.5"],
-          "urls": [
-            "https://www.lawofone.info/s/39#12",
-            "https://www.lawofone.info/s/47#3",
-            "https://www.lawofone.info/s/47#5"
-          ],
-          "note": "Difficulty of negative path; 95% dedication required"
+          "sources": ["42.9"],
+          "urls": ["https://www.lawofone.info/s/42#9"],
+          "note": "Repression is not balance"
         },
         {
           "paragraphs": [5],
-          "sources": ["39.12", "47.5"],
-          "urls": ["https://www.lawofone.info/s/39#12", "https://www.lawofone.info/s/47#5"],
-          "note": "Consequences: 6th density reversal; what is built without love lacks stability"
+          "sources": ["42.2"],
+          "urls": ["https://www.lawofone.info/s/42#2"],
+          "note": "True balance: seeing all things as love"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["46.9"],
+          "urls": ["https://www.lawofone.info/s/46#9"],
+          "note": "Balancing anger: acceptance and reintegration"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["46.9", "46.16"],
+          "urls": ["https://www.lawofone.info/s/46#9", "https://www.lawofone.info/s/46#16"],
+          "note": "Cancer as undirected catalyst, neither path chosen"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["51.5"],
+          "urls": ["https://www.lawofone.info/s/51#5"],
+          "note": "Seven sub-colors, subtle nature of balancing"
         }
       ]
     },
     {
-      "section_id": "ch10-closing",
-      "section_title": "The Instrument in Your Hands",
+      "section_id": "ch10-activation",
+      "section_title": "The Upward Spiral",
       "segments": [
         {
-          "paragraphs": [1, 2, 3, 4, 5],
+          "paragraphs": [1, 2],
+          "sources": ["49.6"],
+          "urls": ["https://www.lawofone.info/s/49#6"],
+          "note": "Sequential understanding of each experience through all centers"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["49.6"],
+          "urls": ["https://www.lawofone.info/s/49#6"],
+          "note": "Creator within, crown already upon the head"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["49.6"],
+          "urls": ["https://www.lawofone.info/s/49#6"],
+          "note": "Meeting point of ascending and descending energy"
+        },
+        {
+          "paragraphs": [5, 6],
+          "sources": ["40.4"],
+          "urls": ["https://www.lawofone.info/s/40#4"],
+          "note": "Harmony and balance over full activation"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["42.9"],
+          "urls": ["https://www.lawofone.info/s/42#9"],
+          "note": "Patience in working with catalyst"
+        },
+        {
+          "paragraphs": [8, 9],
           "sources": ["synthesis"],
           "urls": [],
-          "note": "Type E closing (Action); integration; bridge to Ch11 (Catalyst and Experience)"
+          "note": "Type E closure: use what you have been given"
         }
       ]
     }
