@@ -30,10 +30,11 @@ node scripts/integrate-chapter.js ${CHAPTER} --force
 
 Ejecutar:
 ```bash
-node scripts/translate-chapter.js ${CHAPTER}
+node scripts/translate-chapter.js ${CHAPTER} --lang es
 ```
 
-- Esto llama la API de Anthropic para traducir EN → ES y EN → PT
+- Esto llama la API de Anthropic para traducir EN → ES
+- PT se traduce por separado cuando todos los capítulos estén listos
 - Mostrar progreso por idioma
 - Reportar phantom terms auto-corregidos
 
@@ -44,7 +45,7 @@ Ejecutar:
 node scripts/validate-alignment.js ${CHAPTER}
 ```
 
-- Debe PASAR para los 3 idiomas
+- Debe PASAR para EN y ES
 - Si FALLA: mostrar issues y preguntar al operador si quiere continuar
 
 ### Paso 4: Build
@@ -69,15 +70,15 @@ Preguntar al operador: "Commit y push?" (sí/no)
 
 Si SÍ:
 ```bash
-git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/pt/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/pt/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json
+git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json
 ```
 
 Luego commit con este formato:
 ```
-content(ch${CHAPTER}): add Chapter ${N} — ${TITLE} (EN/ES/PT)
+content(ch${CHAPTER}): add Chapter ${N} — ${TITLE} (EN/ES)
 
-Integrated EN chapter, translated to ES/PT via Anthropic API.
-New glossary terms added across 3 languages.
+Integrated EN chapter, translated to ES via Anthropic API.
+PT translation deferred to batch phase.
 ```
 
 Luego push:

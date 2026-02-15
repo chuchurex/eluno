@@ -398,7 +398,7 @@ node scripts/integrate-chapter.js ${CHAPTER} --force
 ### 6.2 Traducir
 
 ```bash
-node scripts/translate-chapter.js ${CHAPTER}
+node scripts/translate-chapter.js ${CHAPTER} --lang es
 ```
 
 ### 6.3 Validar alineación
@@ -433,14 +433,14 @@ Preguntar al operador: **"Commit y push?"**
 
 Si SÍ:
 ```bash
-git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/pt/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/pt/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json scripts/build-v2.cjs
+git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json scripts/build-v2.cjs
 ```
 
 Commit:
 ```
-content(ch${CHAPTER}): add Chapter ${N} — ${TITLE} (EN/ES/PT)
+content(ch${CHAPTER}): add Chapter ${N} — ${TITLE} (EN/ES)
 
-Integrated EN chapter, translated to ES/PT via Anthropic API.
+Integrated EN chapter, translated to ES via Anthropic API.
 ```
 
 Push:
