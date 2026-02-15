@@ -203,11 +203,13 @@ function renderProvenanceLinks(sectionId, provenance, lang) {
   const baseUrl = CONFIG.lawOfOneUrls[lang] || CONFIG.lawOfOneUrls.en;
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
 
-  const links = Array.from(allSources).map(src => {
-    const [session, question] = src.split('.');
-    const url = `${baseUrl}${session}#${question}`;
-    return `<a href="${url}" target="_blank" rel="noopener">${src}</a>`;
-  });
+  const links = Array.from(allSources)
+    .filter(src => /^\d+\.\d+$/.test(src))
+    .map(src => {
+      const [session, question] = src.split('.');
+      const url = `${baseUrl}${session}#${question}`;
+      return `<a href="${url}" target="_blank" rel="noopener">${src}</a>`;
+    });
 
   return `
     <aside class="provenance">
@@ -370,11 +372,13 @@ ${contentHtml}
 
       if (allSources.size === 0) return '';
 
-      const links = Array.from(allSources).map(src => {
-        const [session, question] = src.split('.');
-        const url = `${baseUrl}${session}#${question}`;
-        return `<a href="${url}" target="_blank" rel="noopener">${src}</a>`;
-      });
+      const links = Array.from(allSources)
+        .filter(src => /^\d+\.\d+$/.test(src))
+        .map(src => {
+          const [session, question] = src.split('.');
+          const url = `${baseUrl}${session}#${question}`;
+          return `<a href="${url}" target="_blank" rel="noopener">${src}</a>`;
+        });
 
       return `                <div class="notes-sources" data-section="${section.id}">${links.join(', ')}</div>`;
     })
