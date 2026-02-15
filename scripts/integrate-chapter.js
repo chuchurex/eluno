@@ -2,7 +2,7 @@
 /**
  * integrate-chapter.js — Phase 6 automation
  *
- * Copies the EN chapter from operador/output/ into i18n/en/,
+ * Copies the EN chapter from workspace/chapters/ into i18n/en/,
  * converts and merges the glossary, and copies provenance.
  *
  * Usage:
@@ -26,10 +26,10 @@ const ROOT = path.join(__dirname, '..');
 
 function getPaths(nn) {
   return {
-    // Source (operador output)
-    srcChapter: path.join(ROOT, 'operador', 'output', `ch${nn}`, `ch${nn}_EN.json`),
-    srcGlossary: path.join(ROOT, 'operador', 'output', `ch${nn}`, `ch${nn}_glossary.json`),
-    srcProvenance: path.join(ROOT, 'operador', 'output', `ch${nn}`, `ch${nn}_provenance.json`),
+    // Source (workspace)
+    srcChapter: path.join(ROOT, 'workspace', 'chapters', `ch${nn}`, 'en.json'),
+    srcGlossary: path.join(ROOT, 'workspace', 'chapters', `ch${nn}`, 'glossary.json'),
+    srcProvenance: path.join(ROOT, 'workspace', 'chapters', `ch${nn}`, 'provenance.json'),
     // Destination
     destChapter: path.join(ROOT, 'i18n', 'en', 'chapters', `${nn}.json`),
     destGlossary: path.join(ROOT, 'i18n', 'en', 'glossary.json'),
