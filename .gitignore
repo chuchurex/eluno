@@ -67,7 +67,8 @@ CLAUDE_CODE_AGENT.md
 AGENTS.md
 SECURITY_TASKS.md
 TODO_AUDIO_LINKS.md
-.CLAUDE/
+# .CLAUDE/ (legacy, replaced by .claude/commands/)
+# Note: .claude/ slash commands ARE tracked (public pipeline)
 
 # ───────────────────────────────────────────────────────────────
 # Writing workspace (drafts, sources with copyright)
