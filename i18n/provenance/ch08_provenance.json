@@ -4,463 +4,378 @@
   "base_url": "https://www.lawofone.info/s/",
   "provenance": [
     {
-      "section_id": "ch8-intro",
-      "section_title": "The Darkness You Inhabit",
+      "section_id": "ch8-why-the-veil",
+      "section_title": "Why the Veil Exists",
       "segments": [
         {
           "paragraphs": [1],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Bridge from Ch7 harvest to Ch8 veil — editorial synthesis"
+          "sources": ["78.19"],
+          "urls": ["https://www.lawofone.info/s/78#19"],
+          "note": "The veil as a design, not an accident"
         },
         {
           "paragraphs": [2],
-          "sources": ["82.17", "82.18"],
-          "urls": ["https://www.lawofone.info/s/82#17", "https://www.lawofone.info/s/82#18"],
-          "note": "The nature of forgetting — what the veil hides from incarnate consciousness"
+          "sources": ["78.8", "78.10"],
+          "urls": ["https://www.lawofone.info/s/78#8", "https://www.lawofone.info/s/78#10"],
+          "note": "Early Logoi, inherited tools from previous octave, no concept of polarity"
         },
         {
           "paragraphs": [3],
-          "sources": ["82.22"],
-          "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "The veil as deliberate design; its necessity for the choice"
+          "sources": ["78.14"],
+          "urls": ["https://www.lawofone.info/s/78#14"],
+          "note": "Polarity as mover/moved only, no service-to-self/service-to-others"
         },
         {
           "paragraphs": [4],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Transitional paragraph setting up the chapter's arc"
+          "sources": ["82.18"],
+          "urls": ["https://www.lawofone.info/s/82#18"],
+          "note": "Pallid experiential nexus, turtle to cheetah pace"
+        },
+        {
+          "paragraphs": [5, 6],
+          "sources": ["82.21"],
+          "urls": ["https://www.lawofone.info/s/82#21"],
+          "note": "Logos awareness of missing polarization, desire to make it available"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["79.22"],
+          "urls": ["https://www.lawofone.info/s/79#22"],
+          "note": "The veil as answer"
         }
       ]
     },
     {
-      "section_id": "ch8-experiment",
-      "section_title": "The Cosmic Experiment",
+      "section_id": "ch8-without-the-veil",
+      "section_title": "Third Density Without the Veil",
       "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["82.10", "82.11", "82.12"],
-          "urls": [
-            "https://www.lawofone.info/s/82#10",
-            "https://www.lawofone.info/s/82#11",
-            "https://www.lawofone.info/s/82#12"
-          ],
-          "note": "First Logoi designed third density without the veil"
-        },
         {
           "paragraphs": [2],
-          "sources": ["82.18"],
-          "urls": ["https://www.lawofone.info/s/82#18"],
-          "note": "Pre-veil entities progressed slowly — turtle analogy"
+          "sources": ["82.22", "78.11"],
+          "urls": ["https://www.lawofone.info/s/82#22", "https://www.lawofone.info/s/78#11"],
+          "note": "Transparent mind, umbilical cord to Creator, total security"
         },
         {
-          "paragraphs": [3],
-          "sources": ["82.18", "82.19", "82.20", "82.21", "82.22"],
-          "urls": [
-            "https://www.lawofone.info/s/82#18",
-            "https://www.lawofone.info/s/82#19",
-            "https://www.lawofone.info/s/82#20",
-            "https://www.lawofone.info/s/82#21",
-            "https://www.lawofone.info/s/82#22"
-          ],
-          "note": "Evolution lacked intensity; the choice was obvious and automatic"
+          "paragraphs": [3, 4],
+          "sources": ["82.22", "82.23"],
+          "urls": ["https://www.lawofone.info/s/82#22", "https://www.lawofone.info/s/82#23"],
+          "note": "Born into extreme wealth analogy, no love terribly important, stagnation in contentment"
         },
         {
-          "paragraphs": [4],
-          "sources": ["82.13", "82.14", "82.17"],
-          "urls": [
-            "https://www.lawofone.info/s/82#13",
-            "https://www.lawofone.info/s/82#14",
-            "https://www.lawofone.info/s/82#17"
-          ],
-          "note": "Logoi refine the first distortion; the radical concept of veiling; the bare hypothesis"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["82.17", "82.18"],
-          "urls": ["https://www.lawofone.info/s/82#17", "https://www.lawofone.info/s/82#18"],
-          "note": "Cosmic trial and error — non-viable body complexes, marginal systems"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["82.22", "82.23", "82.24"],
-          "urls": [
-            "https://www.lawofone.info/s/82#22",
-            "https://www.lawofone.info/s/82#23",
-            "https://www.lawofone.info/s/82#24"
-          ],
-          "note": "Extraordinary results; all subsequent sub-Logoi adopted the veil"
+          "paragraphs": [5, 6],
+          "sources": ["82.19", "82.20"],
+          "urls": ["https://www.lawofone.info/s/82#19", "https://www.lawofone.info/s/82#20"],
+          "note": "Advanced technology, interstellar travel, but lacking will/élan vital"
         },
         {
           "paragraphs": [7],
-          "sources": ["external", "82.22"],
-          "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "Kenosis parallel — the divine emptying itself to create space for freedom"
-        }
-      ]
-    },
-    {
-      "section_id": "ch8-pre-veil",
-      "section_title": "A World Without Shadow",
-      "segments": [
-        {
-          "paragraphs": [1, 2],
-          "sources": ["82.18", "82.19"],
-          "urls": ["https://www.lawofone.info/s/82#18", "https://www.lawofone.info/s/82#19"],
-          "note": "Pre-veil existence: full awareness of nature as Creator, all incarnations remembered"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["82.18"],
-          "urls": ["https://www.lawofone.info/s/82#18"],
-          "note": "Body control at will — blood pressure, heart rate, pain dismissal"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["83.3", "83.4"],
-          "urls": ["https://www.lawofone.info/s/83#3", "https://www.lawofone.info/s/83#4"],
-          "note": "Pre-veil dreams as classrooms — no unconscious to explore"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["82.17"],
-          "urls": ["https://www.lawofone.info/s/82#17"],
-          "note": "Higher Self openly beside the entity; no faith required"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["83.16", "83.17", "83.18"],
+          "sources": ["82.24", "82.25", "82.26"],
           "urls": [
-            "https://www.lawofone.info/s/83#16",
-            "https://www.lawofone.info/s/83#17",
-            "https://www.lawofone.info/s/83#18"
+            "https://www.lawofone.info/s/82#24",
+            "https://www.lawofone.info/s/82#25",
+            "https://www.lawofone.info/s/82#26"
           ],
-          "note": "Pre-veil sexuality: energy transfer with every union, but attenuated"
-        },
-        {
-          "paragraphs": [7],
-          "sources": ["82.18", "82.22"],
-          "urls": ["https://www.lawofone.info/s/82#18", "https://www.lawofone.info/s/82#22"],
-          "note": "Flat emotional landscape; transparency as paradoxical blindness"
+          "note": "Incarnation review still occurred but showed little progress"
         },
         {
           "paragraphs": [8],
-          "sources": ["82.22"],
-          "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "The choice as observation, not decision; no transformative power"
+          "sources": ["83.10", "82.24", "83.3"],
+          "urls": [
+            "https://www.lawofone.info/s/83#10",
+            "https://www.lawofone.info/s/82#24",
+            "https://www.lawofone.info/s/83#3"
+          ],
+          "note": "No slavery, little disease, attenuated sexual energy transfers"
         },
         {
           "paragraphs": [9],
-          "sources": ["82.18", "82.22"],
-          "urls": ["https://www.lawofone.info/s/82#18", "https://www.lawofone.info/s/82#22"],
-          "note": "Not paradise but waiting room; turtle reaches destination but learns nothing about running"
+          "sources": [],
+          "urls": [],
+          "note": "Synthesis: transparency as enemy of transformation"
         }
       ]
     },
     {
-      "section_id": "ch8-architecture",
-      "section_title": "The Divided Mind",
+      "section_id": "ch8-the-experiment",
+      "section_title": "The Experiment and Its Results",
       "segments": [
         {
-          "paragraphs": [1, 2],
-          "sources": ["79.20", "79.21", "79.22"],
+          "paragraphs": [1],
+          "sources": ["78.19"],
+          "urls": ["https://www.lawofone.info/s/78#19"],
+          "note": "Logos posited possibility of complex Significator"
+        },
+        {
+          "paragraphs": [2, 3],
+          "sources": ["79.21", "79.22", "79.23"],
           "urls": [
-            "https://www.lawofone.info/s/79#20",
             "https://www.lawofone.info/s/79#21",
-            "https://www.lawofone.info/s/79#22"
+            "https://www.lawofone.info/s/79#22",
+            "https://www.lawofone.info/s/79#23"
           ],
-          "note": "Veil as division within mind; unitary mind becomes complex; conscious-mind vs deep-mind"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["78.19", "78.20", "78.21", "78.22", "78.23", "78.24"],
-          "urls": [
-            "https://www.lawofone.info/s/78#19",
-            "https://www.lawofone.info/s/78#20",
-            "https://www.lawofone.info/s/78#21",
-            "https://www.lawofone.info/s/78#22",
-            "https://www.lawofone.info/s/78#23",
-            "https://www.lawofone.info/s/78#24"
-          ],
-          "note": "Division cascades into body and spirit; mind/body/spirit becomes complex"
+          "note": "Partition between conscious and unconscious, the veil mechanism"
         },
         {
           "paragraphs": [4],
-          "sources": [
-            "79.33",
-            "79.34",
-            "79.35",
-            "79.36",
-            "79.37",
-            "79.38",
-            "79.39",
-            "79.40",
-            "79.41",
-            "79.42"
-          ],
-          "urls": ["https://www.lawofone.info/s/79#33", "https://www.lawofone.info/s/79#42"],
-          "note": "Layers of the deep mind: personal, racial, planetary, archetypal, cosmic. Jung parallel."
+          "sources": ["83.19"],
+          "urls": ["https://www.lawofone.info/s/83#19"],
+          "note": "Mind becoming complex caused body and spirit to become complex"
         },
         {
           "paragraphs": [5],
-          "sources": ["79.42"],
-          "urls": ["https://www.lawofone.info/s/79#42"],
-          "note": "Walking on the surface of an ocean of mind"
+          "sources": ["79.27", "82.18"],
+          "urls": ["https://www.lawofone.info/s/79#27", "https://www.lawofone.info/s/82#18"],
+          "note": "Dramatic results: vivid, varied, intense experience of Creator by Creator"
         },
         {
-          "paragraphs": [6],
-          "sources": ["external", "79.20"],
-          "urls": ["https://www.lawofone.info/s/79#20"],
-          "note": "Kant noumena parallel — the veil as epistemological architecture"
-        },
-        {
-          "paragraphs": [7],
-          "sources": ["81.28", "81.29", "81.30", "81.31", "81.32", "81.33"],
-          "urls": ["https://www.lawofone.info/s/81#28", "https://www.lawofone.info/s/81#33"],
-          "note": "Spirit-complex as shuttle between deep mind and waking awareness"
-        },
-        {
-          "paragraphs": [8],
-          "sources": ["80.10", "80.11", "80.12", "80.13", "80.14", "80.15"],
-          "urls": ["https://www.lawofone.info/s/80#10", "https://www.lawofone.info/s/80#15"],
-          "note": "Faculties affected: vision, dreams, body knowledge"
-        },
-        {
-          "paragraphs": [9],
-          "sources": ["80.16", "80.17", "80.18", "80.19", "80.20"],
-          "urls": ["https://www.lawofone.info/s/80#16", "https://www.lawofone.info/s/80#20"],
-          "note": "The emergence of will/desire as new faculty born of limitation"
-        }
-      ]
-    },
-    {
-      "section_id": "ch8-transformation",
-      "section_title": "What the Veil Made Possible",
-      "segments": [
-        {
-          "paragraphs": [1],
-          "sources": ["82.22", "82.23", "82.24", "82.25", "82.26", "82.27", "82.28", "82.29"],
-          "urls": ["https://www.lawofone.info/s/82#22", "https://www.lawofone.info/s/82#29"],
-          "note": "Loss and gain as one phenomenon — every deprivation is a potency"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["81.13", "81.14", "80.16", "80.17", "80.18", "80.19", "80.20"],
-          "urls": [
-            "https://www.lawofone.info/s/81#13",
-            "https://www.lawofone.info/s/81#14",
-            "https://www.lawofone.info/s/80#16",
-            "https://www.lawofone.info/s/80#20"
-          ],
-          "note": "Body potentials buried → desire to know emerges"
-        },
-        {
-          "paragraphs": [3],
-          "sources": ["83.3", "86.7", "86.8", "86.9", "86.10", "86.11", "86.12"],
+          "paragraphs": [6, 7],
+          "sources": ["83.3", "86.7", "86.12"],
           "urls": [
             "https://www.lawofone.info/s/83#3",
             "https://www.lawofone.info/s/86#7",
             "https://www.lawofone.info/s/86#12"
           ],
-          "note": "Dreams: from transparent instruction to symbolic depth"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["83.16", "83.17", "83.18"],
-          "urls": [
-            "https://www.lawofone.info/s/83#16",
-            "https://www.lawofone.info/s/83#17",
-            "https://www.lawofone.info/s/83#18"
-          ],
-          "note": "Sexuality: from attenuated transfer to rare sacrament"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["82.17"],
-          "urls": ["https://www.lawofone.info/s/82#17"],
-          "note": "Higher Self: from open companion to presence behind closed door"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["82.22"],
-          "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "Emotional spectrum sharpened beyond imagination; vivid beauty of third density"
-        },
-        {
-          "paragraphs": [7],
-          "sources": ["82.22", "82.23", "82.24"],
-          "urls": [
-            "https://www.lawofone.info/s/82#22",
-            "https://www.lawofone.info/s/82#23",
-            "https://www.lawofone.info/s/82#24"
-          ],
-          "note": "Free will extended enormously; new agency under genuine uncertainty"
+          "note": "Dreams transformed from classrooms to bridges between conscious and unconscious"
         },
         {
           "paragraphs": [8],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Synthesis: limitation creates freedom — the central paradox"
-        }
-      ]
-    },
-    {
-      "section_id": "ch8-choice",
-      "section_title": "The Veil and the Choice",
-      "segments": [
-        {
-          "paragraphs": [1, 2],
-          "sources": ["82.22", "82.28"],
-          "urls": ["https://www.lawofone.info/s/82#22", "https://www.lawofone.info/s/82#28"],
-          "note": "The veil exists for the choice; choosing love in darkness as courage"
+          "sources": ["85.19"],
+          "urls": ["https://www.lawofone.info/s/85#19"],
+          "note": "Body knowledge lost through veiling, recovery as catalyst"
         },
         {
-          "paragraphs": [3],
-          "sources": ["external", "82.22"],
+          "paragraphs": [9],
+          "sources": ["83.3", "84.17"],
+          "urls": ["https://www.lawofone.info/s/83#3", "https://www.lawofone.info/s/84#17"],
+          "note": "Sexuality amplified: attenuated to profound green-ray transfer or blockage"
+        },
+        {
+          "paragraphs": [10],
+          "sources": ["82.22"],
           "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "Compatibilism parallel — genuine freedom requires uncertainty"
+          "note": "Pain transformed from transparent to mysterious, potent catalyst"
         },
         {
-          "paragraphs": [4],
-          "sources": ["83.16", "83.17"],
-          "urls": ["https://www.lawofone.info/s/83#16", "https://www.lawofone.info/s/83#17"],
-          "note": "The veil makes the negative path viable as genuine orientation"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["82.22", "synthesis"],
-          "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "Law of confusion as architectural expression of the veil"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["external", "82.28"],
-          "urls": ["https://www.lawofone.info/s/82#28"],
-          "note": "Game theory parallel — decision quality under uncertainty"
-        }
-      ]
-    },
-    {
-      "section_id": "ch8-penetration",
-      "section_title": "Working Through the Curtain",
-      "segments": [
-        {
-          "paragraphs": [1],
+          "paragraphs": [11],
           "sources": ["83.3"],
           "urls": ["https://www.lawofone.info/s/83#3"],
-          "note": "The veil as semipermeable curtain; progressive transparency anticipated"
+          "note": "Higher self now behind single door, must be sought"
         },
         {
+          "paragraphs": [12],
+          "sources": ["85.19"],
+          "urls": ["https://www.lawofone.info/s/85#19"],
+          "note": "Emergence of will/pure desire as product of the veil"
+        },
+        {
+          "paragraphs": [13],
+          "sources": ["83.16"],
+          "urls": ["https://www.lawofone.info/s/83#16"],
+          "note": "Experiment rested on nakedness of hypothesis, outcome unknown"
+        }
+      ]
+    },
+    {
+      "section_id": "ch8-conscious-deep-mind",
+      "section_title": "The Conscious Mind and the Deep Mind",
+      "segments": [
+        {
           "paragraphs": [2],
-          "sources": ["80.10"],
-          "urls": ["https://www.lawofone.info/s/80#10"],
-          "note": "No planned method; desire drew methods of discovery"
+          "sources": ["78.11", "79.20"],
+          "urls": ["https://www.lawofone.info/s/78#11", "https://www.lawofone.info/s/79#20"],
+          "note": "Matrix of Mind: consciousness, unmoved, starting point"
         },
         {
           "paragraphs": [3],
-          "sources": ["86.7", "86.8", "86.9", "86.10", "86.11", "86.12"],
-          "urls": ["https://www.lawofone.info/s/86#7", "https://www.lawofone.info/s/86#12"],
-          "note": "Dreams as primary channel; recording discipline; precognitive glimpses"
+          "sources": ["78.11", "79.20"],
+          "urls": ["https://www.lawofone.info/s/78#11", "https://www.lawofone.info/s/79#20"],
+          "note": "Potentiator of Mind: vast sea, racial/planetary/archetypal memories"
         },
         {
           "paragraphs": [4],
-          "sources": ["49.8"],
-          "urls": ["https://www.lawofone.info/s/49#8"],
-          "note": "Meditation as courtship of the deeper mind"
+          "sources": ["86.6"],
+          "urls": ["https://www.lawofone.info/s/86#6"],
+          "note": "Deep mind operates in concepts not words, melody analogy"
         },
         {
           "paragraphs": [5],
-          "sources": ["external", "79.20"],
-          "urls": ["https://www.lawofone.info/s/79#20"],
-          "note": "Plato anamnesis parallel — learning as remembering through the veil"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["83.16", "83.17", "83.18"],
-          "urls": [
-            "https://www.lawofone.info/s/83#16",
-            "https://www.lawofone.info/s/83#17",
-            "https://www.lawofone.info/s/83#18"
-          ],
-          "note": "Polarized interaction; the doubling effect; other-self as primary catalyst"
+          "sources": ["85.19"],
+          "urls": ["https://www.lawofone.info/s/85#19"],
+          "note": "Mantling of earth over jewels metaphor, all buried beneath veil"
         },
         {
           "paragraphs": [7],
+          "sources": ["85.19", "86.6"],
+          "urls": ["https://www.lawofone.info/s/85#19", "https://www.lawofone.info/s/86#6"],
+          "note": "Far-seeing/visioning: mind freed from linear time before veil"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["85.19", "86.7"],
+          "urls": ["https://www.lawofone.info/s/85#19", "https://www.lawofone.info/s/86#7"],
+          "note": "Dreaming as bridge across the veil"
+        },
+        {
+          "paragraphs": [9],
+          "sources": ["85.19"],
+          "urls": ["https://www.lawofone.info/s/85#19"],
+          "note": "Body knowledge lost through veiling"
+        },
+        {
+          "paragraphs": [10, 11],
+          "sources": ["85.19"],
+          "urls": ["https://www.lawofone.info/s/85#19"],
+          "note": "Will/pure desire as most important product of veiling"
+        },
+        {
+          "paragraphs": [12],
+          "sources": ["83.15"],
+          "urls": ["https://www.lawofone.info/s/83#15"],
+          "note": "Veil is semi-permeable membrane by design"
+        }
+      ]
+    },
+    {
+      "section_id": "ch8-veil-as-catalyst",
+      "section_title": "The Veil as Catalyst",
+      "segments": [
+        {
+          "paragraphs": [1, 2, 3],
+          "sources": ["83.3", "82.22"],
+          "urls": ["https://www.lawofone.info/s/83#3", "https://www.lawofone.info/s/82#22"],
+          "note": "Veil transforms quality of experience; without it, love/pain/choice lack weight"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["83.3", "84.17"],
+          "urls": ["https://www.lawofone.info/s/83#3", "https://www.lawofone.info/s/84#17"],
+          "note": "Veil as supreme catalyst making all other catalysts effective"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["83.16", "83.17"],
+          "urls": ["https://www.lawofone.info/s/83#16", "https://www.lawofone.info/s/83#17"],
+          "note": "Doubling effect: polarized entities seeking together find more surely"
+        },
+        {
+          "paragraphs": [6, 7],
           "sources": ["83.18"],
           "urls": ["https://www.lawofone.info/s/83#18"],
-          "note": "Warning: forced penetration — archetypal material without preparation"
+          "note": "Green-ray activation leading to adepthood, other-self as primary catalyst"
+        }
+      ]
+    },
+    {
+      "section_id": "ch8-working-with-veil",
+      "section_title": "Working with the Veil",
+      "segments": [
+        {
+          "paragraphs": [2],
+          "sources": ["83.16"],
+          "urls": ["https://www.lawofone.info/s/83#16"],
+          "note": "No techniques planned, imagination provides the ways"
+        },
+        {
+          "paragraphs": [3, 4],
+          "sources": ["49.8"],
+          "urls": ["https://www.lawofone.info/s/49#8"],
+          "note": "Two types of meditation: passive (clearing) and active (visualization)"
+        },
+        {
+          "paragraphs": [5],
+          "sources": ["49.8"],
+          "urls": ["https://www.lawofone.info/s/49#8"],
+          "note": "Contemplation and prayer as methods"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["86.7", "86.10"],
+          "urls": ["https://www.lawofone.info/s/86#7", "https://www.lawofone.info/s/86#10"],
+          "note": "Dreaming as natural bridge, discipline of recording"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["85.19", "84.17"],
+          "urls": ["https://www.lawofone.info/s/85#19", "https://www.lawofone.info/s/84#17"],
+          "note": "Body as metaphysical instrument, recovery of body knowledge"
+        },
+        {
+          "paragraphs": [8],
+          "sources": ["49.6"],
+          "urls": ["https://www.lawofone.info/s/49#6"],
+          "note": "Sequential processing of experience through energy centers"
+        }
+      ]
+    },
+    {
+      "section_id": "ch8-when-veil-thins",
+      "section_title": "Moments When the Veil Thins",
+      "segments": [
+        {
+          "paragraphs": [2],
+          "sources": ["86.6", "49.8"],
+          "urls": ["https://www.lawofone.info/s/86#6", "https://www.lawofone.info/s/49#8"],
+          "note": "Deep meditation: waking mind touches the sea beneath"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["83.18"],
+          "urls": ["https://www.lawofone.info/s/83#18"],
+          "note": "Love as veil-piercing: green-ray activation, recognition of Creator in other self"
+        },
+        {
+          "paragraphs": [4],
+          "sources": ["86.7"],
+          "urls": ["https://www.lawofone.info/s/86#7"],
+          "note": "Precognitive dreaming: deeper mind not caught in linear time"
+        },
+        {
+          "paragraphs": [5],
+          "sources": [],
+          "urls": [],
+          "note": "Synthesis: near-death experience as dramatic thinning of the veil"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["86.6"],
+          "urls": ["https://www.lawofone.info/s/86#6"],
+          "note": "Spontaneous insight as deep mind communication"
+        },
+        {
+          "paragraphs": [7],
+          "sources": ["83.15", "85.19"],
+          "urls": ["https://www.lawofone.info/s/83#15", "https://www.lawofone.info/s/85#19"],
+          "note": "Semi-permeable design: veil yields to sincere seeking"
         }
       ]
     },
     {
       "section_id": "ch8-faith",
-      "section_title": "Faith in the Dark",
+      "section_title": "Faith as Response to Forgetting",
       "segments": [
         {
-          "paragraphs": [1],
-          "sources": ["10.14"],
-          "urls": ["https://www.lawofone.info/s/10#14"],
-          "note": "Faith becomes necessary and therefore possible; what is known need not be believed"
-        },
-        {
-          "paragraphs": [2],
-          "sources": ["82.28", "82.29"],
-          "urls": ["https://www.lawofone.info/s/82#28", "https://www.lawofone.info/s/82#29"],
-          "note": "Faith as posture of consciousness sensing its deeper nature"
+          "paragraphs": [1, 2],
+          "sources": ["65.19"],
+          "urls": ["https://www.lawofone.info/s/65#19"],
+          "note": "Faith in uncertainty worth infinitely more than certainty"
         },
         {
           "paragraphs": [3],
-          "sources": ["external", "82.28"],
-          "urls": ["https://www.lawofone.info/s/82#28"],
-          "note": "Kierkegaard leap parallel — the only coherent response to glimpsing through the veil"
-        },
-        {
-          "paragraphs": [4],
-          "sources": ["82.28", "82.29"],
-          "urls": ["https://www.lawofone.info/s/82#28", "https://www.lawofone.info/s/82#29"],
-          "note": "Faith forged in darkness — tested, chosen, sustained through uncertainty"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["82.22", "synthesis"],
+          "sources": ["82.22"],
           "urls": ["https://www.lawofone.info/s/82#22"],
-          "note": "The deepest gift of the veil — capacities that only darkness can produce"
+          "note": "Without veil, no need for faith; without faith, no mechanism for growth"
         },
         {
-          "paragraphs": [6],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "The seeker in silence doing the precise work of third density"
-        }
-      ]
-    },
-    {
-      "section_id": "ch8-journey",
-      "section_title": "The Journey Inward",
-      "segments": [
-        {
-          "paragraphs": [1, 2, 3],
-          "sources": ["82.22", "82.28", "synthesis"],
-          "urls": ["https://www.lawofone.info/s/82#22", "https://www.lawofone.info/s/82#28"],
-          "note": "Closing Type B (Journey): the inward journey through the veil as mirror of cosmic journey"
+          "paragraphs": [4, 5],
+          "sources": ["85.19"],
+          "urls": ["https://www.lawofone.info/s/85#19"],
+          "note": "Faith generates will; will as sacred active force"
         },
         {
-          "paragraphs": [4],
-          "sources": ["synthesis"],
+          "paragraphs": [6, 7, 8, 9],
+          "sources": [],
           "urls": [],
-          "note": "Separator"
-        },
-        {
-          "paragraphs": [5],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Bridge to Ch9: death as the moment the veil lifts"
-        },
-        {
-          "paragraphs": [6],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Final line: the journey continues inward through the curtain"
+          "note": "Synthesis: forgetting as engine of growth, Type B closure — journey continues"
         }
       ]
     }
