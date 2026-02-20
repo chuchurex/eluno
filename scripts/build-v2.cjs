@@ -31,6 +31,8 @@ const CONFIG = {
   inputDir: path.join(__dirname, '../i18n'),
   outputDir: path.join(__dirname, '../dist'),
   provenanceDir: path.join(__dirname, '../i18n/provenance'),
+  siteUrl: 'https://eluno.org',
+  gaId: 'G-9LDPDW8V6E',
 
   // v3 beta: only build these chapters (add more as they're reviewed)
   enabledChapters: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
@@ -633,17 +635,23 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${chapter.title} — ${bookTitle}</title>
     <meta name="description" content="${metaDescription}">
+    <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/chapters/${slug}.html">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
 
     <!-- OpenGraph -->
     <meta property="og:title" content="${chapter.title} — ${bookTitle}">
     <meta property="og:description" content="${metaDescription}">
     <meta property="og:type" content="article">
+    <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/chapters/${slug}.html">
     <meta property="og:locale" content="${lang}">
 
     <!-- Alternate languages -->
     ${CONFIG.languages
       .filter(l => chapterSlugMap[l] && chapterSlugMap[l][chapter.number])
-      .map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/chapters/${chapterSlugMap[l][chapter.number]}.html">`)
+      .map(l => `<link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/chapters/${chapterSlugMap[l][chapter.number]}.html">`)
       .join('\n    ')}
 
     <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -724,15 +732,21 @@ function generateIndexHtml(lang, chapters) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${bookTitle} | eluno.org</title>
   <meta name="description" content="${ui.subtitle}">
+  <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
 
   <!-- OpenGraph -->
   <meta property="og:title" content="${bookTitle}">
   <meta property="og:description" content="${ui.subtitle}">
   <meta property="og:type" content="book">
+  <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/">
   <meta property="og:locale" content="${lang}">
 
   <!-- Alternate languages -->
-  ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="/${l}/">`).join('\n  ')}
+  ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/">`).join('\n  ')}
 
   <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -988,6 +1002,62 @@ function buildChapterSlugMap() {
 }
 
 /**
+ * Generate sitemap.xml with hreflang alternates
+ */
+function generateSitemap(chapterSlugMap) {
+  const today = new Date().toISOString().split('T')[0];
+
+  let urls = '';
+
+  // Index pages
+  for (const lang of CONFIG.languages) {
+    const loc = `${CONFIG.siteUrl}/${lang}/`;
+    const alternates = CONFIG.languages
+      .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/"/>`)
+      .join('\n');
+    urls += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n${alternates}\n  </url>\n`;
+  }
+
+  // Chapter pages
+  for (const chNum of CONFIG.enabledChapters) {
+    for (const lang of CONFIG.languages) {
+      const slug = chapterSlugMap[lang]?.[chNum];
+      if (!slug) continue;
+      const loc = `${CONFIG.siteUrl}/${lang}/chapters/${slug}.html`;
+      const alternates = CONFIG.languages
+        .filter(l => chapterSlugMap[l]?.[chNum])
+        .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/chapters/${chapterSlugMap[l][chNum]}.html"/>`)
+        .join('\n');
+      urls += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n${alternates}\n  </url>\n`;
+    }
+  }
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls}</urlset>`;
+
+  const outPath = path.join(CONFIG.outputDir, 'sitemap.xml');
+  fs.writeFileSync(outPath, sitemap, 'utf-8');
+  const urlCount = (sitemap.match(/<url>/g) || []).length;
+  console.log(`  ✅ sitemap.xml (${urlCount} URLs)`);
+}
+
+/**
+ * Generate robots.txt
+ */
+function generateRobotsTxt() {
+  const content = `User-agent: *
+Allow: /
+
+Sitemap: ${CONFIG.siteUrl}/sitemap.xml
+`;
+  const outPath = path.join(CONFIG.outputDir, 'robots.txt');
+  fs.writeFileSync(outPath, content, 'utf-8');
+  console.log('  ✅ robots.txt');
+}
+
+/**
  * Main build function
  */
 function build() {
@@ -1013,6 +1083,10 @@ function build() {
   // Create shared assets
   console.log('\n📦 Creating shared assets...');
   createGlossaryScript();
+
+  // Generate SEO files
+  generateSitemap(chapterSlugMap);
+  generateRobotsTxt();
 
   // Copy static files (redirects, etc) - recursive
   const staticDir = path.join(__dirname, '../static');
