@@ -359,7 +359,52 @@ INTEGRATED PARAGRAPH (synthesis)
 
 ---
 
-## XII. NOTATION FOR INTERNAL WORK
+## XII. CROSS-CHAPTER EDITORIAL REVIEW
+
+### When to perform:
+After all chapters of a version are complete and before final publication. This is a **mandatory checkpoint** that catches systemic issues invisible at the per-chapter level.
+
+### Review categories:
+
+#### 1. Literal text duplications
+Identify and resolve identical or near-identical passages that appear in multiple chapters. Each distinctive metaphor, analogy, or teaching should have a single home chapter. Other chapters may reference it briefly but must not re-expound it.
+
+#### 2. Thematic overlaps
+When a chapter re-explains material that belongs to another chapter's territory, trim the re-exposition to a brief mention with a forward or backward reference. Each chapter owns its theme; other chapters may reference it but not invade it.
+
+#### 3. Crutch phrases (muletillas)
+Search globally for overused sentence constructions and reduce them to natural frequency:
+- "This is not X. It is Y" — target: ~1-2 per chapter maximum
+- "The entity" — diversify with "the self", "the seeker", "the being", "one"
+- "Yet/And yet" at sentence starts — vary with "Still", "Even so", "But", "However"
+- "Consider..." — vary with "Imagine", "Think of", "Notice", "Take, for example"
+- "This is not metaphor/a metaphor" — maximum 1-2 in entire book
+- Ambiguous "we" — resolve referent or restructure
+
+#### 4. Minor adjustments
+- Mediate unexplained technical jargon
+- Eliminate internal duplications within chapters (e.g., same concept explained twice)
+- Verify transitions between consecutive chapters
+- Check recapitulative openings (sections that summarize the previous section)
+
+### Process:
+1. Generate per-chapter counts of each crutch pattern
+2. Identify duplications via cross-chapter text search
+3. Edit EN only — preserve `{term:}` markup and section `id` values
+4. Do not add or delete paragraphs (rewrite in place)
+5. Re-translate ES/PT after EN edits are complete
+6. Build and validate all three languages
+7. Commit as a single editorial revision
+
+### Protected content (do not modify):
+- Leitmotif phrases (e.g., "The mystery remains")
+- Section opening/closing signatures
+- Original metaphors unique to their home chapter
+- Chapters rated "Excelente" — minimal changes only
+
+---
+
+## XIII. NOTATION FOR INTERNAL WORK
 
 ### In thematic indices (NOT in final chapters):
 ```

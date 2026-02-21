@@ -419,7 +419,13 @@ Verificar que el número del capítulo esté en `enabledChapters` de `scripts/bu
 npm run build
 ```
 
-### 6.6 Resumen final
+### 6.6 Actualizar docs del proyecto
+
+```bash
+node scripts/update-project-docs.js
+```
+
+### 6.7 Resumen final
 
 Mostrar:
 - `git diff --stat`
@@ -427,13 +433,13 @@ Mostrar:
 - Términos nuevos de glosario
 - Resultado de validación
 
-### 6.7 Pedir confirmación (ÚNICA pausa obligatoria)
+### 6.8 Pedir confirmación (ÚNICA pausa obligatoria)
 
 Preguntar al operador: **"Commit y push?"**
 
 Si SÍ:
 ```bash
-git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json scripts/build-v2.cjs
+git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json scripts/build-v2.cjs docs/project/PROJECT_STATUS.md docs/project/ROADMAP.md docs/project/TODO.md
 ```
 
 Commit:

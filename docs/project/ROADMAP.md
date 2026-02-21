@@ -1,13 +1,13 @@
 # Roadmap — El Uno v3
 
-> Actualizado: Febrero 14, 2026
+> Actualizado: Febrero 16, 2026
 
 ---
 
 ## Estado actual
 
-- **v3.eluno.org** live con Capítulos 1 y 2 (EN/ES/PT)
-- Pipeline de escritura automatizado (8 fases, slash commands)
+- **v3.eluno.org** live con 16 de 16 capítulos (EN/ES/PT)
+- Pipeline de escritura automatizado (6 fases, slash commands)
 - Build con `build-v2.cjs`, deploy automático vía Cloudflare Pages
 
 ---
@@ -19,20 +19,20 @@
 ### Contenido
 - [x] Capítulo 1: Cosmology and Genesis
 - [x] Capítulo 2: The Creator and Creation
-- [ ] Capítulo 3: Las Densidades de Conciencia
-- [ ] Capítulo 4: Historia Espiritual de la Tierra
-- [ ] Capítulo 5: Polaridad — Los Dos Caminos
-- [ ] Capítulo 6: Errantes — Los que Regresan
-- [ ] Capítulo 7: La Cosecha
-- [ ] Capítulo 8: El Velo del Olvido
-- [ ] Capítulo 9: La Muerte y el Viaje Entre Vidas
-- [ ] Capítulo 10: Los Centros de Energía
-- [ ] Capítulo 11: Catalizador y Experiencia
-- [ ] Capítulo 12: El Yo Superior y la Guía
-- [ ] Capítulo 13: El Libre Albedrío y la Ley de la Confusión
-- [ ] Capítulo 14: El Camino del Buscador
-- [ ] Capítulo 15: Equilibrio y Sanación
-- [ ] Capítulo 16: El Misterio Permanece
+- [x] Capítulo 3: The Densities of Consciousness
+- [x] Capítulo 4: Earth's Spiritual History
+- [x] Capítulo 5: Polarity — The Two Paths
+- [x] Capítulo 6: Wanderers — Those Who Return
+- [x] Capítulo 7: The Harvest
+- [x] Capítulo 8: The Veil of Forgetting
+- [x] Capítulo 9: Death and the Journey Between Lives
+- [x] Capítulo 10: The Energy Centers
+- [x] Capítulo 11: Catalyst and Experience
+- [x] Capítulo 12: The Higher Self and Guidance
+- [x] Capítulo 13: Free Will and the Law of Confusion
+- [x] Capítulo 14: The Path of the Seeker
+- [x] Capítulo 15: Balancing and Healing
+- [x] Capítulo 16: The Mystery Remains
 
 ### Automatización y pipeline
 - [x] Scripts de integración, traducción, validación

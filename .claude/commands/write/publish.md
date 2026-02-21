@@ -58,7 +58,17 @@ npm run build
 - Verificar exit code 0
 - Si el build falla, mostrar el error y PARAR
 
-### Paso 5: Resumen y confirmación
+### Paso 5: Actualizar docs del proyecto
+
+Ejecutar:
+```bash
+node scripts/update-project-docs.js
+```
+
+- Actualiza PROJECT_STATUS.md, ROADMAP.md y TODO.md con el estado real del proyecto
+- Verificar exit code 0
+
+### Paso 6: Resumen y confirmación
 
 Mostrar:
 - `git diff --stat` (archivos cambiados)
@@ -70,7 +80,7 @@ Preguntar al operador: "Commit y push?" (sí/no)
 
 Si SÍ:
 ```bash
-git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json
+git add i18n/en/chapters/${CHAPTER}.json i18n/es/chapters/${CHAPTER}.json i18n/en/glossary.json i18n/es/glossary.json i18n/provenance/ch${CHAPTER}_provenance.json docs/project/PROJECT_STATUS.md docs/project/ROADMAP.md docs/project/TODO.md
 ```
 
 Luego commit con este formato:

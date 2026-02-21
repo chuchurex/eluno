@@ -21,6 +21,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+*.bak
 .vscode/settings.json
 .agent/
 
