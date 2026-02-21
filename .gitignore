@@ -38,7 +38,9 @@ id_rsa*
 # ───────────────────────────────────────────────────────────────
 # Media (stored on static.eluno.org)
 # ───────────────────────────────────────────────────────────────
-audiobook/
+audiobook/audio/
+audiobook/voices/
+!audiobook/text/
 books/
 video/
 *.mp3
