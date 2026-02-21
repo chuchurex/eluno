@@ -12,7 +12,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",
     "@eluno/core": "github:chuchurex/eluno-core",
-    "dotenv": "^17.0.0"
+    "dotenv": "^17.0.0",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -21,8 +22,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "live-server": "^1.2.2",
-    "prettier": "^3.8.1",
-    "sass": "^1.97.3"
+    "prettier": "^3.8.1"
   },
   "scripts": {
     "build": "node scripts/build-v2.cjs && npm run sass:build",
