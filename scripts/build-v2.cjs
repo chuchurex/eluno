@@ -906,6 +906,7 @@ function generateIndexHtml(lang, chapters, media) {
 
       <section class="introduction">
         <p class="intro-text">${ui.intro}</p>
+${generateHomepageMediaToolbar(media, ui)}
       </section>
 
       <section class="disclaimer-banner">
@@ -918,7 +919,6 @@ ${disclaimerHtml}
         <div class="toc-chapters">
 ${tocHtml}
         </div>
-${generateHomepageMediaToolbar(media, ui)}
       </section>
 
       <footer class="footer-attribution">
