@@ -75,6 +75,7 @@ const CONFIG = {
       footerAttribution: 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.',
       footerSessions: 'Original sessions free at',
       noSources: 'No source citations for this section.',
+      notesEmpty: 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.',
       about: 'About'
     },
     es: {
@@ -98,6 +99,7 @@ const CONFIG = {
       footerAttribution: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sesiones originales gratis en',
       noSources: 'Sin citas de fuentes para esta sección.',
+      notesEmpty: 'Haz clic en cualquier <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">término destacado</span> para ver su definición.',
       about: 'Acerca de'
     },
     pt: {
@@ -121,6 +123,7 @@ const CONFIG = {
       footerAttribution: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sessões originais grátis em',
       noSources: 'Sem citações de fontes para esta seção.',
+      notesEmpty: 'Clique em qualquer <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">termo destacado</span> para ver sua definição.',
       about: 'Sobre'
     }
   }
