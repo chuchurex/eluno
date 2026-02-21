@@ -25,6 +25,9 @@ const path = require('path');
 // Configuration
 // ─────────────────────────────────────────────────────────────
 
+// Cache buster: changes on each build so CDN serves fresh assets
+const BUILD_HASH = Date.now().toString(36);
+
 const CONFIG = {
   languages: ['en', 'es', 'pt'],
   baseLang: 'en',
@@ -678,8 +681,8 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
 
     <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/fonts/fonts.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
+    <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
     <!-- Google tag (gtag.js) — deferred -->
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
@@ -777,8 +780,8 @@ function generateIndexHtml(lang, chapters) {
 
   <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
+  <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
   <!-- Google tag (gtag.js) — deferred -->
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
@@ -935,8 +938,8 @@ ${chapterLinks}            </div>
 
     <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/fonts/fonts.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
+    <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
     <!-- Google tag (gtag.js) — deferred -->
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
