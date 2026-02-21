@@ -59,6 +59,9 @@ const CONFIG = {
       sources: 'Sources',
       glossary: 'Glossary',
       previous: 'Previous',
+      ariaToggleTheme: 'Toggle Theme',
+      ariaChapterNav: 'Chapter navigation',
+      ariaToggleSections: 'Toggle sections',
       next: 'Next',
       home: 'Home',
       downloadPdf: 'Download PDF',
@@ -74,6 +77,7 @@ const CONFIG = {
       tableOfContents: 'Table of Contents',
       footerAttribution: 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.',
       footerSessions: 'Original sessions free at',
+      footerCopyright: 'Content derived from L/L Research material',
       noSources: 'No source citations for this section.',
       notesEmpty: 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.',
       about: 'About'
@@ -83,6 +87,9 @@ const CONFIG = {
       sources: 'Fuentes',
       glossary: 'Glosario',
       previous: 'Anterior',
+      ariaToggleTheme: 'Cambiar tema',
+      ariaChapterNav: 'Navegación de capítulos',
+      ariaToggleSections: 'Mostrar secciones',
       next: 'Siguiente',
       home: 'Inicio',
       downloadPdf: 'Descargar PDF',
@@ -98,6 +105,7 @@ const CONFIG = {
       tableOfContents: 'Índice',
       footerAttribution: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sesiones originales gratis en',
+      footerCopyright: 'Contenido derivado del material de L/L Research',
       noSources: 'Sin citas de fuentes para esta sección.',
       notesEmpty: 'Haz clic en cualquier <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">término destacado</span> para ver su definición.',
       about: 'Acerca de'
@@ -107,6 +115,9 @@ const CONFIG = {
       sources: 'Fontes',
       glossary: 'Glossário',
       previous: 'Anterior',
+      ariaToggleTheme: 'Alternar tema',
+      ariaChapterNav: 'Navegação de capítulos',
+      ariaToggleSections: 'Mostrar seções',
       next: 'Próximo',
       home: 'Início',
       downloadPdf: 'Baixar PDF',
@@ -122,6 +133,7 @@ const CONFIG = {
       tableOfContents: 'Índice',
       footerAttribution: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sessões originais grátis em',
+      footerCopyright: 'Conteúdo derivado do material de L/L Research',
       noSources: 'Sem citações de fontes para esta seção.',
       notesEmpty: 'Clique em qualquer <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">termo destacado</span> para ver sua definição.',
       about: 'Sobre'
@@ -310,7 +322,7 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
       html += `                    <a href="/${lang}/chapters/${slug}.html" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${ch.title}</a>\n`;
 
       if (isActive) {
-        html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="Toggle sections">▾</button>\n`;
+        html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="${ui.ariaToggleSections}">▾</button>\n`;
         html += `                </div>\n`;
         html += `                <div class="nav-sections-list">\n`;
         ch.sections.forEach(sec => {
@@ -424,7 +436,7 @@ function generateChapterPrevNext(chapter, allChapters, lang, ui) {
   const nextChapter = allChapters[chapterIndex + 1];
   const bookTitle = CONFIG.bookTitles[lang];
 
-  let html = `            <nav class="chapter-nav" aria-label="Chapter navigation">\n`;
+  let html = `            <nav class="chapter-nav" aria-label="${ui.ariaChapterNav}">\n`;
 
   if (prevChapter) {
     const prevSlug = slugify(prevChapter.title);
@@ -671,7 +683,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
 <body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
     <button class="toggle notes-toggle" onclick="toggleNotes()">${ui.glossary}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
@@ -763,7 +775,7 @@ function generateIndexHtml(lang, chapters) {
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+  <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
 
   <div class="layout index-layout">
     <main class="main">
@@ -917,7 +929,7 @@ ${chapterLinks}            </div>
 </head>
 <body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
     <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
     <div class="layout">
