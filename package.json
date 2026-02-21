@@ -13,6 +13,7 @@
     "@anthropic-ai/sdk": "^0.71.0",
     "@eluno/core": "github:chuchurex/eluno-core",
     "dotenv": "^17.0.0",
+    "node-edge-tts": "^1.2.10",
     "sass": "^1.97.3"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "deploy": "eluno-deploy",
     "build:pdf": "node scripts/build-pdf.cjs",
     "audio:extract": "node scripts/audiobook/extract-text.cjs",
+    "audio:edge": "node scripts/audiobook/generate-edge.cjs",
     "audio:fish": "node scripts/audiobook/generate-fish.cjs",
     "audio:concat": "node scripts/audiobook/concat.cjs",
     "integrate": "node scripts/integrate-chapter.js",
