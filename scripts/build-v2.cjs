@@ -307,7 +307,7 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
       const active = l === lang ? ' class="active"' : '';
       const prefix = i > 0 ? ' | ' : '';
       const targetSlug = chapterSlugMap[l][chapter.number];
-      return `${prefix}<a href="/${l}/chapters/${targetSlug}.html"${active}>${l.toUpperCase()}</a>`;
+      return `${prefix}<a href="/${l}/chapters/${targetSlug}.html"${active} onclick="localStorage.setItem('lang','${l}')">${l.toUpperCase()}</a>`;
     })
     .join('');
 
@@ -742,7 +742,7 @@ function generateIndexHtml(lang, chapters) {
     .map(l => {
       const isActive = l === lang ? ' class="active"' : '';
       const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
-      return `<a href="/${l}/"${isActive}>${langName}</a>`;
+      return `<a href="/${l}/"${isActive} onclick="localStorage.setItem('lang','${l}')">${langName}</a>`;
     })
     .join(' | ');
 
@@ -880,7 +880,7 @@ function generateAboutHtml(lang, about, allChapters, chapterSlugMap) {
     .map((l, i) => {
       const active = l === lang ? ' class="active"' : '';
       const prefix = i > 0 ? ' | ' : '';
-      return `${prefix}<a href="/${l}/about.html"${active}>${l.toUpperCase()}</a>`;
+      return `${prefix}<a href="/${l}/about.html"${active} onclick="localStorage.setItem('lang','${l}')">${l.toUpperCase()}</a>`;
     })
     .join('');
 
@@ -1262,12 +1262,16 @@ function build() {
     console.log('  ✅ fonts/ (from @eluno/core)');
   }
 
-  // Generate root index.html (avoids / → /en/ redirect)
+  // Generate root index.html with language detection
   const rootIndexPath = path.join(CONFIG.outputDir, 'index.html');
   const enIndexPath = path.join(CONFIG.outputDir, 'en', 'index.html');
   if (fs.existsSync(enIndexPath)) {
-    fs.copyFileSync(enIndexPath, rootIndexPath);
-    console.log('  ✅ index.html (root, EN copy)');
+    let rootHtml = fs.readFileSync(enIndexPath, 'utf8');
+    // Inject language detection script right after <head> — runs before paint
+    const langDetectScript = `<script>(function(){var s=localStorage.getItem('lang');if(s&&s!=='en'&&['es','pt'].indexOf(s)!==-1){location.replace('/'+s+'/');return}if(!s){var l=(navigator.languages||[navigator.language]);for(var i=0;i<l.length;i++){var c=l[i].substring(0,2).toLowerCase();if(c==='es'||c==='pt'){localStorage.setItem('lang',c);location.replace('/'+c+'/');return}if(c==='en')break}localStorage.setItem('lang','en')}})()</script>`;
+    rootHtml = rootHtml.replace('<head>', '<head>\n' + langDetectScript);
+    fs.writeFileSync(rootIndexPath, rootHtml);
+    console.log('  ✅ index.html (root, EN + lang detection)');
   }
 
   // Generate SEO files
