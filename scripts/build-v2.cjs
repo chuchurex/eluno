@@ -69,7 +69,7 @@ const CONFIG = {
       home: 'Home',
       downloadPdf: 'Download PDF',
       listenAudio: 'Listen',
-      subtitle: 'A philosophical rewrite of the Ra Material',
+      subtitle: 'A philosophical reinterpretation of the Ra Material (The Law of One) as accessible narrative. Explore cosmology, the Creator, the densities, and the purpose of existence.',
       intro: 'Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance.',
       disclaimerTitle: 'About This Interpretation',
       disclaimer: [
@@ -97,7 +97,7 @@ const CONFIG = {
       home: 'Inicio',
       downloadPdf: 'Descargar PDF',
       listenAudio: 'Escuchar',
-      subtitle: 'Una reescritura filosófica del Material Ra',
+      subtitle: 'Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.',
       intro: 'Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA.',
       disclaimerTitle: 'Sobre Esta Interpretación',
       disclaimer: [
@@ -125,7 +125,7 @@ const CONFIG = {
       home: 'Início',
       downloadPdf: 'Baixar PDF',
       listenAudio: 'Ouvir',
-      subtitle: 'Uma reescrita filosófica do Material Ra',
+      subtitle: 'Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.',
       intro: 'Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA.',
       disclaimerTitle: 'Sobre Esta Interpretação',
       disclaimer: [
@@ -817,6 +817,7 @@ ${tocHtml}
       <footer class="footer-attribution">
         <p>${ui.footerAttribution}</p>
         <p>${ui.footerSessions} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>
+        <p class="footer-copyright">&copy; ${ui.footerCopyright}</p>
       </footer>
     </main>
   </div>
