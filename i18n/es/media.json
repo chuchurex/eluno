@@ -1,70 +1,21 @@
 {
   "all": {
-    "audio": "/audiobook/audio/es/el-uno-audiolibro-completo.mp3",
-    "pdf": "/pdf/es/el-uno-libro-completo.pdf"
+    "pdf": "/pdf/es/complete-book.pdf"
   },
-  "1": {
-    "pdf": "/pdf/es/el-uno-cap-01-cosmologia-y-genesis.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-01-cosmologia-y-genesis.mp3"
-  },
-  "2": {
-    "pdf": "/pdf/es/el-uno-cap-02-el-creador-y-la-creacion.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-02-el-creador-y-la-creacion.mp3"
-  },
-  "3": {
-    "pdf": "/pdf/es/el-uno-cap-03-las-densidades-de-conciencia.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-03-las-densidades-de-conciencia.mp3"
-  },
-  "4": {
-    "pdf": "/pdf/es/el-uno-cap-04-la-historia-espiritual-de-la-tierra.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-04-la-historia-espiritual-de-la-tierra.mp3"
-  },
-  "5": {
-    "pdf": "/pdf/es/el-uno-cap-05-polaridad-los-dos-caminos.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-05-polaridad-los-dos-caminos.mp3"
-  },
-  "6": {
-    "pdf": "/pdf/es/el-uno-cap-06-errantes-los-que-regresan.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-06-errantes-los-que-regresan.mp3"
-  },
-  "7": {
-    "pdf": "/pdf/es/el-uno-cap-07-la-cosecha.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-07-la-cosecha.mp3"
-  },
-  "8": {
-    "pdf": "/pdf/es/el-uno-cap-08-el-velo-del-olvido.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-08-el-velo-del-olvido.mp3"
-  },
-  "9": {
-    "pdf": "/pdf/es/el-uno-cap-09-la-muerte-y-el-viaje-entre-vidas.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-09-la-muerte-y-el-viaje-entre-vidas.mp3"
-  },
-  "10": {
-    "pdf": "/pdf/es/el-uno-cap-10-los-centros-de-energia.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-10-los-centros-de-energia.mp3"
-  },
-  "11": {
-    "pdf": "/pdf/es/el-uno-cap-11-catalizador-y-experiencia.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-11-catalizador-y-experiencia.mp3"
-  },
-  "12": {
-    "pdf": "/pdf/es/el-uno-cap-12-el-yo-superior-y-la-guia-interior.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-12-el-yo-superior-y-la-guia-interior.mp3"
-  },
-  "13": {
-    "pdf": "/pdf/es/el-uno-cap-13-el-libre-albedrio-y-la-ley-de-confusion.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-13-el-libre-albedrio-y-la-ley-de-confusion.mp3"
-  },
-  "14": {
-    "pdf": "/pdf/es/el-uno-cap-14-la-cosecha-y-la-transicion.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-14-la-cosecha-y-la-transicion.mp3"
-  },
-  "15": {
-    "pdf": "/pdf/es/el-uno-cap-15-viviendo-la-ley-del-uno.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-15-viviendo-la-ley-del-uno.mp3"
-  },
-  "16": {
-    "pdf": "/pdf/es/el-uno-cap-16-el-retorno.pdf",
-    "audio": "/audiobook/audio/es/el-uno-cap-16-el-retorno.mp3"
-  }
+  "1": { "pdf": "/pdf/es/ch01.pdf" },
+  "2": { "pdf": "/pdf/es/ch02.pdf" },
+  "3": { "pdf": "/pdf/es/ch03.pdf" },
+  "4": { "pdf": "/pdf/es/ch04.pdf" },
+  "5": { "pdf": "/pdf/es/ch05.pdf" },
+  "6": { "pdf": "/pdf/es/ch06.pdf" },
+  "7": { "pdf": "/pdf/es/ch07.pdf" },
+  "8": { "pdf": "/pdf/es/ch08.pdf" },
+  "9": { "pdf": "/pdf/es/ch09.pdf" },
+  "10": { "pdf": "/pdf/es/ch10.pdf" },
+  "11": { "pdf": "/pdf/es/ch11.pdf" },
+  "12": { "pdf": "/pdf/es/ch12.pdf" },
+  "13": { "pdf": "/pdf/es/ch13.pdf" },
+  "14": { "pdf": "/pdf/es/ch14.pdf" },
+  "15": { "pdf": "/pdf/es/ch15.pdf" },
+  "16": { "pdf": "/pdf/es/ch16.pdf" }
 }

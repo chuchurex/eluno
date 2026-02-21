@@ -1,70 +1,21 @@
 {
   "all": {
-    "pdf": "/pdf/pt/complete-book.pdf",
-    "audio": ""
+    "pdf": "/pdf/pt/complete-book.pdf"
   },
-  "1": {
-    "pdf": "/pdf/pt/ch01.pdf",
-    "audio": ""
-  },
-  "2": {
-    "pdf": "/pdf/pt/ch02.pdf",
-    "audio": ""
-  },
-  "3": {
-    "pdf": "/pdf/pt/ch03.pdf",
-    "audio": ""
-  },
-  "4": {
-    "pdf": "/pdf/pt/ch04.pdf",
-    "audio": ""
-  },
-  "5": {
-    "pdf": "/pdf/pt/ch05.pdf",
-    "audio": ""
-  },
-  "6": {
-    "pdf": "/pdf/pt/ch06.pdf",
-    "audio": ""
-  },
-  "7": {
-    "pdf": "/pdf/pt/ch07.pdf",
-    "audio": ""
-  },
-  "8": {
-    "pdf": "/pdf/pt/ch08.pdf",
-    "audio": ""
-  },
-  "9": {
-    "pdf": "/pdf/pt/ch09.pdf",
-    "audio": ""
-  },
-  "10": {
-    "pdf": "/pdf/pt/ch10.pdf",
-    "audio": ""
-  },
-  "11": {
-    "pdf": "/pdf/pt/ch11.pdf",
-    "audio": ""
-  },
-  "12": {
-    "pdf": "/pdf/pt/ch12.pdf",
-    "audio": ""
-  },
-  "13": {
-    "pdf": "/pdf/pt/ch13.pdf",
-    "audio": ""
-  },
-  "14": {
-    "pdf": "/pdf/pt/ch14.pdf",
-    "audio": ""
-  },
-  "15": {
-    "pdf": "/pdf/pt/ch15.pdf",
-    "audio": ""
-  },
-  "16": {
-    "pdf": "/pdf/pt/ch16.pdf",
-    "audio": ""
-  }
+  "1": { "pdf": "/pdf/pt/ch01.pdf" },
+  "2": { "pdf": "/pdf/pt/ch02.pdf" },
+  "3": { "pdf": "/pdf/pt/ch03.pdf" },
+  "4": { "pdf": "/pdf/pt/ch04.pdf" },
+  "5": { "pdf": "/pdf/pt/ch05.pdf" },
+  "6": { "pdf": "/pdf/pt/ch06.pdf" },
+  "7": { "pdf": "/pdf/pt/ch07.pdf" },
+  "8": { "pdf": "/pdf/pt/ch08.pdf" },
+  "9": { "pdf": "/pdf/pt/ch09.pdf" },
+  "10": { "pdf": "/pdf/pt/ch10.pdf" },
+  "11": { "pdf": "/pdf/pt/ch11.pdf" },
+  "12": { "pdf": "/pdf/pt/ch12.pdf" },
+  "13": { "pdf": "/pdf/pt/ch13.pdf" },
+  "14": { "pdf": "/pdf/pt/ch14.pdf" },
+  "15": { "pdf": "/pdf/pt/ch15.pdf" },
+  "16": { "pdf": "/pdf/pt/ch16.pdf" }
 }

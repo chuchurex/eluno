@@ -68,7 +68,6 @@ const CONFIG = {
       next: 'Next',
       home: 'Home',
       downloadPdf: 'Download PDF',
-      downloadBook: 'Download Complete Book (PDF)',
       listenAudio: 'Listen',
       subtitle: 'A philosophical reinterpretation of the Ra Material (The Law of One) as accessible narrative. Explore cosmology, the Creator, the densities, and the purpose of existence.',
       intro: 'Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance.',
@@ -97,7 +96,6 @@ const CONFIG = {
       next: 'Siguiente',
       home: 'Inicio',
       downloadPdf: 'Descargar PDF',
-      downloadBook: 'Descargar Libro Completo (PDF)',
       listenAudio: 'Escuchar',
       subtitle: 'Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.',
       intro: 'Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA.',
@@ -126,7 +124,6 @@ const CONFIG = {
       next: 'Próximo',
       home: 'Início',
       downloadPdf: 'Baixar PDF',
-      downloadBook: 'Baixar Livro Completo (PDF)',
       listenAudio: 'Ouvir',
       subtitle: 'Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.',
       intro: 'Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA.',
@@ -434,6 +431,91 @@ ${sourceBlocks}
 }
 
 /**
+ * SVG icons for media toolbar (22px, same as alpha)
+ */
+const MEDIA_SVG = {
+  pdf: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>',
+  audio: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>',
+  youtube: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>'
+};
+
+/**
+ * Load media.json for a language (returns null if not found)
+ */
+function loadMedia(lang) {
+  const mediaPath = path.join(CONFIG.inputDir, lang, 'media.json');
+  try {
+    return JSON.parse(fs.readFileSync(mediaPath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Generate media toolbar for chapter page (MP3 with accordion, PDF download, YouTube link)
+ */
+function generateMediaToolbar(chapterNum, media, ui) {
+  if (!media) return '';
+  const chapterMedia = media[String(chapterNum)];
+  if (!chapterMedia) return '';
+
+  const hasPdf = !!chapterMedia.pdf;
+  const hasAudio = !!chapterMedia.audio;
+  const hasYoutube = !!chapterMedia.youtube;
+  if (!hasPdf && !hasAudio && !hasYoutube) return '';
+
+  let html = `                <div class="ch-media-bar">\n`;
+
+  if (hasAudio) {
+    html += `                    <div class="ch-media-audio-panel" id="audio-panel-${chapterNum}">\n`;
+    html += `                        <audio src="${chapterMedia.audio}" controls preload="none"></audio>\n`;
+    html += `                    </div>\n`;
+    html += `                    <button class="ch-media-icon" onclick="toggleAudio('${chapterNum}')" title="${ui.listenAudio}" data-audio-btn="${chapterNum}">${MEDIA_SVG.audio}<span class="ch-media-label">MP3</span></button>\n`;
+  }
+
+  if (hasPdf) {
+    html += `                    <a href="${chapterMedia.pdf}" class="ch-media-icon" title="${ui.downloadPdf}" download>${MEDIA_SVG.pdf}<span class="ch-media-label">PDF</span></a>\n`;
+  }
+
+  if (hasYoutube) {
+    html += `                    <a href="${chapterMedia.youtube}" class="ch-media-icon" target="_blank" rel="noopener" title="YouTube">${MEDIA_SVG.youtube}<span class="ch-media-label">YouTube</span></a>\n`;
+  }
+
+  html += `                </div>\n`;
+  return html;
+}
+
+/**
+ * Generate media toolbar for homepage (direct download links)
+ */
+function generateHomepageMediaToolbar(media, ui) {
+  if (!media || !media.all) return '';
+  const allMedia = media.all;
+
+  const hasPdf = !!allMedia.pdf;
+  const hasAudio = !!allMedia.audio;
+  const hasYoutube = !!allMedia.youtube;
+  if (!hasPdf && !hasAudio && !hasYoutube) return '';
+
+  let html = `        <div class="ch-media-bar homepage-media">\n`;
+
+  if (hasAudio) {
+    html += `          <a href="${allMedia.audio}" class="ch-media-icon" title="${ui.listenAudio}" download>${MEDIA_SVG.audio}<span class="ch-media-label">MP3</span></a>\n`;
+  }
+
+  if (hasPdf) {
+    html += `          <a href="${allMedia.pdf}" class="ch-media-icon" title="${ui.downloadPdf}" download>${MEDIA_SVG.pdf}<span class="ch-media-label">PDF</span></a>\n`;
+  }
+
+  if (hasYoutube) {
+    html += `          <a href="${allMedia.youtube}" class="ch-media-icon" target="_blank" rel="noopener" title="YouTube">${MEDIA_SVG.youtube}<span class="ch-media-label">YouTube</span></a>\n`;
+  }
+
+  html += `        </div>\n`;
+  return html;
+}
+
+/**
  * Generate chapter navigation (prev/next)
  */
 function generateChapterPrevNext(chapter, allChapters, lang, ui) {
@@ -526,6 +608,26 @@ function generateScripts() {
         function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
         function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes')?.classList.remove('open');document.getElementById('overlay').classList.remove('active')}
         function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
+
+        // Audio player toggle
+        function toggleAudio(num){
+            var panel=document.getElementById('audio-panel-'+num);
+            var btn=document.querySelector('[data-audio-btn="'+num+'"]');
+            if(!panel)return;
+            document.querySelectorAll('.ch-media-audio-panel').forEach(function(p){
+                if(p.id!=='audio-panel-'+num){p.classList.remove('active');var a=p.querySelector('audio');if(a)a.pause()}
+            });
+            document.querySelectorAll('[data-audio-btn]').forEach(function(b){b.classList.remove('active')});
+            panel.classList.toggle('active');
+            if(panel.classList.contains('active')){
+                if(btn)btn.classList.add('active');
+                var audio=panel.querySelector('audio');
+                if(audio&&audio.paused)audio.play().catch(function(){});
+            } else {
+                var audio=panel.querySelector('audio');
+                if(audio)audio.pause();
+            }
+        }
 
         // Terms and notes functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -632,7 +734,7 @@ function generateScripts() {
 /**
  * Generate full chapter HTML
  */
-function generateChapterHtml(chapter, lang, glossary, references, provenance, allChapters, chapterSlugMap) {
+function generateChapterHtml(chapter, lang, glossary, references, provenance, allChapters, chapterSlugMap, media) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
   const slug = slugify(chapter.title);
@@ -703,7 +805,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
                 <header class="ch-head">
                     <div class="ch-head-top">
                         <div class="ch-num">${chapter.numberText}</div>
-                        <a href="/pdf/${lang}/ch${String(chapter.number).padStart(2, '0')}.pdf" class="ch-pdf-link" download title="${ui.downloadPdf}">PDF ↓</a>
+${generateMediaToolbar(chapter.number, media, ui)}
                     </div>
                     <h1 class="ch-title">${chapter.title}</h1>
                 </header>
@@ -728,7 +830,7 @@ ${scripts}
 /**
  * Generate index page for a language
  */
-function generateIndexHtml(lang, chapters) {
+function generateIndexHtml(lang, chapters, media) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
 
@@ -816,9 +918,7 @@ ${disclaimerHtml}
         <div class="toc-chapters">
 ${tocHtml}
         </div>
-        <div class="toc-download">
-          <a href="/pdf/${lang}/complete-book.pdf" class="toc-download-link" download>${ui.downloadBook}</a>
-        </div>
+${generateHomepageMediaToolbar(media, ui)}
       </section>
 
       <footer class="footer-attribution">
@@ -1064,9 +1164,11 @@ function buildLanguage(lang, chapterSlugMap) {
   const chapters = loadChapters(lang);
   const glossary = loadGlossary(lang);
   const references = loadReferences(lang);
+  const media = loadMedia(lang);
 
   console.log(`  Found ${chapters.length} chapters`);
   console.log(`  Found ${Object.keys(glossary).length} glossary terms`);
+  console.log(`  Media: ${media ? 'found' : 'none'}`);
 
   // Create output directories
   const langDir = path.join(CONFIG.outputDir, lang);
@@ -1076,7 +1178,7 @@ function buildLanguage(lang, chapterSlugMap) {
   // Build each chapter
   chapters.forEach(chapter => {
     const provenance = loadProvenance(chapter.number);
-    const html = generateChapterHtml(chapter, lang, glossary, references, provenance, chapters, chapterSlugMap);
+    const html = generateChapterHtml(chapter, lang, glossary, references, provenance, chapters, chapterSlugMap, media);
 
     const slug = slugify(chapter.title);
     const outputPath = path.join(chaptersDir, `${slug}.html`);
@@ -1087,7 +1189,7 @@ function buildLanguage(lang, chapterSlugMap) {
   });
 
   // Build index page
-  const indexHtml = generateIndexHtml(lang, chapters);
+  const indexHtml = generateIndexHtml(lang, chapters, media);
   fs.writeFileSync(path.join(langDir, 'index.html'), indexHtml);
   console.log(`  ✓ index.html`);
 
