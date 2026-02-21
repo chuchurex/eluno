@@ -656,6 +656,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${chapter.title} — ${bookTitle}</title>
     <meta name="description" content="${metaDescription}">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/chapters/${slug}.html">
 
     <!-- Google tag (gtag.js) -->
@@ -753,6 +754,7 @@ function generateIndexHtml(lang, chapters) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${bookTitle} | eluno.org</title>
   <meta name="description" content="${ui.subtitle}">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/">
 
   <!-- Google tag (gtag.js) -->
@@ -907,6 +909,7 @@ ${chapterLinks}            </div>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${about.title} — ${bookTitle} | eluno.org</title>
     <meta name="description" content="${about.sections[0]?.content[0]?.text?.replace(/<[^>]*>/g, '').substring(0, 160) || ''}">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/about.html">
 
     <!-- Google tag (gtag.js) -->

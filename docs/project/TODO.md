@@ -1,12 +1,12 @@
 # Tareas Pendientes — El Uno
 
-> Actualizado: Febrero 14, 2026
+> Actualizado: Febrero 16, 2026
 
 ---
 
 ## Contenido (prioridad alta)
 
-- [ ] **Escribir capítulos 3-16 en v3** — Pipeline completo por capítulo
+- [x] **Escribir capítulos 3-16 en v3** — Completado
 - [ ] **Test live de translate-chapter.js** — Solo se probó en dry-run, falta test con API real
 - [ ] **Test end-to-end de `/write:publish`** — Probar pipeline completo en capítulo nuevo
 
@@ -15,7 +15,7 @@
 ## Build y Deploy
 
 - [ ] **Evaluar convergencia de builds** — `build-v2.cjs` (v3) vs `eluno-build` (v1) generan URLs diferentes. Decidir si unificar o mantener separados.
-- [ ] **SEO: robots meta tag** — Actualmente sin `noindex`. Configurar dinámicamente cuando sea necesario.
+- [x] **SEO: robots meta tag** — `<meta name="robots" content="index, follow">` en todas las páginas (Feb 21, 2026)
 - [ ] **Generar sitemap.xml** — Automáticamente durante build para capítulos habilitados.
 
 ---
