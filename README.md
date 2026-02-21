@@ -40,13 +40,13 @@ Each version removes trigger words that would activate psychological resistance 
 
 The book has 16 chapters organized in 5 parts:
 
-| Part | Chapters | Theme |
-|------|----------|-------|
-| I | 1-3 | Metaphysical foundations |
-| II | 4-7 | Earth and its history |
-| III | 8-9 | The veil and death |
-| IV | 10-13 | Spiritual mechanics |
-| V | 14-16 | Practice and closing |
+| Part | Chapters | Theme                    |
+| ---- | -------- | ------------------------ |
+| I    | 1-3      | Metaphysical foundations |
+| II   | 4-7      | Earth and its history    |
+| III  | 8-9      | The veil and death       |
+| IV   | 10-13    | Spiritual mechanics      |
+| V    | 14-16    | Practice and closing     |
 
 Available in English, Spanish, and Portuguese.
 

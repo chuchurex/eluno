@@ -1,133 +1,346 @@
 {
-  "infinite": {
-    "title": "Infinite",
+  "acceptance": {
+    "title": "Acceptance",
     "content": [
-      "The absolute totality without limits, edges, or divisions. Not \"something very large\" but the complete absence of limitation.",
-      "The primordial state prior to all form and manifestation—what exists before \"something\" exists."
+      "The key to the positive use of catalyst. Acceptance is the practice of opening to experience rather than resisting, suppressing, or ignoring it.",
+      "It involves acknowledging what arises—including difficult emotions—blessing it as part of the self, and integrating it through contemplation. Acceptance does not mean passivity or approval of harmful behavior; it means choosing to engage with catalyst rather than refuse it.",
+      "The first acceptance is always of the self."
     ]
   },
-  "consciousness": {
-    "title": "Consciousness",
+  "adept": {
+    "title": "Adept",
     "content": [
-      "The capacity to be aware, to perceive, to \"know that one exists.\"",
-      "Here it means the fundamental quality underlying all existence—not just human thought, but the capacity to be and perceive at any level, from a rock to a galaxy."
+      "A serious practitioner who has moved beyond the initial stages of seeking and entered the territory of direct contact with the creative principle through the indigo-ray energy center.",
+      "The adept works with intelligent energy through the concentration of faith and will, accessing the gateway to intelligent infinity that indigo ray provides."
     ]
   },
-  "intelligent-infinity": {
-    "title": "Intelligent Infinity",
+  "balance": {
+    "title": "Balance",
     "content": [
-      "The consciousness of the Infinite when it focuses and acquires capacity to discern, create, and act with purpose.",
-      "It is the \"active\" aspect of Infinity—the conscious creative principle from which all creation arises."
+      "The inner quality of becoming unswayed -- not unmoved, but centered. Balance is achieved through the deliberate examination and acceptance of all polarities within the self: patience and impatience, love and fear, approval and disapproval. The balanced entity responds to all experience with love, having integrated its own completeness. This work moves from the periphery of specific emotions toward the center of total self-acceptance."
     ]
   },
-  "logos": {
-    "title": "Logos",
+  "beacon": {
+    "title": "Beacon",
     "content": [
-      "Greek word meaning \"word,\" \"reason,\" or \"ordering principle.\"",
-      "The conscious creative principle—the \"Word\" of the Gospel of John: \"In the beginning was the Word, and the Word was with God, and the Word was God.\"",
-      "Synonymous with Love as universal creative force."
+      "One of the three functions available to the awakened wanderer.",
+      "The beacon function refers to the wanderer's capacity to lighten the planetary vibration simply through its presence. The vibrational patterns of the wanderer's density of origin remain embedded in its energy field even behind the veil, and these patterns radiate continuously into the surrounding environment.",
+      "This function operates at the level of being rather than doing — it requires no conscious action or awareness."
     ]
   },
-  "distortion": {
-    "title": "Distortion",
+  "blue-ray": {
+    "title": "Blue Ray (Fifth Density)",
     "content": [
-      "Any modification or focus of the original One Infinite. **Does not imply error or degradation.**",
-      "Just as white light \"distorts\" into colors passing through a prism, the Infinite \"distorts\" into the multiple forms of creation."
+      "The vibration corresponding to fifth density—the cycle of light, or wisdom. Emphasis shifts toward deep understanding of the laws of creation and the refinement of knowledge."
     ]
   },
-  "free-will": {
-    "title": "Free Will",
+  "brothers-sisters-of-sorrow": {
+    "title": "Brothers and Sisters of Sorrow",
     "content": [
-      "The First Distortion of the Infinite.",
-      "The fundamental capacity to choose, to focus, to create. Without it, neither creation nor experience could exist.",
-      "The principle allowing infinite exploration of possibilities."
+      "A name given to those beings who respond to the call of a world in suffering by choosing to incarnate within it.",
+      "The name emphasizes that these beings do not come as saviors dispensing solutions from above, but as companions who enter into the suffering itself. They are drawn by sorrow — the felt resonance of a planet in pain — and they serve by sharing that pain rather than eliminating it from a position of advantage."
     ]
   },
-  "love": {
-    "title": "Love (Second Distortion)",
+  "calling": {
+    "title": "The Calling",
     "content": [
-      "Not primarily an emotion, but the creative principle itself—the cohesive force of the universe.",
-      "The energy of supreme order that causes forms to exist, things to hold together, creation to have structure.",
-      "Also called Logos or Creative Principle."
-    ]
-  },
-  "light": {
-    "title": "Light (Third Distortion)",
-    "content": [
-      "The first tangible manifestation of the creative process.",
-      "The \"building material\" of the entire physical universe. Everything that exists is, ultimately, light in different states of vibration.",
-      "The photon is its most basic unit."
-    ]
-  },
-  "co-creators": {
-    "title": "Co-Creators",
-    "content": [
-      "Individualized portions of Intelligent Infinity that actively participate in creation.",
-      "Each level of the cosmic hierarchy—from galaxies to human beings—is a co-Creator contributing to the unfolding of the universe.",
-      "You are a co-Creator."
-    ]
-  },
-  "intelligent-energy": {
-    "title": "Intelligent Energy",
-    "content": [
-      "The energy that results when Love/Logos acts upon the potential of the Infinite.",
-      "\"Intelligent\" because it contains purpose and order—not chaotic energy but organized energy.",
-      "The medium through which forms and natural laws of each universe are created."
-    ]
-  },
-  "sub-logos": {
-    "title": "Sub-Logos",
-    "content": [
-      "An individualized portion of the Logos operating at a more specific level of creation.",
-      "**Hierarchy:** Galactic Logos → creates the galaxy / Solar sub-Logos → our sun / Planetary sub-sub-Logos → Earth / Sub-sub-sub-Logos → each conscious being"
-    ]
-  },
-  "densities": {
-    "title": "Densities",
-    "content": [
-      "Levels or \"degrees\" of consciousness and vibration. **Not physical places** but states of being.",
-      "There are 7 main densities (plus an octave). Think of them as \"courses\" in the cosmic school of evolution.",
-      "Humanity is in **third density**, characterized by self-awareness and the capacity to choose."
-    ]
-  },
-  "octave": {
-    "title": "The Octave",
-    "content": [
-      "Just as in music there are 7 notes (do-re-mi-fa-sol-la-ti) before the cycle restarts at a higher level, creation has 7 densities of experience.",
-      "The octave marks the return to unity and a new beginning at a vaster level.",
-      "This 7+1 pattern repeats throughout all creation."
-    ]
-  },
-  "service-to-others": {
-    "title": "Service to Others",
-    "content": [
-      "One of the two polarities of spiritual evolution.",
-      "Characterized by seeing others as oneself, seeking the common good, loving unconditionally.",
-      "The path of unity and compassion. Requires at least 51% orientation toward others to \"graduate\" from third density."
-    ]
-  },
-  "service-to-self": {
-    "title": "Service to Self",
-    "content": [
-      "The other polarity of spiritual evolution.",
-      "Characterized by seeing others as tools, seeking power and control, separating from others.",
-      "Also a valid evolutionary path, though more difficult and solitary. Requires 95% self-orientation to advance."
-    ]
-  },
-  "polarity": {
-    "title": "Polarity",
-    "content": [
-      "The fundamental orientation of being: toward service to others (positive) or service to self (negative).",
-      "Like the poles of a magnet, both are necessary for movement and evolution.",
-      "Polarity is chosen in third density and refined in higher densities until they unify in sixth density."
+      "The sincere seeking of an individual or group that creates an opening for service from higher-density beings.",
+      "Positive entities wait for calling before offering assistance, respecting free will. Negative entities do not wait—they call themselves to service.",
+      "The quality of the calling determines the quality of the response. Those who seek deep truth receive correspondingly deeper communication."
     ]
   },
   "catalyst": {
     "title": "Catalyst",
     "content": [
-      "Any experience that offers opportunity for learning and growth.",
-      "Includes both \"positive\" and \"negative\" experiences. Suffering, joy, challenges, relationships—all can be catalysts.",
-      "What matters is how we respond: whether we use the experience consciously to evolve."
+      "Any experience that offers an entity the opportunity for growth and learning. Catalyst is the raw material of evolution—the circumstances, encounters, and challenges that, when processed consciously, become wisdom. In third density, the illusion of separation provides the specific catalysts that allow consciousness to make the choice and evolve."
+    ]
+  },
+  "co-creators": {
+    "title": "Co-Creators",
+    "content": [
+      "Individualized portions of intelligent infinity that, using the creative principle of which they are inseparable parts, each create their own universe or domain of experience. Co-creators operate at multiple scales—from the galactic Logos creating billions of star systems, to the sub-Logos of each sun, to each individual entity expressing the creative principle at a personal scale."
+    ]
+  },
+  "compassion": {
+    "title": "Compassion",
+    "content": [
+      "The heart's natural response to the suffering or need of another. Compassion is the hallmark of fourth-density awareness and is essential to the positive path. Yet compassion without the tempering of wisdom may lead to overextension or martyrdom. The balance of compassion with wisdom is one of the central disciplines of the evolving seeker."
+    ]
+  },
+  "confederation": {
+    "title": "Confederation",
+    "content": [
+      "A group of positive-polarity entities and social memory complexes from various densities who seek to serve others throughout the galaxy. They offer teaching and assistance to those who call for it, always respecting free will. Their methods contrast with those of the Orion group."
+    ]
+  },
+  "conscious-mind": {
+    "title": "Conscious Mind",
+    "content": [
+      "The waking awareness that an incarnate entity identifies as 'itself'—the portion of the mind that perceives, reasons, and makes decisions within the ordinary framework of space and time. Created by the introduction of the veil, which divided the previously unitary mind into conscious and unconscious portions.",
+      "The conscious mind has access to immediate sensory experience, short-term memory, and rational thought, but is separated from the vast reservoir of the deep mind. Its apparent isolation is both its limitation and the source of its unique capacities: will, desire, and the ability to choose under conditions of genuine uncertainty."
+    ]
+  },
+  "consciousness": {
+    "title": "Consciousness",
+    "content": [
+      "The first discernible quality of existence, arising as the Infinite becomes aware of itself. Consciousness is not produced by matter but is prior to it—the primordial awakening from which all creation flows. In its most fundamental nature, consciousness is infinity recognizing itself."
+    ]
+  },
+  "contemplation": {
+    "title": "Contemplation",
+    "content": [
+      "The consideration, in a meditative state, of an inspiring image, symbol, or text. Unlike passive meditation, contemplation directs the mind toward a chosen focus and allows it to unfold without analysis. It is one of three primary forms of inner work -- alongside meditation and prayer -- each serving a distinct purpose in the seeker's practice."
+    ]
+  },
+  "council-of-saturn": {
+    "title": "Council of Saturn",
+    "content": [
+      "A guardian body located in the eighth dimension of the planet Saturn, responsible for overseeing the incarnation process and spiritual evolution of entities within this solar system. The Council operates as an administrative presence, ensuring that the laws governing free will and evolutionary development are upheld.",
+      "The Council of Saturn does not command or direct—it serves as a kind of court or review body that adjudicates questions of incarnation, intervention, and the balance of forces affecting planetary populations. Requests from the Confederation to assist a given planet must be brought before this Council for consideration."
+    ]
+  },
+  "deep-mind": {
+    "title": "Deep Mind",
+    "content": [
+      "The vast unconscious portion of the mind, hidden from ordinary awareness by the veil of forgetting. The deep mind contains multiple layers of increasing depth and scope: the personal unconscious, the racial mind, the planetary mind, the archetypal mind, and the cosmic mind.",
+      "Though invisible to the conscious mind, the deep mind operates with enormous power and can be accessed through dreams, meditation, intuition, and other disciplines that work with the veil rather than against it."
+    ]
+  },
+  "densities": {
+    "title": "Densities",
+    "content": [
+      "Seven states of being through which consciousness evolves, organized as an octave of creation. Each density has its own characteristic vibration, color (ray), and lessons. They are not locations but levels of awareness. The seven densities are: awareness (red), growth (orange), self-awareness and choice (yellow), love (green), wisdom (blue), unity (indigo), and the gateway (violet). The eighth density is simultaneously the first of the next octave."
+    ]
+  },
+  "distortion": {
+    "title": "Distortion",
+    "content": [
+      "Any modification or particularization of the original unity of the Law of One. The term does not imply error or degradation but rather a specific focusing of the totality, as white light separating into colors through a prism. The three primal distortions are Free Will, Love (the Logos), and Light. From these, all further hierarchies of distortion proceed."
+    ]
+  },
+  "distortions": {
+    "title": "Distortions",
+    "content": [
+      "Any modification, differentiation, or particularization of the undistorted One Infinite Creator. The term does not imply error or degradation but rather the creative focusing of infinite unity into specific forms, experiences, and expressions.",
+      "The three primary distortions are Free Will (the capacity to choose), Love or Logos (the creative principle that organizes energy into form), and Light (the medium through which form manifests). All of creation—every law, every being, every experience—is a distortion of the original unity. To exist at all is to be a distortion. The spiritual journey is not the elimination of distortion but its conscious recognition and harmonization."
+    ]
+  },
+  "dual-activated": {
+    "title": "Dual-Activated Bodies",
+    "content": [
+      "Physical vehicles capable of appreciating fourth-density vibratory complexes while still functioning within the third-density environment.",
+      "These bodies appear during the transition period as entities harvested from other third-density planets begin incarnating on Earth.",
+      "Those with dual activation often seem more sensitive, more aware, more naturally oriented toward love and transparency."
+    ]
+  },
+  "dual-activated-bodies": {
+    "title": "Dual-Activated Bodies",
+    "content": [
+      "Physical vehicles capable of functioning in both third-density and fourth-density vibratory environments simultaneously. These bodies appear during the transition period between densities, when a planet is shifting from one level of consciousness to the next.",
+      "Entities incarnating in dual-activated bodies are not wanderers from higher densities but rather beings who have already completed third-density harvest elsewhere and now take incarnation on the transitioning planet. They often display heightened sensitivity, natural orientation toward love and transparency, and access to understandings that third-density consciousness cannot typically reach."
+    ]
+  },
+  "energy-centers": {
+    "title": "Energy Centers",
+    "content": [
+      "Seven centers of energy arranged along the axis of the incarnate being, each corresponding to a color of the visible spectrum and a density of consciousness.",
+      "These centers receive and transform undifferentiated light as it ascends through the being, and their condition determines what the entity can receive, express, and become.",
+      "They are the primary mechanisms through which spiritual evolution proceeds during incarnation."
+    ]
+  },
+  "energy-transfer": {
+    "title": "Energy Transfer",
+    "content": [
+      "The movement of energy between beings, which varies in nature depending on which energy center is active.",
+      "Energy transfer occurs through sexual expression, healing, teaching, and any encounter where one being is truly present to another. At green ray and above, transfer becomes genuinely mutual and beneficial to both parties.",
+      "These transfers serve as a means of polarization for both giver and receiver."
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "content": [
+      "The product of catalyst that has been consciously processed by the mind—felt, examined, understood, and integrated into the fabric of the self.",
+      "Experience is distinct from catalyst: catalyst is what is offered; experience is what remains after the offering has been claimed and worked with. Once formed, experience sinks into the deep roots of consciousness, where it gradually crystallizes as wisdom."
+    ]
+  },
+  "faith": {
+    "title": "Faith",
+    "content": [
+      "The capacity to trust without certainty, to choose love when proof is absent, to maintain orientation despite confusion.",
+      "Faith exercised in uncertainty is worth infinitely more than compliance with the obvious. The veil exists precisely to make faith possible.",
+      "Not belief in specific doctrines but trust in the fundamental goodness and meaning of existence."
+    ]
+  },
+  "fifth-density": {
+    "title": "Fifth Density",
+    "content": [
+      "The density of wisdom. The blue ray. This density emphasizes light and deep knowledge of the laws of creation.",
+      "In fifth density, the lessons of love learned in fourth density are refined through wisdom. Entities spend considerable time in solitude, contemplating and integrating understanding. The positive path maintains community and communion; the negative path leads to increasing isolation.",
+      "Fifth-density wanderers who incarnate in third density often feel an aversion to the typical social structures and may struggle with the emotional intensity of this environment, having become accustomed to wisdom's clarity."
+    ]
+  },
+  "first-density": {
+    "title": "First Density",
+    "content": [
+      "The density of awareness—the most fundamental level of consciousness in the octave of creation. First density encompasses the elements: earth, water, fire, and wind. Here, consciousness exists without self-awareness, as the simple being of matter and energy organized by light.",
+      "First density is associated with the red ray and lasts approximately two billion years. It is the foundation upon which all subsequent evolution rests. Even a stone participates in consciousness at this level—not thinking, not feeling, but being. The Creator experiences itself as the raw substance of existence."
+    ]
+  },
+  "forgetting": {
+    "title": "Forgetting",
+    "content": [
+      "The complete loss of conscious memory that occurs when any entity — including a wanderer — incarnates into third density under the veil.",
+      "For wanderers, forgetting means that all knowledge, understanding, and identity accumulated across potentially millions of years of evolution in higher densities is sealed away from conscious access.",
+      "It can be penetrated through disciplined spiritual practice, particularly meditation, though what is recovered is not factual memory but a sense of orientation, purpose, and mission."
+    ]
+  },
+  "forgiveness": {
+    "title": "Forgiveness",
+    "content": [
+      "The act of releasing energy trapped in the circuit of resentment. Forgiveness is not approval of what occurred nor a claim that painful events were acceptable.",
+      "It is the decision to stop carrying the weight of an event, allowing energy to flow freely again. Forgiveness operates in three directions—toward others, toward the self, and toward the conditions of incarnation itself—each liberating energy for further growth."
+    ]
+  },
+  "form-maker": {
+    "title": "Form-Maker Body",
+    "content": [
+      "The indigo-ray body, activated upon death of the physical vehicle. Unlike the yellow-ray body, which constrains consciousness within fixed physical parameters, the form-maker body is composed of intelligent energy in microcosm and responds fluidly to consciousness, shaping itself according to the entity's will and awareness.",
+      "It serves as the primary vehicle for experience between incarnations, in the metaphysical realm of time/space. It is described as an analog of the Logos itself—capable of molding form as consciousness directs."
+    ]
+  },
+  "fourth-density": {
+    "title": "Fourth Density",
+    "content": [
+      "The density of love and understanding, where the lessons of compassion are learned and the social memory complex begins to form.",
+      "Earth has already entered fourth-density vibration. The planetary consciousness has not yet caught up with this shift.",
+      "In fourth density, thoughts begin to become things. The stakes of consciousness rise as manifestation becomes more immediate."
+    ]
+  },
+  "fractal": {
+    "title": "Fractal",
+    "content": [
+      "The self-similar structure of reality at every scale. Patterns repeat from the cosmic to the personal: the octave of densities mirrors the spectrum of light, the energy centers of a being mirror the creative hierarchy, the journey of an incarnation mirrors the great cycle of creation. This principle means that understanding the self is a direct path to understanding the cosmos."
+    ]
+  },
+  "free-will": {
+    "title": "Free Will (First Distortion)",
+    "content": [
+      "The first and primary distortion of the Law of One: the inherent freedom of consciousness to choose, to focus, and to explore. Through Free Will, the Creator comes to know itself. Free Will is also called the Law of Confusion, for in the freedom to choose lies the possibility of confusion—and this is by design, enabling genuine discovery and growth."
+    ]
+  },
+  "gateway": {
+    "title": "The Gateway",
+    "content": [
+      "A threshold or passage point in the architecture of consciousness. Most commonly refers to the green-ray energy center as the gateway from which third-density beings may springboard toward higher work, or to the indigo-ray energy center as the gateway to intelligent infinity. In both cases, the gateway represents a point beyond which the nature of experience fundamentally changes."
+    ]
+  },
+  "green-ray": {
+    "title": "Green Ray (Fourth Density)",
+    "content": [
+      "The vibration corresponding to fourth density—the cycle of love, or understanding. Entities who have made their choice in third density refine here their capacity for love, either love of others or love of self and power."
+    ]
+  },
+  "guardians": {
+    "title": "Guardians",
+    "content": [
+      "Higher-density entities who watch over planetary evolution without direct interference. They instituted Earth's quarantine after the transfer from Mars, ensuring that free will is respected. They permit contact only under specific circumstances."
+    ]
+  },
+  "harvest": {
+    "title": "Harvest",
+    "content": [
+      "The transition point at the end of a major cycle when entities are assessed for their readiness to move to the next density. Those who have sufficiently polarized (51%+ positive or 95%+ negative) graduate. Those who have not made the choice repeat third density elsewhere. Earth's harvest is now underway."
+    ]
+  },
+  "healing": {
+    "title": "Healing",
+    "content": [
+      "The process by which an entity restores the natural flow of energy through its being. True healing is not imposed from outside but arises from the entity's own recognition of the intelligent infinity within itself. The healer serves only as a channel that offers the opportunity for self-healing. Blockages in the energy centers -- often rooted in unprocessed catalyst or feelings of unworthiness -- interrupt this flow, and their conscious resolution is the path to restoration."
+    ]
+  },
+  "higher-self": {
+    "title": "Higher Self",
+    "content": [
+      "The entity's own being at mid-sixth density, which creates a manifestation of itself to serve as guide and resource for its earlier incarnate selves. The Higher Self is not a separate entity but a future version of the self that has completed the journey through the densities and offers its wider perspective as a gift to its own past.",
+      "It holds the complete data of every possible line of development, received as a gift from its seventh-density future. The Higher Self guides through subtle means—intuition, dreams, biased situations—and never violates free will.",
+      "Only positively oriented beings form a Higher Self, as its creation occurs at a stage of evolution that requires the acceptance of unity."
+    ]
+  },
+  "holographic": {
+    "title": "Holographic Principle",
+    "content": [
+      "The quality of creation whereby any portion, no matter how small, contains the pattern of the whole. As in a holographic image, each fragment carries the information of the entirety. Every atom, every consciousness, every point of creation contains within it the totality of the One Infinite Creator."
+    ]
+  },
+  "illusion": {
+    "title": "Illusion",
+    "content": [
+      "The nature of manifested reality at any density. Illusion does not mean falsehood or nonexistence. It is reality focused, particularized, experienced from within a limited perspective. The physical universe is an illusion in the sense that it is a specific pattern of vibrating light designed as a learning environment. Each density is itself a distinct illusion with its own lessons. The purpose of illusion is not deception but education."
+    ]
+  },
+  "incarnation-review": {
+    "title": "Incarnation Review",
+    "content": [
+      "The self-assessment conducted by the entity after death, in the conditions of time/space. The review is not an external judgment—there is no tribunal, no auditor, no authority that pronounces sentence.",
+      "Rather, the entity, assisted by its Higher Self, examines the totality of its incarnation without the veil: every choice, every action, every moment of love given or withheld, experienced from all perspectives including those of the beings affected. The review assesses the degree of polarization achieved, catalyst used and unused, and biases developed. It is both humbling and liberating, as self-deception becomes impossible and understanding replaces guilt."
+    ]
+  },
+  "indigo-ray": {
+    "title": "Indigo Ray (Sixth Density)",
+    "content": [
+      "The vibration corresponding to sixth density—the cycle of unity. Love and wisdom, having been separately developed, are balanced and integrated. Consciousness begins to turn toward reunion with the undifferentiated Infinite."
+    ]
+  },
+  "indras-net": {
+    "title": "Indra's Net",
+    "content": [
+      "Buddhist and Hindu metaphor describing the universe as an infinite net with a jewel at each node. Each jewel reflects all others, illustrating how every part of the cosmos contains and reflects the whole. An ancient parallel to the modern holographic principle."
+    ]
+  },
+  "infinite": {
+    "title": "The Infinite",
+    "content": [
+      "The first known thing in creation. The Infinite is not merely a vastness or expanse but the formless totality prior to all manifestation—the pure potential from which all things emerge. It is creation itself, without boundary, without edge, without beginning or end. The Infinite becomes aware, and from that awareness, all that exists proceeds."
+    ]
+  },
+  "infinity": {
+    "title": "Infinity",
+    "content": [
+      "The boundless totality, the pure potential prior to all manifestation. See: **Infinite**.",
+      "Infinity is not a measurable vastness but the absence of the very concept of limit. It is both the source and destination of all that exists—the alpha and omega of creation."
+    ]
+  },
+  "inner-planes": {
+    "title": "Inner Planes",
+    "content": [
+      "The non-physical dimensions of a planetary sphere where discarnate beings dwell. The inner planes are home to guides and teachers who have completed their own third-density experience and chosen to remain in service to those still incarnate.",
+      "These inner-plane teachers are distinct from the Higher Self—they are other selves who offer companionship and support from shared experience. The inner planes also serve as the domain through which an entity transitions between incarnations."
+    ]
+  },
+  "intelligent-energy": {
+    "title": "Intelligent Energy",
+    "content": [
+      "The active, kinetic principle that flows when intelligent infinity is focused through consciousness. Where intelligent infinity is the undistorted potential, intelligent energy is what arises when that potential is tapped by a focus of awareness. It is the energy through which creation becomes manifest—the current set in motion by the Creator's awareness."
+    ]
+  },
+  "intelligent-infinity": {
+    "title": "Intelligent Infinity",
+    "content": [
+      "The undifferentiated unity of all that is—without polarity, without finity, full and whole. Its rhythms are totally without distortion. The term carries a dual meaning: in one sense, the undistorted unity beyond all potential or kinetic quality; in another, the vast potential available to be tapped by focuses of intelligent energy. Intelligent infinity beats like a great heart, outward from the Central Sun, outward and inward, until all coalesces once more."
+    ]
+  },
+  "karma": {
+    "title": "Karma",
+    "content": [
+      "In this teaching, karma is understood not as punishment, cosmic retribution, or a mechanical ledger of debits and credits, but as inertia—the momentum of consciousness created by deliberate, unloving actions. Only conscious actions of an unloving nature generate karma; unconscious actions, those taken in ignorance rather than in knowing disregard, do not.",
+      "This inertial force carries forward across incarnations, shaping future experience until it is resolved. The resolution of karma is specific: forgiveness—whether of another or of oneself—removes the wheel of action. Every act of genuine forgiveness halts some portion of the momentum; every held grievance keeps it turning.",
+      "For wanderers, karma represents a particular risk: if a wanderer generates sufficient karmic entanglement during its third-density incarnation, it may become bound to the cycle of third-density incarnation until the distortions are balanced."
+    ]
+  },
+  "kybalion": {
+    "title": "The Kybalion",
+    "content": [
+      "A 1908 text presenting seven Hermetic principles attributed to Hermes Trismegistus: Mentalism (all is mind), Correspondence (as above so below), Vibration, Polarity, Rhythm, Cause and Effect, and Gender. Summarizes teachings from the ancient Hermetic tradition."
     ]
   },
   "law-of-confusion": {
@@ -138,13 +351,44 @@
       "\"Confusion\" (not knowing all the answers) is necessary for genuine choice."
     ]
   },
-  "mind-body-spirit": {
-    "title": "Mind/Body/Spirit Complex",
+  "light": {
+    "title": "Light (Third Distortion)",
     "content": [
-      "The technical term for a conscious being like a human.",
-      "\"Complex\" because we are an integration of three aspects:",
-      "**Mind** — thought, will / **Body** — physical vehicle / **Spirit** — connection to Infinity",
-      "Spirit becomes fully activated in third density with self-awareness."
+      "The third primal distortion of the Law of One, arising from the dynamic between Free Will and Love. Light is the vibratory distortion of infinity that serves as the building block of all matter. The photon is its first product—created by the vibration of Love. Through quantized rotations of angular velocity, light condenses into the chemical elements and all material forms."
+    ]
+  },
+  "light-touch": {
+    "title": "Light Touch",
+    "content": [
+      "The capacity to hold difficulty without being crushed by it—to take the incarnation seriously without taking it with unrelieved gravity.",
+      "The light touch involves finding humor in one's own predicament, perspective in crisis, and even quiet joy in the midst of hardship. It does not diminish suffering but changes the seeker's relationship to it, allowing suffering to be felt fully within the context of a larger awareness that perceives purpose."
+    ]
+  },
+  "logos": {
+    "title": "Logos",
+    "content": [
+      "The focused consciousness of the Infinite acting as the generative principle of creation, also called Love. A Logos is the creative intelligence governing a particular domain of creation—from a galaxy to a solar system to an individual being. The galactic Logos establishes the fundamental natural laws for its entire creation; sub-Logos entities (such as stars) operate within those laws while exercising their own creative freedom."
+    ]
+  },
+  "love": {
+    "title": "Love (Second Distortion)",
+    "content": [
+      "Not primarily an emotion, but the creative principle itself—the cohesive force of the universe.",
+      "The energy of supreme order that causes forms to exist, things to hold together, creation to have structure.",
+      "Also called Logos or Creative Principle."
+    ]
+  },
+  "magical-personality": {
+    "title": "Magical Personality",
+    "content": [
+      "A state achieved through sustained practice and genuine surrender of the personal will, in which the incarnate self operates in close alignment with the Higher Self.",
+      "During these brief periods, the entity perceives and acts from a perspective broader than the ordinary personality can sustain, offering a glimpse of the unified self beyond the veil. This state cannot be maintained indefinitely in third density—attempting to sustain it beyond one's capacity damages rather than deepens the connection."
+    ]
+  },
+  "major-cycle": {
+    "title": "Major Cycle",
+    "content": [
+      "A period of approximately 25,000 years within the master cycle of third density. Earth's 75,000-year master cycle contains three major cycles, each ending with an opportunity for harvest. We are now at the end of the third major cycle."
     ]
   },
   "maldek": {
@@ -159,190 +403,10 @@
       "The Red Planet, once home to third-density life. Its population's tendency toward warfare made the atmosphere inhospitable before their cycle ended. Approximately 75,000 years ago, the Guardians transferred their genetic material to Earth, beginning Earth's third-density experience."
     ]
   },
-  "guardians": {
-    "title": "Guardians",
-    "content": [
-      "Higher-density entities who watch over planetary evolution without direct interference. They instituted Earth's quarantine after the transfer from Mars, ensuring that free will is respected. They permit contact only under specific circumstances."
-    ]
-  },
-  "confederation": {
-    "title": "Confederation",
-    "content": [
-      "A group of positive-polarity entities and social memory complexes from various densities who seek to serve others throughout the galaxy. They offer teaching and assistance to those who call for it, always respecting free will. Their methods contrast with those of the Orion group."
-    ]
-  },
-  "quarantine": {
-    "title": "Quarantine",
-    "content": [
-      "The protective isolation of Earth instituted by the Guardians approximately 75,000 years ago. It prevents direct interference from other-density entities, ensuring that Earth's population works out its destiny through free will. The quarantine can be breached only under specific conditions."
-    ]
-  },
-  "veil": {
-    "title": "Veil of Forgetting",
-    "content": [
-      "The condition in third density where consciousness forgets its cosmic origins, past lives, and the unity of all things. The veil makes choices meaningful—without it, the choice between polarities would be obvious and lack transformative power. It sharpens experience to a degree beyond imagination."
-    ]
-  },
-  "karma": {
-    "title": "Karma",
-    "content": [
-      "The consequences of actions that must be balanced. Not punishment but a natural law of cause and effect operating across incarnations. Entities may choose to alleviate karma through specific experiences or forms of service. The entities of Maldek chose second-density incarnation as karmic alleviation."
-    ]
-  },
-  "kybalion": {
-    "title": "The Kybalion",
-    "content": [
-      "A 1908 text presenting seven Hermetic principles attributed to Hermes Trismegistus: Mentalism (all is mind), Correspondence (as above so below), Vibration, Polarity, Rhythm, Cause and Effect, and Gender. Summarizes teachings from the ancient Hermetic tradition."
-    ]
-  },
-  "harvest": {
-    "title": "Harvest",
-    "content": [
-      "The transition point at the end of a major cycle when entities are assessed for their readiness to move to the next density. Those who have sufficiently polarized (51%+ positive or 95%+ negative) graduate. Those who have not made the choice repeat third density elsewhere. Earth's harvest is now underway."
-    ]
-  },
-  "orion-group": {
-    "title": "Orion Group",
-    "content": [
-      "Entities of negative polarity (service to self) who seek to influence third-density populations toward separation, control, and the belief in elite status. They work through the windows in the quarantine, offering power to those who call for it. Their teachings emphasize specialness and domination."
-    ]
-  },
-  "major-cycle": {
-    "title": "Major Cycle",
-    "content": [
-      "A period of approximately 25,000 years within the master cycle of third density. Earth's 75,000-year master cycle contains three major cycles, each ending with an opportunity for harvest. We are now at the end of the third major cycle."
-    ]
-  },
   "master-cycle": {
     "title": "Master Cycle",
     "content": [
       "The complete span of third-density experience on a planet, approximately 75,000-76,000 years. At the end of the master cycle, all entities are harvested regardless of their progress—those ready graduate, those not ready find another third-density home."
-    ]
-  },
-  "higher-self": {
-    "title": "Higher Self",
-    "content": [
-      "The self at a point in the future that has achieved sufficient evolution to function as a guide for the incarnate self.",
-      "In sixth density, the entity merges with its higher self, completing a circuit of consciousness across time.",
-      "Before the veil, the higher self stood openly with the incarnate entity. After the veil, it must wait to be invited."
-    ]
-  },
-  "adept": {
-    "title": "Adept",
-    "content": [
-      "A seeker who has progressed significantly in the magical work of consciousness evolution.",
-      "The adept has achieved sufficient crystallization of the energy centers to work consciously with intelligent energy.",
-      "Within the adept is the potential to penetrate the veil and perceive unity directly."
-    ]
-  },
-  "form-maker": {
-    "title": "Form-Maker Body",
-    "content": [
-      "The indigo-ray body, also called the etheric body. It is the first body to activate upon death.",
-      "This body is an analog of intelligent energy itself—capable of shaping form according to consciousness.",
-      "The form-maker body and the Higher Self work together to place the entity in proper configuration for healing between incarnations."
-    ]
-  },
-  "time-space": {
-    "title": "Time/Space",
-    "content": [
-      "The metaphysical counterpart to space/time. In time/space, space is fixed while time becomes fluid.",
-      "Between incarnations, entities exist in time/space where they can review experiences from any point, revisiting moments and understanding what was hidden during life.",
-      "Dreams offer a faint echo of this realm, where time behaves strangely and past or future may be glimpsed."
-    ]
-  },
-  "energy-centers": {
-    "title": "Energy Centers",
-    "content": [
-      "Seven centers along the axis of being that receive and process the light that animates all existence. Also called rays or chakras in various traditions.",
-      "Not mere metaphors but the actual mechanisms through which consciousness interfaces with the physical vehicle and spiritual evolution occurs.",
-      "Each center corresponds to a color of the spectrum, a density of consciousness, and a body within the complex of bodies."
-    ]
-  },
-  "red-ray": {
-    "title": "Red Ray",
-    "content": [
-      "The first energy center, located at the base of the spine. The foundation of all else.",
-      "Deals with survival, physical existence, and the most basic expressions of sexuality.",
-      "This center is always somewhat active in any incarnate being—if it were completely blocked, the entity would not be alive."
-    ]
-  },
-  "orange-ray": {
-    "title": "Orange Ray",
-    "content": [
-      "The second energy center, located in the lower abdomen. Governs personal identity and one-to-one relationships.",
-      "When blocked, the distortion often manifests as difficulty accepting oneself or seeing others as objects rather than other-selves.",
-      "The ray of individual movement toward self-expression."
-    ]
-  },
-  "yellow-ray": {
-    "title": "Yellow Ray",
-    "content": [
-      "The third energy center, located at the solar plexus. Deals with the ego, personal power, and social relationships.",
-      "Here the individual encounters the group—family, community, society.",
-      "Blockages manifest as distortions toward power manipulation, struggles for dominance, or difficulty finding one's place in the social order."
-    ]
-  },
-  "green-ray": {
-    "title": "Green Ray",
-    "content": [
-      "The fourth energy center, located in the center of the chest. The heart of the system in every sense.",
-      "The ray of universal love—the ability to see all beings as other-selves, as the Creator in another form.",
-      "The center from which third-density beings may springboard toward infinite intelligence. The great transitional ray between personal and universal."
-    ]
-  },
-  "blue-ray": {
-    "title": "Blue Ray",
-    "content": [
-      "The fifth energy center, located at the throat. The first center that radiates outward as well as receiving.",
-      "Governs communication—not merely speaking, but the honest expression of self to self and to others.",
-      "Requires something your peoples possess in great scarcity: honesty. The free communication of self to other-self without reservation or manipulation."
-    ]
-  },
-  "indigo-ray": {
-    "title": "Indigo Ray",
-    "content": [
-      "The sixth energy center, sometimes called the third eye or pineal center. The gateway to intelligent infinity.",
-      "This is the center worked upon by the adept—the serious practitioner of the inner, hidden teachings.",
-      "The most common blockage manifests as a sense of unworthiness—the entity feels undeserving of direct contact with the infinite."
-    ]
-  },
-  "indras-net": {
-    "title": "Indra's Net",
-    "content": [
-      "Buddhist and Hindu metaphor describing the universe as an infinite net with a jewel at each node. Each jewel reflects all others, illustrating how every part of the cosmos contains and reflects the whole. An ancient parallel to the modern holographic principle."
-    ]
-  },
-  "violet-ray": {
-    "title": "Violet Ray",
-    "content": [
-      "The seventh energy center, at the crown. Unique among the energy centers.",
-      "Cannot be worked upon directly. Cannot be balanced or unbalanced in the way other centers can.",
-      "It is simply the total expression of the entity's vibratory complex—the sum of everything else. In harvest, it is this ray that is manifested to gauge the entity's readiness for the next density."
-    ]
-  },
-  "acceptance": {
-    "title": "Acceptance",
-    "content": [
-      "The key to positively polarized use of catalyst. The capacity to receive experience without resistance, embracing it as opportunity for learning.",
-      "Acceptance does not mean approval or resignation. It means acknowledging what is, allowing it to be fully seen and felt.",
-      "The opposite of control, which is the negative path's response. Between acceptance and control lies inaction, which leads to stagnation."
-    ]
-  },
-  "experience": {
-    "title": "Experience",
-    "content": [
-      "The result of catalyst when it has been processed. While catalyst is the raw material, experience is catalyst digested and assimilated.",
-      "Experience, when properly processed, becomes wisdom. Accumulated wisdom forms the basis of spiritual growth.",
-      "The purpose of incarnation is to gain experience—not to avoid it, but to use it for the evolution of being."
-    ]
-  },
-  "other-self": {
-    "title": "Other-Self",
-    "content": [
-      "Term for any other conscious being, recognizing that all beings are ultimately the same Creator experiencing itself.",
-      "The primary mechanism for catalytic experience in third density. Relationships with other-selves serve as mirrors, reflecting aspects of one's own being.",
-      "What disturbs you in another often indicates unresolved material within yourself. Other-selves are not merely companions on the journey; they are instruments of our evolution."
     ]
   },
   "meditation": {
@@ -353,92 +417,54 @@
       "Daily, persistent, patient practice is essential. The discipline must become part of the rhythm of life rather than an occasional effort."
     ]
   },
-  "sixth-density": {
-    "title": "Sixth Density",
+  "mind-body-spirit": {
+    "title": "Mind/Body/Spirit Complex",
     "content": [
-      "The density of unity, where the lessons of love (fourth density) and wisdom (fifth density) are balanced and integrated.",
-      "In mid-sixth density, the entity creates its Higher Self to serve as guide to its earlier selves across all incarnations.",
-      "The negative path cannot complete this density. At some point, the entity must accept unity or cease to evolve, switching polarity to continue."
+      "The technical term for a conscious being like a human.",
+      "\"Complex\" because we are an integration of three aspects:",
+      "**Mind** — thought, will / **Body** — physical vehicle / **Spirit** — connection to Infinity",
+      "Spirit becomes fully activated in third density with self-awareness."
     ]
   },
-  "totality-complex": {
-    "title": "Mind/Body/Spirit Complex Totality",
+  "mind-body-spirit-complex": {
+    "title": "Mind/Body/Spirit Complex",
     "content": [
-      "The sum of all possible experiences and developments of an entity across all timelines and probability vortices.",
-      "Exists in a dimension where time holds no sway—a nebulous collection of everything you may become.",
-      "Serves as a resource for the Higher Self, which translates this infinite potential into guidance appropriate for the incarnate self."
+      "The technical term for a conscious being—what is commonly called a person. The complex consists of three interrelated aspects: the mind (seat of thought, will, and emotion), the body (the physical vehicle for experience), and the spirit (the channel to Intelligent Infinity).",
+      "The three aspects are not separate parts assembled together but facets of a single unified entity. Each aspect influences and is influenced by the others. In third density, the veil of forgetting obscures the spirit complex from the conscious mind, creating the conditions necessary for the Choice."
     ]
   },
-  "calling": {
-    "title": "The Calling",
+  "octave": {
+    "title": "The Octave",
     "content": [
-      "The sincere seeking of an individual or group that creates an opening for service from higher-density beings.",
-      "Positive entities wait for calling before offering assistance, respecting free will. Negative entities do not wait—they call themselves to service.",
-      "The quality of the calling determines the quality of the response. Those who seek deep truth receive correspondingly deeper communication."
+      "Just as in music there are 7 notes (do-re-mi-fa-sol-la-ti) before the cycle restarts at a higher level, creation has 7 densities of experience.",
+      "The octave marks the return to unity and a new beginning at a vaster level.",
+      "This 7+1 pattern repeats throughout all creation."
     ]
   },
-  "dual-activated": {
-    "title": "Dual-Activated Bodies",
+  "orange-ray": {
+    "title": "Orange Ray (Second Density)",
     "content": [
-      "Physical vehicles capable of appreciating fourth-density vibratory complexes while still functioning within the third-density environment.",
-      "These bodies appear during the transition period as entities harvested from other third-density planets begin incarnating on Earth.",
-      "Those with dual activation often seem more sensitive, more aware, more naturally oriented toward love and transparency."
+      "The vibration corresponding to second density—the cycle of growth and movement. Orange ray characterizes plant and animal life: consciousness that moves with purpose, strives toward light, and begins to individualize. It is the expression of self as movement and survival."
     ]
   },
-  "faith": {
-    "title": "Faith",
+  "original-thought": {
+    "title": "The Original Thought",
     "content": [
-      "The capacity to trust without certainty, to choose love when proof is absent, to maintain orientation despite confusion.",
-      "Faith exercised in uncertainty is worth infinitely more than compliance with the obvious. The veil exists precisely to make faith possible.",
-      "Not belief in specific doctrines but trust in the fundamental goodness and meaning of existence."
+      "The single unified thought from which all of creation proceeds. Not a concept or mental abstraction, but the primordial creative impulse of the Infinite — consciousness moving with intention. Its substance is Love (the Logos), its expression is Light, and its method is Free Will. All things, all of life, all of creation are part of this one thought. The diversity of the universe does not indicate many thoughts but reveals the infinite richness of one. To harmonize with the Original Thought is not a systematic process but a fluid blending of energies — what might be called a tone poem rather than a mechanism."
     ]
   },
-  "wanderers": {
-    "title": "Wanderers",
+  "orion-group": {
+    "title": "Orion Group",
     "content": [
-      "Entities from higher densities who have chosen to incarnate in third density to serve during this critical period of transition.",
-      "They accept the veil of forgetting like all third-density beings, often experiencing a sense of alienation or not belonging.",
-      "Their purpose is to lighten the planetary vibration and assist with the harvest, though they risk becoming karmically involved if they fail to penetrate the veil sufficiently."
+      "Entities of negative polarity (service to self) who seek to influence third-density populations toward separation, control, and the belief in elite status. They work through the windows in the quarantine, offering power to those who call for it. Their teachings emphasize specialness and domination."
     ]
   },
-  "fourth-density": {
-    "title": "Fourth Density",
+  "other-self": {
+    "title": "Other-Self",
     "content": [
-      "The density of love and understanding, where the lessons of compassion are learned and the social memory complex begins to form.",
-      "Earth has already entered fourth-density vibration. The planetary consciousness has not yet caught up with this shift.",
-      "In fourth density, thoughts begin to become things. The stakes of consciousness rise as manifestation becomes more immediate."
-    ]
-  },
-  "fifth-density": {
-    "title": "Fifth Density",
-    "content": [
-      "The density of wisdom. The blue ray. This density emphasizes light and deep knowledge of the laws of creation.",
-      "In fifth density, the lessons of love learned in fourth density are refined through wisdom. Entities spend considerable time in solitude, contemplating and integrating understanding. The positive path maintains community and communion; the negative path leads to increasing isolation.",
-      "Fifth-density wanderers who incarnate in third density often feel an aversion to the typical social structures and may struggle with the emotional intensity of this environment, having become accustomed to wisdom's clarity."
-    ]
-  },
-  "fractal": {
-    "title": "Fractal",
-    "content": [
-      "A structure that repeats its pattern at every scale, from the infinitely large to the infinitely small. Within each density there are seven sub-densities; within each sub-density, seven more—infinitely.",
-      "This principle reveals how the One explores itself: the same fundamental patterns appear in galaxies as in atoms, in the architecture of consciousness as in the growth of trees. The universe is not merely large; it is **self-similar** at every level of magnification.",
-      "The fractal nature of creation means that by deeply understanding any portion of existence, one may glimpse the whole. Each fragment contains the pattern of totality."
-    ]
-  },
-  "holographic": {
-    "title": "Holographic",
-    "content": [
-      "A principle by which each part, no matter how small, contains the information of the whole. Every point in creation is a point of access to the Infinite.",
-      "Mahayana Buddhism described this as **Indra's Net**: a web of jewels where each jewel reflects all others, and each reflection contains the reflections of all other jewels, unto infinity.",
-      "In practical terms, this means that the seeker need not travel to find the Creator. The gateway to intelligent infinity exists within each entity, in each moment, at every point in space and time."
-    ]
-  },
-  "illusion": {
-    "title": "Illusion",
-    "content": [
-      "The focused, particularized reality experienced in any given density. This term does NOT mean \"false\" or \"unreal.\" The physical universe is illusion in the sense that it consists of patterns of vibrating light/energy rather than permanent, solid substance.",
-      "The Vedic tradition calls this **Maya**—not that the world is fake, but that its true nature is veiled. The illusion is not that things do not exist, but that we perceive them as separate when they are manifestations of a single consciousness.",
-      "Each density offers a more refined illusion, providing the conditions necessary for specific lessons. Third density's illusion, thickened by the veil of forgetting, creates the potent conditions for the Choice."
+      "Term for any other conscious being, recognizing that all beings are ultimately the same Creator experiencing itself.",
+      "The primary mechanism for catalytic experience in third density. Relationships with other-selves serve as mirrors, reflecting aspects of one's own being.",
+      "What disturbs you in another often indicates unresolved material within yourself. Other-selves are not merely companions on the journey; they are instruments of our evolution."
     ]
   },
   "photon": {
@@ -449,12 +475,96 @@
       "Modern physics confirms what ancient wisdom suggested: at the most fundamental level, what we call \"matter\" is patterns of light energy. The photon bridges the metaphysical and the physical, consciousness and manifestation."
     ]
   },
+  "polarity": {
+    "title": "Polarity",
+    "content": [
+      "The fundamental orientation chosen by a self-aware entity: either toward service to others (positive) or service to self (negative). Polarity is not moral judgment but the mechanism by which consciousness accelerates its evolution. Both paths are valid evolutionary choices that ultimately serve the Creator's self-knowledge."
+    ]
+  },
+  "polarization": {
+    "title": "Polarization",
+    "content": [
+      "The process of intensifying one's orientation toward either service to others or service to self. The active work of the Choice. See: **Polarity**.",
+      "Polarization is measured not by individual actions but by the overall orientation of the entity's being. It is the cumulative direction of countless choices, large and small, that determines whether an entity has polarized sufficiently for harvest."
+    ]
+  },
+  "pre-incarnative-choice": {
+    "title": "Pre-Incarnative Choice",
+    "content": [
+      "The selections made by an entity before birth regarding the themes, relationships, and circumstances of its upcoming incarnation. These choices are not a selection of specific events but of experiential conditions -- agreements with other selves, planned limitations, and catalytic themes -- designed to focus growth in particular areas. The outcomes are not guaranteed; they create opportunities, not obligations. Pre-incarnative choices are made from beyond the veil, where the entity has full awareness of its evolutionary needs and can review the lessons of previous incarnations."
+    ]
+  },
+  "quarantine": {
+    "title": "Quarantine",
+    "content": [
+      "The protective isolation of Earth instituted by the Guardians approximately 75,000 years ago. It prevents direct interference from other-density entities, ensuring that Earth's population works out its destiny through free will. The quarantine can be breached only under specific conditions."
+    ]
+  },
+  "ray": {
+    "title": "Ray",
+    "content": [
+      "A vibration of light corresponding to a specific energy center within the mind/body/spirit complex. There are seven rays, each associated with a color, a density, and a domain of experience—from red (survival, first density) through violet (totality of being, seventh density).",
+      "The rays are not merely symbolic. They represent actual vibratory frequencies through which consciousness expresses and develops. Spiritual evolution can be understood as the progressive activation, balancing, and integration of each ray in sequence, though the work is never purely linear."
+    ]
+  },
+  "rays": {
+    "title": "Rays",
+    "content": [
+      "Specific vibrations of light corresponding to each density and each energy center. The seven colors: red, orange, yellow, green, blue, indigo, violet. See: **Energy Centers**.",
+      "Each ray carries particular qualities and lessons. The rays are not merely symbolic but represent actual vibrational frequencies through which consciousness experiences and evolves. The progression through the rays mirrors the progression through the densities."
+    ]
+  },
+  "red-ray": {
+    "title": "Red Ray (First Density)",
+    "content": [
+      "The most foundational vibration, corresponding to first density—the cycle of awareness. Red ray is the density of the elements: fire, wind, water, and earth. Consciousness in first density exists in its simplest form—the awareness of being without directed movement or intentional growth. It is the foundation upon which all higher densities are built."
+    ]
+  },
+  "second-density": {
+    "title": "Second Density",
+    "content": [
+      "The density of growth and movement, inhabited by plant and animal life. In second density, consciousness develops from simple biological awareness toward self-awareness. The most advanced second-density beings -- certain animals invested with identity by their companions -- may cross the threshold into third density, gaining the capacity for self-reflection and the awareness of the Creator within."
+    ]
+  },
   "self-awareness": {
     "title": "Self-Awareness",
     "content": [
-      "The capacity to be conscious of oneself as a separate entity, capable of observing its own thoughts, feelings, and existence. The defining characteristic of third density.",
-      "Self-awareness is both gift and burden. It enables the Choice—the fundamental decision between service to others and service to self—while simultaneously creating the experience of separation that makes this choice meaningful.",
-      "Without self-awareness, there is experience but no experiencer to claim it. The emergence of self-awareness marks the moment when the Creator, through the entity, begins to consciously know itself."
+      "The defining characteristic of third density: the capacity to recognize oneself as a distinct being, to reflect upon one's own existence, and to make conscious choices about one's orientation. Self-awareness transforms a mind/body complex into a mind/body/spirit complex—a being with an activated spiritual dimension."
+    ]
+  },
+  "service-to-others": {
+    "title": "Service to Others",
+    "content": [
+      "The positive polarity of the fundamental choice in third density—the orientation toward radiating love, compassion, and assistance to other beings. It is one of two evolutionary paths available to self-aware consciousness."
+    ]
+  },
+  "service-to-self": {
+    "title": "Service to Self",
+    "content": [
+      "The negative polarity of the fundamental choice in third density—the orientation toward absorption of energy, control, and the use of others for the enhancement of the self. It is one of two evolutionary paths, both of which ultimately serve the Creator's self-knowledge."
+    ]
+  },
+  "shepherd": {
+    "title": "Shepherd",
+    "content": [
+      "One of the three functions available to the awakened wanderer.",
+      "The shepherd function describes the wanderer's capacity to serve as a point of orientation for those who are seeking. Unlike the beacon, which is stationary, the shepherd moves among those it serves, guiding gently and protecting quietly.",
+      "This function does not require formal teaching or explicit spiritual communication. The wanderer's presence — its quality of attention, steadiness of compassion, and manner of inhabiting the world — naturally offers direction to those who are ready to perceive it."
+    ]
+  },
+  "sinkhole-of-indifference": {
+    "title": "Sinkhole of Indifference",
+    "content": [
+      "The condition of an entity that has not chosen either polarity—neither service to others nor service to self. Such entities do not accumulate sufficient polarization to graduate from third density and must repeat the entire cycle.",
+      "The term emphasizes that the absence of choice is not neutrality but a form of spiritual stagnation. Third density exists precisely for the purpose of making the Choice, and to pass through it without choosing is to miss its central lesson. The vast majority of entities who fail to harvest do so not through choosing wrongly but through failing to choose at all."
+    ]
+  },
+  "sixth-density": {
+    "title": "Sixth Density",
+    "content": [
+      "The density of unity, where the lessons of love (fourth density) and wisdom (fifth density) are balanced and integrated.",
+      "In mid-sixth density, the entity creates its Higher Self to serve as guide to its earlier selves across all incarnations.",
+      "The negative path cannot complete this density. At some point, the entity must accept unity or cease to evolve, switching polarity to continue."
     ]
   },
   "social-memory-complex": {
@@ -465,6 +575,13 @@
       "Social memory complexes form in fourth density and continue through sixth. They may consist of millions of mind/body/spirit complexes working as one being while maintaining the unique perspective of each constituent member."
     ]
   },
+  "space-time": {
+    "title": "Space/Time",
+    "content": [
+      "The physical mode of existence experienced during incarnation. In space/time, space is three-dimensional—an entity can move freely through length, width, and height—while time flows as a single, irreversible thread.",
+      "Space/time is the realm of lived experience, of catalyst, of the veil of forgetting. It is paired with time/space as two faces of a single fabric: space/time is reality experienced from the outside; time/space is reality experienced from the inside."
+    ]
+  },
   "spiral": {
     "title": "Spiral",
     "content": [
@@ -473,12 +590,37 @@
       "The upward spiraling light enters through the energy centers, drawn by the inner light of the entity. All evolution follows this spiraling movement, from the rotation of galaxies to the awakening of consciousness."
     ]
   },
+  "spirit-complex": {
+    "title": "Spirit Complex",
+    "content": [
+      "The aspect of the mind/body/spirit complex that serves as a channel or shuttle to Intelligent Infinity. The spirit complex is the least understood and most potent aspect of the self, providing the direct connection between the individual entity and the Creator.",
+      "In third density, the spirit complex is largely hidden behind the veil of forgetting, accessible primarily through meditation, will, and faith. It is through the spirit that an entity contacts its Higher Self and receives inspiration beyond the reach of the conscious mind. The spirit does not reason—it knows."
+    ]
+  },
+  "spiritual-gravity": {
+    "title": "Spiritual Gravity",
+    "content": [
+      "The attractive force that draws all consciousness back toward the Creator—the metaphysical counterpart of physical gravity. Just as mass attracts mass, the light of the Creator attracts the light within each being, creating a pull toward unity and return.",
+      "Spiritual gravity operates through all densities and intensifies as consciousness evolves. In seventh density, it becomes the dominant force, drawing the entity into reunion with the Infinite. The entire journey of creation can be understood as the outward expression and inward return of consciousness, guided by this fundamental attraction toward the source."
+    ]
+  },
+  "steps-of-light": {
+    "title": "Steps of Light",
+    "content": [
+      "The process by which an entity is assessed for harvestability at the end of a density cycle. After the cessation of the physical body, the entity moves into a corridor of progressively intensifying light. It advances until the light becomes too great to tolerate.",
+      "The point where the entity naturally stops determines its placement in the next cycle—whether it proceeds to the next density or repeats the current one. The process is entirely automatic and self-determined, with no external judge or authority involved."
+    ]
+  },
+  "sub-logos": {
+    "title": "Sub-Logos",
+    "content": [
+      "An individualized portion of a Logos that exercises creative freedom within the parameters established by the greater creative hierarchy. Stars are sub-Logos entities, governing their solar systems within the natural laws established by the galactic Logos. Sub-sub-Logos entities include planets operating in harmony with their inhabitants, and individual beings. Every entity, from star to person, is a focus of the Creator's creative principle."
+    ]
+  },
   "the-choice": {
     "title": "The Choice",
     "content": [
-      "The fundamental decision of third density: to orient toward service to others or toward service to self. The central purpose of this density of experience.",
-      "The Choice is not a single moment but an ongoing orientation that deepens over time. It is made possible by the veil of forgetting, which creates genuine uncertainty and thus genuine freedom. Without the veil, entities progressed very slowly, as the non-veiled condition was not conducive to polarization.",
-      "Both paths—positive and negative—are evolutionarily valid and lead eventually to the Creator. The Choice is not between \"good\" and \"evil\" but between two ways of understanding and relating to the unity of all things."
+      "The central purpose of third density: the fundamental decision each entity must make regarding the orientation of its being—toward service to others (the positive path) or toward service to self (the negative path). This choice determines the path of evolution through higher densities. It is made meaningful by the veil of forgetting, which prevents direct knowledge of unity."
     ]
   },
   "third-density": {
@@ -489,25 +631,73 @@
       "Graduation from third density requires sufficient polarization: 51% or more orientation toward service to others for positive harvest, or 95% or more orientation toward service to self for negative harvest. Those who do not polarize sufficiently repeat the cycle."
     ]
   },
-  "infinity": {
-    "title": "Infinity",
+  "time-space": {
+    "title": "Time/Space",
     "content": [
-      "The boundless totality, the pure potential prior to all manifestation. See: **Infinite**.",
-      "Infinity is not a measurable vastness but the absence of the very concept of limit. It is both the source and destination of all that exists—the alpha and omega of creation."
+      "The metaphysical inverse of space/time. In space/time—the realm of incarnate experience—space is freely navigated while time flows in one direction. In time/space, these properties are reversed: time becomes accessible in all directions while space is fixed.",
+      "Time/space is the domain in which the Higher Self and the totality complex operate, and where consciousness dwells between incarnations. It is the inner planes of existence, complementary to the outer planes of physical reality."
     ]
   },
-  "polarization": {
-    "title": "Polarization",
+  "totality-complex": {
+    "title": "Mind/Body/Spirit Complex Totality",
     "content": [
-      "The process of intensifying one's orientation toward either service to others or service to self. The active work of the Choice. See: **Polarity**.",
-      "Polarization is measured not by individual actions but by the overall orientation of the entity's being. It is the cumulative direction of countless choices, large and small, that determines whether an entity has polarized sufficiently for harvest."
+      "The sum total of all that an entity can become—a shifting, nebulous collection of all parallel developments, all probability vortices, and all branching possibilities extending from the entity's existence.",
+      "The totality exists in time/space and serves as a resource for the Higher Self, which draws upon this vast field of possibility to distill guidance appropriate for the incarnate entity.",
+      "Together with the incarnate self and the Higher Self, the totality forms three aspects of a single being viewed from different positions within the continuum."
     ]
   },
-  "rays": {
-    "title": "Rays",
+  "universal-love": {
+    "title": "Universal Love",
     "content": [
-      "Specific vibrations of light corresponding to each density and each energy center. The seven colors: red, orange, yellow, green, blue, indigo, violet. See: **Energy Centers**.",
-      "Each ray carries particular qualities and lessons. The rays are not merely symbolic but represent actual vibrational frequencies through which consciousness experiences and evolves. The progression through the rays mirrors the progression through the densities."
+      "The quality of love associated with the green-ray energy center: love without condition, distinction, or expectation of return. Universal love is not selective affection but the recognition of the Creator in all beings equally. It is the essential quality that enables the transition from the personal and social concerns of the lower energy centers to the radiant and co-creative work of the higher centers."
+    ]
+  },
+  "unpotentiated": {
+    "title": "Unpotentiated",
+    "content": [
+      "The state of infinite potential prior to any differentiation or manifestation. Before the first distortion, Intelligent Infinity exists as pure, undifferentiated being—complete yet unexperienced.",
+      "The unpotentiated is not emptiness but fullness without form. It is the condition in which all possibilities exist simultaneously, none yet actualized. Creation begins when the unpotentiated becomes potentiated through the free will of the Infinite to know itself."
+    ]
+  },
+  "veil": {
+    "title": "Veil of Forgetting",
+    "content": [
+      "The condition in third density where consciousness forgets its cosmic origins, past lives, and the unity of all things. The veil makes choices meaningful—without it, the choice between polarities would be obvious and lack transformative power. It sharpens experience to a degree beyond imagination."
+    ]
+  },
+  "violet-ray": {
+    "title": "Violet Ray (Seventh Density)",
+    "content": [
+      "The vibration corresponding to seventh density—the gateway cycle. The threshold toward the mystery of infinity, where consciousness prepares for its return to the all. At this level, individual identity begins to dissolve into unity."
+    ]
+  },
+  "wanderer": {
+    "title": "Wanderer",
+    "content": [
+      "An entity who has evolved beyond third density and has voluntarily chosen to incarnate in a third-density world during a time of planetary transition.",
+      "The wanderer submits to the full veil of forgetting upon incarnation, losing all conscious memory of its origins, its mission, and its true nature. Wanderers come from fourth, fifth, or sixth density, with the majority originating from sixth density.",
+      "Their primary purpose is to serve the population of the world they enter — by lightening the planetary vibration through their presence, by serving as beacons or shepherds for those who seek, and by offering whatever unique gifts they have designed into their incarnation."
+    ]
+  },
+  "wanderers": {
+    "title": "Wanderers",
+    "content": [
+      "Entities from higher densities who have chosen to incarnate in third density to serve during this critical period of transition.",
+      "They accept the veil of forgetting like all third-density beings, often experiencing a sense of alienation or not belonging.",
+      "Their purpose is to lighten the planetary vibration and assist with the harvest, though they risk becoming karmically involved if they fail to penetrate the veil sufficiently."
+    ]
+  },
+  "wisdom": {
+    "title": "Wisdom",
+    "content": [
+      "The crystallized result of fully processed experience. Wisdom is not intellectual knowledge but a fundamental shift in the structure of being.",
+      "It emerges gradually from experience that has been seeded in the deep mind, where it germinates beneath ordinary awareness. The entity who has attained wisdom regarding a particular lesson has not merely learned it but has become it."
+    ]
+  },
+  "yellow-ray": {
+    "title": "Yellow Ray (Third Density)",
+    "content": [
+      "The vibration corresponding to third density—the cycle of self-awareness. Yellow ray is the density of the choice, where entities become conscious of themselves as distinct beings and must decide their fundamental orientation: toward service to others or service to self. It is the first density of consciousness of spirit."
     ]
   }
 }

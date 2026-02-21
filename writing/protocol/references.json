@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "description": "Registro central de todas las claves {ref:category:id} usadas en el libro. El QA de lectura (06_QA_READING_PROTOCOL.md) verifica que cada {ref:} en el texto exista aquí.",
+    "categories": {
+      "phys": "Física — mecánica cuántica, termodinámica, cosmología observacional",
+      "astro": "Astronomía — objetos celestes, estructuras galácticas",
+      "phil": "Filosofía — corrientes, pensadores, conceptos",
+      "trad": "Tradiciones espirituales — textos sagrados, prácticas contemplativas",
+      "text": "Textos específicos — obras citables por título",
+      "math": "Matemáticas — geometría, fractales, teoría de sistemas"
+    },
+    "updated": "2026-02-12"
+  },
+
+  "references": [
+    {
+      "key": "phys:photon",
+      "title": "The Photon",
+      "description": "The photon as fundamental unit of light — massless, without charge, carrier of electromagnetic force. Resonance with Ra's description of light as the building material of creation.",
+      "first_used": "ch01"
+    },
+    {
+      "key": "phys:quantum-mechanics",
+      "title": "Quantum Mechanics",
+      "description": "The framework describing nature at atomic and subatomic scales, where observation and probability replace deterministic certainty.",
+      "first_used": "ch01"
+    },
+    {
+      "key": "phys:holographic-principle",
+      "title": "The Holographic Principle",
+      "description": "The principle that information contained in a volume of space can be described by a theory on its boundary. Resonance with Ra's teaching that each part contains the whole.",
+      "first_used": "ch01"
+    },
+    {
+      "key": "phys:self-similarity",
+      "title": "Self-Similarity (Fractals)",
+      "description": "The property of structures that repeat their pattern at every scale. Resonance with the fractal/holographic nature of creation described by Ra.",
+      "first_used": "ch01"
+    },
+    {
+      "key": "phys:spiral-galaxies",
+      "title": "Spiral Galaxies",
+      "description": "Galaxies exhibiting spiral arm structure, echoing Ra's teaching on the spiraling nature of light and energy.",
+      "first_used": "ch01"
+    },
+    {
+      "key": "phys:black-holes",
+      "title": "Black Holes",
+      "description": "Regions of spacetime where gravity is so extreme that nothing can escape. A point where physics meets mystery, resonating with the concept of Intelligent Infinity as gateway.",
+      "first_used": "ch01"
+    },
+    {
+      "key": "phil:plato-cave",
+      "title": "Plato's Allegory of the Cave",
+      "description": "From Republic Book VII — prisoners perceive shadows as reality until one escapes to see the light. Resonance with Ra's teaching on illusion and the veiled condition.",
+      "first_used": "ch01"
+    },
+
+    {
+      "key": "phil:idealism",
+      "title": "Philosophical Idealism",
+      "description": "The position that reality is fundamentally mental or consciousness-based. Resonance with Ra's teaching that consciousness precedes and generates matter.",
+      "first_used": "ch02"
+    },
+    {
+      "key": "phil:panpsychism",
+      "title": "Panpsychism",
+      "description": "The view that consciousness or mind-like qualities are fundamental and ubiquitous in nature. A modern philosophical echo of Ra's teaching that all matter is alive with consciousness.",
+      "first_used": "ch02"
+    },
+    {
+      "key": "phil:spinoza",
+      "title": "Spinoza — Deus sive Natura",
+      "description": "Baruch Spinoza's identification of God with Nature (Deus sive Natura) — a single substance with infinite attributes. Resonance with Ra's description of an immanent Creator that IS creation.",
+      "first_used": "ch02"
+    },
+    {
+      "key": "phil:upanishads",
+      "title": "The Upanishads — Tat Tvam Asi",
+      "description": "Ancient Indian philosophical texts. 'Tat tvam asi' (Thou art That) from the Chandogya Upanishad declares the identity of the individual self with the ultimate reality. Direct echo of Ra's teaching that each entity IS the Creator.",
+      "first_used": "ch02"
+    },
+    {
+      "key": "phys:observer-effect",
+      "title": "The Observer Effect",
+      "description": "In quantum mechanics, the act of observation affects the system being observed. Suggests a role for consciousness in the structure of physical reality, resonating with Ra's teaching on the primacy of consciousness.",
+      "first_used": "ch02"
+    }
+  ]
+}

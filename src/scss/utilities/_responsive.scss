@@ -45,6 +45,14 @@
   .theme-toggle {
     right: 120px; // Position 120px from right to leave space with notes button
   }
+
+  .sec-context-btn {
+    display: inline-flex;
+  }
+
+  .notes-sources-area {
+    margin-top: $spacing-md;
+  }
 }
 
 @include mobile {
@@ -58,6 +66,10 @@
 
   .sec-title {
     font-size: 1.15rem;
+  }
+
+  .notes-context-title {
+    font-size: 0.95rem;
   }
 
   .main {

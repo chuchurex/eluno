@@ -1,0 +1,78 @@
+# ═══════════════════════════════════════════════════════════════
+# _redirects — eluno.org (V1 → V3 migration)
+# ═══════════════════════════════════════════════════════════════
+
+# Root: served by /index.html (EN copy, no redirect needed)
+
+# ───────────────────────────────────────────────────────────────
+# V1 English chapters: /ch{N}/ → /en/chapters/{slug}.html
+# ───────────────────────────────────────────────────────────────
+/ch1/ /en/chapters/cosmology-and-genesis.html 301
+/ch2/ /en/chapters/the-creator-and-creation.html 301
+/ch3/ /en/chapters/the-densities-of-consciousness.html 301
+/ch4/ /en/chapters/earth-s-spiritual-history.html 301
+/ch5/ /en/chapters/polarity-the-two-paths.html 301
+/ch6/ /en/chapters/wanderers-those-who-return.html 301
+/ch7/ /en/chapters/the-harvest.html 301
+/ch8/ /en/chapters/the-veil-of-forgetting.html 301
+/ch9/ /en/chapters/death-and-the-journey-between-lives.html 301
+/ch10/ /en/chapters/the-energy-centers.html 301
+/ch11/ /en/chapters/catalyst-and-experience.html 301
+/ch12/ /en/chapters/the-higher-self-and-guidance.html 301
+/ch13/ /en/chapters/free-will-and-the-law-of-confusion.html 301
+/ch14/ /en/chapters/the-path-of-the-seeker.html 301
+/ch15/ /en/chapters/balancing-and-healing.html 301
+/ch16/ /en/chapters/the-mystery-remains.html 301
+
+# ───────────────────────────────────────────────────────────────
+# V1 Spanish chapters: /es/ch{N}/ → /es/chapters/{slug}.html
+# ───────────────────────────────────────────────────────────────
+/es/ch1/ /es/chapters/cosmologia-y-genesis.html 301
+/es/ch2/ /es/chapters/el-creador-y-la-creacion.html 301
+/es/ch3/ /es/chapters/las-densidades-de-conciencia.html 301
+/es/ch4/ /es/chapters/historia-espiritual-de-la-tierra.html 301
+/es/ch5/ /es/chapters/polaridad-los-dos-caminos.html 301
+/es/ch6/ /es/chapters/errantes-los-que-regresan.html 301
+/es/ch7/ /es/chapters/la-cosecha.html 301
+/es/ch8/ /es/chapters/el-velo-del-olvido.html 301
+/es/ch9/ /es/chapters/la-muerte-y-el-viaje-entre-vidas.html 301
+/es/ch10/ /es/chapters/los-centros-de-energia.html 301
+/es/ch11/ /es/chapters/catalizador-y-experiencia.html 301
+/es/ch12/ /es/chapters/el-yo-superior-y-la-guia.html 301
+/es/ch13/ /es/chapters/el-libre-albedrio-y-la-ley-de-la-confusion.html 301
+/es/ch14/ /es/chapters/el-camino-del-buscador.html 301
+/es/ch15/ /es/chapters/equilibrio-y-sanacion.html 301
+/es/ch16/ /es/chapters/el-misterio-permanece.html 301
+
+# ───────────────────────────────────────────────────────────────
+# V1 Portuguese chapters: /pt/ch{N}/ → /pt/chapters/{slug}.html
+# ───────────────────────────────────────────────────────────────
+/pt/ch1/ /pt/chapters/cosmologia-e-genese.html 301
+/pt/ch2/ /pt/chapters/o-criador-e-a-criacao.html 301
+/pt/ch3/ /pt/chapters/as-densidades-de-consciencia.html 301
+/pt/ch4/ /pt/chapters/historia-espiritual-da-terra.html 301
+/pt/ch5/ /pt/chapters/polaridade-os-dois-caminhos.html 301
+/pt/ch6/ /pt/chapters/errantes-os-que-retornam.html 301
+/pt/ch7/ /pt/chapters/a-colheita.html 301
+/pt/ch8/ /pt/chapters/o-veu-do-esquecimento.html 301
+/pt/ch9/ /pt/chapters/a-morte-e-a-jornada-entre-vidas.html 301
+/pt/ch10/ /pt/chapters/os-centros-de-energia.html 301
+/pt/ch11/ /pt/chapters/catalisador-e-experiencia.html 301
+/pt/ch12/ /pt/chapters/o-eu-superior-e-a-orientacao.html 301
+/pt/ch13/ /pt/chapters/o-livre-arbitrio-e-a-lei-da-confusao.html 301
+/pt/ch14/ /pt/chapters/a-colheita-e-a-transicao.html 301
+/pt/ch15/ /pt/chapters/equilibrio-e-cura.html 301
+/pt/ch16/ /pt/chapters/o-misterio-permanece.html 301
+
+# ───────────────────────────────────────────────────────────────
+# V1 About pages → V3 About
+# ───────────────────────────────────────────────────────────────
+/about/ /en/about.html 301
+/es/about/ /es/about.html 301
+/pt/about/ /pt/about.html 301
+
+# ───────────────────────────────────────────────────────────────
+# V1 PDF/audiobook → static.eluno.org
+# ───────────────────────────────────────────────────────────────
+/pdf/* https://static.eluno.org/pdf/:splat 301
+/audiobook/* https://static.eluno.org/audiobook/:splat 301

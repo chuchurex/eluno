@@ -39,7 +39,8 @@ const ATTRIBUTION = {
   es: {
     comment: 'Basado en el Material Ra © L/L Research. Original: llresearch.org',
     copyright: '© L/L Research (fuente) / eluno.org (interpretación)',
-    completeComment: 'Interpretación del Material Ra (La Ley del Uno) © L/L Research. Material original disponible gratis en llresearch.org. Interpretación: eluno.org',
+    completeComment:
+      'Interpretación del Material Ra (La Ley del Uno) © L/L Research. Material original disponible gratis en llresearch.org. Interpretación: eluno.org',
     completeCopyright: 'Material original © L/L Research / Interpretación © eluno.org',
     genre: 'Audiolibro',
     chapterPrefix: 'Cap.'
@@ -47,7 +48,8 @@ const ATTRIBUTION = {
   en: {
     comment: 'Based on The Ra Material © L/L Research. Original: llresearch.org',
     copyright: '© L/L Research (source) / eluno.org (interpretation)',
-    completeComment: 'Interpretation of The Ra Material (The Law of One) © L/L Research. Original material available free at llresearch.org. Interpretation: eluno.org',
+    completeComment:
+      'Interpretation of The Ra Material (The Law of One) © L/L Research. Original material available free at llresearch.org. Interpretation: eluno.org',
     completeCopyright: 'Original material © L/L Research / Interpretation © eluno.org',
     genre: 'Audiobook',
     chapterPrefix: 'Ch.'
@@ -55,7 +57,8 @@ const ATTRIBUTION = {
   pt: {
     comment: 'Baseado no Material Ra © L/L Research. Original: llresearch.org',
     copyright: '© L/L Research (fonte) / eluno.org (interpretação)',
-    completeComment: 'Interpretação do Material Ra (A Lei do Um) © L/L Research. Material original disponível gratuitamente em llresearch.org. Interpretação: eluno.org',
+    completeComment:
+      'Interpretação do Material Ra (A Lei do Um) © L/L Research. Material original disponível gratuitamente em llresearch.org. Interpretação: eluno.org',
     completeCopyright: 'Material original © L/L Research / Interpretação © eluno.org',
     genre: 'Audiolivro',
     chapterPrefix: 'Cap.'
@@ -126,14 +129,16 @@ function updateChapterTags(filePath, chapterNum, chapterTitle, lang, totalChapte
     genre: attr.genre,
     trackNumber: `${chapterNum}/${totalChapters}`,
     comment: {
-      language: lang === 'es' ? 'spa' : (lang === 'pt' ? 'por' : 'eng'),
+      language: lang === 'es' ? 'spa' : lang === 'pt' ? 'por' : 'eng',
       text: attr.comment
     },
     copyright: attr.copyright,
-    userDefinedUrl: [{
-      description: 'Website',
-      url: `https://eluno.org${lang === 'en' ? '' : '/' + lang}`
-    }],
+    userDefinedUrl: [
+      {
+        description: 'Website',
+        url: `https://eluno.org${lang === 'en' ? '' : '/' + lang}`
+      }
+    ],
     publisher: 'eluno.org'
   };
 
@@ -144,9 +149,12 @@ function updateCompleteAudiobookTags(filePath, lang) {
   const bookTitle = BOOK_TITLES[lang];
   const attr = ATTRIBUTION[lang];
 
-  const completeTitle = lang === 'es' ? 'Audiolibro Completo' :
-                        lang === 'pt' ? 'Audiolivro Completo' :
-                        'Complete Audiobook';
+  const completeTitle =
+    lang === 'es'
+      ? 'Audiolibro Completo'
+      : lang === 'pt'
+        ? 'Audiolivro Completo'
+        : 'Complete Audiobook';
 
   const tags = {
     title: `${bookTitle} - ${completeTitle}`,
@@ -156,14 +164,16 @@ function updateCompleteAudiobookTags(filePath, lang) {
     year: '2025',
     genre: attr.genre,
     comment: {
-      language: lang === 'es' ? 'spa' : (lang === 'pt' ? 'por' : 'eng'),
+      language: lang === 'es' ? 'spa' : lang === 'pt' ? 'por' : 'eng',
       text: attr.completeComment
     },
     copyright: attr.completeCopyright,
-    userDefinedUrl: [{
-      description: 'Website',
-      url: `https://eluno.org${lang === 'en' ? '' : '/' + lang}`
-    }],
+    userDefinedUrl: [
+      {
+        description: 'Website',
+        url: `https://eluno.org${lang === 'en' ? '' : '/' + lang}`
+      }
+    ],
     publisher: 'eluno.org'
   };
 
@@ -199,7 +209,8 @@ async function main() {
   console.log(`Found ${Object.keys(chapterTitles).length} chapter titles\n`);
 
   // Get MP3 files
-  const files = fs.readdirSync(audioDir)
+  const files = fs
+    .readdirSync(audioDir)
     .filter(f => f.endsWith('.mp3'))
     .sort();
 

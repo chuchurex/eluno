@@ -75,7 +75,7 @@ async function generateCovers() {
   console.log('📸 Generando OG Images (1200x630)...');
 
   for (const lang of languages) {
-    await page.evaluate((l) => window.renderOG(l), lang);
+    await page.evaluate(l => window.renderOG(l), lang);
     await new Promise(r => setTimeout(r, 500));
 
     const element = await page.$('#render-target');
@@ -99,7 +99,7 @@ async function generateCovers() {
   const lang = 'es';
 
   // 2.1 Versión completa
-  await page.evaluate((l) => window.renderAlbumComplete(l), lang);
+  await page.evaluate(l => window.renderAlbumComplete(l), lang);
   await new Promise(r => setTimeout(r, 500));
 
   let element = await page.$('#render-target');

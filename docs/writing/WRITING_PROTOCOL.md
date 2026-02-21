@@ -273,13 +273,16 @@ who you are and why you came."
 | Density | Dimension |
 | Distortion | Change, alteration |
 | Ray | Chakra (except in initial explanation) |
-| Logos | God |
+| Logos (plural: Logos) | God, Logoi |
 | Social Memory Complex | Collective mind, hive mind |
 | Catalyst | Challenge, problem |
 | Harvest | Judgment, rapture |
 | Wanderer | Starseed (except in explanatory note) |
 | The Choice | The test, the exam |
 | Polarization | Spiritual progress (they are related but distinct) |
+
+### Invariable terms (same in all languages):
+- **Logos** — invariable, never "Logoi" (pedantic Greek plural breaks natural flow)
 
 ### Use of glossary markup {term:xxx}:
 - First mention of technical term: use markup

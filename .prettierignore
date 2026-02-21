@@ -1,0 +1,35 @@
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# Generated files
+package-lock.json
+
+# Media
+*.mp3
+*.mp4
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.woff
+*.woff2
+
+# Archive
+archive/
+
+# Inbox (temporary uploads)
+inbox/
+
+# Documentation (formatting not critical)
+docs/
+ai/
+*.md
+!README.md
+
+# HTML templates
+*.html

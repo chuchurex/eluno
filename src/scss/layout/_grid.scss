@@ -7,7 +7,7 @@
 .layout {
   display: grid;
   grid-template-columns: 240px 1fr 260px;
-  grid-template-areas: "nav main sidebar";
+  grid-template-areas: 'nav main sidebar';
   min-height: 100vh;
 }
 
