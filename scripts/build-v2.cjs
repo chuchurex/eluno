@@ -828,109 +828,112 @@ ${tocHtml}
 /**
  * Generate about page for a language
  */
-function generateAboutHtml(lang, about) {
+function generateAboutHtml(lang, about, allChapters, chapterSlugMap) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
 
+  // Sections with dividers between them (same structure as V1)
   const sectionsHtml = about.sections
-    .map(section => {
-      let html = '';
-      if (section.title) {
-        html += `        <h2 class="section-title">${section.title}</h2>\n`;
-      }
+    .map((section, idx) => {
+      let html = `                <section class="section" id="${section.id}">\n`;
+      html += `                    <h2 class="sec-title">${section.title || ''}</h2>\n`;
       section.content.forEach(block => {
         if (block.type === 'paragraph') {
-          html += `        <p>${block.text}</p>\n`;
+          html += `                    <p>${block.text}</p>\n`;
         }
       });
+      html += `                </section>`;
+      if (idx < about.sections.length - 1) {
+        html += `\n\n                <div class="divider">· · ·</div>\n`;
+      }
       return html;
     })
     .join('\n');
 
-  // Language selector
-  const langSwitcher = CONFIG.languages
-    .map(l => {
-      const isActive = l === lang ? ' class="active"' : '';
-      const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
-      return `<a href="/${l}/about.html"${isActive}>${langName}</a>`;
+  // Nav sidebar (reuse chapter nav with about highlighted)
+  const langSelector = CONFIG.languages
+    .map((l, i) => {
+      const active = l === lang ? ' class="active"' : '';
+      const prefix = i > 0 ? ' | ' : '';
+      return `${prefix}<a href="/${l}/about.html"${active}>${l.toUpperCase()}</a>`;
     })
-    .join(' | ');
+    .join('');
+
+  const chapterLinks = allChapters
+    .map(ch => {
+      const slug = slugify(ch.title);
+      return `            <div class="nav-chapter-group" id="nav-group-${ch.id}">
+                <div class="nav-chapter-header">
+                    <a href="/${lang}/chapters/${slug}.html" class="nav-link">${ch.number}. ${ch.title}</a>
+                </div>
+            </div>\n`;
+    })
+    .join('');
+
+  const navSidebar = `        <nav class="nav" id="sidebar">
+            <div class="nav-lang-selector">${langSelector}</div>
+            <div class="nav-back">
+                <a href="/${lang}/" class="nav-link">← ${ui.home}</a>
+            </div>
+            <div class="nav-section">
+${chapterLinks}            </div>
+            <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                <a href="/${lang}/about.html" class="nav-link current">${ui.about}</a>
+            </div>
+        </nav>`;
+
+  const footer = generateFooter(ui);
+  const scripts = generateScripts();
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${about.title} — ${bookTitle} | eluno.org</title>
-  <meta name="description" content="${about.sections[0]?.content[0]?.text?.substring(0, 160) || ''}">
-  <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/about.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${about.title} — ${bookTitle} | eluno.org</title>
+    <meta name="description" content="${about.sections[0]?.content[0]?.text?.replace(/<[^>]*>/g, '').substring(0, 160) || ''}">
+    <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/about.html">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
 
-  <!-- OpenGraph -->
-  <meta property="og:title" content="${about.title} — ${bookTitle}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/about.html">
-  <meta property="og:locale" content="${lang}">
+    <!-- OpenGraph -->
+    <meta property="og:title" content="${about.title} — ${bookTitle}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/about.html">
+    <meta property="og:locale" content="${lang}">
 
-  <!-- Alternate languages -->
-  ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/about.html">`).join('\n  ')}
+    <!-- Alternate languages -->
+    ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/about.html">`).join('\n    ')}
 
-  <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="/css/main.css">
+    <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/fonts/fonts.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-  <div class="layout index-layout">
-    <main class="main">
-      <header class="toc-header">
-        <div class="toc-lang-selector">${langSwitcher}</div>
-        <h1 class="toc-title">${about.title}</h1>
-      </header>
+    <div class="layout">
+        <main class="main">
+            <article class="chapter about-page">
+                <header class="ch-head">
+                    <h1 class="ch-title">${about.title}</h1>
+                </header>
 
-      <section class="introduction">
 ${sectionsHtml}
-      </section>
+            </article>
 
-      <footer class="footer-attribution">
-        <p><a href="/${lang}/">← ${ui.home}</a></p>
-      </footer>
-    </main>
-  </div>
+${footer}
+        </main>
 
-  <script>
-    function initTheme() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        updateThemeButton('light');
-      } else {
-        updateThemeButton('dark');
-      }
-    }
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const newTheme = current === 'light' ? 'dark' : 'light';
-      if (newTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-      }
-      localStorage.setItem('theme', newTheme);
-      updateThemeButton(newTheme);
-    }
-    function updateThemeButton(theme) {
-      document.querySelectorAll('.theme-toggle').forEach(btn => {
-        btn.innerHTML = theme === 'light' ? '☾' : '☀';
-      });
-    }
-    initTheme();
-  </script>
+${navSidebar}
+    </div>
+
+${scripts}
 </body>
 </html>`;
 }
@@ -1051,7 +1054,7 @@ function buildLanguage(lang, chapterSlugMap) {
   const aboutPath = path.join(CONFIG.inputDir, lang, 'about.json');
   if (fs.existsSync(aboutPath)) {
     const about = JSON.parse(fs.readFileSync(aboutPath, 'utf-8'));
-    const aboutHtml = generateAboutHtml(lang, about);
+    const aboutHtml = generateAboutHtml(lang, about, chapters, chapterSlugMap);
     fs.writeFileSync(path.join(langDir, 'about.html'), aboutHtml);
     console.log(`  ✓ about.html`);
   }
