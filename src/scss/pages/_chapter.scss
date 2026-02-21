@@ -27,6 +27,24 @@
   margin-bottom: 0.5rem;
 }
 
+.ch-pdf-link {
+  font-family: $font-heading;
+  font-size: 0.8rem;
+  color: $gold-dim;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid $gold-dim;
+  border-radius: $radius-sm;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $gold;
+    border-color: $gold;
+    background: rgba(var(--gold-rgb), 0.1);
+  }
+}
+
 .ch-title {
   @extend %heading-style;
   font-size: 2.2rem;

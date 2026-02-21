@@ -137,6 +137,29 @@
   transition: all 0.2s;
 }
 
+.toc-download {
+  text-align: center;
+  margin-top: $spacing-lg;
+}
+
+.toc-download-link {
+  display: inline-block;
+  font-family: $font-heading;
+  font-size: 1rem;
+  color: $gold;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid $gold-dim;
+  border-radius: $radius-md;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $gold;
+    background: rgba(var(--gold-rgb), 0.1);
+    transform: translateY(-1px);
+  }
+}
+
 // Homepage Introduction Text
 .intro-text {
   font-size: 1.1rem;

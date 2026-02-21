@@ -72,7 +72,6 @@
 /pt/about/ /pt/about.html 301
 
 # ───────────────────────────────────────────────────────────────
-# V1 PDF/audiobook → static.eluno.org
+# V1 audiobook → static.eluno.org (PDFs now served from dist/)
 # ───────────────────────────────────────────────────────────────
-/pdf/* https://static.eluno.org/pdf/:splat 301
 /audiobook/* https://static.eluno.org/audiobook/:splat 301

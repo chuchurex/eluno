@@ -68,6 +68,7 @@ const CONFIG = {
       next: 'Next',
       home: 'Home',
       downloadPdf: 'Download PDF',
+      downloadBook: 'Download Complete Book (PDF)',
       listenAudio: 'Listen',
       subtitle: 'A philosophical reinterpretation of the Ra Material (The Law of One) as accessible narrative. Explore cosmology, the Creator, the densities, and the purpose of existence.',
       intro: 'Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance.',
@@ -96,6 +97,7 @@ const CONFIG = {
       next: 'Siguiente',
       home: 'Inicio',
       downloadPdf: 'Descargar PDF',
+      downloadBook: 'Descargar Libro Completo (PDF)',
       listenAudio: 'Escuchar',
       subtitle: 'Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.',
       intro: 'Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA.',
@@ -124,6 +126,7 @@ const CONFIG = {
       next: 'Próximo',
       home: 'Início',
       downloadPdf: 'Baixar PDF',
+      downloadBook: 'Baixar Livro Completo (PDF)',
       listenAudio: 'Ouvir',
       subtitle: 'Uma reinterpretação filosófica do Material Ra (A Lei do Um) como narrativa acessível. Explore a cosmologia, o Criador, as densidades e o propósito da existência.',
       intro: 'Ensinamentos recebidos por Don, Carla e Jim no início dos anos 80, transformados em narrativa filosófica acessível. Reescrito com assistência de IA.',
@@ -700,6 +703,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
                 <header class="ch-head">
                     <div class="ch-head-top">
                         <div class="ch-num">${chapter.numberText}</div>
+                        <a href="/pdf/${lang}/ch${String(chapter.number).padStart(2, '0')}.pdf" class="ch-pdf-link" download title="${ui.downloadPdf}">PDF ↓</a>
                     </div>
                     <h1 class="ch-title">${chapter.title}</h1>
                 </header>
@@ -811,6 +815,9 @@ ${disclaimerHtml}
         <h2 class="toc-section-title">${ui.tableOfContents}</h2>
         <div class="toc-chapters">
 ${tocHtml}
+        </div>
+        <div class="toc-download">
+          <a href="/pdf/${lang}/complete-book.pdf" class="toc-download-link" download>${ui.downloadBook}</a>
         </div>
       </section>
 
