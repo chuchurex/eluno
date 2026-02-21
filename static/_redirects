@@ -2,8 +2,7 @@
 # _redirects — eluno.org (V1 → V3 migration)
 # ═══════════════════════════════════════════════════════════════
 
-# Root → English TOC
-/ /en/ 302
+# Root: served by /index.html (EN copy, no redirect needed)
 
 # ───────────────────────────────────────────────────────────────
 # V1 English chapters: /ch{N}/ → /en/chapters/{slug}.html

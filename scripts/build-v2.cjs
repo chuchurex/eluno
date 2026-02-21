@@ -659,9 +659,9 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/chapters/${slug}.html">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
     <!-- OpenGraph -->
     <meta property="og:title" content="${chapter.title} — ${bookTitle}">
@@ -680,6 +680,10 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/fonts/fonts.css">
     <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Google tag (gtag.js) — deferred -->
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
+    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
 </head>
 <body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
@@ -757,9 +761,9 @@ function generateIndexHtml(lang, chapters) {
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
   <!-- OpenGraph -->
   <meta property="og:title" content="${bookTitle}">
@@ -775,6 +779,10 @@ function generateIndexHtml(lang, chapters) {
   <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/css/main.css">
+
+  <!-- Google tag (gtag.js) — deferred -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
+  window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
 </head>
 <body>
   <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
@@ -792,7 +800,7 @@ function generateIndexHtml(lang, chapters) {
       </section>
 
       <section class="disclaimer-banner">
-        <h3 class="disclaimer-title">${ui.disclaimerTitle}</h3>
+        <h2 class="disclaimer-title">${ui.disclaimerTitle}</h2>
 ${disclaimerHtml}
       </section>
 
@@ -912,9 +920,9 @@ ${chapterLinks}            </div>
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/about.html">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
     <!-- OpenGraph -->
     <meta property="og:title" content="${about.title} — ${bookTitle}">
@@ -929,6 +937,10 @@ ${chapterLinks}            </div>
     <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/fonts/fonts.css">
     <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Google tag (gtag.js) — deferred -->
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
+    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
 </head>
 <body>
     <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
@@ -1238,6 +1250,25 @@ function build() {
   // Create shared assets
   console.log('\n📦 Creating shared assets...');
   createGlossaryScript();
+
+  // Copy fonts from @eluno/core
+  const coreFontsDir = path.join(__dirname, '../node_modules/@eluno/core/fonts');
+  const distFontsDir = path.join(CONFIG.outputDir, 'fonts');
+  if (fs.existsSync(coreFontsDir)) {
+    ensureDir(distFontsDir);
+    fs.readdirSync(coreFontsDir).forEach(file => {
+      fs.copyFileSync(path.join(coreFontsDir, file), path.join(distFontsDir, file));
+    });
+    console.log('  ✅ fonts/ (from @eluno/core)');
+  }
+
+  // Generate root index.html (avoids / → /en/ redirect)
+  const rootIndexPath = path.join(CONFIG.outputDir, 'index.html');
+  const enIndexPath = path.join(CONFIG.outputDir, 'en', 'index.html');
+  if (fs.existsSync(enIndexPath)) {
+    fs.copyFileSync(enIndexPath, rootIndexPath);
+    console.log('  ✅ index.html (root, EN copy)');
+  }
 
   // Generate SEO files
   generateSitemap(chapterSlugMap);

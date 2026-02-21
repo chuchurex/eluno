@@ -16,7 +16,7 @@
 
 - [ ] **Evaluar convergencia de builds** — `build-v2.cjs` (v3) vs `eluno-build` (v1) generan URLs diferentes. Decidir si unificar o mantener separados.
 - [x] **SEO: robots meta tag** — `<meta name="robots" content="index, follow">` en todas las páginas (Feb 21, 2026)
-- [ ] **Generar sitemap.xml** — Automáticamente durante build para capítulos habilitados.
+- [x] **Generar sitemap.xml** — 54 URLs con hreflang, generado automáticamente en build (Feb 21, 2026)
 
 ---
 
