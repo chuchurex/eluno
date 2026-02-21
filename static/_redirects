@@ -66,11 +66,11 @@
 /pt/ch16/ /pt/chapters/o-misterio-permanece.html 301
 
 # ───────────────────────────────────────────────────────────────
-# V1 About pages → V3 TOC
+# V1 About pages → V3 About
 # ───────────────────────────────────────────────────────────────
-/about/ /en/ 301
-/es/about/ /es/ 301
-/pt/about/ /pt/ 301
+/about/ /en/about.html 301
+/es/about/ /es/about.html 301
+/pt/about/ /pt/about.html 301
 
 # ───────────────────────────────────────────────────────────────
 # V1 PDF/audiobook → static.eluno.org

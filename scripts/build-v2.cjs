@@ -74,7 +74,8 @@ const CONFIG = {
       tableOfContents: 'Table of Contents',
       footerAttribution: 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.',
       footerSessions: 'Original sessions free at',
-      noSources: 'No source citations for this section.'
+      noSources: 'No source citations for this section.',
+      about: 'About'
     },
     es: {
       chapter: 'Capítulo',
@@ -96,7 +97,8 @@ const CONFIG = {
       tableOfContents: 'Índice',
       footerAttribution: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sesiones originales gratis en',
-      noSources: 'Sin citas de fuentes para esta sección.'
+      noSources: 'Sin citas de fuentes para esta sección.',
+      about: 'Acerca de'
     },
     pt: {
       chapter: 'Capítulo',
@@ -118,7 +120,8 @@ const CONFIG = {
       tableOfContents: 'Índice',
       footerAttribution: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research.',
       footerSessions: 'Sessões originais grátis em',
-      noSources: 'Sem citações de fontes para esta seção.'
+      noSources: 'Sem citações de fontes para esta seção.',
+      about: 'Sobre'
     }
   }
 };
@@ -327,6 +330,9 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
             </div>
             <div class="nav-section">
 ${chapterLinks}            </div>
+            <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                <a href="/${lang}/about.html" class="nav-link">${ui.about}</a>
+            </div>
         </nav>`;
 }
 
@@ -819,6 +825,116 @@ ${tocHtml}
 </html>`;
 }
 
+/**
+ * Generate about page for a language
+ */
+function generateAboutHtml(lang, about) {
+  const ui = CONFIG.ui[lang] || CONFIG.ui.en;
+  const bookTitle = CONFIG.bookTitles[lang];
+
+  const sectionsHtml = about.sections
+    .map(section => {
+      let html = '';
+      if (section.title) {
+        html += `        <h2 class="section-title">${section.title}</h2>\n`;
+      }
+      section.content.forEach(block => {
+        if (block.type === 'paragraph') {
+          html += `        <p>${block.text}</p>\n`;
+        }
+      });
+      return html;
+    })
+    .join('\n');
+
+  // Language selector
+  const langSwitcher = CONFIG.languages
+    .map(l => {
+      const isActive = l === lang ? ' class="active"' : '';
+      const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
+      return `<a href="/${l}/about.html"${isActive}>${langName}</a>`;
+    })
+    .join(' | ');
+
+  return `<!DOCTYPE html>
+<html lang="${lang}" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${about.title} — ${bookTitle} | eluno.org</title>
+  <meta name="description" content="${about.sections[0]?.content[0]?.text?.substring(0, 160) || ''}">
+  <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/about.html">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');</script>
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="${about.title} — ${bookTitle}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/about.html">
+  <meta property="og:locale" content="${lang}">
+
+  <!-- Alternate languages -->
+  ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/about.html">`).join('\n  ')}
+
+  <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀</button>
+
+  <div class="layout index-layout">
+    <main class="main">
+      <header class="toc-header">
+        <div class="toc-lang-selector">${langSwitcher}</div>
+        <h1 class="toc-title">${about.title}</h1>
+      </header>
+
+      <section class="introduction">
+${sectionsHtml}
+      </section>
+
+      <footer class="footer-attribution">
+        <p><a href="/${lang}/">← ${ui.home}</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        updateThemeButton('light');
+      } else {
+        updateThemeButton('dark');
+      }
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const newTheme = current === 'light' ? 'dark' : 'light';
+      if (newTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      localStorage.setItem('theme', newTheme);
+      updateThemeButton(newTheme);
+    }
+    function updateThemeButton(theme) {
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.innerHTML = theme === 'light' ? '☾' : '☀';
+      });
+    }
+    initTheme();
+  </script>
+</body>
+</html>`;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Build Process
 // ─────────────────────────────────────────────────────────────
@@ -930,6 +1046,15 @@ function buildLanguage(lang, chapterSlugMap) {
   const indexHtml = generateIndexHtml(lang, chapters);
   fs.writeFileSync(path.join(langDir, 'index.html'), indexHtml);
   console.log(`  ✓ index.html`);
+
+  // Build about page
+  const aboutPath = path.join(CONFIG.inputDir, lang, 'about.json');
+  if (fs.existsSync(aboutPath)) {
+    const about = JSON.parse(fs.readFileSync(aboutPath, 'utf-8'));
+    const aboutHtml = generateAboutHtml(lang, about);
+    fs.writeFileSync(path.join(langDir, 'about.html'), aboutHtml);
+    console.log(`  ✓ about.html`);
+  }
 }
 
 /**
@@ -1016,6 +1141,15 @@ function generateSitemap(chapterSlugMap) {
       .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/"/>`)
       .join('\n');
     urls += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n${alternates}\n  </url>\n`;
+  }
+
+  // About pages
+  for (const lang of CONFIG.languages) {
+    const loc = `${CONFIG.siteUrl}/${lang}/about.html`;
+    const alternates = CONFIG.languages
+      .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/about.html"/>`)
+      .join('\n');
+    urls += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n${alternates}\n  </url>\n`;
   }
 
   // Chapter pages
