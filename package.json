@@ -14,6 +14,7 @@
     "@eluno/core": "github:chuchurex/eluno-core",
     "dotenv": "^17.0.0",
     "node-edge-tts": "^1.2.10",
+    "node-id3": "^0.2.9",
     "sass": "^1.97.3"
   },
   "devDependencies": {
