@@ -230,10 +230,38 @@ Reglas de traducción:
 ### Fase 8: Build + Deploy
 
 ```bash
-npm run sass:build && npx eluno-build   # Genera dist/
-git add [archivos] && git commit        # Commit
-git push origin v3                      # Trigger Cloudflare Pages deploy
+node scripts/build-v2.cjs && npm run sass:build   # Genera dist/
+git add [archivos] && git commit                   # Commit
+git push origin main                               # Trigger Cloudflare Pages deploy
 ```
+
+### Fase 9: PDF (post-deploy)
+
+```bash
+node scripts/build-pdf.cjs XX                     # PDF individual (3 idiomas)
+node scripts/build-pdf.cjs complete                # PDF libro completo (3 idiomas)
+node scripts/rename-media.cjs                      # SEO names + actualizar media.json
+# Incrementar ?v=N en media.json para cache-bust
+# rsync PDFs a static.eluno.org
+# Rebuild HTML + commit + push
+```
+
+El PDF incluye: glosario al final del capítulo + fuentes (referencias cruzadas con URLs + provenance Ra Material). En el libro completo, el glosario usa numeración `capítulo.nota` (1.1, 1.2, 2.1...).
+
+### Fase 10: Audiobook (post-deploy)
+
+```bash
+node scripts/audiobook/extract-text.cjs XX {lang}         # Texto TTS
+node scripts/audiobook/generate-edge.cjs XX {lang}         # Generar MP3
+node scripts/audiobook/assemble-chapters.cjs XX {lang}     # Ensamblar con outro
+node scripts/audiobook/assemble-chapters.cjs complete {lang} # Libro completo
+node scripts/update-mp3-tags.cjs {lang}                    # ID3 tags
+# rsync audio a static.eluno.org
+# Incrementar ?v=N en media.json para cache-bust
+# Rebuild HTML + commit + push
+```
+
+> Pipeline completo de actualización documentado en `docs/project/UPDATE_PIPELINE.md`
 
 ---
 
@@ -306,6 +334,8 @@ contener frases casi idénticas. La categoría D del QA las detecta.
 □ Fase 6: Glosario integrado en i18n/en/glossary.json
 □ Fase 7: Traducción ES completada y validada
 □ Fase 7: Traducción PT completada y validada
-□ Fase 8: Build exitoso (npm run sass:build && npx eluno-build)
-□ Fase 8: Commit + push → deploy Cloudflare
+□ Fase 8: Build exitoso + commit + push → deploy Cloudflare
+□ Fase 9: PDFs generados (individual + libro completo) + renombrados + subidos
+□ Fase 10: Audio generado (individual + libro completo) + taggeado + subido
+□ Final: media.json con cache-bust actualizado + rebuild + push
 ```

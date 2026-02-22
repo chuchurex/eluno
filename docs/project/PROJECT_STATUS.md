@@ -62,6 +62,9 @@
 - 16 capítulos + libro completo por idioma (48 + 3 = 51 archivos)
 - Hosting: static.eluno.org
 - Generación: Puppeteer via `build-pdf.cjs`
+- Glosario al final de cada capítulo (numeración chapter.N en libro completo)
+- Fuentes: referencias cruzadas con URLs + provenance Ra Material por sección
+- Cache-busting: `?v=2` en media.json
 
 ---
 
@@ -70,7 +73,7 @@
 | Archivo | Descripción | URLs generadas |
 |---------|-------------|----------------|
 | `scripts/build-v2.cjs` | Build principal | `/{lang}/chapters/{slug}.html` |
-| `scripts/build-pdf.cjs` | Generación de PDFs | `dist/pdf/{lang}/{seo-name}.pdf` |
+| `scripts/build-pdf.cjs` | Generación de PDFs (glosario + fuentes) | `dist/pdf/{lang}/{seo-name}.pdf` |
 | `scripts/audiobook/extract-text.cjs` | Texto TTS desde JSON | `audiobook/text/{lang}/chNN.txt` |
 | `scripts/audiobook/generate-edge.cjs` | Generación de audio | `audiobook/audio/{lang}/chNN.mp3` |
 | `scripts/audiobook/assemble-chapters.cjs` | Assembly con outro | `audiobook/final/{lang}/{seo-name}.mp3` |
