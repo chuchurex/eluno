@@ -10,10 +10,6 @@
         {
           "type": "paragraph",
           "text": "Uma reescrita do Material Ra (A Lei do Um) em formato de livro narrativo. O material original, recebido por Don Elkins, Carla L. Rueckert e Jim McCarty entre 1981 e 1984, está em formato de perguntas e respostas. Este projeto o transforma em prosa contínua para facilitar a leitura."
-        },
-        {
-          "type": "paragraph",
-          "text": "Este trabalho foi realizado por <a href=\"https://chuchurex.cl\" target=\"_blank\">Carlos Martínez</a> com a ajuda do Claude (Opus 4.5) da Anthropic."
         }
       ]
     },
@@ -23,7 +19,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Este projeto foi criado com assistência do Claude (Opus 4.5) da Anthropic. Embora todo esforço tenha sido feito para manter a precisão e fidelidade ao material original, o conteúdo gerado por IA pode conter imprecisões, inconsistências ou interpretações errôneas."
+          "text": "Este projeto foi criado com assistência do Claude da Anthropic. Embora todo esforço tenha sido feito para manter a precisão e fidelidade ao material original, o conteúdo gerado por IA pode conter imprecisões, inconsistências ou interpretações errôneas."
         },
         {
           "type": "paragraph",
@@ -46,44 +42,6 @@
         {
           "type": "paragraph",
           "text": "À medida que os agentes de IA se tornam mais capazes, esse tipo de projeto será mais fácil de criar e melhorar. Esperamos que isso sirva como ponto de partida para quem deseja tornar textos filosóficos ou espirituais mais acessíveis."
-        }
-      ]
-    },
-    {
-      "id": "prologue",
-      "title": "",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Existem histórias sobre buscar um tesouro pelo mundo para encontrá-lo em casa. O Pássaro Azul. O Alquimista. O rabino que viaja a Praga e descobre que o tesouro estava enterrado sob sua própria cozinha. E claro, Ángel buscando a flor de sete cores."
-        },
-        {
-          "type": "paragraph",
-          "text": "O padrão é sempre o mesmo: só depois de percorrer o caminho você pode ver o que sempre esteve lá."
-        },
-        {
-          "type": "paragraph",
-          "text": "Há quatro anos comecei a busca. Muito obrigado Pablo e Quetzali por me darem os melhores conselhos iniciais. Quando a vida me exigiu buscar com mais urgência, encontrei o Material Ra. Era o que conectava tudo o que eu havia aprendido antes: as tradições contemplativas, a física moderna, as perguntas que eu não sabia como formular."
-        },
-        {
-          "type": "paragraph",
-          "text": "O material original é denso: três anos de sessões onde os temas aparecem, desaparecem e voltam. Tentei organizá-lo para mim mesmo em palavras mais simples. Usei Claude (Opus 4.5) da Anthropic como ferramenta. Essas notas acabaram se tornando este livro."
-        },
-        {
-          "type": "paragraph",
-          "text": "Este livro fecha um caminho que começou com uma perda e terminou com outra. Entre ambas, encontrei estes ensinamentos. Agora os entrego e sigo em frente."
-        },
-        {
-          "type": "paragraph",
-          "text": "À minha família: Marcela, Víctor, Sandra, Carlos, Jorge, Estefanía, Bruno, Tomás, Luci e Ariel. A Claudia, Nancy, Gabriel e Ximena, companheiros de jornada. A Jim, Austin e todos que mantêm viva a fonte na L/L Research."
-        },
-        {
-          "type": "paragraph",
-          "text": "Deixo-lhes minha distorção da Lei do Um."
-        },
-        {
-          "type": "paragraph",
-          "text": "<em>Adonai,</em><br>Carlos Cristóbal (chuchurex)<br>2025"
         }
       ]
     }

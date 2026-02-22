@@ -10,10 +10,6 @@
         {
           "type": "paragraph",
           "text": "Una reescritura del Material Ra (La Ley del Uno) en formato de libro narrativo. El material original, recibido por Don Elkins, Carla L. Rueckert y Jim McCarty entre 1981 y 1984, está en formato de preguntas y respuestas. Este proyecto lo transforma en prosa continua para facilitar su lectura."
-        },
-        {
-          "type": "paragraph",
-          "text": "Este trabajo fue realizado por <a href=\"https://chuchurex.cl\" target=\"_blank\">Carlos Martínez</a> con la ayuda de Claude."
         }
       ]
     },
@@ -23,7 +19,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Este proyecto fue creado con asistencia de una IA (Claude de Anthropic). Aunque se ha hecho todo el esfuerzo por mantener la precisión y fidelidad al material original, el contenido generado por IA puede contener inexactitudes, inconsistencias o malinterpretaciones."
+          "text": "Este proyecto fue creado con asistencia de Claude de Anthropic. Aunque se ha hecho todo el esfuerzo por mantener la precisión y fidelidad al material original, el contenido generado por IA puede contener inexactitudes, inconsistencias o malinterpretaciones."
         },
         {
           "type": "paragraph",
@@ -46,56 +42,6 @@
         {
           "type": "paragraph",
           "text": "A medida que los agentes de IA se vuelvan más capaces, este tipo de proyecto será más fácil de crear y mejorar. Esperamos que esto sirva como punto de partida para quienes quieran hacer textos filosóficos o espirituales más accesibles."
-        }
-      ]
-    },
-    {
-      "id": "prologue",
-      "title": "",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Hay cuentos sobre buscar un tesoro por el mundo para encontrarlo en casa. El Pájaro Azul. El Alquimista. El rabino que viaja a Praga y descubre que el tesoro estaba enterrado bajo su propia cocina. Y por supuesto, Angel buscando la flor de los siete colores."
-        },
-        {
-          "type": "paragraph",
-          "text": "El patrón es siempre el mismo: solo después de recorrer el camino puedes ver lo que siempre estuvo ahí."
-        },
-        {
-          "type": "paragraph",
-          "text": "Hace cuatro años comencé la búsqueda. Muchas gracias Pablo y Quetzali por darme los mejores consejos iniciales. Cuando la vida me exigió buscar con más urgencia, encontré el Material Ra. Era lo que conectaba todo lo que había aprendido antes: las tradiciones contemplativas, la física moderna, las preguntas que no sabía cómo formular."
-        },
-        {
-          "type": "paragraph",
-          "text": "El material original es complejo de abordar, tres años de sesiones donde los temas aparecen, desaparecen y vuelven. Traté de ordenarlo para mí mismo de una manera coherente y organizada. Trabajé el libro como un proyecto de Claude donde pude trabajar con un contexto que podía disponer de los libros originales, con la ayuda del motor Opus 4.5 desarrollamos la estructura y luego fuimos avanzando por los capítulos Opus escribía y yo revisaba."
-        },
-        {
-          "type": "paragraph",
-          "text": "Este libro cierra un camino que comenzó con una pérdida y terminó con otra. Entre ambas, encontré estas enseñanzas. Ahora las entrego y sigo."
-        },
-        {
-          "type": "paragraph",
-          "text": "A mi familia: Marcela, Víctor, Sandra, Carlos, Jorge y Caro, Estefanía, Bruno, Tomás, Luci y Ariel."
-        },
-        {
-          "type": "paragraph",
-          "text": "A Claudia, Nancy, Gabriel y Ximena, compañeros de camino."
-        },
-        {
-          "type": "paragraph",
-          "text": "A Austin y todos quienes mantienen viva la fuente en L/L Research."
-        },
-        {
-          "type": "paragraph",
-          "text": "A Ra, Carla, Jim y especialmente a Don que iluminó mi camino."
-        },
-        {
-          "type": "paragraph",
-          "text": "Les dejo mi distorsión de la Ley del Uno."
-        },
-        {
-          "type": "paragraph",
-          "text": "<em>Adonai,</em><br>Carlos Cristóbal (chuchurex)<br>2025"
         }
       ]
     }
