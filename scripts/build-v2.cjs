@@ -84,6 +84,10 @@ const CONFIG = {
       noSources: 'No source citations for this section.',
       notesEmpty: 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.',
       about: 'About',
+      glossaryPage: 'Glossary',
+      glossaryPageSubtitle: 'All terms and concepts',
+      searchPlaceholder: 'Search chapters and glossary...',
+      searchNoResults: 'No results found',
       skipToContent: 'Skip to content',
       closeMenu: 'Close menu'
     },
@@ -114,6 +118,10 @@ const CONFIG = {
       noSources: 'Sin citas de fuentes para esta sección.',
       notesEmpty: 'Haz clic en cualquier <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">término destacado</span> para ver su definición.',
       about: 'Acerca de',
+      glossaryPage: 'Glosario',
+      glossaryPageSubtitle: 'Todos los términos y conceptos',
+      searchPlaceholder: 'Buscar capítulos y glosario...',
+      searchNoResults: 'Sin resultados',
       skipToContent: 'Ir al contenido',
       closeMenu: 'Cerrar menú'
     },
@@ -144,6 +152,10 @@ const CONFIG = {
       noSources: 'Sem citações de fontes para esta seção.',
       notesEmpty: 'Clique em qualquer <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">termo destacado</span> para ver sua definição.',
       about: 'Sobre',
+      glossaryPage: 'Glossário',
+      glossaryPageSubtitle: 'Todos os termos e conceitos',
+      searchPlaceholder: 'Buscar capítulos e glossário...',
+      searchNoResults: 'Sem resultados',
       skipToContent: 'Ir para o conteúdo',
       closeMenu: 'Fechar menu'
     }
@@ -439,6 +451,7 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
             <div class="nav-section">
 ${chapterLinks}            </div>
             <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                <a href="/${lang}/glossary.html" class="nav-link">${ui.glossaryPage}</a>
                 <a href="/${lang}/about.html" class="nav-link">${ui.about}</a>
             </div>
         </nav>`;
@@ -646,8 +659,15 @@ function generateChapterPrevNext(chapter, allChapters, lang, ui) {
 /**
  * Generate footer HTML
  */
-function generateFooter(ui) {
+function generateFooter(ui, lang) {
   return `            <footer class="footer">
+                <div class="footer-links">
+                    <a href="/${lang}/about.html">${ui.about}</a>
+                    <span>·</span>
+                    <a href="/${lang}/glossary.html">${ui.glossaryPage}</a>
+                    <span>·</span>
+                    <a href="https://github.com/chuchurex/eluno" target="_blank" rel="noopener">GitHub</a>
+                </div>
                 <div class="footer-attribution">
                     <p>${ui.footerAttribution || 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.'}</p>
                     <p>${ui.footerSessions || 'Original sessions free at'} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>
@@ -927,7 +947,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
   const navSidebar = generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap);
   const notesSidebar = generateContextSidebar(chapter, glossary, provenance, lang, ui);
   const chapterPrevNext = generateChapterPrevNext(chapter, allChapters, lang, ui);
-  const footer = generateFooter(ui);
+  const footer = generateFooter(ui, lang);
   const scripts = generateScripts();
 
   return `<!DOCTYPE html>
@@ -1064,6 +1084,21 @@ function generateIndexHtml(lang, chapters, media) {
   <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
   <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
+  <style>
+  .search-box { position: relative; max-width: 500px; margin: 1.5rem auto 2rem; }
+  .search-input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--fg); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; }
+  .search-input::placeholder { color: var(--muted); }
+  .search-input:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
+  .search-results { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg, #1a1a2e); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin-top: 4px; max-height: 400px; overflow-y: auto; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .search-result { display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--fg); border-bottom: 1px solid var(--border, rgba(255,255,255,0.08)); }
+  .search-result:last-child { border-bottom: none; }
+  .search-result:hover, .search-result:focus { background: var(--bg-alt, rgba(255,255,255,0.05)); }
+  .search-result-type { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.15rem; }
+  .search-result-title { font-family: var(--font-heading); font-size: 0.95rem; }
+  .search-result-text { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .search-no-results { padding: 1rem; text-align: center; color: var(--muted); font-style: italic; }
+  </style>
+
   <!-- Google tag (gtag.js) — deferred -->
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
   window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
@@ -1085,6 +1120,11 @@ function generateIndexHtml(lang, chapters, media) {
 ${generateHomepageMediaToolbar(media, ui)}
       </section>
 
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="${ui.searchPlaceholder}" id="site-search" autocomplete="off">
+        <div class="search-results" id="search-results" hidden></div>
+      </div>
+
       <section class="disclaimer-banner">
         <h2 class="disclaimer-title">${ui.disclaimerTitle}</h2>
 ${disclaimerHtml}
@@ -1098,6 +1138,13 @@ ${tocHtml}
       </section>
 
       <footer class="footer-attribution">
+        <div class="footer-links">
+          <a href="/${lang}/about.html">${ui.about}</a>
+          <span>·</span>
+          <a href="/${lang}/glossary.html">${ui.glossaryPage}</a>
+          <span>·</span>
+          <a href="https://github.com/chuchurex/eluno" target="_blank" rel="noopener">GitHub</a>
+        </div>
         <p>${ui.footerAttribution}</p>
         <p>${ui.footerSessions} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>
         <p class="footer-copyright">&copy; ${ui.footerCopyright}</p>
@@ -1106,6 +1153,68 @@ ${tocHtml}
   </div>
 
   <script src="/js/theme.js?v=${BUILD_HASH}"></script>
+  <script>
+  (function() {
+    var searchIndex = null;
+    var input = document.getElementById('site-search');
+    var results = document.getElementById('search-results');
+    if (!input || !results) return;
+
+    var debounceTimer;
+    input.addEventListener('input', function() {
+      clearTimeout(debounceTimer);
+      var self = this;
+      debounceTimer = setTimeout(function() { doSearch(self.value); }, 200);
+    });
+
+    // Close on click outside
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !results.contains(e.target)) {
+        results.hidden = true;
+      }
+    });
+    input.addEventListener('focus', function() {
+      if (results.children.length > 0) results.hidden = false;
+    });
+
+    function doSearch(value) {
+      var query = value.toLowerCase().trim();
+      if (query.length < 2) { results.hidden = true; results.innerHTML = ''; return; }
+
+      if (!searchIndex) {
+        var lang = document.documentElement.lang || 'en';
+        fetch('/' + lang + '/search-index.json')
+          .then(function(r) { return r.json(); })
+          .then(function(data) { searchIndex = data; renderResults(query); });
+        return;
+      }
+      renderResults(query);
+    }
+
+    function renderResults(query) {
+      var matches = searchIndex.filter(function(item) {
+        return item.title.toLowerCase().indexOf(query) !== -1 ||
+               item.text.toLowerCase().indexOf(query) !== -1;
+      }).slice(0, 10);
+
+      if (matches.length === 0) {
+        results.innerHTML = '<div class="search-no-results">' + '${ui.searchNoResults}' + '</div>';
+        results.hidden = false;
+        return;
+      }
+
+      var typeLabels = { chapter: '${ui.chapter}', section: '${ui.chapter}', glossary: '${ui.glossary}' };
+      results.innerHTML = matches.map(function(m) {
+        return '<a class="search-result" href="' + m.url + '">' +
+          '<div class="search-result-type">' + (typeLabels[m.type] || m.type) + '</div>' +
+          '<div class="search-result-title">' + m.title + '</div>' +
+          '<div class="search-result-text">' + m.text.substring(0, 100) + '</div>' +
+          '</a>';
+      }).join('');
+      results.hidden = false;
+    }
+  })();
+  </script>
 </body>
 </html>`;
 }
@@ -1164,11 +1273,12 @@ function generateAboutHtml(lang, about, allChapters, chapterSlugMap) {
             <div class="nav-section">
 ${chapterLinks}            </div>
             <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                <a href="/${lang}/glossary.html" class="nav-link">${ui.glossaryPage}</a>
                 <a href="/${lang}/about.html" class="nav-link current">${ui.about}</a>
             </div>
         </nav>`;
 
-  const footer = generateFooter(ui);
+  const footer = generateFooter(ui, lang);
   const scripts = generateScripts();
 
   return `<!DOCTYPE html>
@@ -1226,6 +1336,186 @@ ${navSidebar}
     </div>
 
 ${scripts}
+</body>
+</html>`;
+}
+
+/**
+ * Generate glossary page for a language
+ */
+function generateGlossaryHtml(lang, glossary, allChapters, chapterSlugMap) {
+  const ui = CONFIG.ui[lang] || CONFIG.ui.en;
+  const bookTitle = CONFIG.bookTitles[lang];
+
+  // Sort terms alphabetically by title
+  const sortedTerms = Object.entries(glossary)
+    .sort(([, a], [, b]) => a.title.localeCompare(b.title, lang));
+
+  // Group by first letter
+  const grouped = {};
+  for (const [key, term] of sortedTerms) {
+    const letter = term.title.charAt(0).toUpperCase();
+    if (!grouped[letter]) grouped[letter] = [];
+    grouped[letter].push({ key, ...term });
+  }
+
+  // Generate HTML for each letter group
+  const entriesHtml = Object.entries(grouped)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([letter, terms]) => {
+      const termsHtml = terms.map(term => {
+        const contentHtml = Array.isArray(term.content)
+          ? term.content.map(p => {
+              let processed = p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+              processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+              return `                        <p>${processed}</p>`;
+            }).join('\n')
+          : `                        <p>${term.content}</p>`;
+        return `                    <div class="glossary-entry" data-term="${term.key}">
+                        <h3 class="glossary-term-title">${term.title}</h3>
+${contentHtml}
+                    </div>`;
+      }).join('\n');
+
+      return `                <section class="glossary-letter" id="letter-${letter.toLowerCase()}">
+                    <h2 class="glossary-letter-heading">${letter}</h2>
+${termsHtml}
+                </section>`;
+    })
+    .join('\n\n');
+
+  // Language selector
+  const langSelector = CONFIG.languages
+    .map((l, i) => {
+      const active = l === lang ? ' class="active"' : '';
+      const prefix = i > 0 ? ' | ' : '';
+      const ariaLabel = { en: 'English', es: 'Español', pt: 'Português' }[l];
+      return `${prefix}<a href="/${l}/glossary.html"${active} onclick="localStorage.setItem('lang','${l}')" aria-label="${ariaLabel}">${l.toUpperCase()}</a>`;
+    })
+    .join('');
+
+  // Chapter links for nav
+  const chapterLinks = allChapters
+    .map(ch => {
+      const slug = slugify(ch.title);
+      return `            <div class="nav-chapter-group" id="nav-group-${ch.id}">
+                <div class="nav-chapter-header">
+                    <a href="/${lang}/chapters/${slug}.html" class="nav-link">${ch.number}. ${ch.title}</a>
+                </div>
+            </div>\n`;
+    })
+    .join('');
+
+  const navSidebar = `        <nav class="nav" id="sidebar">
+            <div class="nav-lang-selector">${langSelector}</div>
+            <div class="nav-back">
+                <a href="/${lang}/" class="nav-link">← ${ui.home}</a>
+            </div>
+            <div class="nav-section">
+${chapterLinks}            </div>
+            <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+                <a href="/${lang}/glossary.html" class="nav-link current">${ui.glossaryPage}</a>
+                <a href="/${lang}/about.html" class="nav-link">${ui.about}</a>
+            </div>
+        </nav>`;
+
+  const footer = generateFooter(ui, lang);
+  const scripts = generateScripts();
+
+  // Inline JS for glossary filter
+  const filterJs = `
+    <script>
+    (function() {
+      var input = document.getElementById('glossary-filter');
+      if (!input) return;
+      input.addEventListener('input', function() {
+        var query = this.value.toLowerCase().trim();
+        var entries = document.querySelectorAll('.glossary-entry');
+        var letters = document.querySelectorAll('.glossary-letter');
+        entries.forEach(function(entry) {
+          var title = entry.querySelector('.glossary-term-title').textContent.toLowerCase();
+          var content = entry.textContent.toLowerCase();
+          entry.style.display = (query === '' || title.indexOf(query) !== -1 || content.indexOf(query) !== -1) ? '' : 'none';
+        });
+        // Hide letter headings with no visible entries
+        letters.forEach(function(letter) {
+          var visible = letter.querySelectorAll('.glossary-entry:not([style*="display: none"])');
+          letter.style.display = visible.length > 0 ? '' : 'none';
+        });
+      });
+    })();
+    </script>`;
+
+  return `<!DOCTYPE html>
+<html lang="${lang}" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${ui.glossaryPage} — ${bookTitle} | eluno.org</title>
+    <meta name="description" content="${ui.glossaryPageSubtitle}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/glossary.html">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="${ui.glossaryPage} — ${bookTitle}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/glossary.html">
+    <meta property="og:locale" content="${lang}">
+
+    <!-- Alternate languages -->
+    ${CONFIG.languages.map(l => `<link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/glossary.html">`).join('\n    ')}
+
+    <link rel="preload" href="/fonts/cormorant-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
+    <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
+
+    <!-- Google tag (gtag.js) — deferred -->
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
+    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
+
+    <style>
+    .glossary-subtitle { font-style: italic; color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
+    .glossary-filter { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--fg); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin: 1.5rem 0 2rem; }
+    .glossary-filter::placeholder { color: var(--muted); }
+    .glossary-filter:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
+    .glossary-letter { margin-bottom: 2rem; }
+    .glossary-letter-heading { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    .glossary-entry { margin-bottom: 1.5rem; padding-left: 1rem; }
+    .glossary-term-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .glossary-entry p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem; color: var(--fg-soft, var(--fg)); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
+    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">☰ ${ui.home}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
+    <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
+
+    <div class="layout">
+        <main class="main" id="main-content">
+            <article class="chapter glossary-page">
+                <header class="ch-head">
+                    <h1 class="ch-title">${ui.glossaryPage}</h1>
+                    <p class="glossary-subtitle">${ui.glossaryPageSubtitle} (${sortedTerms.length})</p>
+                    <input type="text" class="glossary-filter" placeholder="${ui.searchPlaceholder}" id="glossary-filter">
+                </header>
+
+${entriesHtml}
+            </article>
+
+${footer}
+        </main>
+
+${navSidebar}
+    </div>
+
+${scripts}
+${filterJs}
 </body>
 </html>`;
 }
@@ -1352,6 +1642,11 @@ function buildLanguage(lang, chapterSlugMap) {
     fs.writeFileSync(path.join(langDir, 'about.html'), aboutHtml);
     console.log(`  ✓ about.html`);
   }
+
+  // Build glossary page
+  const glossaryHtml = generateGlossaryHtml(lang, glossary, chapters, chapterSlugMap);
+  fs.writeFileSync(path.join(langDir, 'glossary.html'), glossaryHtml);
+  console.log(`  ✓ glossary.html (${Object.keys(glossary).length} terms)`);
 }
 
 /**
@@ -1408,6 +1703,58 @@ function createGlossaryScript() {
 }
 
 /**
+ * Generate search index JSON for a language
+ */
+function generateSearchIndex(lang, chapters, glossary) {
+  const ui = CONFIG.ui[lang] || CONFIG.ui.en;
+  const index = [];
+
+  // Index chapters by section
+  for (const chapter of chapters) {
+    const slug = slugify(chapter.title);
+    // Add chapter-level entry
+    const firstText = chapter.sections[0]?.content[0]?.text || '';
+    const cleanFirst = firstText.replace(/<[^>]*>/g, '').replace(/\{[^}]+\}/g, '').substring(0, 200);
+    index.push({
+      type: 'chapter',
+      title: `${chapter.numberText}: ${chapter.title}`,
+      text: cleanFirst,
+      url: `/${lang}/chapters/${slug}.html`
+    });
+
+    // Add each section
+    for (const section of chapter.sections) {
+      const sectionText = section.content
+        .filter(b => b.type === 'paragraph')
+        .map(b => b.text.replace(/<[^>]*>/g, '').replace(/\{[^}]+\}/g, ''))
+        .join(' ')
+        .substring(0, 200);
+      index.push({
+        type: 'section',
+        title: `${chapter.numberText} — ${section.title}`,
+        text: sectionText,
+        url: `/${lang}/chapters/${slug}.html#${section.id}`
+      });
+    }
+  }
+
+  // Index glossary terms
+  for (const [key, term] of Object.entries(glossary)) {
+    const contentText = Array.isArray(term.content)
+      ? term.content.join(' ').substring(0, 200)
+      : String(term.content).substring(0, 200);
+    index.push({
+      type: 'glossary',
+      title: term.title,
+      text: contentText,
+      url: `/${lang}/glossary.html#letter-${term.title.charAt(0).toLowerCase()}`
+    });
+  }
+
+  return index;
+}
+
+/**
  * Build a map of chapter slugs per language for cross-language linking.
  * Returns { en: { 1: 'cosmology-and-genesis' }, es: { 1: 'cosmologia-y-genesis' }, ... }
  */
@@ -1447,6 +1794,15 @@ function generateSitemap(chapterSlugMap) {
       .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/about.html"/>`)
       .join('\n');
     urls += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.5</priority>\n${alternates}\n  </url>\n`;
+  }
+
+  // Glossary pages
+  for (const lang of CONFIG.languages) {
+    const loc = `${CONFIG.siteUrl}/${lang}/glossary.html`;
+    const alternates = CONFIG.languages
+      .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${CONFIG.siteUrl}/${l}/glossary.html"/>`)
+      .join('\n');
+    urls += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n${alternates}\n  </url>\n`;
   }
 
   // Chapter pages
@@ -1517,6 +1873,18 @@ function build() {
   ensureDir(jsDir);
   writeExternalJs(jsDir);
   createGlossaryScript();
+
+  // Generate search indices per language
+  console.log('\n🔍 Generating search indices...');
+  for (const lang of languagesToBuild) {
+    const chapters = loadChapters(lang);
+    const glossary = loadGlossary(lang);
+    const searchIndex = generateSearchIndex(lang, chapters, glossary);
+    const langDir = path.join(CONFIG.outputDir, lang);
+    ensureDir(langDir);
+    fs.writeFileSync(path.join(langDir, 'search-index.json'), JSON.stringify(searchIndex));
+    console.log(`  ✓ ${lang}/search-index.json (${searchIndex.length} entries)`);
+  }
 
   // Copy fonts from @eluno/core
   const coreFontsDir = path.join(__dirname, '../node_modules/@eluno/core/fonts');

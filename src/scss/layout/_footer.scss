@@ -63,6 +63,28 @@
   }
 }
 
+// Footer links row
+.footer-links {
+  margin-bottom: $spacing-sm;
+  font-style: normal;
+
+  a {
+    color: $gold-dim;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $gold;
+      text-decoration: underline;
+    }
+  }
+
+  span {
+    margin: 0 0.5rem;
+    opacity: 0.4;
+  }
+}
+
 // L/L Research Attribution
 .footer-attribution {
   margin-top: $spacing-lg;

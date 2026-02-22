@@ -32,6 +32,24 @@
       ]
     },
     {
+      "id": "open-source",
+      "title": "Código Abierto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Este proyecto es de código abierto. El código completo, el sistema de escritura y el pipeline están disponibles en <a href=\"https://github.com/chuchurex/eluno\" target=\"_blank\" rel=\"noopener\">GitHub</a>."
+        },
+        {
+          "type": "paragraph",
+          "text": "Eres bienvenido a hacer un fork del repositorio y crear tu propia versión de este libro — o uno completamente nuevo. El sistema de escritura está diseñado para ser reproducible: incluye protocolos, prompts y herramientas de automatización que pueden adaptarse a otro material fuente."
+        },
+        {
+          "type": "paragraph",
+          "text": "A medida que los agentes de IA se vuelvan más capaces, este tipo de proyecto será más fácil de crear y mejorar. Esperamos que esto sirva como punto de partida para quienes quieran hacer textos filosóficos o espirituales más accesibles."
+        }
+      ]
+    },
+    {
       "id": "prologue",
       "title": "",
       "content": [

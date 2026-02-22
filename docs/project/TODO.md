@@ -51,7 +51,10 @@
 ## Futuro (sin compromiso de fecha)
 
 - [ ] **PWA para lectura offline**
-- [ ] **Búsqueda client-side**
+- [x] **Búsqueda client-side** — Search index generado en build (255 entries EN/ES, 265 PT). Barra de búsqueda en landing page con resultados dropdown. Sin dependencias externas (Feb 22)
+- [x] **Página de glosario completo** — `/{lang}/glossary.html` con ~103 términos, filtro inline, agrupados por letra. Links en nav sidebar y footer (Feb 22)
+- [x] **Footer mejorado** — Links a About, Glosario y GitHub repo en footer de chapters, about, landing y glossary (Feb 22)
+- [x] **About: sección open-source** — Nueva sección explicando que el proyecto es código abierto, disponible para fork/adaptación. EN/ES/PT (Feb 22)
 - [ ] **Idiomas adicionales** (FR, DE, IT)
 - [ ] **Libro físico** (print-on-demand)
 - [x] **Accesibilidad WCAG 2.1 AA** — Skip link, H3→H2 heading hierarchy, :focus-visible en todos los interactivos, aria-expanded en toggles, overlay keyboard-accessible, SVGs aria-hidden, lang selector aria-labels, focus management + Escape key, prefers-reduced-motion, font-size relativo (Feb 22)
