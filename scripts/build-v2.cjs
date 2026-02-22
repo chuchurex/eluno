@@ -1177,8 +1177,26 @@ ${tocHtml}
       if (results.children.length > 0) results.hidden = false;
     });
 
+    // Normalize: lowercase + strip accents
+    function norm(s) {
+      return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    // Word-boundary match: query words must each appear as whole words
+    function escapeRe(s) {
+      return s.replace(/[-.*+?^$|()\\[\\]\\\\]/g, '\\\\' + '$' + '&');
+    }
+    function wordMatch(text, queryWords) {
+      var n = norm(text);
+      var sep = '[^a-z0-9\\u00e0-\\u00ff]';
+      return queryWords.every(function(w) {
+        var re = new RegExp('(^|' + sep + ')' + escapeRe(w) + '(' + sep + '|$)');
+        return re.test(n);
+      });
+    }
+
     function doSearch(value) {
-      var query = value.toLowerCase().trim();
+      var query = value.trim();
       if (query.length < 2) { results.hidden = true; results.innerHTML = ''; return; }
 
       if (!searchIndex) {
@@ -1192,9 +1210,9 @@ ${tocHtml}
     }
 
     function renderResults(query) {
+      var queryWords = norm(query).split(/\s+/).filter(function(w) { return w.length > 0; });
       var matches = searchIndex.filter(function(item) {
-        return item.title.toLowerCase().indexOf(query) !== -1 ||
-               item.text.toLowerCase().indexOf(query) !== -1;
+        return wordMatch(item.title, queryWords) || wordMatch(item.text, queryWords);
       }).slice(0, 10);
 
       if (matches.length === 0) {
