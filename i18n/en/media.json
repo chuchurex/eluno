@@ -1,21 +1,70 @@
 {
   "all": {
-    "pdf": "https://static.eluno.org/pdf/en/complete-book.pdf"
+    "pdf": "https://static.eluno.org/pdf/en/complete-book.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/complete-book.mp3"
   },
-  "1": { "pdf": "https://static.eluno.org/pdf/en/ch01.pdf" },
-  "2": { "pdf": "https://static.eluno.org/pdf/en/ch02.pdf" },
-  "3": { "pdf": "https://static.eluno.org/pdf/en/ch03.pdf" },
-  "4": { "pdf": "https://static.eluno.org/pdf/en/ch04.pdf" },
-  "5": { "pdf": "https://static.eluno.org/pdf/en/ch05.pdf" },
-  "6": { "pdf": "https://static.eluno.org/pdf/en/ch06.pdf" },
-  "7": { "pdf": "https://static.eluno.org/pdf/en/ch07.pdf" },
-  "8": { "pdf": "https://static.eluno.org/pdf/en/ch08.pdf" },
-  "9": { "pdf": "https://static.eluno.org/pdf/en/ch09.pdf" },
-  "10": { "pdf": "https://static.eluno.org/pdf/en/ch10.pdf" },
-  "11": { "pdf": "https://static.eluno.org/pdf/en/ch11.pdf" },
-  "12": { "pdf": "https://static.eluno.org/pdf/en/ch12.pdf" },
-  "13": { "pdf": "https://static.eluno.org/pdf/en/ch13.pdf" },
-  "14": { "pdf": "https://static.eluno.org/pdf/en/ch14.pdf" },
-  "15": { "pdf": "https://static.eluno.org/pdf/en/ch15.pdf" },
-  "16": { "pdf": "https://static.eluno.org/pdf/en/ch16.pdf" }
+  "1": {
+    "pdf": "https://static.eluno.org/pdf/en/ch01.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch01.mp3"
+  },
+  "2": {
+    "pdf": "https://static.eluno.org/pdf/en/ch02.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch02.mp3"
+  },
+  "3": {
+    "pdf": "https://static.eluno.org/pdf/en/ch03.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch03.mp3"
+  },
+  "4": {
+    "pdf": "https://static.eluno.org/pdf/en/ch04.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch04.mp3"
+  },
+  "5": {
+    "pdf": "https://static.eluno.org/pdf/en/ch05.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch05.mp3"
+  },
+  "6": {
+    "pdf": "https://static.eluno.org/pdf/en/ch06.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch06.mp3"
+  },
+  "7": {
+    "pdf": "https://static.eluno.org/pdf/en/ch07.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch07.mp3"
+  },
+  "8": {
+    "pdf": "https://static.eluno.org/pdf/en/ch08.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch08.mp3"
+  },
+  "9": {
+    "pdf": "https://static.eluno.org/pdf/en/ch09.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch09.mp3"
+  },
+  "10": {
+    "pdf": "https://static.eluno.org/pdf/en/ch10.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch10.mp3"
+  },
+  "11": {
+    "pdf": "https://static.eluno.org/pdf/en/ch11.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch11.mp3"
+  },
+  "12": {
+    "pdf": "https://static.eluno.org/pdf/en/ch12.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch12.mp3"
+  },
+  "13": {
+    "pdf": "https://static.eluno.org/pdf/en/ch13.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch13.mp3"
+  },
+  "14": {
+    "pdf": "https://static.eluno.org/pdf/en/ch14.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch14.mp3"
+  },
+  "15": {
+    "pdf": "https://static.eluno.org/pdf/en/ch15.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch15.mp3"
+  },
+  "16": {
+    "pdf": "https://static.eluno.org/pdf/en/ch16.pdf",
+    "audio": "https://static.eluno.org/audiobook/en/ch16.mp3"
+  }
 }
