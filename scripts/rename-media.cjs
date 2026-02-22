@@ -160,9 +160,9 @@ function main() {
 
       // Build media.json entry
       const entry = {};
-      entry.pdf = `https://static.eluno.org/pdf/${lang}/${seoBase}.pdf`;
+      entry.pdf = `https://eluno.org/pdf/${lang}/${seoBase}.pdf`;
       if (fs.existsSync(audioDir)) {
-        entry.audio = `https://static.eluno.org/audiobook/${lang}/${seoBase}.mp3`;
+        entry.audio = `https://eluno.org/audiobook/${lang}/${seoBase}.mp3`;
       }
       mediaEntries[String(num)] = entry;
     }
@@ -177,9 +177,9 @@ function main() {
 
     // Build "all" entry
     const allEntry = {};
-    allEntry.pdf = `https://static.eluno.org/pdf/${lang}/${COMPLETE_PDF[lang]}.pdf`;
+    allEntry.pdf = `https://eluno.org/pdf/${lang}/${COMPLETE_PDF[lang]}.pdf`;
     if (fs.existsSync(audioDir)) {
-      allEntry.audio = `https://static.eluno.org/audiobook/${lang}/${COMPLETE_AUDIO[lang]}.mp3`;
+      allEntry.audio = `https://eluno.org/audiobook/${lang}/${COMPLETE_AUDIO[lang]}.mp3`;
     }
 
     mediaEntries.all = allEntry;
