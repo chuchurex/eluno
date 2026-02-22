@@ -1,21 +1,21 @@
 {
   "all": {
-    "pdf": "/pdf/en/complete-book.pdf"
+    "pdf": "https://static.eluno.org/pdf/en/complete-book.pdf"
   },
-  "1": { "pdf": "/pdf/en/ch01.pdf" },
-  "2": { "pdf": "/pdf/en/ch02.pdf" },
-  "3": { "pdf": "/pdf/en/ch03.pdf" },
-  "4": { "pdf": "/pdf/en/ch04.pdf" },
-  "5": { "pdf": "/pdf/en/ch05.pdf" },
-  "6": { "pdf": "/pdf/en/ch06.pdf" },
-  "7": { "pdf": "/pdf/en/ch07.pdf" },
-  "8": { "pdf": "/pdf/en/ch08.pdf" },
-  "9": { "pdf": "/pdf/en/ch09.pdf" },
-  "10": { "pdf": "/pdf/en/ch10.pdf" },
-  "11": { "pdf": "/pdf/en/ch11.pdf" },
-  "12": { "pdf": "/pdf/en/ch12.pdf" },
-  "13": { "pdf": "/pdf/en/ch13.pdf" },
-  "14": { "pdf": "/pdf/en/ch14.pdf" },
-  "15": { "pdf": "/pdf/en/ch15.pdf" },
-  "16": { "pdf": "/pdf/en/ch16.pdf" }
+  "1": { "pdf": "https://static.eluno.org/pdf/en/ch01.pdf" },
+  "2": { "pdf": "https://static.eluno.org/pdf/en/ch02.pdf" },
+  "3": { "pdf": "https://static.eluno.org/pdf/en/ch03.pdf" },
+  "4": { "pdf": "https://static.eluno.org/pdf/en/ch04.pdf" },
+  "5": { "pdf": "https://static.eluno.org/pdf/en/ch05.pdf" },
+  "6": { "pdf": "https://static.eluno.org/pdf/en/ch06.pdf" },
+  "7": { "pdf": "https://static.eluno.org/pdf/en/ch07.pdf" },
+  "8": { "pdf": "https://static.eluno.org/pdf/en/ch08.pdf" },
+  "9": { "pdf": "https://static.eluno.org/pdf/en/ch09.pdf" },
+  "10": { "pdf": "https://static.eluno.org/pdf/en/ch10.pdf" },
+  "11": { "pdf": "https://static.eluno.org/pdf/en/ch11.pdf" },
+  "12": { "pdf": "https://static.eluno.org/pdf/en/ch12.pdf" },
+  "13": { "pdf": "https://static.eluno.org/pdf/en/ch13.pdf" },
+  "14": { "pdf": "https://static.eluno.org/pdf/en/ch14.pdf" },
+  "15": { "pdf": "https://static.eluno.org/pdf/en/ch15.pdf" },
+  "16": { "pdf": "https://static.eluno.org/pdf/en/ch16.pdf" }
 }
