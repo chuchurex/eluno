@@ -94,6 +94,18 @@ const PDF_LABELS = {
   },
 };
 
+const TAGLINE = {
+  en: 'A philosophical reinterpretation of The Ra Material, The Law of One, as an accessible narrative. It explores cosmology, the Creator, the densities, and the purpose of existence.',
+  es: 'Una reinterpretación filosófica del Material Ra, La Ley del Uno, como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.',
+  pt: 'Uma reinterpretação filosófica do Material Ra, A Lei do Um, como narrativa acessível. Explora a cosmologia, o Criador, as densidades e o propósito da existência.',
+};
+
+const OUTRO = {
+  en: 'This work is a philosophical interpretation of The Ra Material, originally published by L/L Research. Original sessions available free at llresearch.org',
+  es: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research. Sesiones originales disponibles en llresearch.org',
+  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research. Sessões originais disponíveis em llresearch.org',
+};
+
 // ============================================================================
 // TEXT PROCESSING WITH FOOTNOTES
 // ============================================================================
@@ -343,9 +355,12 @@ function generatePdfHtml(chapter, glossary, references, lang, ui, provenance) {
       padding: 0;
     }
 
-    .header { text-align: center; padding-bottom: 1rem; border-bottom: 1px solid #ddd; margin-bottom: 2rem; }
-    .header-site { font-family: var(--font-heading); font-size: 10pt; color: var(--muted); letter-spacing: 0.1em; }
-    .header-book { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--gold); margin-top: 0.25rem; }
+    .cover-page { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; page-break-after: always; }
+    .cover-title { font-family: var(--font-heading); font-size: 36pt; color: var(--gold); margin-bottom: 1.5rem; }
+    .cover-tagline { font-family: var(--font-body); font-size: 11pt; color: var(--muted); max-width: 80%; line-height: 1.6; font-style: italic; }
+    .cover-divider { color: var(--gold); font-size: 14pt; margin: 2rem 0; letter-spacing: 0.5em; }
+    .cover-chapter-num { font-family: var(--font-heading); font-size: 12pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; }
+    .cover-chapter-title { font-family: var(--font-heading); font-size: 24pt; font-weight: 600; }
 
     .chapter-header { text-align: center; margin-bottom: 2.5rem; page-break-after: avoid; }
     .chapter-num { font-family: var(--font-heading); font-size: 12pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
@@ -378,26 +393,33 @@ function generatePdfHtml(chapter, glossary, references, lang, ui, provenance) {
     .provenance-section-title { font-size: 9pt; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
     .provenance-segment { font-size: 8pt; line-height: 1.4; margin-left: 1em; color: var(--muted); margin-bottom: 0.15rem; }
 
+    .outro { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ddd; text-align: center; }
+    .outro-divider { color: var(--gold); font-size: 14pt; letter-spacing: 0.5em; margin-bottom: 1.5rem; }
+    .outro-text { font-size: 9pt; color: var(--muted); font-style: italic; line-height: 1.6; max-width: 80%; margin: 0 auto; }
+
     h2 { page-break-after: avoid; }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-site">${ui.siteTitle}</div>
-    <div class="header-book">${ui.bookTitle}</div>
-  </header>
+  <div class="cover-page">
+    <div class="cover-title">${ui.bookTitle}</div>
+    <div class="cover-tagline">${TAGLINE[lang]}</div>
+    <div class="cover-divider">· · ·</div>
+    <div class="cover-chapter-num">${chapter.numberText}</div>
+    <div class="cover-chapter-title">${chapter.title}</div>
+  </div>
 
   <article>
-    <header class="chapter-header">
-      <div class="chapter-num">${chapter.numberText}</div>
-      <h1 class="chapter-title">${chapter.title}</h1>
-    </header>
-
     ${sectionsHtml}
   </article>
 
   ${glossaryHtml}
   ${sourcesHtml}
+
+  <div class="outro">
+    <div class="outro-divider">· · ·</div>
+    <p class="outro-text">${OUTRO[lang]}</p>
+  </div>
 </body>
 </html>`;
 }
@@ -627,12 +649,15 @@ async function buildCompleteBookPdf(targetLang = null) {
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: var(--font-body); font-size: 11pt; line-height: 1.7; color: var(--text); }
-    .header { text-align: center; padding-bottom: 1rem; border-bottom: 1px solid #ddd; margin-bottom: 2rem; }
-    .header-site { font-family: var(--font-heading); font-size: 10pt; color: var(--muted); letter-spacing: 0.1em; }
-    .header-book { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--gold); margin-top: 0.25rem; }
+    .cover-page { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; page-break-after: always; }
+    .cover-title { font-family: var(--font-heading); font-size: 48pt; color: var(--gold); margin-bottom: 1.5rem; }
+    .cover-tagline { font-family: var(--font-body); font-size: 12pt; color: var(--muted); max-width: 80%; line-height: 1.6; font-style: italic; }
     .chapter-header { text-align: center; margin-bottom: 2.5rem; }
     .chapter-num { font-family: var(--font-heading); font-size: 12pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
     .chapter-title { font-family: var(--font-heading); font-size: 24pt; font-weight: 600; color: var(--text); line-height: 1.2; }
+    .outro { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ddd; text-align: center; }
+    .outro-divider { color: var(--gold); font-size: 14pt; letter-spacing: 0.5em; margin-bottom: 1.5rem; }
+    .outro-text { font-size: 9pt; color: var(--muted); font-style: italic; line-height: 1.6; max-width: 80%; margin: 0 auto; }
     .section { margin-bottom: 2rem; page-break-inside: avoid; }
     .section h2 { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--text); margin-bottom: 1rem; page-break-after: avoid; }
     .section p { margin-bottom: 1rem; text-align: justify; text-indent: 1.5em; }
@@ -657,15 +682,15 @@ async function buildCompleteBookPdf(targetLang = null) {
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-site">${ui.siteTitle}</div>
-    <div class="header-book">${ui.bookTitle}</div>
-  </header>
-  <div class="title-page" style="height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-    <h1 style="font-family: var(--font-heading); font-size: 48pt; color: var(--text); margin-bottom: 1rem;">${ui.bookTitle}</h1>
-    <p style="font-family: var(--font-heading); font-size: 18pt; color: var(--gold);">${ui.siteTitle}</p>
+  <div class="cover-page">
+    <div class="cover-title">${ui.bookTitle}</div>
+    <div class="cover-tagline">${TAGLINE[lang]}</div>
   </div>
   ${chaptersHtml}
+  <div class="outro" style="page-break-before: always; min-height: 40vh; display: flex; flex-direction: column; justify-content: center;">
+    <div class="outro-divider">· · ·</div>
+    <p class="outro-text">${OUTRO[lang]}</p>
+  </div>
 </body>
 </html>`;
 
