@@ -88,9 +88,10 @@ function loadGlossary(lang) {
  */
 function cleanForTTS(text, glossary) {
   // {term:xxx} → use glossary title (e.g. {term:infinite} → "El Infinito" in ES)
+  // Strip parenthetical descriptions like "(Primera Distorsión)" for TTS
   text = text.replace(/\{term:([^}]+)\}/g, (_, id) => {
     const term = glossary[id];
-    if (term && term.title) return term.title;
+    if (term && term.title) return term.title.replace(/\s*\([^)]+\)\s*/g, '').trim();
     // Fallback: humanize the ID
     return id.replace(/-/g, ' ');
   });
@@ -99,20 +100,29 @@ function cleanForTTS(text, glossary) {
   text = text.replace(/\{ref:[^}]+\}/g, '');
 
   // Fix duplicate articles from glossary term insertion
-  // ES: "el El Infinito" → "El Infinito", "del El Logos" → "del Logos"
-  // EN: "the The Infinite" → "The Infinite"
-  // PT: "o O Infinito" → "O Infinito", "a A Colheita" → "A Colheita"
-  text = text.replace(/\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+(El|La|Los|Las|The|O|A|Os|As)\s/g, (_, art, termArt) => {
+  // ES: "el El Infinito" → "El Infinito", "El El Llamado" → "El Llamado"
+  // EN: "the The Infinite" → "The Infinite", "The The Calling" → "The Calling"
+  // PT: "o O Infinito" → "O Infinito", "do os Logos" → "dos Logos"
+  const articlePattern = /\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+(el|la|los|las|the|o|a|os|as)\s/gi;
+  text = text.replace(articlePattern, (match, art, termArt) => {
     const al = art.toLowerCase();
     const tl = termArt.toLowerCase();
     // Same article: "el El" → "El", "the The" → "The", "o O" → "O"
     if (al === tl) return termArt + ' ';
     // Spanish contractions: "del El" → "del ", "al El" → "al "
     if ((al === 'del' || al === 'al') && tl === 'el') return art + ' ';
-    // Portuguese contractions: "do O" → "do ", "da A" → "da "
+    // Portuguese contractions: "do O" → "do ", "da A" → "da ", "do os" → "dos "
+    if (al === 'do' && tl === 'os') return 'dos ';
+    if (al === 'do' && tl === 'as') return 'das ';
+    if (al === 'da' && tl === 'a') return 'da ';
     if ((al === 'do' || al === 'da' || al === 'dos' || al === 'das') && (tl === 'o' || tl === 'a' || tl === 'os' || tl === 'as')) return art + ' ';
-    return art + ' ' + termArt + ' ';
+    return match; // Don't modify if no rule matches
   });
+
+  // Fix trailing duplicate from multi-word glossary terms
+  // The JSON may say "{term:veil} del olvido" but glossary returns "Velo del Olvido"
+  // resulting in "Velo del Olvido del olvido". Detect and remove the trailing duplicate.
+  text = text.replace(/((?:del|do|da|of|dos|das)\s+\w+)\s+\1/gi, '$1');
 
   // Clean up double spaces
   text = text.replace(/  +/g, ' ');
