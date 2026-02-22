@@ -6,12 +6,9 @@
 
 ## Estado actual
 
-- **eluno.org** live con 16/16 capítulos (EN/ES/PT)
-- Audiobook completo en 3 idiomas (Edge TTS)
-- PDF por capítulo y libro completo en 3 idiomas
+- **v3.eluno.org** live con 1 de 16 capítulos (EN/ES/PT)
 - Pipeline de escritura automatizado (6 fases, slash commands)
 - Build con `build-v2.cjs`, deploy automático vía Cloudflare Pages
-- Media estático en static.eluno.org (Hostinger)
 
 ---
 

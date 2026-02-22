@@ -227,56 +227,97 @@ function runValidation(paths) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// CLI
+// Exports for testing
 // ─────────────────────────────────────────────────────────────
 
-const args = process.argv.slice(2);
-const flags = new Set(args.filter(a => a.startsWith('--')));
-const positional = args.filter(a => !a.startsWith('--'));
+export { sortObjectKeys, mergeGlossaryTerms };
 
-const dryRun = flags.has('--dry-run');
-const force = flags.has('--force');
+/**
+ * Pure logic for merging glossary terms (no I/O).
+ * Takes an array of new terms and an existing glossary object.
+ * Returns { glossary, added, existing, skipped }.
+ */
+function mergeGlossaryTerms(newTerms, existingGlossary) {
+  const glossary = { ...existingGlossary };
+  let added = 0;
+  let existing = 0;
+  const skippedTerms = [];
 
-if (positional.length === 0) {
-  console.log('Usage: node scripts/integrate-chapter.js <chapter> [--force] [--dry-run]');
-  console.log('  node scripts/integrate-chapter.js 02');
-  console.log('  node scripts/integrate-chapter.js 02 --force');
-  console.log('  node scripts/integrate-chapter.js 02 --dry-run');
-  process.exit(0);
+  for (const term of newTerms) {
+    const { keyword, title, definition } = term;
+    if (!keyword || !title) {
+      skippedTerms.push(term);
+      continue;
+    }
+    if (keyword in glossary) {
+      existing++;
+      continue;
+    }
+    const content = Array.isArray(definition) ? definition : [definition];
+    glossary[keyword] = { title, content };
+    added++;
+  }
+
+  return { glossary: sortObjectKeys(glossary), added, existing, skipped: skippedTerms };
 }
 
-const chapterNum = positional[0].padStart(2, '0');
-const paths = getPaths(chapterNum);
+// ─────────────────────────────────────────────────────────────
+// CLI (only when run directly)
+// ─────────────────────────────────────────────────────────────
 
-console.log('═══════════════════════════════════════════');
-console.log(` Integrating Chapter ${parseInt(chapterNum, 10)}${dryRun ? ' (DRY RUN)' : ''}`);
-console.log('═══════════════════════════════════════════\n');
-
-// Validate inputs exist
-const missing = [];
-if (!fs.existsSync(paths.srcChapter)) missing.push(path.relative(ROOT, paths.srcChapter));
-if (!fs.existsSync(paths.srcGlossary)) missing.push(path.relative(ROOT, paths.srcGlossary));
-
-if (missing.length > 0) {
-  console.error('❌ Missing required input files:');
-  for (const m of missing) console.error(`   • ${m}`);
-  console.error('\nRun the pipeline first: /write:qa → /write:glossary');
-  process.exit(2);
-}
-
-// Execute
-copyChapter(paths, dryRun, force);
-mergeGlossary(paths, dryRun);
-copyProvenance(paths, dryRun, force);
-
-if (!dryRun) {
-  runValidation(paths);
-}
-
-console.log('\n═══════════════════════════════════════════');
-if (dryRun) {
-  console.log('🔍 Dry run complete. No files were modified.');
+const isMainModule =
+  process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (!isMainModule) {
+  // Imported as module — skip CLI execution
 } else {
-  console.log('✅ Integration complete!');
-  console.log(`\nNext: node scripts/translate-chapter.js ${chapterNum}`);
-}
+  const args = process.argv.slice(2);
+  const flags = new Set(args.filter(a => a.startsWith('--')));
+  const positional = args.filter(a => !a.startsWith('--'));
+
+  const dryRun = flags.has('--dry-run');
+  const force = flags.has('--force');
+
+  if (positional.length === 0) {
+    console.log('Usage: node scripts/integrate-chapter.js <chapter> [--force] [--dry-run]');
+    console.log('  node scripts/integrate-chapter.js 02');
+    console.log('  node scripts/integrate-chapter.js 02 --force');
+    console.log('  node scripts/integrate-chapter.js 02 --dry-run');
+    process.exit(0);
+  }
+
+  const chapterNum = positional[0].padStart(2, '0');
+  const paths = getPaths(chapterNum);
+
+  console.log('═══════════════════════════════════════════');
+  console.log(` Integrating Chapter ${parseInt(chapterNum, 10)}${dryRun ? ' (DRY RUN)' : ''}`);
+  console.log('═══════════════════════════════════════════\n');
+
+  // Validate inputs exist
+  const missing = [];
+  if (!fs.existsSync(paths.srcChapter)) missing.push(path.relative(ROOT, paths.srcChapter));
+  if (!fs.existsSync(paths.srcGlossary)) missing.push(path.relative(ROOT, paths.srcGlossary));
+
+  if (missing.length > 0) {
+    console.error('❌ Missing required input files:');
+    for (const m of missing) console.error(`   • ${m}`);
+    console.error('\nRun the pipeline first: /write:qa → /write:glossary');
+    process.exit(2);
+  }
+
+  // Execute
+  copyChapter(paths, dryRun, force);
+  mergeGlossary(paths, dryRun);
+  copyProvenance(paths, dryRun, force);
+
+  if (!dryRun) {
+    runValidation(paths);
+  }
+
+  console.log('\n═══════════════════════════════════════════');
+  if (dryRun) {
+    console.log('🔍 Dry run complete. No files were modified.');
+  } else {
+    console.log('✅ Integration complete!');
+    console.log(`\nNext: node scripts/translate-chapter.js ${chapterNum}`);
+  }
+} // end isMainModule

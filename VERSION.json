@@ -1,19 +1,18 @@
 {
-  "version": "2.0.0-beta.1",
+  "version": "3.0.0",
   "codename": "provenance",
-  "branch": "v2",
-  "domain": "beta.eluno.org",
+  "branch": "main",
+  "domain": "eluno.org",
   "created": "2026-02-07",
-  "engine": "eluno-build v2",
+  "engine": "build-v2.cjs",
   "changes": [
-    "New build pipeline: JSON → HTML with lawofone.info citations",
+    "16 chapters rewritten (v3 quality standard)",
     "Trilingual system: EN/ES/PT",
-    "Provenance tracking system ({src:} → lawofone.info URLs)",
-    "PDF generation (citations as plain text, no links)",
-    "MP3 generation via TTS",
-    "Chapter 1 rewrite (v2 quality standard)"
+    "Provenance tracking ({src:} → lawofone.info URLs)",
+    "PDF generation with per-chapter glossary and sources",
+    "MP3 audiobook generation via Edge TTS",
+    "Automated writing pipeline (6 phases)"
   ],
-  "status": "beta",
-  "production_url": "eluno.org",
-  "beta_url": "beta.eluno.org"
+  "status": "production",
+  "production_url": "eluno.org"
 }

@@ -265,45 +265,57 @@ function validateChapter(chapterNum) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// CLI
+// Exports for testing
 // ─────────────────────────────────────────────────────────────
 
-const args = process.argv.slice(2);
+export { extractMarks, validateChapter, META };
 
-if (args.length === 0) {
-  console.log('Usage: node scripts/validate-alignment.js <chapter|all>');
-  console.log('  node scripts/validate-alignment.js 02');
-  console.log('  node scripts/validate-alignment.js all');
-  console.log('  node scripts/validate-alignment.js 01 02 03');
-  process.exit(0);
-}
+// ─────────────────────────────────────────────────────────────
+// CLI (only when run directly)
+// ─────────────────────────────────────────────────────────────
 
-console.log('═══════════════════════════════════════════');
-console.log(' Cross-language alignment validation');
-console.log('═══════════════════════════════════════════');
-
-let chapters;
-if (args.includes('all')) {
-  chapters = Array.from({ length: 16 }, (_, i) => i + 1);
+const isMainModule =
+  process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (!isMainModule) {
+  // Imported as module — skip CLI execution
 } else {
-  chapters = args.map(a => parseInt(a, 10)).filter(n => !isNaN(n));
-}
+  const args = process.argv.slice(2);
 
-let allPassed = true;
-let totalWarns = 0;
+  if (args.length === 0) {
+    console.log('Usage: node scripts/validate-alignment.js <chapter|all>');
+    console.log('  node scripts/validate-alignment.js 02');
+    console.log('  node scripts/validate-alignment.js all');
+    console.log('  node scripts/validate-alignment.js 01 02 03');
+    process.exit(0);
+  }
 
-for (const ch of chapters) {
-  const result = validateChapter(ch);
-  if (!result.passed) allPassed = false;
-  if (result.warns) totalWarns += result.warns;
-}
+  console.log('═══════════════════════════════════════════');
+  console.log(' Cross-language alignment validation');
+  console.log('═══════════════════════════════════════════');
 
-console.log('\n═══════════════════════════════════════════');
-if (!allPassed) {
-  console.log('❌ Alignment validation FAILED');
-  process.exit(1);
-} else if (totalWarns > 0) {
-  console.log(`✅ Aligned with ${totalWarns} warning(s)`);
-} else {
-  console.log('✅ All chapters aligned!');
-}
+  let chapters;
+  if (args.includes('all')) {
+    chapters = Array.from({ length: 16 }, (_, i) => i + 1);
+  } else {
+    chapters = args.map(a => parseInt(a, 10)).filter(n => !isNaN(n));
+  }
+
+  let allPassed = true;
+  let totalWarns = 0;
+
+  for (const ch of chapters) {
+    const result = validateChapter(ch);
+    if (!result.passed) allPassed = false;
+    if (result.warns) totalWarns += result.warns;
+  }
+
+  console.log('\n═══════════════════════════════════════════');
+  if (!allPassed) {
+    console.log('❌ Alignment validation FAILED');
+    process.exit(1);
+  } else if (totalWarns > 0) {
+    console.log(`✅ Aligned with ${totalWarns} warning(s)`);
+  } else {
+    console.log('✅ All chapters aligned!');
+  }
+} // end isMainModule

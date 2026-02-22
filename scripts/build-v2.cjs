@@ -83,7 +83,9 @@ const CONFIG = {
       footerCopyright: 'Content derived from L/L Research material',
       noSources: 'No source citations for this section.',
       notesEmpty: 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.',
-      about: 'About'
+      about: 'About',
+      skipToContent: 'Skip to content',
+      closeMenu: 'Close menu'
     },
     es: {
       chapter: 'Capítulo',
@@ -111,7 +113,9 @@ const CONFIG = {
       footerCopyright: 'Contenido derivado del material de L/L Research',
       noSources: 'Sin citas de fuentes para esta sección.',
       notesEmpty: 'Haz clic en cualquier <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">término destacado</span> para ver su definición.',
-      about: 'Acerca de'
+      about: 'Acerca de',
+      skipToContent: 'Ir al contenido',
+      closeMenu: 'Cerrar menú'
     },
     pt: {
       chapter: 'Capítulo',
@@ -139,7 +143,9 @@ const CONFIG = {
       footerCopyright: 'Conteúdo derivado do material de L/L Research',
       noSources: 'Sem citações de fontes para esta seção.',
       notesEmpty: 'Clique em qualquer <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">termo destacado</span> para ver sua definição.',
-      about: 'Sobre'
+      about: 'Sobre',
+      skipToContent: 'Ir para o conteúdo',
+      closeMenu: 'Fechar menu'
     }
   }
 };
@@ -367,14 +373,14 @@ function renderSection(section, glossary, references, provenance, lang, chapterN
     .map(block => renderContentBlock(block, glossary, references))
     .join('\n        ');
 
-  const infoIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M8 4v1M8 7v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>`;
+  const infoIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M8 4v1M8 7v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>`;
 
   return `
       <section class="section" id="${section.id}" data-section-title="${section.title}" data-section-number="${sectionNumber}">
-        <h3 class="sec-title">
+        <h2 class="sec-title">
           <span class="sec-title-text">${section.title}</span>
           <button class="sec-context-btn" data-target="${section.id}" aria-label="${ui.sources}" title="${ui.sources}">${infoIcon}</button>
-        </h3>
+        </h2>
         ${contentHtml}
       </section>
   `;
@@ -393,7 +399,8 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
       const active = l === lang ? ' class="active"' : '';
       const prefix = i > 0 ? ' | ' : '';
       const targetSlug = chapterSlugMap[l][chapter.number];
-      return `${prefix}<a href="/${l}/chapters/${targetSlug}.html"${active} onclick="localStorage.setItem('lang','${l}')">${l.toUpperCase()}</a>`;
+      const ariaLabel = { en: 'English', es: 'Español', pt: 'Português' }[l];
+      return `${prefix}<a href="/${l}/chapters/${targetSlug}.html"${active} onclick="localStorage.setItem('lang','${l}')" aria-label="${ariaLabel}">${l.toUpperCase()}</a>`;
     })
     .join('');
 
@@ -408,7 +415,7 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
       html += `                    <a href="/${lang}/chapters/${slug}.html" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${ch.title}</a>\n`;
 
       if (isActive) {
-        html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="${ui.ariaToggleSections}">▾</button>\n`;
+        html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="${ui.ariaToggleSections}" aria-expanded="false">▾</button>\n`;
         html += `                </div>\n`;
         html += `                <div class="nav-sections-list">\n`;
         ch.sections.forEach(sec => {
@@ -517,9 +524,9 @@ ${sourceBlocks}
  * SVG icons for media toolbar (22px, same as alpha)
  */
 const MEDIA_SVG = {
-  pdf: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>',
-  audio: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>',
-  youtube: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>'
+  pdf: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm-2 14l-4-4h2.5v-4h3v4H15l-4 4z"/></svg>',
+  audio: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>',
+  youtube: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>'
 };
 
 /**
@@ -650,168 +657,252 @@ function generateFooter(ui) {
 }
 
 /**
- * Generate common scripts
+ * Generate external JS content for chapter/about pages
  */
-function generateScripts() {
-  return `    <script>
-        // Theme Management
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            let currentTheme = 'dark';
-            if (savedTheme) currentTheme = savedTheme;
-            if (currentTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                updateThemeButton('light');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                updateThemeButton('dark');
-            }
+function getElunoJsContent() {
+  return `// Theme Management
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    let currentTheme = 'dark';
+    if (savedTheme) currentTheme = savedTheme;
+    if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        updateThemeButton('light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        updateThemeButton('dark');
+    }
+}
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'light' ? 'dark' : 'light';
+    if (newTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('theme', newTheme);
+    updateThemeButton(newTheme);
+}
+function updateThemeButton(theme) {
+    const btns = document.querySelectorAll('.theme-toggle');
+    btns.forEach(btn => {
+        btn.innerHTML = theme === 'light' ? '\\u263E' : '\\u2600';
+    });
+}
+initTheme();
+
+// Navigation functions
+function toggleNav(){
+    var sidebar=document.getElementById('sidebar');
+    var overlay=document.getElementById('overlay');
+    var notes=document.getElementById('notes');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+    if(notes)notes.classList.remove('open');
+    var navBtn=document.querySelector('.nav-toggle');
+    var notesBtn=document.querySelector('.notes-toggle');
+    var isOpen=sidebar.classList.contains('open');
+    if(navBtn)navBtn.setAttribute('aria-expanded',isOpen);
+    if(notesBtn)notesBtn.setAttribute('aria-expanded','false');
+    if(isOpen){var first=sidebar.querySelector('a');if(first)first.focus();}
+}
+function toggleNotes(){
+    var notes=document.getElementById('notes');
+    var overlay=document.getElementById('overlay');
+    var sidebar=document.getElementById('sidebar');
+    notes.classList.toggle('open');
+    overlay.classList.toggle('active');
+    sidebar.classList.remove('open');
+    var navBtn=document.querySelector('.nav-toggle');
+    var notesBtn=document.querySelector('.notes-toggle');
+    var isOpen=notes.classList.contains('open');
+    if(notesBtn)notesBtn.setAttribute('aria-expanded',isOpen);
+    if(navBtn)navBtn.setAttribute('aria-expanded','false');
+    if(isOpen){var first=notes.querySelector('a, button');if(first)first.focus();}
+}
+function closeAll(){
+    document.getElementById('sidebar').classList.remove('open');
+    var notes=document.getElementById('notes');if(notes)notes.classList.remove('open');
+    document.getElementById('overlay').classList.remove('active');
+    var navBtn=document.querySelector('.nav-toggle');
+    var notesBtn=document.querySelector('.notes-toggle');
+    if(navBtn)navBtn.setAttribute('aria-expanded','false');
+    if(notesBtn)notesBtn.setAttribute('aria-expanded','false');
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+function toggleChapter(id){var g=document.getElementById('nav-group-'+id);if(!g)return;g.classList.toggle('expanded');var btn=g.querySelector('.nav-chapter-toggle');if(btn)btn.setAttribute('aria-expanded',g.classList.contains('expanded'));}
+
+// Audio player toggle
+function toggleAudio(num){
+    var panel=document.getElementById('audio-panel-'+num);
+    var btn=document.querySelector('[data-audio-btn="'+num+'"]');
+    if(!panel)return;
+    document.querySelectorAll('.ch-media-audio-panel').forEach(function(p){
+        if(p.id!=='audio-panel-'+num){p.classList.remove('active');var a=p.querySelector('audio');if(a)a.pause()}
+    });
+    document.querySelectorAll('[data-audio-btn]').forEach(function(b){b.classList.remove('active')});
+    panel.classList.toggle('active');
+    if(panel.classList.contains('active')){
+        if(btn)btn.classList.add('active');
+        var audio=panel.querySelector('audio');
+        if(audio&&audio.paused)audio.play().catch(function(){});
+    } else {
+        var audio=panel.querySelector('audio');
+        if(audio)audio.pause();
+    }
+}
+
+// Terms and notes functionality
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){
+        e.preventDefault();
+        const noteId='note-'+this.dataset.term;
+        const note=document.getElementById(noteId);
+        if(!note)return;
+        document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));
+        document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));
+        const ne=document.getElementById('notes-term-empty');
+        if(ne)ne.style.display='none';
+        this.classList.add('active');
+        note.classList.add('active');
+        if(window.innerWidth<=1100){
+            document.getElementById('notes').classList.add('open');
+            document.getElementById('overlay').classList.add('active');
         }
-        function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme');
-            const newTheme = current === 'light' ? 'dark' : 'light';
-            if (newTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
+        note.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }));
+
+    // === Scroll-Spy & Contextual Sidebar ===
+    (function() {
+        var sections = document.querySelectorAll('.section[id]');
+        var contextTitle = document.getElementById('notes-context-title');
+        var sourcesEmpty = document.getElementById('notes-sources-empty');
+        var allSourceBlocks = document.querySelectorAll('.notes-sources[data-section]');
+        var currentSectionId = null;
+
+        function updateSidebarContext(sectionId) {
+            if (sectionId === currentSectionId) return;
+            currentSectionId = sectionId;
+            var sectionEl = document.getElementById(sectionId);
+            if (!sectionEl) return;
+            var title = sectionEl.getAttribute('data-section-title') || '';
+            var sectionNum = sectionEl.getAttribute('data-section-number') || '';
+
+            // Fade transition
+            contextTitle.style.opacity = '0';
+            setTimeout(function() {
+                contextTitle.textContent = sectionNum + ' ' + title;
+                contextTitle.style.opacity = '1';
+            }, 150);
+
+            // Show/hide matching sources
+            var hasSource = false;
+            allSourceBlocks.forEach(function(block) {
+                if (block.getAttribute('data-section') === sectionId) {
+                    block.style.display = 'block';
+                    hasSource = true;
+                } else {
+                    block.style.display = 'none';
+                }
+            });
+            if (sourcesEmpty) {
+                sourcesEmpty.style.display = hasSource ? 'none' : 'block';
             }
-            localStorage.setItem('theme', newTheme);
-            updateThemeButton(newTheme);
-        }
-        function updateThemeButton(theme) {
-            const btns = document.querySelectorAll('.theme-toggle');
-            btns.forEach(btn => {
-                btn.innerHTML = theme === 'light' ? '☾' : '☀';
+
+            // Highlight active section in left nav
+            document.querySelectorAll('.nav-link.sub').forEach(function(link) {
+                link.classList.toggle('current', link.getAttribute('href') === '#' + sectionId);
             });
         }
-        initTheme();
 
-        // Navigation functions
-        function toggleNav(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('notes')?.classList.remove('open')}
-        function toggleNotes(){document.getElementById('notes').classList.toggle('open');document.getElementById('overlay').classList.toggle('active');document.getElementById('sidebar').classList.remove('open')}
-        function closeAll(){document.getElementById('sidebar').classList.remove('open');document.getElementById('notes')?.classList.remove('open');document.getElementById('overlay').classList.remove('active')}
-        function toggleChapter(id){const g=document.getElementById('nav-group-'+id);if(g)g.classList.toggle('expanded')}
-
-        // Audio player toggle
-        function toggleAudio(num){
-            var panel=document.getElementById('audio-panel-'+num);
-            var btn=document.querySelector('[data-audio-btn="'+num+'"]');
-            if(!panel)return;
-            document.querySelectorAll('.ch-media-audio-panel').forEach(function(p){
-                if(p.id!=='audio-panel-'+num){p.classList.remove('active');var a=p.querySelector('audio');if(a)a.pause()}
+        // IntersectionObserver for scroll-spy
+        if ('IntersectionObserver' in window && sections.length > 0) {
+            var observer = new IntersectionObserver(function(entries) {
+                var topEntry = null;
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
+                            topEntry = entry;
+                        }
+                    }
+                });
+                if (topEntry) {
+                    updateSidebarContext(topEntry.target.id);
+                }
+            }, {
+                rootMargin: '-10% 0px -60% 0px',
+                threshold: 0
             });
-            document.querySelectorAll('[data-audio-btn]').forEach(function(b){b.classList.remove('active')});
-            panel.classList.toggle('active');
-            if(panel.classList.contains('active')){
-                if(btn)btn.classList.add('active');
-                var audio=panel.querySelector('audio');
-                if(audio&&audio.paused)audio.play().catch(function(){});
-            } else {
-                var audio=panel.querySelector('audio');
-                if(audio)audio.pause();
-            }
+            sections.forEach(function(section) { observer.observe(section); });
         }
 
-        // Terms and notes functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){
+        // Section info button click handler
+        document.querySelectorAll('.sec-context-btn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const noteId='note-'+this.dataset.term;
-                const note=document.getElementById(noteId);
-                if(!note)return;
-                document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));
-                document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));
-                const ne=document.getElementById('notes-term-empty');
-                if(ne)ne.style.display='none';
-                this.classList.add('active');
-                note.classList.add('active');
-                if(window.innerWidth<=1100){
+                var targetId = this.getAttribute('data-target');
+                updateSidebarContext(targetId);
+                if (window.innerWidth <= 1100) {
                     document.getElementById('notes').classList.add('open');
                     document.getElementById('overlay').classList.add('active');
+                    document.getElementById('sidebar').classList.remove('open');
                 }
-                note.scrollIntoView({behavior:'smooth',block:'nearest'});
-            }));
-
-            // === Scroll-Spy & Contextual Sidebar ===
-            (function() {
-                var sections = document.querySelectorAll('.section[id]');
-                var contextTitle = document.getElementById('notes-context-title');
-                var sourcesEmpty = document.getElementById('notes-sources-empty');
-                var allSourceBlocks = document.querySelectorAll('.notes-sources[data-section]');
-                var currentSectionId = null;
-
-                function updateSidebarContext(sectionId) {
-                    if (sectionId === currentSectionId) return;
-                    currentSectionId = sectionId;
-                    var sectionEl = document.getElementById(sectionId);
-                    if (!sectionEl) return;
-                    var title = sectionEl.getAttribute('data-section-title') || '';
-                    var sectionNum = sectionEl.getAttribute('data-section-number') || '';
-
-                    // Fade transition
-                    contextTitle.style.opacity = '0';
-                    setTimeout(function() {
-                        contextTitle.textContent = sectionNum + ' ' + title;
-                        contextTitle.style.opacity = '1';
-                    }, 150);
-
-                    // Show/hide matching sources
-                    var hasSource = false;
-                    allSourceBlocks.forEach(function(block) {
-                        if (block.getAttribute('data-section') === sectionId) {
-                            block.style.display = 'block';
-                            hasSource = true;
-                        } else {
-                            block.style.display = 'none';
-                        }
-                    });
-                    if (sourcesEmpty) {
-                        sourcesEmpty.style.display = hasSource ? 'none' : 'block';
-                    }
-
-                    // Highlight active section in left nav
-                    document.querySelectorAll('.nav-link.sub').forEach(function(link) {
-                        link.classList.toggle('current', link.getAttribute('href') === '#' + sectionId);
-                    });
-                }
-
-                // IntersectionObserver for scroll-spy
-                if ('IntersectionObserver' in window && sections.length > 0) {
-                    var observer = new IntersectionObserver(function(entries) {
-                        var topEntry = null;
-                        entries.forEach(function(entry) {
-                            if (entry.isIntersecting) {
-                                if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
-                                    topEntry = entry;
-                                }
-                            }
-                        });
-                        if (topEntry) {
-                            updateSidebarContext(topEntry.target.id);
-                        }
-                    }, {
-                        rootMargin: '-10% 0px -60% 0px',
-                        threshold: 0
-                    });
-                    sections.forEach(function(section) { observer.observe(section); });
-                }
-
-                // Section info button click handler
-                document.querySelectorAll('.sec-context-btn').forEach(function(btn) {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        var targetId = this.getAttribute('data-target');
-                        updateSidebarContext(targetId);
-                        if (window.innerWidth <= 1100) {
-                            document.getElementById('notes').classList.add('open');
-                            document.getElementById('overlay').classList.add('active');
-                            document.getElementById('sidebar').classList.remove('open');
-                        }
-                    });
-                });
-            })();
+            });
         });
-    </script>`;
+    })();
+});
+`;
+}
+
+/**
+ * Generate external JS content for landing pages (theme only)
+ */
+function getThemeJsContent() {
+  return `function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        updateThemeButton('light');
+    } else {
+        updateThemeButton('dark');
+    }
+}
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'light' ? 'dark' : 'light';
+    if (newTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('theme', newTheme);
+    updateThemeButton(newTheme);
+}
+function updateThemeButton(theme) {
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.innerHTML = theme === 'light' ? '\\u263E' : '\\u2600';
+    });
+}
+initTheme();
+`;
+}
+
+/**
+ * Write external JS files to dist/js/
+ */
+function writeExternalJs(jsDir) {
+  fs.writeFileSync(path.join(jsDir, 'eluno.js'), getElunoJsContent());
+  console.log('  ✓ js/eluno.js');
+  fs.writeFileSync(path.join(jsDir, 'theme.js'), getThemeJsContent());
+  console.log('  ✓ js/theme.js');
+}
+
+/**
+ * Generate script tags for chapter/about pages
+ */
+function generateScripts() {
+  return `    <script src="/js/eluno.js?v=${BUILD_HASH}"></script>`;
 }
 
 /**
@@ -876,13 +967,14 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
 </head>
 <body>
-    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
-    <button class="toggle notes-toggle" onclick="toggleNotes()">${ui.glossary}</button>
+    <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
+    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">☰ ${ui.home}</button>
+    <button class="toggle notes-toggle" onclick="toggleNotes()" aria-expanded="false">${ui.glossary}</button>
     <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
-    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+    <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
 
     <div class="layout">
-        <main class="main">
+        <main class="main" id="main-content">
             <article class="chapter" id="${chapter.id}">
                 <header class="ch-head">
                     <div class="ch-head-top">
@@ -933,7 +1025,8 @@ function generateIndexHtml(lang, chapters, media) {
     .map(l => {
       const isActive = l === lang ? ' class="active"' : '';
       const langName = { en: 'EN', es: 'ES', pt: 'PT' }[l];
-      return `<a href="/${l}/"${isActive} onclick="localStorage.setItem('lang','${l}')">${langName}</a>`;
+      const ariaLabel = { en: 'English', es: 'Español', pt: 'Português' }[l];
+      return `<a href="/${l}/"${isActive} onclick="localStorage.setItem('lang','${l}')" aria-label="${ariaLabel}">${langName}</a>`;
     })
     .join(' | ');
 
@@ -976,10 +1069,11 @@ function generateIndexHtml(lang, chapters, media) {
   window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
   <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
 
   <div class="layout index-layout">
-    <main class="main">
+    <main class="main" id="main-content">
       <header class="toc-header">
         <div class="toc-lang-selector">${langSwitcher}</div>
         <h1 class="toc-title">${bookTitle}</h1>
@@ -1011,34 +1105,7 @@ ${tocHtml}
     </main>
   </div>
 
-  <script>
-    function initTheme() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        updateThemeButton('light');
-      } else {
-        updateThemeButton('dark');
-      }
-    }
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const newTheme = current === 'light' ? 'dark' : 'light';
-      if (newTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-      }
-      localStorage.setItem('theme', newTheme);
-      updateThemeButton(newTheme);
-    }
-    function updateThemeButton(theme) {
-      document.querySelectorAll('.theme-toggle').forEach(btn => {
-        btn.innerHTML = theme === 'light' ? '☾' : '☀';
-      });
-    }
-    initTheme();
-  </script>
+  <script src="/js/theme.js?v=${BUILD_HASH}"></script>
 </body>
 </html>`;
 }
@@ -1073,7 +1140,8 @@ function generateAboutHtml(lang, about, allChapters, chapterSlugMap) {
     .map((l, i) => {
       const active = l === lang ? ' class="active"' : '';
       const prefix = i > 0 ? ' | ' : '';
-      return `${prefix}<a href="/${l}/about.html"${active} onclick="localStorage.setItem('lang','${l}')">${l.toUpperCase()}</a>`;
+      const ariaLabel = { en: 'English', es: 'Español', pt: 'Português' }[l];
+      return `${prefix}<a href="/${l}/about.html"${active} onclick="localStorage.setItem('lang','${l}')" aria-label="${ariaLabel}">${l.toUpperCase()}</a>`;
     })
     .join('');
 
@@ -1136,12 +1204,13 @@ ${chapterLinks}            </div>
     window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
 </head>
 <body>
-    <button class="toggle nav-toggle" onclick="toggleNav()">☰ ${ui.home}</button>
+    <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
+    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">☰ ${ui.home}</button>
     <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
-    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+    <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
 
     <div class="layout">
-        <main class="main">
+        <main class="main" id="main-content">
             <article class="chapter about-page">
                 <header class="ch-head">
                     <h1 class="ch-title">${about.title}</h1>
@@ -1444,6 +1513,9 @@ function build() {
 
   // Create shared assets
   console.log('\n📦 Creating shared assets...');
+  const jsDir = path.join(CONFIG.outputDir, 'js');
+  ensureDir(jsDir);
+  writeExternalJs(jsDir);
   createGlossaryScript();
 
   // Copy fonts from @eluno/core
@@ -1485,5 +1557,10 @@ function build() {
   console.log('═══════════════════════════════════════════\n');
 }
 
-// Run build
-build();
+// Run build (only when executed directly, not when required for testing)
+if (require.main === module) {
+  build();
+}
+
+// Exports for testing
+module.exports = { parseTerms, parseRefs, slugify, cleanTextForMeta };

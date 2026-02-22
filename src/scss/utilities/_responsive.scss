@@ -57,7 +57,7 @@
 
 @include mobile {
   body {
-    font-size: 16px;
+    font-size: 100%; // 16px relative — scales with user preference
   }
 
   .ch-title {

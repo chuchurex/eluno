@@ -48,17 +48,16 @@ function getChapterInfo(n) {
 
   // Get last commit info for this chapter
   let date = null;
-  let isV3 = false;
+  // All existing chapters are v3 rewrites (legacy chapters were removed)
+  const isV3 = true;
   try {
-    const log = execSync(`git log --format="%ai|%s" -1 -- "i18n/en/chapters/${nn}.json"`, {
+    const log = execSync(`git log --format="%ai" -1 -- "i18n/en/chapters/${nn}.json"`, {
       cwd: ROOT,
       encoding: 'utf8',
       stdio: 'pipe'
     }).trim();
     if (log) {
-      const [rawDate, msg] = log.split('|');
-      date = rawDate.trim().slice(0, 10); // YYYY-MM-DD
-      isV3 = /^content\(ch\d+\):/.test(msg.trim());
+      date = log.trim().slice(0, 10); // YYYY-MM-DD
     }
   } catch {
     /* no git info */

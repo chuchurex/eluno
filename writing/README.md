@@ -97,9 +97,11 @@ writing/
 │   ├── extract-sources.py     # Extrae citas Ra/Q'uo segun manifiesto
 │   └── validate-chapter.cjs   # Validacion programatica de capitulos
 │
-├── chapters/                  # Prompts por capitulo
-│   ├── ch01/prompt.md
-│   └── ch02/prompt.md
+├── chapters/                  # Prompts por capitulo (ch01-ch16)
+│   └── chNN/prompt.md         # Instrucciones especificas por capitulo
+│
+├── editorial/                 # Trabajo editorial post-escritura
+│   └── revision-completa.md   # Notas de revision editorial completa
 │
 ├── v1/                        # Benchmark de la version original
 │   ├── README.md

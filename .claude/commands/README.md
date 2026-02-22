@@ -20,10 +20,13 @@ Los comandos se invocan escribiendo `/categoria:comando` en el chat.
 │   └── context.md       # /project:context
 │
 ├── write/               # Pipeline de escritura de capítulos
-│   ├── step1.md         # /write:step1 [chapter] — Primera mitad
-│   ├── step2.md         # /write:step2 [chapter] — Segunda mitad
-│   ├── qa.md            # /write:qa [chapter] — QA + JSON
-│   └── glossary.md      # /write:glossary [chapter] — Glosario + Provenance
+│   ├── chapter.md       # /write:chapter [NN] — Pipeline completo autónomo
+│   ├── prepare.md       # /write:prepare [NN] — Preparar capítulo
+│   ├── step1.md         # /write:step1 [NN] — Primera mitad
+│   ├── step2.md         # /write:step2 [NN] — Segunda mitad
+│   ├── qa.md            # /write:qa [NN] — QA + JSON
+│   ├── glossary.md      # /write:glossary [NN] — Glosario + Provenance
+│   └── publish.md       # /write:publish [NN] — Integrar, traducir, build, deploy
 │
 ├── sanity/              # Comandos para Sanity CMS
 │   ├── query.md         # /sanity:query [groq|atajo]
@@ -54,18 +57,21 @@ Los comandos se invocan escribiendo `/categoria:comando` en el chat.
 
 ### Write (Pipeline de escritura)
 
-| Comando           | Descripción                        | Ejemplo              |
-| ----------------- | ---------------------------------- | -------------------- |
-| `/write:step1`    | Escribe primera mitad del capítulo | `/write:step1 02`    |
-| `/write:step2`    | Escribe segunda mitad del capítulo | `/write:step2 02`    |
-| `/write:qa`       | QA de lectura + genera JSON        | `/write:qa 02`       |
-| `/write:glossary` | Genera glosario + provenance       | `/write:glossary 02` |
+| Comando           | Descripción                          | Ejemplo              |
+| ----------------- | ------------------------------------ | -------------------- |
+| `/write:chapter`  | Pipeline completo autónomo (6 fases) | `/write:chapter 03`  |
+| `/write:prepare`  | Prepara prompt, manifest, research   | `/write:prepare 03`  |
+| `/write:step1`    | Escribe primera mitad del capítulo   | `/write:step1 03`    |
+| `/write:step2`    | Escribe segunda mitad del capítulo   | `/write:step2 03`    |
+| `/write:qa`       | QA de lectura + genera JSON          | `/write:qa 03`       |
+| `/write:glossary` | Genera glosario + provenance         | `/write:glossary 03` |
+| `/write:publish`  | Integrar, traducir, build, deploy    | `/write:publish 03`  |
 
-**Pipeline completo:** `step1` → `step2` → `qa` → `glossary`
+**Pipeline completo:** `prepare` → `step1` → `step2` → `qa` → `glossary` → `publish`
 
-**Prerrequisito:** Tener `operador/chXX_manifest.json` y los research files generados con `extract_sources.py`.
+**Prerrequisito:** Tener volúmenes fuente en `workspace/sources/` (ver `writing/README.md`).
 
-**Output:** Todo se guarda en `operador/output/chXX/`.
+**Output:** Prompts en `writing/chapters/chNN/`, borradores en `workspace/chapters/chNN/`, capítulos finales en `i18n/{en,es,pt}/chapters/NN.json`.
 
 ### Sanity
 
