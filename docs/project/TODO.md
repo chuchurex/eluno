@@ -36,7 +36,7 @@
 - [x] **Assembly con outro** — Cada capítulo tiene outro con atribución L/L Research (Feb 22)
 - [x] **Fix pronunciación llresearch.org** — "L. L. Research punto org" (Feb 22)
 - [x] **Fix artículos duplicados en TTS** — "el El Infinito" → "El Infinito" (Feb 22)
-- [ ] **Evaluar voz profesional** — Considerar upgrade a voz pagada cuando haya presupuesto
+- [x] **Evaluar voz profesional** — Evaluados 6 proveedores. Recomendación: Azure AI Speech pagado (~$14, mismas voces) como baseline con SSML. ElevenLabs Pro ($99/mes) como upgrade premium. Fish Audio ($14) como alternativa valor. Actual Edge TTS es suficiente por ahora (Feb 22)
 
 ---
 
