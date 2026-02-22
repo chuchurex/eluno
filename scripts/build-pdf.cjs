@@ -58,33 +58,76 @@ function ensureDir(dir) {
   }
 }
 
+function loadProvenance(chapterNum) {
+  const chNum = String(chapterNum).padStart(2, '0');
+  const filePath = path.join(I18N_DIR, 'provenance', `ch${chNum}_provenance.json`);
+  return loadJSON(filePath);
+}
+
+const PDF_LABELS = {
+  en: {
+    glossary: 'Glossary',
+    sources: 'Sources',
+    crossRefs: 'Cross-References',
+    raSources: 'Ra Material Sources',
+    paragraphs: 'Paragraphs',
+    paragraph: 'Paragraph',
+    session: 'Session',
+  },
+  es: {
+    glossary: 'Glosario',
+    sources: 'Fuentes',
+    crossRefs: 'Referencias Cruzadas',
+    raSources: 'Fuentes del Material Ra',
+    paragraphs: 'Párrafos',
+    paragraph: 'Párrafo',
+    session: 'Sesión',
+  },
+  pt: {
+    glossary: 'Glossário',
+    sources: 'Fontes',
+    crossRefs: 'Referências Cruzadas',
+    raSources: 'Fontes do Material Ra',
+    paragraphs: 'Parágrafos',
+    paragraph: 'Parágrafo',
+    session: 'Sessão',
+  },
+};
+
 // ============================================================================
 // TEXT PROCESSING WITH FOOTNOTES
 // ============================================================================
 
 /**
  * Process text and collect footnotes for glossary terms and references
+ * @param {string} text - Source text with {term:} and {ref:} markers
+ * @param {object} glossary - Glossary entries
+ * @param {object} references - References entries
+ * @param {Map} collectedFootnotes - Footnotes map (mutated)
+ * @param {Array} collectedRefs - Refs array (mutated), or null to strip refs
+ * @param {object} opts - { chapterNum, isBook } for numbering
  * Returns processed HTML string
  */
-function processTextWithFootnotes(text, glossary, references, collectedFootnotes) {
+function processTextWithFootnotes(text, glossary, references, collectedFootnotes, collectedRefs, opts) {
+  const chapterNum = opts && opts.chapterNum || null;
+  const isBook = opts && opts.isBook || false;
+
   // Replace optional preceding article + {term:id} or {term:id|text} with superscript number
-  // Handles duplicate articles (e.g. "el {term:infinite}" → "el El Infinito" → "El Infinito")
   const articleRe = /(?:\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+)?\{term:([^}|]+)(?:\|([^}]+))?\}/gi;
 
   let processed = text.replace(articleRe, (match, precedingArt, termId, customText) => {
     const term = glossary[termId];
     if (!term) return (precedingArt ? precedingArt + ' ' : '') + (customText || termId);
 
-    // Strip parenthetical descriptions for inline display
     const displayText = customText || term.title.replace(/\s*\([^)]+\)\s*/g, '').trim();
 
-    // Add to collected footnotes if not already present
     if (!collectedFootnotes.has(termId)) {
       collectedFootnotes.set(termId, { ...term, type: 'term' });
     }
 
-    const footnoteNum = Array.from(collectedFootnotes.keys()).indexOf(termId) + 1;
-    const makeSpan = (title) => `<span class="term">${title}<sup class="fn-ref">${footnoteNum}</sup></span>`;
+    const localIndex = Array.from(collectedFootnotes.keys()).indexOf(termId) + 1;
+    const footnoteLabel = isBook && chapterNum ? `${chapterNum}.${localIndex}` : String(localIndex);
+    const makeSpan = (title) => `<span class="term">${title}<sup class="fn-ref">${footnoteLabel}</sup></span>`;
 
     if (!precedingArt) return makeSpan(displayText);
 
@@ -93,14 +136,9 @@ function processTextWithFootnotes(text, glossary, references, collectedFootnotes
     const firstWord = titleWords[0].toLowerCase();
     const stripped = titleWords.slice(1).join(' ');
 
-    // Same article duplicated: "el El Infinito" → "El Infinito"
     if (al === firstWord) return makeSpan(displayText);
-
-    // Spanish contractions: "del El Infinito" → "del Infinito"
     if ((al === 'del' || al === 'al') && firstWord === 'el')
       return precedingArt + ' ' + makeSpan(stripped);
-
-    // Portuguese contractions
     if (al === 'do' && firstWord === 'os') return 'dos ' + makeSpan(stripped);
     if (al === 'do' && firstWord === 'as') return 'das ' + makeSpan(stripped);
     if (al === 'da' && firstWord === 'a') return 'da ' + makeSpan(stripped);
@@ -114,15 +152,32 @@ function processTextWithFootnotes(text, glossary, references, collectedFootnotes
   processed = processed.replace(/(<\/span>)\s+((?:del|do|da|of|dos|das)\s+\w+)(?=[\s.,;:!?]|$)/gi, (match, closeTag, trailing) => {
     const spanMatch = match.match(/>([^<]+)<\/span>/);
     if (!spanMatch) return match;
-    const spanText = spanMatch[1].replace(/<[^>]+>/g, ''); // strip inner tags like <sup>
+    const spanText = spanMatch[1].replace(/<[^>]+>/g, '');
     if (spanText.toLowerCase().endsWith(trailing.toLowerCase())) return closeTag;
     return match;
   });
 
-  // Remove {ref:id} completely from PDF (references not shown in PDF)
-  if (references) {
-    processed = processed.replace(/\{ref:([^}]+)\}/g, '');
-  }
+  // Handle {ref:id} — replace with superscript letter or strip if no collectedRefs
+  const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+  const SUPERSCRIPT_LETTERS = { a:'ᵃ', b:'ᵇ', c:'ᶜ', d:'ᵈ', e:'ᵉ', f:'ᶠ', g:'ᵍ', h:'ʰ', i:'ⁱ', j:'ʲ', k:'ᵏ', l:'ˡ', m:'ᵐ', n:'ⁿ', o:'ᵒ', p:'ᵖ', q:'q', r:'ʳ', s:'ˢ', t:'ᵗ', u:'ᵘ', v:'ᵛ', w:'ʷ', x:'ˣ', y:'ʸ', z:'ᶻ' };
+
+  processed = processed.replace(/\{ref:([^}]+)\}/g, (match, refId) => {
+    if (!collectedRefs || !references) return '';
+
+    const ref = references[refId];
+    if (!ref) return ''; // missing ref entry — strip silently
+
+    // Avoid duplicates
+    const existing = collectedRefs.findIndex(r => r.id === refId);
+    let idx = existing >= 0 ? existing : collectedRefs.length;
+    if (existing < 0) {
+      collectedRefs.push({ id: refId, ...ref });
+    }
+
+    const letter = REF_LETTERS[idx] || String(idx + 1);
+    const sup = SUPERSCRIPT_LETTERS[letter] || `(${letter})`;
+    return `<sup class="ref-marker">${sup}</sup>`;
+  });
 
   // Replace **text** with <strong>
   let html = processed.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -134,11 +189,104 @@ function processTextWithFootnotes(text, glossary, references, collectedFootnotes
 }
 
 // ============================================================================
+// RENDER HELPERS — Glossary & Sources
+// ============================================================================
+
+/**
+ * Render glossary footnotes HTML for a chapter.
+ * @param {Map} footnotes - collected footnotes map
+ * @param {string} lang - language code
+ * @param {number|null} chapterNum - chapter number (for book numbering)
+ * @param {boolean} isBook - true if rendering inside complete book
+ */
+function renderGlossaryHtml(footnotes, lang, chapterNum, isBook) {
+  const labels = PDF_LABELS[lang] || PDF_LABELS.en;
+  const entries = Array.from(footnotes.entries()).filter(([, item]) => item.type !== 'ref');
+  if (entries.length === 0) return '';
+
+  const items = entries.map(([, item], index) => {
+    const num = isBook && chapterNum ? `${chapterNum}.${index + 1}` : String(index + 1);
+    const content = item.content.map(p =>
+      p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    ).join(' ');
+    return `<div class="footnote"><sup>${num}</sup> <strong>${item.title}:</strong> ${content}</div>`;
+  }).join('\n');
+
+  return `
+    <div class="footnotes">
+      <div class="footnotes-title">${labels.glossary}</div>
+      ${items}
+    </div>
+  `;
+}
+
+/**
+ * Render sources HTML — cross-references + Ra Material provenance.
+ * @param {Array} collectedRefs - collected inline references
+ * @param {object|null} provenance - provenance data for this chapter
+ * @param {string} lang - language code
+ */
+function renderSourcesHtml(collectedRefs, provenance, lang) {
+  const labels = PDF_LABELS[lang] || PDF_LABELS.en;
+  const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+  const SUPERSCRIPT_LETTERS = { a:'ᵃ', b:'ᵇ', c:'ᶜ', d:'ᵈ', e:'ᵉ', f:'ᶠ', g:'ᵍ', h:'ʰ', i:'ⁱ', j:'ʲ', k:'ᵏ', l:'ˡ', m:'ᵐ', n:'ⁿ', o:'ᵒ', p:'ᵖ', q:'q', r:'ʳ', s:'ˢ', t:'ᵗ', u:'ᵘ', v:'ᵛ', w:'ʷ', x:'ˣ', y:'ʸ', z:'ᶻ' };
+
+  const hasRefs = collectedRefs && collectedRefs.length > 0;
+  const hasProv = provenance && provenance.provenance && provenance.provenance.length > 0;
+  if (!hasRefs && !hasProv) return '';
+
+  let html = '<div class="sources">';
+  html += `<div class="sources-title">${labels.sources}</div>`;
+
+  // Cross-references
+  if (hasRefs) {
+    html += `<div class="sources-subtitle">${labels.crossRefs}</div>`;
+    collectedRefs.forEach((ref, idx) => {
+      const letter = REF_LETTERS[idx] || String(idx + 1);
+      const sup = SUPERSCRIPT_LETTERS[letter] || `(${letter})`;
+      html += `<div class="source-item">`;
+      html += `<span class="ref-marker">${sup}</span> <strong>${ref.title}</strong>`;
+      if (ref.summary) html += ` — ${ref.summary}`;
+      if (ref.learnMore) html += `<br><span class="source-url">${ref.learnMore}</span>`;
+      html += `</div>`;
+    });
+  }
+
+  // Ra Material provenance
+  if (hasProv) {
+    html += `<div class="sources-subtitle">${labels.raSources}</div>`;
+    provenance.provenance.forEach(section => {
+      html += `<div class="provenance-section">`;
+      html += `<div class="provenance-section-title">§ ${section.section_title}</div>`;
+      section.segments.forEach(seg => {
+        if (!seg.sources || seg.sources.length === 0) return;
+        const pLabel = seg.paragraphs.length === 1
+          ? `${labels.paragraph} ${seg.paragraphs[0]}`
+          : `${labels.paragraphs} ${seg.paragraphs[0]}-${seg.paragraphs[seg.paragraphs.length - 1]}`;
+        const sessionsHtml = seg.sources.map((src, i) => {
+          const url = seg.urls && seg.urls[i] ? seg.urls[i] : '';
+          return url
+            ? `${labels.session} ${src} — <span class="source-url">${url}</span>`
+            : `${labels.session} ${src}`;
+        }).join('; ');
+        html += `<div class="provenance-segment">${pLabel} → ${sessionsHtml}</div>`;
+      });
+      html += `</div>`;
+    });
+  }
+
+  html += '</div>';
+  return html;
+}
+
+// ============================================================================
 // HTML TEMPLATE GENERATION
 // ============================================================================
 
-function generatePdfHtml(chapter, glossary, references, lang, ui) {
+function generatePdfHtml(chapter, glossary, references, lang, ui, provenance) {
   const collectedFootnotes = new Map();
+  const collectedRefs = [];
+  const chapterNum = chapter.number || parseInt(String(chapter.numberText || '').replace(/\D/g, '')) || null;
 
   // Process all sections and collect footnotes
   const sectionsHtml = chapter.sections.map((section, index) => {
@@ -146,7 +294,10 @@ function generatePdfHtml(chapter, glossary, references, lang, ui) {
       if (block.type === 'separator') {
         return '<div class="divider">· · ·</div>';
       }
-      const processedText = processTextWithFootnotes(block.text, glossary, references, collectedFootnotes);
+      const processedText = processTextWithFootnotes(
+        block.text, glossary, references, collectedFootnotes, collectedRefs,
+        { chapterNum, isBook: false }
+      );
       if (block.type === 'paragraph') {
         return `<p>${processedText}</p>`;
       } else if (block.type === 'quote') {
@@ -164,20 +315,8 @@ function generatePdfHtml(chapter, glossary, references, lang, ui) {
     `;
   }).join('\n');
 
-  // Generate footnotes section (only glossary terms, not references)
-  const glossaryFootnotes = Array.from(collectedFootnotes.entries()).filter(([id, item]) => item.type !== 'ref');
-  const footnotesHtml = glossaryFootnotes.length > 0 ? `
-    <div class="footnotes">
-      <div class="footnotes-title">${ui.nav.notes || 'Notes'}</div>
-      ${glossaryFootnotes.map(([id, item], index) => {
-    // Term: show content
-    const content = item.content.map(p =>
-      p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    ).join(' ');
-    return `<div class="footnote"><sup>${index + 1}</sup> <strong>${item.title}:</strong> ${content}</div>`;
-  }).join('\n')}
-    </div>
-  ` : '';
+  const glossaryHtml = renderGlossaryHtml(collectedFootnotes, lang, chapterNum, false);
+  const sourcesHtml = renderSourcesHtml(collectedRefs, provenance, lang);
 
   return `<!DOCTYPE html>
 <html lang="${lang}">
@@ -194,11 +333,7 @@ function generatePdfHtml(chapter, glossary, references, lang, ui) {
       --muted: #666;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: var(--font-body);
@@ -208,142 +343,42 @@ function generatePdfHtml(chapter, glossary, references, lang, ui) {
       padding: 0;
     }
 
-    /* Header - appears on every page via @page */
-    .header {
-      text-align: center;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 2rem;
-    }
+    .header { text-align: center; padding-bottom: 1rem; border-bottom: 1px solid #ddd; margin-bottom: 2rem; }
+    .header-site { font-family: var(--font-heading); font-size: 10pt; color: var(--muted); letter-spacing: 0.1em; }
+    .header-book { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--gold); margin-top: 0.25rem; }
 
-    .header-site {
-      font-family: var(--font-heading);
-      font-size: 10pt;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
+    .chapter-header { text-align: center; margin-bottom: 2.5rem; page-break-after: avoid; }
+    .chapter-num { font-family: var(--font-heading); font-size: 12pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+    .chapter-title { font-family: var(--font-heading); font-size: 24pt; font-weight: 600; color: var(--text); line-height: 1.2; }
 
-    .header-book {
-      font-family: var(--font-heading);
-      font-size: 14pt;
-      font-weight: 600;
-      color: var(--gold);
-      margin-top: 0.25rem;
-    }
+    .section { margin-bottom: 2rem; page-break-inside: avoid; }
+    .section h2 { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--text); margin-bottom: 1rem; page-break-after: avoid; }
+    .section p { margin-bottom: 1rem; text-align: justify; text-indent: 1.5em; }
+    .section p:first-of-type { text-indent: 0; }
 
-    /* Chapter header */
-    .chapter-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      page-break-after: avoid;
-    }
+    .quote { margin: 1.5rem 2rem; padding: 1rem 1.5rem; border-left: 3px solid var(--gold); font-style: italic; color: var(--muted); background: #fafafa; }
+    .divider { text-align: center; color: var(--gold); font-size: 14pt; margin: 2rem 0; letter-spacing: 0.5em; }
 
-    .chapter-num {
-      font-family: var(--font-heading);
-      font-size: 12pt;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.5rem;
-    }
+    .term { }
+    .fn-ref { font-size: 8pt; color: var(--gold); margin-left: 1px; }
+    .ref-marker { font-size: 9pt; color: var(--gold); margin-left: 1px; }
 
-    .chapter-title {
-      font-family: var(--font-heading);
-      font-size: 24pt;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.2;
-    }
+    .footnotes { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .footnotes-title { font-family: var(--font-heading); font-size: 11pt; font-weight: 600; color: var(--muted); margin-bottom: 0.75rem; }
+    .footnote { font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; color: var(--muted); }
+    .footnote sup { color: var(--gold); font-weight: 600; margin-right: 0.25rem; }
 
-    /* Sections */
-    .section {
-      margin-bottom: 2rem;
-    }
+    /* Sources section */
+    .sources { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .sources-title { font-family: var(--font-heading); font-size: 11pt; font-weight: 600; color: var(--muted); margin-bottom: 0.75rem; }
+    .sources-subtitle { font-family: var(--font-heading); font-size: 10pt; font-weight: 600; color: var(--text); margin: 1rem 0 0.5rem 0; }
+    .source-item { font-size: 8.5pt; line-height: 1.5; margin-bottom: 0.5rem; color: var(--muted); }
+    .source-url { color: var(--gold); word-break: break-all; font-size: 8pt; }
+    .provenance-section { margin-bottom: 0.75rem; }
+    .provenance-section-title { font-size: 9pt; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .provenance-segment { font-size: 8pt; line-height: 1.4; margin-left: 1em; color: var(--muted); margin-bottom: 0.15rem; }
 
-    .section h2 {
-      font-family: var(--font-heading);
-      font-size: 14pt;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      page-break-after: avoid;
-    }
-
-    .section p {
-      margin-bottom: 1rem;
-      text-align: justify;
-      text-indent: 1.5em;
-    }
-
-    .section p:first-of-type {
-      text-indent: 0;
-    }
-
-    .quote {
-      margin: 1.5rem 2rem;
-      padding: 1rem 1.5rem;
-      border-left: 3px solid var(--gold);
-      font-style: italic;
-      color: var(--muted);
-      background: #fafafa;
-    }
-
-    .divider {
-      text-align: center;
-      color: var(--gold);
-      font-size: 14pt;
-      margin: 2rem 0;
-      letter-spacing: 0.5em;
-    }
-
-    /* Terms and footnote references */
-    .term {
-      /* No special styling for PDF - just normal text */
-    }
-
-    .fn-ref {
-      font-size: 8pt;
-      color: var(--gold);
-      margin-left: 1px;
-    }
-
-    /* Footnotes section */
-    .footnotes {
-      margin-top: 3rem;
-      padding-top: 1rem;
-      border-top: 1px solid #ddd;
-      page-break-inside: avoid;
-    }
-
-    .footnotes-title {
-      font-family: var(--font-heading);
-      font-size: 11pt;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .footnote {
-      font-size: 9pt;
-      line-height: 1.5;
-      margin-bottom: 0.5rem;
-      color: var(--muted);
-    }
-
-    .footnote sup {
-      color: var(--gold);
-      font-weight: 600;
-      margin-right: 0.25rem;
-    }
-
-    /* Page breaks */
-    .section {
-      page-break-inside: avoid;
-    }
-
-    h2 {
-      page-break-after: avoid;
-    }
+    h2 { page-break-after: avoid; }
   </style>
 </head>
 <body>
@@ -361,7 +396,8 @@ function generatePdfHtml(chapter, glossary, references, lang, ui) {
     ${sectionsHtml}
   </article>
 
-  ${footnotesHtml}
+  ${glossaryHtml}
+  ${sourcesHtml}
 </body>
 </html>`;
 }
@@ -370,8 +406,8 @@ function generatePdfHtml(chapter, glossary, references, lang, ui) {
 // PDF GENERATION
 // ============================================================================
 
-async function generatePdf(chapter, glossary, references, lang, ui, outputPath) {
-  const html = generatePdfHtml(chapter, glossary, references, lang, ui);
+async function generatePdf(chapter, glossary, references, lang, ui, outputPath, provenance) {
+  const html = generatePdfHtml(chapter, glossary, references, lang, ui, provenance);
 
   const browser = await puppeteer.launch({
     headless: true,
@@ -458,9 +494,12 @@ async function buildPdf(chapterNum, targetLang = null) {
       references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json')) || {};
     }
 
+    // Load provenance
+    const provenance = loadProvenance(chapterNum);
+
     // Generate PDF
     const outputPath = path.join(langPdfDir, `ch${chNum}.pdf`);
-    await generatePdf(chapter, glossary, references, lang, ui, outputPath);
+    await generatePdf(chapter, glossary, references, lang, ui, outputPath, provenance);
   }
 }
 
@@ -523,16 +562,22 @@ async function buildCompleteBookPdf(targetLang = null) {
       references = loadJSON(path.join(I18N_DIR, BASE_LANG, 'references.json')) || {};
     }
 
-    const collectedFootnotes = new Map();
+    // Compile sections from all chapters — each chapter gets its own glossary + sources
+    const chaptersHtml = chapters.map((chapter, chIdx) => {
+      const chapterNum = chapter.number || (chIdx + 1);
+      const collectedFootnotes = new Map();
+      const collectedRefs = [];
+      const provenance = loadProvenance(chapterNum);
 
-    // Compile sections from all chapters
-    const chaptersHtml = chapters.map((chapter) => {
-      const sectionsHtml = chapter.sections.map((section, index) => {
+      const sectionsHtml = chapter.sections.map((section) => {
         const contentHtml = section.content.map(block => {
           if (block.type === 'separator') {
             return '<div class="divider">· · ·</div>';
           }
-          const processedText = processTextWithFootnotes(block.text, glossary, references, collectedFootnotes);
+          const processedText = processTextWithFootnotes(
+            block.text, glossary, references, collectedFootnotes, collectedRefs,
+            { chapterNum, isBook: true }
+          );
           if (block.type === 'paragraph') {
             return `<p>${processedText}</p>`;
           } else if (block.type === 'quote') {
@@ -549,6 +594,9 @@ async function buildCompleteBookPdf(targetLang = null) {
         `;
       }).join('\n');
 
+      const chGlossaryHtml = renderGlossaryHtml(collectedFootnotes, lang, chapterNum, true);
+      const chSourcesHtml = renderSourcesHtml(collectedRefs, provenance, lang);
+
       return `
         <div class="chapter-wrapper" style="page-break-before: always;">
           <header class="chapter-header">
@@ -556,24 +604,11 @@ async function buildCompleteBookPdf(targetLang = null) {
             <h1 class="chapter-title">${chapter.title}</h1>
           </header>
           ${sectionsHtml}
+          ${chGlossaryHtml}
+          ${chSourcesHtml}
         </div>
       `;
     }).join('\n');
-
-    // Generate footnotes section (only glossary terms, not references)
-    const glossaryFootnotes = Array.from(collectedFootnotes.entries()).filter(([id, item]) => item.type !== 'ref');
-    const footnotesHtml = glossaryFootnotes.length > 0 ? `
-      <div class="footnotes" style="page-break-before: always;">
-        <div class="footnotes-title">${ui.nav.notesPanel || 'Glossary'}</div>
-        ${glossaryFootnotes.map(([id, item], index) => {
-      // Term: show content
-      const content = item.content.map(p =>
-        p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-      ).join(' ');
-      return `<div class="footnote"><sup>${index + 1}</sup> <strong>${item.title}:</strong> ${content}</div>`;
-    }).join('\n')}
-      </div>
-    ` : '';
 
     const html = `<!DOCTYPE html>
 <html lang="${lang}">
@@ -604,12 +639,21 @@ async function buildCompleteBookPdf(targetLang = null) {
     .section p:first-of-type { text-indent: 0; }
     .quote { margin: 1.5rem 2rem; padding: 1rem 1.5rem; border-left: 3px solid var(--gold); font-style: italic; color: var(--muted); background: #fafafa; }
     .divider { text-align: center; color: var(--gold); font-size: 14pt; margin: 2rem 0; letter-spacing: 0.5em; }
-    .term { /* No special styling for PDF - just normal text */ }
+    .term { }
     .fn-ref { font-size: 8pt; color: var(--gold); margin-left: 1px; }
-    .footnotes { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; }
-    .footnotes-title { font-family: var(--font-heading); font-size: 14pt; font-weight: 600; color: var(--gold); margin-bottom: 1.5rem; text-align: center; }
-    .footnote { font-size: 9pt; line-height: 1.5; margin-bottom: 0.75rem; color: var(--muted); }
+    .ref-marker { font-size: 9pt; color: var(--gold); margin-left: 1px; }
+    .footnotes { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .footnotes-title { font-family: var(--font-heading); font-size: 11pt; font-weight: 600; color: var(--muted); margin-bottom: 0.75rem; }
+    .footnote { font-size: 9pt; line-height: 1.5; margin-bottom: 0.5rem; color: var(--muted); }
     .footnote sup { color: var(--gold); font-weight: 600; margin-right: 0.25rem; }
+    .sources { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .sources-title { font-family: var(--font-heading); font-size: 11pt; font-weight: 600; color: var(--muted); margin-bottom: 0.75rem; }
+    .sources-subtitle { font-family: var(--font-heading); font-size: 10pt; font-weight: 600; color: var(--text); margin: 1rem 0 0.5rem 0; }
+    .source-item { font-size: 8.5pt; line-height: 1.5; margin-bottom: 0.5rem; color: var(--muted); }
+    .source-url { color: var(--gold); word-break: break-all; font-size: 8pt; }
+    .provenance-section { margin-bottom: 0.75rem; }
+    .provenance-section-title { font-size: 9pt; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .provenance-segment { font-size: 8pt; line-height: 1.4; margin-left: 1em; color: var(--muted); margin-bottom: 0.15rem; }
   </style>
 </head>
 <body>
@@ -622,7 +666,6 @@ async function buildCompleteBookPdf(targetLang = null) {
     <p style="font-family: var(--font-heading); font-size: 18pt; color: var(--gold);">${ui.siteTitle}</p>
   </div>
   ${chaptersHtml}
-  ${footnotesHtml}
 </body>
 </html>`;
 
