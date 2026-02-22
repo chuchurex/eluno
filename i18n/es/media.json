@@ -1,70 +1,70 @@
 {
-  "all": {
-    "pdf": "https://static.eluno.org/pdf/es/complete-book.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/complete-book.mp3"
-  },
   "1": {
-    "pdf": "https://static.eluno.org/pdf/es/ch01.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch01.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-01-cosmologia-y-genesis.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-01-cosmologia-y-genesis.mp3"
   },
   "2": {
-    "pdf": "https://static.eluno.org/pdf/es/ch02.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch02.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-02-el-creador-y-la-creacion.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-02-el-creador-y-la-creacion.mp3"
   },
   "3": {
-    "pdf": "https://static.eluno.org/pdf/es/ch03.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch03.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-03-las-densidades-de-conciencia.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-03-las-densidades-de-conciencia.mp3"
   },
   "4": {
-    "pdf": "https://static.eluno.org/pdf/es/ch04.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch04.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-04-historia-espiritual-de-la-tierra.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-04-historia-espiritual-de-la-tierra.mp3"
   },
   "5": {
-    "pdf": "https://static.eluno.org/pdf/es/ch05.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch05.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-05-polaridad-los-dos-caminos.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-05-polaridad-los-dos-caminos.mp3"
   },
   "6": {
-    "pdf": "https://static.eluno.org/pdf/es/ch06.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch06.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-06-errantes-los-que-regresan.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-06-errantes-los-que-regresan.mp3"
   },
   "7": {
-    "pdf": "https://static.eluno.org/pdf/es/ch07.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch07.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-07-la-cosecha.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-07-la-cosecha.mp3"
   },
   "8": {
-    "pdf": "https://static.eluno.org/pdf/es/ch08.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch08.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-08-el-velo-del-olvido.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-08-el-velo-del-olvido.mp3"
   },
   "9": {
-    "pdf": "https://static.eluno.org/pdf/es/ch09.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch09.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-09-la-muerte-y-el-viaje-entre-vidas.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-09-la-muerte-y-el-viaje-entre-vidas.mp3"
   },
   "10": {
-    "pdf": "https://static.eluno.org/pdf/es/ch10.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch10.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-10-los-centros-de-energia.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-10-los-centros-de-energia.mp3"
   },
   "11": {
-    "pdf": "https://static.eluno.org/pdf/es/ch11.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch11.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-11-catalizador-y-experiencia.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-11-catalizador-y-experiencia.mp3"
   },
   "12": {
-    "pdf": "https://static.eluno.org/pdf/es/ch12.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch12.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-12-el-yo-superior-y-la-guia.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-12-el-yo-superior-y-la-guia.mp3"
   },
   "13": {
-    "pdf": "https://static.eluno.org/pdf/es/ch13.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch13.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-13-el-libre-albedrio-y-la-ley-de-la-confusion.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-13-el-libre-albedrio-y-la-ley-de-la-confusion.mp3"
   },
   "14": {
-    "pdf": "https://static.eluno.org/pdf/es/ch14.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch14.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-14-el-camino-del-buscador.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-14-el-camino-del-buscador.mp3"
   },
   "15": {
-    "pdf": "https://static.eluno.org/pdf/es/ch15.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch15.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-15-equilibrio-y-sanacion.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-15-equilibrio-y-sanacion.mp3"
   },
   "16": {
-    "pdf": "https://static.eluno.org/pdf/es/ch16.pdf",
-    "audio": "https://static.eluno.org/audiobook/es/ch16.mp3"
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-cap-16-el-misterio-permanece.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-cap-16-el-misterio-permanece.mp3"
+  },
+  "all": {
+    "pdf": "https://static.eluno.org/pdf/es/el-uno-libro-completo.pdf",
+    "audio": "https://static.eluno.org/audiobook/es/el-uno-audiolibro-completo.mp3"
   }
 }
