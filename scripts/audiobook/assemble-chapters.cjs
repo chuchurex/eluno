@@ -205,19 +205,9 @@ async function main() {
 
       const finalPath = path.join(langFinalDir, `${seoName}.mp3`);
 
-      // Generate chapter intro clip
-      const introPath = path.join(langClipsDir, `intro-ch${padded}.mp3`);
-      if (!fs.existsSync(introPath)) {
-        const introText = `${BOOK_NAMES[lang]}. ${CHAPTER_LABEL[lang]} ${num}: ${title}`;
-        process.stdout.write(`  🔊 Intro ch${padded}...`);
-        await generateClip(EdgeTTS, introText, voice, introPath, '-10%');
-        console.log(' ✅');
-        await new Promise(r => setTimeout(r, 1000));
-      }
-
-      // Assemble: intro + silence + content + silence + outro
+      // Assemble: content + silence + outro (no intro — content already starts with chapter title)
       process.stdout.write(`  🎬 Assembling ${seoName}...`);
-      concatMp3s([introPath, silence15, srcMp3, silence2, outroPath], finalPath);
+      concatMp3s([srcMp3, silence2, outroPath], finalPath);
       const sizeMB = (fs.statSync(finalPath).size / 1024 / 1024).toFixed(1);
       console.log(` ✅ ${sizeMB} MB`);
 
