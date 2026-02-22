@@ -46,9 +46,9 @@ const TAGLINE = {
 };
 
 const OUTRO = {
-  es: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research. Sesiones originales gratis en llresearch.org',
-  en: 'This work is a philosophical interpretation of The Ra Material, originally published by L/L Research. Original sessions available free at llresearch.org',
-  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research. Sessões originais gratuitas em llresearch.org',
+  es: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L. L. Research. Sesiones originales gratis en L. L. Research punto org',
+  en: 'This work is a philosophical interpretation of The Ra Material, originally published by L. L. Research. Original sessions available free at L. L. Research dot org',
+  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L. L. Research. Sessões originais gratuitas em L. L. Research ponto org',
 };
 
 const VOICES = {
