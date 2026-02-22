@@ -296,6 +296,12 @@ async function callAPI(systemPrompt, userPrompt, maxTokens = MAX_TOKENS) {
         return null;
       }
     } catch (err) {
+      if (err.status === 400 && err.message && err.message.includes('credit balance')) {
+        console.error(
+          '   ❌ Anthropic API: no credits. Add credits at https://console.anthropic.com/settings/billing'
+        );
+        return null;
+      }
       if (err.status === 429 && attempt < MAX_RETRIES - 1) {
         const delay = RETRY_DELAYS[attempt];
         console.log(`   ⚠️  Rate limited, waiting ${delay / 1000}s...`);
@@ -554,8 +560,6 @@ async function translateGlossary(chapterNum, lang, dryRun) {
     }
   }
 
-  // Backup and write
-  fs.copyFileSync(destGlossaryPath, destGlossaryPath + '.bak');
   writeJSON(destGlossaryPath, sortObjectKeys(destGlossary));
 
   console.log(`      ✅ ${label} glossary: ${added} terms added`);
