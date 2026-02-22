@@ -98,6 +98,22 @@ function cleanForTTS(text, glossary) {
   // {ref:xxx} → remove entirely (source references, not read aloud)
   text = text.replace(/\{ref:[^}]+\}/g, '');
 
+  // Fix duplicate articles from glossary term insertion
+  // ES: "el El Infinito" → "El Infinito", "del El Logos" → "del Logos"
+  // EN: "the The Infinite" → "The Infinite"
+  // PT: "o O Infinito" → "O Infinito", "a A Colheita" → "A Colheita"
+  text = text.replace(/\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+(El|La|Los|Las|The|O|A|Os|As)\s/g, (_, art, termArt) => {
+    const al = art.toLowerCase();
+    const tl = termArt.toLowerCase();
+    // Same article: "el El" → "El", "the The" → "The", "o O" → "O"
+    if (al === tl) return termArt + ' ';
+    // Spanish contractions: "del El" → "del ", "al El" → "al "
+    if ((al === 'del' || al === 'al') && tl === 'el') return art + ' ';
+    // Portuguese contractions: "do O" → "do ", "da A" → "da "
+    if ((al === 'do' || al === 'da' || al === 'dos' || al === 'das') && (tl === 'o' || tl === 'a' || tl === 'os' || tl === 'as')) return art + ' ';
+    return art + ' ' + termArt + ' ';
+  });
+
   // Clean up double spaces
   text = text.replace(/  +/g, ' ');
 
