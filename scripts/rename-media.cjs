@@ -162,7 +162,7 @@ function main() {
       const entry = {};
       entry.pdf = `https://eluno.org/pdf/${lang}/${seoBase}.pdf`;
       if (fs.existsSync(audioDir)) {
-        entry.audio = `https://eluno.org/audiobook/${lang}/${seoBase}.mp3`;
+        entry.audio = `https://static.eluno.org/audiobook/${lang}/${seoBase}.mp3`;
       }
       mediaEntries[String(num)] = entry;
     }
@@ -179,7 +179,7 @@ function main() {
     const allEntry = {};
     allEntry.pdf = `https://eluno.org/pdf/${lang}/${COMPLETE_PDF[lang]}.pdf`;
     if (fs.existsSync(audioDir)) {
-      allEntry.audio = `https://eluno.org/audiobook/${lang}/${COMPLETE_AUDIO[lang]}.mp3`;
+      allEntry.audio = `https://static.eluno.org/audiobook/${lang}/${COMPLETE_AUDIO[lang]}.mp3`;
     }
 
     mediaEntries.all = allEntry;
