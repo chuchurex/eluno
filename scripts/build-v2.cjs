@@ -151,16 +151,99 @@ const CONFIG = {
 /**
  * Parse {term:keyword} markup
  * Returns HTML with term span that links to notes sidebar
+ * Handles duplicate articles (e.g. "el {term:infinite}" → "el El Infinito" → "El Infinito")
+ * and strips parenthetical descriptions from inline display
  */
 function parseTerms(text, glossary) {
-  return text.replace(/\{term:([a-z0-9-]+)\}/gi, (match, keyword) => {
+  const articleRe = /(?:\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+)?\{term:([a-z0-9-]+)\}/gi;
+
+  text = text.replace(articleRe, (match, precedingArt, keyword) => {
     const term = glossary[keyword];
     if (!term) {
       console.warn(`  ⚠ Term not found in glossary: ${keyword}`);
-      return match; // Leave as-is if not found
+      return match;
     }
-    return `<span class="term" data-term="${keyword}">${term.title}</span>`;
+
+    // Strip parenthetical descriptions for inline display
+    const displayTitle = term.title.replace(/\s*\([^)]+\)\s*/g, '').trim();
+    const makeSpan = (title) => `<span class="term" data-term="${keyword}">${title}</span>`;
+
+    if (!precedingArt) return makeSpan(displayTitle);
+
+    const al = precedingArt.toLowerCase();
+    const titleWords = displayTitle.split(/\s+/);
+    const firstWord = titleWords[0].toLowerCase();
+    const stripped = titleWords.slice(1).join(' ');
+
+    // Same article duplicated: "el El Infinito" → "El Infinito"
+    if (al === firstWord) return makeSpan(displayTitle);
+
+    // Spanish contractions: "del El Infinito" → "del Infinito"
+    if ((al === 'del' || al === 'al') && firstWord === 'el')
+      return precedingArt + ' ' + makeSpan(stripped);
+
+    // Portuguese contractions
+    if (al === 'do' && firstWord === 'os') return 'dos ' + makeSpan(stripped);
+    if (al === 'do' && firstWord === 'as') return 'das ' + makeSpan(stripped);
+    if (al === 'da' && firstWord === 'a') return 'da ' + makeSpan(stripped);
+    if (['do', 'da', 'dos', 'das'].includes(al) && ['o', 'a', 'os', 'as'].includes(firstWord))
+      return precedingArt + ' ' + makeSpan(stripped);
+
+    // No duplicate → keep both
+    return precedingArt + ' ' + makeSpan(displayTitle);
   });
+
+  // Fix trailing duplicates: "<span>Véu do Esquecimento</span> do esquecimento"
+  text = text.replace(/(<\/span>)\s+((?:del|do|da|of|dos|das)\s+\w+)(?=[\s.,;:!?]|$)/gi, (match, closeTag, trailing) => {
+    // Check if the span content ends with the same trailing text
+    const spanMatch = match.match(/>([^<]+)<\/span>/);
+    if (!spanMatch) return match;
+    const spanText = spanMatch[1];
+    if (spanText.toLowerCase().endsWith(trailing.toLowerCase())) return closeTag;
+    return match;
+  });
+
+  return text;
+}
+
+/**
+ * Resolve terms to plain text for meta descriptions (no HTML spans)
+ * Applies same article deduplication and parenthetical stripping
+ */
+function cleanTextForMeta(text, glossary) {
+  const articleRe = /(?:\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+)?\{term:([a-z0-9-]+)\}/gi;
+
+  text = text.replace(articleRe, (match, precedingArt, keyword) => {
+    const term = glossary[keyword];
+    if (!term) return precedingArt ? precedingArt + ' ' + keyword : keyword;
+
+    const displayTitle = term.title.replace(/\s*\([^)]+\)\s*/g, '').trim();
+
+    if (!precedingArt) return displayTitle;
+
+    const al = precedingArt.toLowerCase();
+    const titleWords = displayTitle.split(/\s+/);
+    const firstWord = titleWords[0].toLowerCase();
+    const stripped = titleWords.slice(1).join(' ');
+
+    if (al === firstWord) return displayTitle;
+    if ((al === 'del' || al === 'al') && firstWord === 'el') return precedingArt + ' ' + stripped;
+    if (al === 'do' && firstWord === 'os') return 'dos ' + stripped;
+    if (al === 'do' && firstWord === 'as') return 'das ' + stripped;
+    if (al === 'da' && firstWord === 'a') return 'da ' + stripped;
+    if (['do', 'da', 'dos', 'das'].includes(al) && ['o', 'a', 'os', 'as'].includes(firstWord))
+      return precedingArt + ' ' + stripped;
+
+    return precedingArt + ' ' + displayTitle;
+  });
+
+  // Remove {ref:xxx} markers
+  text = text.replace(/\{ref:[^}]+\}/g, '');
+
+  // Fix trailing duplicates
+  text = text.replace(/((?:del|do|da|of|dos|das)\s+\w+)\s+\1/gi, '$1');
+
+  return text.replace(/  +/g, ' ').trim();
 }
 
 /**
@@ -744,10 +827,9 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     .map((section, idx) => renderSection(section, glossary, references, provenance, lang, chapter.number, idx + 1))
     .join('\n');
 
-  // First paragraph for meta description
+  // First paragraph for meta description (resolve terms to plain text)
   const firstParagraph = chapter.sections[0]?.content[0]?.text || '';
-  const metaDescription = firstParagraph
-    .replace(/\{[^}]+\}/g, '') // Remove markup
+  const metaDescription = cleanTextForMeta(firstParagraph, glossary)
     .substring(0, 160);
 
   // Generate components

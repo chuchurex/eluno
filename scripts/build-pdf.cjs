@@ -67,22 +67,56 @@ function ensureDir(dir) {
  * Returns processed HTML string
  */
 function processTextWithFootnotes(text, glossary, references, collectedFootnotes) {
-  // Replace {term:id} or {term:id|text} with superscript number
-  let processed = text.replace(/\{term:([^}|]+)(?:\|([^}]+))?\}/g, (match, termId, customText) => {
-    const term = glossary[termId];
-    if (!term) return customText || termId;
+  // Replace optional preceding article + {term:id} or {term:id|text} with superscript number
+  // Handles duplicate articles (e.g. "el {term:infinite}" → "el El Infinito" → "El Infinito")
+  const articleRe = /(?:\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+)?\{term:([^}|]+)(?:\|([^}]+))?\}/gi;
 
-    const displayText = customText || term.title;
+  let processed = text.replace(articleRe, (match, precedingArt, termId, customText) => {
+    const term = glossary[termId];
+    if (!term) return (precedingArt ? precedingArt + ' ' : '') + (customText || termId);
+
+    // Strip parenthetical descriptions for inline display
+    const displayText = customText || term.title.replace(/\s*\([^)]+\)\s*/g, '').trim();
 
     // Add to collected footnotes if not already present
     if (!collectedFootnotes.has(termId)) {
       collectedFootnotes.set(termId, { ...term, type: 'term' });
     }
 
-    // Get footnote number (1-indexed position in map)
     const footnoteNum = Array.from(collectedFootnotes.keys()).indexOf(termId) + 1;
+    const makeSpan = (title) => `<span class="term">${title}<sup class="fn-ref">${footnoteNum}</sup></span>`;
 
-    return `<span class="term">${displayText}<sup class="fn-ref">${footnoteNum}</sup></span>`;
+    if (!precedingArt) return makeSpan(displayText);
+
+    const al = precedingArt.toLowerCase();
+    const titleWords = displayText.split(/\s+/);
+    const firstWord = titleWords[0].toLowerCase();
+    const stripped = titleWords.slice(1).join(' ');
+
+    // Same article duplicated: "el El Infinito" → "El Infinito"
+    if (al === firstWord) return makeSpan(displayText);
+
+    // Spanish contractions: "del El Infinito" → "del Infinito"
+    if ((al === 'del' || al === 'al') && firstWord === 'el')
+      return precedingArt + ' ' + makeSpan(stripped);
+
+    // Portuguese contractions
+    if (al === 'do' && firstWord === 'os') return 'dos ' + makeSpan(stripped);
+    if (al === 'do' && firstWord === 'as') return 'das ' + makeSpan(stripped);
+    if (al === 'da' && firstWord === 'a') return 'da ' + makeSpan(stripped);
+    if (['do', 'da', 'dos', 'das'].includes(al) && ['o', 'a', 'os', 'as'].includes(firstWord))
+      return precedingArt + ' ' + makeSpan(stripped);
+
+    return precedingArt + ' ' + makeSpan(displayText);
+  });
+
+  // Fix trailing duplicates: "<span>Véu do Esquecimento...</span> do esquecimento"
+  processed = processed.replace(/(<\/span>)\s+((?:del|do|da|of|dos|das)\s+\w+)(?=[\s.,;:!?]|$)/gi, (match, closeTag, trailing) => {
+    const spanMatch = match.match(/>([^<]+)<\/span>/);
+    if (!spanMatch) return match;
+    const spanText = spanMatch[1].replace(/<[^>]+>/g, ''); // strip inner tags like <sup>
+    if (spanText.toLowerCase().endsWith(trailing.toLowerCase())) return closeTag;
+    return match;
   });
 
   // Remove {ref:id} completely from PDF (references not shown in PDF)
