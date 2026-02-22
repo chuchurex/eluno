@@ -1,77 +1,88 @@
 # Estado del Proyecto — El Uno
 
-> **Actualizado:** Febrero 16, 2026
-> **Producción v1:** https://eluno.org (rama `main`)
-> **Producción v3:** https://v3.eluno.org (rama `v3`)
+> **Actualizado:** Febrero 22, 2026
+> **Producción:** https://eluno.org (rama `main`)
 > **Repositorio:** https://github.com/chuchurex/eluno
 
 ---
 
 ## Sitio en producción
 
-### v3 (desarrollo activo)
-- **URL:** https://v3.eluno.org
-- **Rama:** `v3`
-- **Hosting:** Cloudflare Pages (proyecto: `eluno`)
-- **Idiomas:** EN, ES, PT
-- **Capítulos publicados:** 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 (reescritos v3)
-- **Build:** `node scripts/build-v2.cjs` → genera `dist/` con URLs slug-based
-
-### v1 (producción estable)
 - **URL:** https://eluno.org
 - **Rama:** `main`
-- **Capítulos:** 16 (versión original completa)
-- **Build:** `@eluno/core` (`npx eluno-build`)
+- **Hosting:** Cloudflare Pages (auto-deploy al push)
+- **Idiomas:** EN, ES, PT
+- **Capítulos:** 16/16 publicados (reescritura v3 completa)
+- **Build:** `node scripts/build-v2.cjs && npm run sass:build` → genera `dist/`
+- **URLs:** `/{lang}/chapters/{slug}.html`
 
 ---
 
-## Contenido v3
+## Contenido
 
-| Capítulo | Título EN | Estado | Fecha |
-|----------|-----------|--------|-------|
-| 1 | Cosmology and Genesis | Publicado (EN/ES/PT) | 2026-02-14 |
-| 2 | The Creator and Creation | Publicado (EN/ES/PT) | 2026-02-14 |
-| 3 | The Densities of Consciousness | Publicado (EN/ES/PT) | 2026-02-14 |
-| 4 | Earth's Spiritual History | Publicado (EN/ES/PT) | 2026-02-15 |
-| 5 | Polarity: The Two Paths | Publicado (EN/ES/PT) | 2026-02-15 |
-| 6 | Wanderers: Those Who Return | Publicado (EN/ES/PT) | 2026-02-15 |
-| 7 | The Harvest | Publicado (EN/ES/PT) | 2026-02-15 |
-| 8 | The Veil of Forgetting | Publicado (EN/ES/PT) | 2026-02-15 |
-| 9 | Death and the Journey Between Lives | Publicado (EN/ES/PT) | 2026-02-15 |
-| 10 | The Energy Centers | Publicado (EN/ES/PT) | 2026-02-15 |
-| 11 | Catalyst and Experience | Publicado (EN/ES/PT) | 2026-02-15 |
-| 12 | The Higher Self and Guidance | Publicado (EN/ES/PT) | 2026-02-15 |
-| 13 | Free Will and the Law of Confusion | Publicado (EN/ES/PT) | 2026-02-15 |
-| 14 | The Path of the Seeker | Publicado (EN/ES/PT) | 2026-02-15 |
-| 15 | Balancing and Healing | Publicado (EN/ES/PT) | 2026-02-16 |
-| 16 | The Mystery Remains | Publicado (EN/ES/PT) | 2026-02-16 |
+| Capítulo | Título EN | Estado |
+|----------|-----------|--------|
+| 1 | Cosmology and Genesis | Publicado (EN/ES/PT) |
+| 2 | The Creator and Creation | Publicado (EN/ES/PT) |
+| 3 | The Densities of Consciousness | Publicado (EN/ES/PT) |
+| 4 | Earth's Spiritual History | Publicado (EN/ES/PT) |
+| 5 | Polarity: The Two Paths | Publicado (EN/ES/PT) |
+| 6 | Wanderers: Those Who Return | Publicado (EN/ES/PT) |
+| 7 | The Harvest | Publicado (EN/ES/PT) |
+| 8 | The Veil of Forgetting | Publicado (EN/ES/PT) |
+| 9 | Death and the Journey Between Lives | Publicado (EN/ES/PT) |
+| 10 | The Energy Centers | Publicado (EN/ES/PT) |
+| 11 | Catalyst and Experience | Publicado (EN/ES/PT) |
+| 12 | The Higher Self and Guidance | Publicado (EN/ES/PT) |
+| 13 | Free Will and the Law of Confusion | Publicado (EN/ES/PT) |
+| 14 | The Path of the Seeker | Publicado (EN/ES/PT) |
+| 15 | Balancing and Healing | Publicado (EN/ES/PT) |
+| 16 | The Mystery Remains | Publicado (EN/ES/PT) |
 
+---
+
+## Audiobook
+
+| Idioma | Capítulos | Completo | Voz | Hosting |
+|--------|-----------|----------|-----|---------|
+| ES | 16/16 | el-uno-audiolibro-completo.mp3 | es-MX-JorgeNeural | static.eluno.org |
+| EN | 16/16 | the-one-complete-audiobook.mp3 | en-US-GuyNeural | static.eluno.org |
+| PT | 16/16 | o-um-audiolivro-completo.mp3 | pt-BR-AntonioNeural | static.eluno.org |
+
+- **TTS:** Edge TTS (gratuito, Microsoft)
+- **Formato:** MP3, ~128kbps
+- **Assembly:** contenido + 2s silencio + outro (atribución L/L Research)
+- **Libro completo:** tagline intro + 3s silencio + todos los capítulos
+- **ID3 tags:** Título, artista, álbum, copyright L/L Research
+
+---
+
+## PDF
+
+- 16 capítulos + libro completo por idioma (48 + 3 = 51 archivos)
+- Hosting: static.eluno.org
+- Generación: Puppeteer via `build-pdf.cjs`
 
 ---
 
 ## Sistemas de build
 
-| Sistema | Archivo | Usado en | URLs generadas |
-|---------|---------|----------|----------------|
-| **build-v2.cjs** | `scripts/build-v2.cjs` | v3 (`v3` branch) | `/{lang}/chapters/{slug}.html` |
-| **eluno-build** | `@eluno/core` | v1 (`main` branch) | `/{slug}/` |
-
-`build-v2.cjs` tiene `enabledChapters` que controla qué capítulos se publican. Actualmente: `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]`.
-
----
-
-## Scripts de automatización
-
-| Script | Fase | Descripción |
-|--------|------|-------------|
-| `integrate-chapter.js` | 6 | Copia EN, merge glossary, copia provenance |
-| `translate-chapter.js` | 7 | Traducción EN→ES/PT via Anthropic API |
-| `validate-alignment.js` | — | Validación cross-idioma (10 checks) |
+| Archivo | Descripción | URLs generadas |
+|---------|-------------|----------------|
+| `scripts/build-v2.cjs` | Build principal | `/{lang}/chapters/{slug}.html` |
+| `scripts/build-pdf.cjs` | Generación de PDFs | `dist/pdf/{lang}/{seo-name}.pdf` |
+| `scripts/audiobook/extract-text.cjs` | Texto TTS desde JSON | `audiobook/text/{lang}/chNN.txt` |
+| `scripts/audiobook/generate-edge.cjs` | Generación de audio | `audiobook/audio/{lang}/chNN.mp3` |
+| `scripts/audiobook/assemble-chapters.cjs` | Assembly con outro | `audiobook/final/{lang}/{seo-name}.mp3` |
+| `scripts/rename-media.cjs` | Renombrar a SEO names | Actualiza media.json |
+| `scripts/update-mp3-tags.cjs` | ID3 tags | Metadatos en MP3s |
 
 ---
 
 ## Dependencias clave
 
-- `@eluno/core` — Build tools, SCSS, fonts (github:chuchurex/eluno-core)
-- `@anthropic-ai/sdk` — Traducción automática (fase 7)
-- `dotenv` — Variables de entorno (.env)
+- `@eluno/core` — SCSS, fonts (github:chuchurex/eluno-core)
+- `@anthropic-ai/sdk` — Traducción automática
+- `node-edge-tts` — Generación TTS
+- `puppeteer` — Generación PDF
+- `node-id3` — ID3 tags para MP3

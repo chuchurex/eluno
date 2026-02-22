@@ -1,61 +1,65 @@
-# Roadmap — El Uno v3
+# Roadmap — El Uno
 
-> Actualizado: Febrero 16, 2026
+> Actualizado: Febrero 22, 2026
 
 ---
 
 ## Estado actual
 
-- **v3.eluno.org** live con 16 de 16 capítulos (EN/ES/PT)
+- **eluno.org** live con 16/16 capítulos (EN/ES/PT)
+- Audiobook completo en 3 idiomas (Edge TTS)
+- PDF por capítulo y libro completo en 3 idiomas
 - Pipeline de escritura automatizado (6 fases, slash commands)
 - Build con `build-v2.cjs`, deploy automático vía Cloudflare Pages
+- Media estático en static.eluno.org (Hostinger)
 
 ---
 
-## Q1 2026 — Completar v3
+## Q1 2026 — Completar v3 ✅
 
-**Objetivo**: Reescritura completa de los 16 capítulos + infraestructura.
+### Contenido ✅
+- [x] 16/16 capítulos escritos, traducidos y publicados (EN/ES/PT)
 
-### Contenido
-- [x] Capítulo 1: Cosmology and Genesis
-- [x] Capítulo 2: The Creator and Creation
-- [x] Capítulo 3: The Densities of Consciousness
-- [x] Capítulo 4: Earth's Spiritual History
-- [x] Capítulo 5: Polarity — The Two Paths
-- [x] Capítulo 6: Wanderers — Those Who Return
-- [x] Capítulo 7: The Harvest
-- [x] Capítulo 8: The Veil of Forgetting
-- [x] Capítulo 9: Death and the Journey Between Lives
-- [x] Capítulo 10: The Energy Centers
-- [x] Capítulo 11: Catalyst and Experience
-- [x] Capítulo 12: The Higher Self and Guidance
-- [x] Capítulo 13: Free Will and the Law of Confusion
-- [x] Capítulo 14: The Path of the Seeker
-- [x] Capítulo 15: Balancing and Healing
-- [x] Capítulo 16: The Mystery Remains
+### Media ✅
+- [x] Audiobook: 16 capítulos + libro completo x 3 idiomas (Edge TTS)
+- [x] PDF: 16 capítulos + libro completo x 3 idiomas
+- [x] ID3 tags con atribución L/L Research
+- [x] SEO filenames para todos los archivos media
 
-### Automatización y pipeline
-- [x] Scripts de integración, traducción, validación
-- [ ] Test live de translate-chapter.js (API real)
-- [ ] Test end-to-end de `/write:publish`
+### Infraestructura ✅
+- [x] Pipeline de escritura (6 fases)
+- [x] Sitemap con 54 URLs + hreflang
+- [x] Glossary tooltips con artículos correctos
+- [x] Media toolbar (PDF, MP3) en cada capítulo
+
+---
+
+## Q2 2026 — Pulir y expandir
+
+### Calidad
+- [ ] Tests unitarios para scripts críticos
+- [ ] Extraer JS inline de build-v2.cjs
+- [ ] Test end-to-end del pipeline de escritura
+- [ ] Accesibilidad (WCAG 2.1 AA)
+
+### Expansión
+- [ ] PWA para lectura offline
+- [ ] Búsqueda client-side (lunr.js o similar)
+- [ ] Evaluar voz TTS profesional
 
 ### Infraestructura
-- [ ] Evaluar unificación de builds (build-v2.cjs vs eluno-build)
-- [ ] Audiobooks para capítulos v3 publicados
-- [ ] SEO: sitemap, structured data
-- [ ] Migrar v3.eluno.org → eluno.org cuando esté completo
+- [ ] Evaluar unificación de builds (v1 vs v3)
+- [ ] Limpiar branches obsoletas (v3, alpha, v2)
+- [ ] Organizar workspace de escritura
 
 ---
 
 ## Futuro (sin compromiso)
 
-- PDF por capítulo
-- Libro físico (print-on-demand)
-- PWA para lectura offline
-- Búsqueda client-side
 - Idiomas adicionales (FR, DE, IT)
-- Funciones de comunidad (comentarios, bookmarks)
-- Accesibilidad WCAG 2.1 AA
+- Libro físico (print-on-demand)
+- Funciones de comunidad
+- Structured data / rich snippets
 
 ---
 
