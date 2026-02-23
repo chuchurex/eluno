@@ -46,6 +46,7 @@ video/
 *.mp3
 *.mp4
 *.pdf
+!static/pdf/**/*.pdf
 
 # ───────────────────────────────────────────────────────────────
 # Workflow: inbox/ para uploads desde Claude Desktop
