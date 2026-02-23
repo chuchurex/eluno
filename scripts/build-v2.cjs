@@ -88,7 +88,10 @@ const CONFIG = {
       searchPlaceholder: 'Search chapters and glossary...',
       searchNoResults: 'No results found',
       skipToContent: 'Skip to content',
-      closeMenu: 'Close menu'
+      closeMenu: 'Close menu',
+      glossaryCategories: 'Categories',
+      glossaryAlphabetical: 'A\u2013Z',
+      glossaryUncategorized: 'Other'
     },
     es: {
       chapter: 'Capítulo',
@@ -122,7 +125,10 @@ const CONFIG = {
       searchPlaceholder: 'Buscar capítulos y glosario...',
       searchNoResults: 'Sin resultados',
       skipToContent: 'Ir al contenido',
-      closeMenu: 'Cerrar menú'
+      closeMenu: 'Cerrar menú',
+      glossaryCategories: 'Categorías',
+      glossaryAlphabetical: 'A\u2013Z',
+      glossaryUncategorized: 'Otros'
     },
     pt: {
       chapter: 'Capítulo',
@@ -156,7 +162,10 @@ const CONFIG = {
       searchPlaceholder: 'Buscar capítulos e glossário...',
       searchNoResults: 'Sem resultados',
       skipToContent: 'Ir para o conteúdo',
-      closeMenu: 'Fechar menu'
+      closeMenu: 'Fechar menu',
+      glossaryCategories: 'Categorias',
+      glossaryAlphabetical: 'A\u2013Z',
+      glossaryUncategorized: 'Outros'
     }
   }
 };
@@ -1369,23 +1378,77 @@ ${scripts}
 /**
  * Generate glossary page for a language
  */
-function generateGlossaryHtml(lang, glossary, allChapters, chapterSlugMap) {
+function generateGlossaryHtml(lang, glossary, glossaryMeta, allChapters, chapterSlugMap) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const bookTitle = CONFIG.bookTitles[lang];
+  const categories = glossaryMeta.categories || {};
+  const termCategories = glossaryMeta.terms || {};
 
   // Sort terms alphabetically by title
   const sortedTerms = Object.entries(glossary)
     .sort(([, a], [, b]) => a.title.localeCompare(b.title, lang));
 
-  // Group by first letter
+  // Group by first letter and assign sequential numbers
   const grouped = {};
+  const termNumberMap = {};
   for (const [key, term] of sortedTerms) {
     const letter = term.title.charAt(0).toUpperCase();
     if (!grouped[letter]) grouped[letter] = [];
-    grouped[letter].push({ key, ...term });
+    const num = grouped[letter].length + 1;
+    const numberId = `${letter.toLowerCase()}-${num}`;
+    const catKey = termCategories[key] || 'uncategorized';
+    termNumberMap[key] = { letter, num, id: numberId, category: catKey };
+    grouped[letter].push({ key, ...term, numberLabel: `${letter}.${num}`, numberId, category: catKey });
   }
 
-  // Build letter index (A-Z)
+  // Build category groups
+  const categoryGroups = {};
+  for (const [key, term] of sortedTerms) {
+    const catKey = termCategories[key] || 'uncategorized';
+    if (!categoryGroups[catKey]) categoryGroups[catKey] = [];
+    const info = termNumberMap[key];
+    categoryGroups[catKey].push({ key, ...term, numberLabel: `${info.letter}.${info.num}`, numberId: info.id, category: catKey });
+  }
+  const catOrder = Object.keys(categories);
+  const sortedCatKeys = [
+    ...catOrder.filter(k => categoryGroups[k]),
+    ...(categoryGroups['uncategorized'] ? ['uncategorized'] : [])
+  ];
+
+  // Helper: get category label for current language
+  function catLabel(catKey) {
+    const def = categories[catKey];
+    return def ? (def[lang] || def.en) : ui.glossaryUncategorized;
+  }
+
+  // Helper: render content paragraphs
+  function renderContent(content) {
+    if (Array.isArray(content)) {
+      return content.map(p => {
+        let processed = p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        return `                        <p>${processed}</p>`;
+      }).join('\n');
+    }
+    return `                        <p>${content}</p>`;
+  }
+
+  // Helper: render a single term entry (used in both views)
+  // useId: true for A-Z view (assigns id attributes), false for category view (uses data-* only)
+  function renderTermEntry(term, useId) {
+    const idAttr = useId ? ` id="${term.numberId}"` : '';
+    const titleIdAttr = useId ? ` id="term-${term.key}"` : '';
+    return `                    <div class="glossary-entry"${idAttr} data-term="${term.key}" data-category="${term.category}">
+                        <div class="glossary-entry-header">
+                            <span class="glossary-number" aria-label="Reference ${term.numberLabel}">${term.numberLabel}</span>
+                            <h3 class="glossary-term-title"${titleIdAttr}>${term.title}</h3>
+                            <span class="glossary-cat-tag" role="button" tabindex="0" data-cat="${term.category}">${catLabel(term.category)}</span>
+                        </div>
+${renderContent(term.content)}
+                    </div>`;
+  }
+
+  // Build A-Z letter index
   const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   const letterIndex = allLetters.map(l => {
     if (grouped[l]) {
@@ -1393,32 +1456,32 @@ function generateGlossaryHtml(lang, glossary, allChapters, chapterSlugMap) {
     }
     return `<span class="glossary-index-letter disabled">${l}</span>`;
   }).join('');
-  const indexHtml = `                <nav class="glossary-index" aria-label="Alphabetical index">${letterIndex}</nav>`;
 
-  // Generate HTML for each letter group
-  const entriesHtml = Object.entries(grouped)
+  // Build A-Z entries
+  const azEntriesHtml = Object.entries(grouped)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([letter, terms]) => {
-      const termsHtml = terms.map(term => {
-        const contentHtml = Array.isArray(term.content)
-          ? term.content.map(p => {
-              let processed = p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-              processed = processed.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-              return `                        <p>${processed}</p>`;
-            }).join('\n')
-          : `                        <p>${term.content}</p>`;
-        return `                    <div class="glossary-entry" data-term="${term.key}">
-                        <h3 class="glossary-term-title">${term.title}</h3>
-${contentHtml}
-                    </div>`;
-      }).join('\n');
-
+      const termsHtml = terms.map(t => renderTermEntry(t, true)).join('\n');
       return `                <section class="glossary-letter" id="letter-${letter.toLowerCase()}">
                     <h2 class="glossary-letter-heading">${letter}</h2>
 ${termsHtml}
                 </section>`;
     })
     .join('\n\n');
+
+  // Build category nav buttons
+  const catNavButtons = sortedCatKeys.map(ck =>
+    `<a href="#cat-${ck}" class="glossary-cat-nav-btn">${catLabel(ck)}</a>`
+  ).join('');
+
+  // Build category entries
+  const catEntriesHtml = sortedCatKeys.map(ck => {
+    const termsHtml = categoryGroups[ck].map(t => renderTermEntry(t, false)).join('\n');
+    return `                <section class="glossary-category" id="cat-${ck}">
+                    <h2 class="glossary-letter-heading">${catLabel(ck)}</h2>
+${termsHtml}
+                </section>`;
+  }).join('\n\n');
 
   // Language selector
   const langSelector = CONFIG.languages
@@ -1445,7 +1508,7 @@ ${termsHtml}
   const navSidebar = `        <nav class="nav" id="sidebar">
             <div class="nav-lang-selector">${langSelector}</div>
             <div class="nav-back">
-                <a href="/${lang}/" class="nav-link">← ${ui.home}</a>
+                <a href="/${lang}/" class="nav-link">\u2190 ${ui.home}</a>
             </div>
             <div class="nav-section">
 ${chapterLinks}            </div>
@@ -1458,27 +1521,87 @@ ${chapterLinks}            </div>
   const footer = generateFooter(ui, lang);
   const scripts = generateScripts();
 
-  // Inline JS for glossary filter
+  // Inline JS for glossary filter, view toggle, hash navigation
   const filterJs = `
     <script>
     (function() {
+      // View toggle
+      var azView = document.querySelector('.glossary-view-az');
+      var catView = document.querySelector('.glossary-view-cat');
+      var viewBtns = document.querySelectorAll('.glossary-view-btn');
+
+      function setView(mode) {
+        var isAz = mode === 'az';
+        if (azView) azView.style.display = isAz ? '' : 'none';
+        if (catView) catView.style.display = isAz ? 'none' : '';
+        viewBtns.forEach(function(btn) {
+          var active = btn.getAttribute('data-view') === mode;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        var input = document.getElementById('glossary-filter');
+        if (input && input.value) { input.value = ''; filterEntries(''); }
+      }
+
+      viewBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() { setView(this.getAttribute('data-view')); });
+      });
+
+      // Category tag click
+      document.querySelectorAll('.glossary-cat-tag').forEach(function(tag) {
+        function go() {
+          var cat = tag.getAttribute('data-cat');
+          setView('categories');
+          var target = document.getElementById('cat-' + cat);
+          if (target) setTimeout(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+        }
+        tag.addEventListener('click', go);
+        tag.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      });
+
+      // Filter
       var input = document.getElementById('glossary-filter');
-      if (!input) return;
-      input.addEventListener('input', function() {
-        var query = this.value.toLowerCase().trim();
-        var entries = document.querySelectorAll('.glossary-entry');
-        var letters = document.querySelectorAll('.glossary-letter');
-        entries.forEach(function(entry) {
+      if (input) input.addEventListener('input', function() { filterEntries(this.value.toLowerCase().trim()); });
+
+      function filterEntries(query) {
+        var active = document.querySelector('.glossary-view:not([style*="display: none"])');
+        if (!active) return;
+        active.querySelectorAll('.glossary-entry').forEach(function(entry) {
           var title = entry.querySelector('.glossary-term-title').textContent.toLowerCase();
           var content = entry.textContent.toLowerCase();
           entry.style.display = (query === '' || title.indexOf(query) !== -1 || content.indexOf(query) !== -1) ? '' : 'none';
         });
-        // Hide letter headings with no visible entries
-        letters.forEach(function(letter) {
-          var visible = letter.querySelectorAll('.glossary-entry:not([style*="display: none"])');
-          letter.style.display = visible.length > 0 ? '' : 'none';
+        active.querySelectorAll('.glossary-letter, .glossary-category').forEach(function(section) {
+          var visible = section.querySelectorAll('.glossary-entry:not([style*="display: none"])');
+          section.style.display = visible.length > 0 ? '' : 'none';
         });
-      });
+      }
+
+      // Hash navigation
+      function handleHash() {
+        var hash = window.location.hash.substring(1);
+        if (!hash) return;
+        if (hash.startsWith('cat-')) {
+          setView('categories');
+          var ct = document.getElementById(hash);
+          if (ct) setTimeout(function() { ct.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+          return;
+        }
+        if (hash.startsWith('letter-')) { setView('az'); }
+        var target = document.getElementById(hash) || document.getElementById('term-' + hash);
+        if (target) {
+          setView('az');
+          setTimeout(function() {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var entry = target.closest('.glossary-entry') || target;
+            entry.style.outline = '2px solid var(--gold)';
+            entry.style.outlineOffset = '4px';
+            setTimeout(function() { entry.style.outline = ''; entry.style.outlineOffset = ''; }, 2500);
+          }, 50);
+        }
+      }
+      handleHash();
+      window.addEventListener('hashchange', handleHash);
     })();
     </script>`;
 
@@ -1487,7 +1610,7 @@ ${chapterLinks}            </div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${ui.glossaryPage} — ${bookTitle} | ${CONFIG.siteDomain}</title>
+    <title>${ui.glossaryPage} \u2014 ${bookTitle} | ${CONFIG.siteDomain}</title>
     <meta name="description" content="${ui.glossaryPageSubtitle}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/glossary.html">
@@ -1496,7 +1619,7 @@ ${chapterLinks}            </div>
     ${gaPreconnect()}
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="${ui.glossaryPage} — ${bookTitle}">
+    <meta property="og:title" content="${ui.glossaryPage} \u2014 ${bookTitle}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${CONFIG.siteUrl}/${lang}/glossary.html">
     <meta property="og:locale" content="${lang}">
@@ -1513,24 +1636,41 @@ ${chapterLinks}            </div>
 
     <style>
     .glossary-subtitle { font-style: italic; color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
-    .glossary-filter { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--fg); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin: 1.5rem 0 2rem; }
+    .glossary-filter { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body, 'Spectral', Georgia, serif); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--text); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin: 1.5rem 0 1rem; }
     .glossary-filter::placeholder { color: var(--muted); }
     .glossary-filter:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
+    .glossary-view-toggle { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem; }
+    .glossary-view-btn { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 0.95rem; padding: 0.5rem 1.25rem; border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 4px; background: transparent; color: var(--text2, #b0b0b0); cursor: pointer; transition: all 0.2s; }
+    .glossary-view-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .glossary-view-btn.active { background: var(--gold); color: var(--bg, #050505); border-color: var(--gold); }
+    .glossary-view-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
     .glossary-index { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); }
-    .glossary-index-letter { font-family: var(--font-heading); font-size: 1rem; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; color: var(--gold); border: 1px solid var(--border, rgba(255,255,255,0.15)); transition: background 0.2s, color 0.2s; }
-    .glossary-index-letter:hover:not(.disabled) { background: var(--gold); color: var(--bg, #1a1a2e); }
+    .glossary-index-letter { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 1rem; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; color: var(--gold); border: 1px solid var(--border, rgba(255,255,255,0.15)); transition: background 0.2s, color 0.2s; }
+    .glossary-index-letter:hover:not(.disabled) { background: var(--gold); color: var(--bg, #050505); }
     .glossary-index-letter.disabled { opacity: 0.25; cursor: default; }
-    .glossary-letter { margin-bottom: 2rem; }
-    .glossary-letter-heading { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); padding-bottom: 0.5rem; margin-bottom: 1rem; }
-    .glossary-entry { margin-bottom: 1.5rem; padding-left: 1rem; }
-    .glossary-term-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
-    .glossary-entry p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem; color: var(--fg-soft, var(--fg)); }
+    .glossary-cat-nav { gap: 0.5rem; }
+    .glossary-cat-nav-btn { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 0.85rem; padding: 0.35rem 0.75rem; border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 4px; text-decoration: none; color: var(--gold); transition: all 0.2s; white-space: nowrap; }
+    .glossary-cat-nav-btn:hover { background: var(--gold); color: var(--bg, #050505); }
+    .glossary-letter, .glossary-category { margin-bottom: 2rem; }
+    .glossary-letter-heading { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 1.5rem; color: var(--gold); border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    .glossary-entry { margin-bottom: 1.5rem; padding-left: 1rem; scroll-margin-top: 5rem; }
+    .glossary-entry-header { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.3rem; }
+    .glossary-number { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 0.85rem; color: var(--muted); min-width: 2.5rem; flex-shrink: 0; }
+    .glossary-term-title { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 0; }
+    .glossary-cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.5rem; border-radius: 3px; border: 1px solid var(--border, rgba(255,255,255,0.15)); color: var(--muted); font-family: var(--font-body, 'Spectral', Georgia, serif); white-space: nowrap; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+    .glossary-cat-tag:hover, .glossary-cat-tag:focus-visible { color: var(--gold); border-color: var(--gold); outline: none; }
+    .glossary-entry p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem; color: var(--text2, var(--text)); }
+    @media (max-width: 600px) {
+      .glossary-entry-header { gap: 0.3rem; }
+      .glossary-number { min-width: auto; }
+      .glossary-cat-tag { font-size: 0.65rem; padding: 0.1rem 0.35rem; }
+    }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
-    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">☰ ${ui.home}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
+    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">\u2630 ${ui.home}</button>
+    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">\u2600</button>
     <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
 
     <div class="layout">
@@ -1542,9 +1682,22 @@ ${chapterLinks}            </div>
                     <input type="text" class="glossary-filter" placeholder="${ui.searchPlaceholder}" id="glossary-filter">
                 </header>
 
-${indexHtml}
+                <div class="glossary-view-toggle" role="tablist" aria-label="View mode">
+                    <button class="glossary-view-btn active" role="tab" aria-selected="true" data-view="az">${ui.glossaryAlphabetical}</button>
+                    <button class="glossary-view-btn" role="tab" aria-selected="false" data-view="categories">${ui.glossaryCategories}</button>
+                </div>
 
-${entriesHtml}
+                <div class="glossary-view glossary-view-az">
+                <nav class="glossary-index" aria-label="Alphabetical index">${letterIndex}</nav>
+
+${azEntriesHtml}
+                </div>
+
+                <div class="glossary-view glossary-view-cat" style="display:none;">
+                <nav class="glossary-index glossary-cat-nav" aria-label="Category navigation">${catNavButtons}</nav>
+
+${catEntriesHtml}
+                </div>
             </article>
 
 ${footer}
@@ -1597,6 +1750,18 @@ function loadGlossary(lang) {
 }
 
 /**
+ * Load glossary metadata (categories, term→category mapping)
+ */
+function loadGlossaryMeta() {
+  const filePath = path.join(CONFIG.inputDir, 'glossary-meta.json');
+  if (!fs.existsSync(filePath)) {
+    console.warn('  ⚠ glossary-meta.json not found, categories disabled');
+    return { categories: {}, terms: {} };
+  }
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+/**
  * Load references for a language
  */
 function loadReferences(lang) {
@@ -1638,7 +1803,7 @@ function copyDirRecursive(src, dest) {
 /**
  * Build a single language
  */
-function buildLanguage(lang, chapterSlugMap) {
+function buildLanguage(lang, chapterSlugMap, glossaryMeta) {
   console.log(`\n📖 Building ${lang.toUpperCase()}...`);
 
   const chapters = loadChapters(lang);
@@ -1683,7 +1848,7 @@ function buildLanguage(lang, chapterSlugMap) {
   }
 
   // Build glossary page
-  const glossaryHtml = generateGlossaryHtml(lang, glossary, chapters, chapterSlugMap);
+  const glossaryHtml = generateGlossaryHtml(lang, glossary, glossaryMeta, chapters, chapterSlugMap);
   fs.writeFileSync(path.join(langDir, 'glossary.html'), glossaryHtml);
   console.log(`  ✓ glossary.html (${Object.keys(glossary).length} terms)`);
 }
@@ -1744,7 +1909,7 @@ function createGlossaryScript() {
 /**
  * Generate search index JSON for a language
  */
-function generateSearchIndex(lang, chapters, glossary) {
+function generateSearchIndex(lang, chapters, glossary, glossaryMeta) {
   const ui = CONFIG.ui[lang] || CONFIG.ui.en;
   const index = [];
 
@@ -1777,16 +1942,36 @@ function generateSearchIndex(lang, chapters, glossary) {
     }
   }
 
-  // Index glossary terms
-  for (const [key, term] of Object.entries(glossary)) {
+  // Index glossary terms with numbered anchors
+  // Build numbering map (same logic as generateGlossaryHtml)
+  const sorted = Object.entries(glossary).sort((a, b) =>
+    a[1].title.localeCompare(b[1].title, lang)
+  );
+  const numberMap = {};
+  const letterCount = {};
+  for (const [key, term] of sorted) {
+    const letter = term.title.charAt(0).toUpperCase();
+    letterCount[letter] = (letterCount[letter] || 0) + 1;
+    numberMap[key] = `${letter}.${letterCount[letter]}`;
+  }
+
+  const termCategories = glossaryMeta ? glossaryMeta.terms || {} : {};
+  const categoryDefs = glossaryMeta ? glossaryMeta.categories || {} : {};
+
+  for (const [key, term] of sorted) {
     const contentText = Array.isArray(term.content)
       ? term.content.join(' ').substring(0, 200)
       : String(term.content).substring(0, 200);
+    const num = numberMap[key];
+    const anchor = num.toLowerCase().replace('.', '-');
+    const catKey = termCategories[key];
+    const category = catKey && categoryDefs[catKey] ? categoryDefs[catKey][lang] || categoryDefs[catKey].en || '' : '';
     index.push({
       type: 'glossary',
-      title: term.title,
+      title: `${num} ${term.title}`,
       text: contentText,
-      url: `/${lang}/glossary.html#letter-${term.title.charAt(0).toLowerCase()}`
+      url: `/${lang}/glossary.html#${anchor}`,
+      category
     });
   }
 
@@ -1899,12 +2084,13 @@ function build() {
 
   // Pre-build cross-language slug map (always for all languages)
   const chapterSlugMap = buildChapterSlugMap();
+  const glossaryMeta = loadGlossaryMeta();
 
   // Ensure output directory
   ensureDir(CONFIG.outputDir);
 
   // Build each language
-  languagesToBuild.forEach(lang => buildLanguage(lang, chapterSlugMap));
+  languagesToBuild.forEach(lang => buildLanguage(lang, chapterSlugMap, glossaryMeta));
 
   // Create shared assets
   console.log('\n📦 Creating shared assets...');
@@ -1918,7 +2104,7 @@ function build() {
   for (const lang of languagesToBuild) {
     const chapters = loadChapters(lang);
     const glossary = loadGlossary(lang);
-    const searchIndex = generateSearchIndex(lang, chapters, glossary);
+    const searchIndex = generateSearchIndex(lang, chapters, glossary, glossaryMeta);
     const langDir = path.join(CONFIG.outputDir, lang);
     ensureDir(langDir);
     fs.writeFileSync(path.join(langDir, 'search-index.json'), JSON.stringify(searchIndex));
