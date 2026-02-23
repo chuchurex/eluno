@@ -51,6 +51,11 @@
   font-style: italic;
   line-height: 1.6;
   padding-bottom: $spacing-md;
+
+  .term-example {
+    color: $gold;
+    border-bottom: 1px dotted $gold-dim;
+  }
 }
 
 .note {

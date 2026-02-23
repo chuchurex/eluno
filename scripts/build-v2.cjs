@@ -81,7 +81,7 @@ const CONFIG = {
       footerSessions: 'Original sessions free at',
       footerCopyright: 'Content derived from L/L Research material',
       noSources: 'No source citations for this section.',
-      notesEmpty: 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.',
+      notesEmpty: 'Click any <span class="term-example">highlighted term</span> to see its definition.',
       about: 'About',
       glossaryPage: 'Glossary',
       glossaryPageSubtitle: 'All terms and concepts',
@@ -118,7 +118,7 @@ const CONFIG = {
       footerSessions: 'Sesiones originales gratis en',
       footerCopyright: 'Contenido derivado del material de L/L Research',
       noSources: 'Sin citas de fuentes para esta sección.',
-      notesEmpty: 'Haz clic en cualquier <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">término destacado</span> para ver su definición.',
+      notesEmpty: 'Haz clic en cualquier <span class="term-example">término destacado</span> para ver su definición.',
       about: 'Acerca de',
       glossaryPage: 'Glosario',
       glossaryPageSubtitle: 'Todos los términos y conceptos',
@@ -155,7 +155,7 @@ const CONFIG = {
       footerSessions: 'Sessões originais grátis em',
       footerCopyright: 'Conteúdo derivado do material de L/L Research',
       noSources: 'Sem citações de fontes para esta seção.',
-      notesEmpty: 'Clique em qualquer <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">termo destacado</span> para ver sua definição.',
+      notesEmpty: 'Clique em qualquer <span class="term-example">termo destacado</span> para ver sua definição.',
       about: 'Sobre',
       glossaryPage: 'Glossário',
       glossaryPageSubtitle: 'Todos os termos e conceitos',
@@ -452,11 +452,11 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
       html += `                    <a href="/${lang}/chapters/${slug}.html" class="nav-link${isActive ? ' current' : ''}">${ch.number}. ${ch.title}</a>\n`;
 
       if (isActive) {
-        html += `                    <button class="nav-chapter-toggle" onclick="toggleChapter('${ch.id}')" aria-label="${ui.ariaToggleSections}" aria-expanded="false">▾</button>\n`;
+        html += `                    <button class="nav-chapter-toggle" data-action="toggle-chapter" data-chapter="${ch.id}" aria-label="${ui.ariaToggleSections}" aria-expanded="false">▾</button>\n`;
         html += `                </div>\n`;
         html += `                <div class="nav-sections-list">\n`;
         ch.sections.forEach(sec => {
-          html += `                    <a href="#${sec.id}" class="nav-link sub" onclick="if(window.innerWidth<=1100)closeAll()">${sec.title}</a>\n`;
+          html += `                    <a href="#${sec.id}" class="nav-link sub" data-action="nav-link-close">${sec.title}</a>\n`;
         });
         html += `                </div>\n`;
       } else {
@@ -475,7 +475,7 @@ function generateNavSidebar(chapter, allChapters, lang, ui, chapterSlugMap) {
             </div>
             <div class="nav-section">
 ${chapterLinks}            </div>
-            <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+            <div class="nav-back nav-back--footer">
                 <a href="/${lang}/glossary.html" class="nav-link">${ui.glossaryPage}</a>
                 <a href="/${lang}/about.html" class="nav-link">${ui.about}</a>
             </div>
@@ -486,7 +486,7 @@ ${chapterLinks}            </div>
  * Generate notes sidebar HTML
  */
 function generateContextSidebar(chapter, glossary, provenance, lang, ui) {
-  const emptyMsg = ui.notesEmpty || 'Click any <span style="color:var(--gold);border-bottom:1px dotted var(--gold-dim)">highlighted term</span> to see its definition.';
+  const emptyMsg = ui.notesEmpty || 'Click any <span class="term-example">highlighted term</span> to see its definition.';
   const sourcesLabel = ui.sources || 'Sources';
   const noSourcesMsg = ui.noSources || 'No source citations for this section.';
 
@@ -598,7 +598,7 @@ function generateMediaToolbar(chapterNum, media, ui) {
     html += `                    <div class="ch-media-audio-panel" id="audio-panel-${chapterNum}">\n`;
     html += `                        <audio src="${chapterMedia.audio}" controls preload="none"></audio>\n`;
     html += `                    </div>\n`;
-    html += `                    <button class="ch-media-icon" onclick="toggleAudio('${chapterNum}')" title="${ui.listenAudio}" data-audio-btn="${chapterNum}">${MEDIA_SVG.audio}<span class="ch-media-label">MP3</span></button>\n`;
+    html += `                    <button class="ch-media-icon" data-action="toggle-audio" data-audio="${chapterNum}" title="${ui.listenAudio}" data-audio-btn="${chapterNum}">${MEDIA_SVG.audio}<span class="ch-media-label">MP3</span></button>\n`;
   }
 
   if (hasPdf) {
@@ -705,243 +705,17 @@ function generateFooter(ui, lang) {
 /**
  * Generate external JS content for chapter/about pages
  */
-function getElunoJsContent() {
-  return `// Theme Management
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    let currentTheme = 'dark';
-    if (savedTheme) currentTheme = savedTheme;
-    if (currentTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        updateThemeButton('light');
-    } else {
-        document.documentElement.removeAttribute('data-theme');
-        updateThemeButton('dark');
-    }
-}
-function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const newTheme = current === 'light' ? 'dark' : 'light';
-    if (newTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-        document.documentElement.removeAttribute('data-theme');
-    }
-    localStorage.setItem('theme', newTheme);
-    updateThemeButton(newTheme);
-}
-function updateThemeButton(theme) {
-    const btns = document.querySelectorAll('.theme-toggle');
-    btns.forEach(btn => {
-        btn.innerHTML = theme === 'light' ? '\\u263E' : '\\u2600';
-    });
-}
-initTheme();
-
-// Navigation functions
-function toggleNav(){
-    var sidebar=document.getElementById('sidebar');
-    var overlay=document.getElementById('overlay');
-    var notes=document.getElementById('notes');
-    sidebar.classList.toggle('open');
-    overlay.classList.toggle('active');
-    if(notes)notes.classList.remove('open');
-    var navBtn=document.querySelector('.nav-toggle');
-    var notesBtn=document.querySelector('.notes-toggle');
-    var isOpen=sidebar.classList.contains('open');
-    if(navBtn)navBtn.setAttribute('aria-expanded',isOpen);
-    if(notesBtn)notesBtn.setAttribute('aria-expanded','false');
-    if(isOpen){var first=sidebar.querySelector('a');if(first)first.focus();}
-}
-function toggleNotes(){
-    var notes=document.getElementById('notes');
-    var overlay=document.getElementById('overlay');
-    var sidebar=document.getElementById('sidebar');
-    notes.classList.toggle('open');
-    overlay.classList.toggle('active');
-    sidebar.classList.remove('open');
-    var navBtn=document.querySelector('.nav-toggle');
-    var notesBtn=document.querySelector('.notes-toggle');
-    var isOpen=notes.classList.contains('open');
-    if(notesBtn)notesBtn.setAttribute('aria-expanded',isOpen);
-    if(navBtn)navBtn.setAttribute('aria-expanded','false');
-    if(isOpen){var first=notes.querySelector('a, button');if(first)first.focus();}
-}
-function closeAll(){
-    document.getElementById('sidebar').classList.remove('open');
-    var notes=document.getElementById('notes');if(notes)notes.classList.remove('open');
-    document.getElementById('overlay').classList.remove('active');
-    var navBtn=document.querySelector('.nav-toggle');
-    var notesBtn=document.querySelector('.notes-toggle');
-    if(navBtn)navBtn.setAttribute('aria-expanded','false');
-    if(notesBtn)notesBtn.setAttribute('aria-expanded','false');
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
-function toggleChapter(id){var g=document.getElementById('nav-group-'+id);if(!g)return;g.classList.toggle('expanded');var btn=g.querySelector('.nav-chapter-toggle');if(btn)btn.setAttribute('aria-expanded',g.classList.contains('expanded'));}
-
-// Audio player toggle
-function toggleAudio(num){
-    var panel=document.getElementById('audio-panel-'+num);
-    var btn=document.querySelector('[data-audio-btn="'+num+'"]');
-    if(!panel)return;
-    document.querySelectorAll('.ch-media-audio-panel').forEach(function(p){
-        if(p.id!=='audio-panel-'+num){p.classList.remove('active');var a=p.querySelector('audio');if(a)a.pause()}
-    });
-    document.querySelectorAll('[data-audio-btn]').forEach(function(b){b.classList.remove('active')});
-    panel.classList.toggle('active');
-    if(panel.classList.contains('active')){
-        if(btn)btn.classList.add('active');
-        var audio=panel.querySelector('audio');
-        if(audio&&audio.paused)audio.play().catch(function(){});
-    } else {
-        var audio=panel.querySelector('audio');
-        if(audio)audio.pause();
-    }
-}
-
-// Terms and notes functionality
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.term').forEach(t=>t.addEventListener('click',function(e){
-        e.preventDefault();
-        const noteId='note-'+this.dataset.term;
-        const note=document.getElementById(noteId);
-        if(!note)return;
-        document.querySelectorAll('.term').forEach(x=>x.classList.remove('active'));
-        document.querySelectorAll('.note').forEach(n=>n.classList.remove('active'));
-        const ne=document.getElementById('notes-term-empty');
-        if(ne)ne.style.display='none';
-        this.classList.add('active');
-        note.classList.add('active');
-        if(window.innerWidth<=1100){
-            document.getElementById('notes').classList.add('open');
-            document.getElementById('overlay').classList.add('active');
-        }
-        note.scrollIntoView({behavior:'smooth',block:'nearest'});
-    }));
-
-    // === Scroll-Spy & Contextual Sidebar ===
-    (function() {
-        var sections = document.querySelectorAll('.section[id]');
-        var contextTitle = document.getElementById('notes-context-title');
-        var sourcesEmpty = document.getElementById('notes-sources-empty');
-        var allSourceBlocks = document.querySelectorAll('.notes-sources[data-section]');
-        var currentSectionId = null;
-
-        function updateSidebarContext(sectionId) {
-            if (sectionId === currentSectionId) return;
-            currentSectionId = sectionId;
-            var sectionEl = document.getElementById(sectionId);
-            if (!sectionEl) return;
-            var title = sectionEl.getAttribute('data-section-title') || '';
-            var sectionNum = sectionEl.getAttribute('data-section-number') || '';
-
-            // Fade transition
-            contextTitle.style.opacity = '0';
-            setTimeout(function() {
-                contextTitle.textContent = sectionNum + ' ' + title;
-                contextTitle.style.opacity = '1';
-            }, 150);
-
-            // Show/hide matching sources
-            var hasSource = false;
-            allSourceBlocks.forEach(function(block) {
-                if (block.getAttribute('data-section') === sectionId) {
-                    block.style.display = 'block';
-                    hasSource = true;
-                } else {
-                    block.style.display = 'none';
-                }
-            });
-            if (sourcesEmpty) {
-                sourcesEmpty.style.display = hasSource ? 'none' : 'block';
-            }
-
-            // Highlight active section in left nav
-            document.querySelectorAll('.nav-link.sub').forEach(function(link) {
-                link.classList.toggle('current', link.getAttribute('href') === '#' + sectionId);
-            });
-        }
-
-        // IntersectionObserver for scroll-spy
-        if ('IntersectionObserver' in window && sections.length > 0) {
-            var observer = new IntersectionObserver(function(entries) {
-                var topEntry = null;
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        if (!topEntry || entry.boundingClientRect.top < topEntry.boundingClientRect.top) {
-                            topEntry = entry;
-                        }
-                    }
-                });
-                if (topEntry) {
-                    updateSidebarContext(topEntry.target.id);
-                }
-            }, {
-                rootMargin: '-10% 0px -60% 0px',
-                threshold: 0
-            });
-            sections.forEach(function(section) { observer.observe(section); });
-        }
-
-        // Section info button click handler
-        document.querySelectorAll('.sec-context-btn').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                var targetId = this.getAttribute('data-target');
-                updateSidebarContext(targetId);
-                if (window.innerWidth <= 1100) {
-                    document.getElementById('notes').classList.add('open');
-                    document.getElementById('overlay').classList.add('active');
-                    document.getElementById('sidebar').classList.remove('open');
-                }
-            });
-        });
-    })();
-});
-`;
-}
-
 /**
- * Generate external JS content for landing pages (theme only)
+ * Copy JS source files to dist/js/
+ * Source of truth: src/js/
  */
-function getThemeJsContent() {
-  return `function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        updateThemeButton('light');
-    } else {
-        updateThemeButton('dark');
-    }
-}
-function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const newTheme = current === 'light' ? 'dark' : 'light';
-    if (newTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-        document.documentElement.removeAttribute('data-theme');
-    }
-    localStorage.setItem('theme', newTheme);
-    updateThemeButton(newTheme);
-}
-function updateThemeButton(theme) {
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-        btn.innerHTML = theme === 'light' ? '\\u263E' : '\\u2600';
-    });
-}
-initTheme();
-`;
-}
-
-/**
- * Write external JS files to dist/js/
- */
-function writeExternalJs(jsDir) {
-  fs.writeFileSync(path.join(jsDir, 'eluno.js'), getElunoJsContent());
-  console.log('  ✓ js/eluno.js');
-  fs.writeFileSync(path.join(jsDir, 'theme.js'), getThemeJsContent());
-  console.log('  ✓ js/theme.js');
+function copyJsFiles(jsDir) {
+  const srcDir = path.join(__dirname, '..', 'src', 'js');
+  const files = ['theme.js', 'eluno.js', 'search.js', 'glossary-page.js'];
+  files.forEach(file => {
+    fs.copyFileSync(path.join(srcDir, file), path.join(jsDir, file));
+    console.log(`  ✓ js/${file}`);
+  });
 }
 
 /**
@@ -1008,13 +782,14 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
     ${gaScript()}
+    <script src="/js/theme.js?v=${BUILD_HASH}"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
-    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">☰ ${ui.home}</button>
-    <button class="toggle notes-toggle" onclick="toggleNotes()" aria-expanded="false">${ui.glossary}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
-    <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
+    <button class="toggle nav-toggle" data-action="toggle-nav" aria-expanded="false">☰ ${ui.home}</button>
+    <button class="toggle notes-toggle" data-action="toggle-notes" aria-expanded="false">${ui.glossary}</button>
+    <button class="toggle theme-toggle" data-action="toggle-theme" aria-label="${ui.ariaToggleTheme}">☀</button>
+    <div class="overlay" id="overlay" data-action="close-all" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
 
     <div class="layout">
         <main class="main" id="main-content">
@@ -1106,26 +881,12 @@ function generateIndexHtml(lang, chapters, media) {
   <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
   <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
-  <style>
-  .search-box { position: relative; max-width: 500px; margin: 1.5rem auto 2rem; }
-  .search-input { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--fg); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; }
-  .search-input::placeholder { color: var(--muted); }
-  .search-input:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
-  .search-results { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg, #1a1a2e); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin-top: 4px; max-height: 400px; overflow-y: auto; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-  .search-result { display: block; padding: 0.75rem 1rem; text-decoration: none; color: var(--fg); border-bottom: 1px solid var(--border, rgba(255,255,255,0.08)); }
-  .search-result:last-child { border-bottom: none; }
-  .search-result:hover, .search-result:focus { background: var(--bg-alt, rgba(255,255,255,0.05)); }
-  .search-result-type { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.15rem; }
-  .search-result-title { font-family: var(--font-heading); font-size: 0.95rem; }
-  .search-result-text { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .search-no-results { padding: 1rem; text-align: center; color: var(--muted); font-style: italic; }
-  </style>
-
   ${gaScript()}
+  <script src="/js/theme.js?v=${BUILD_HASH}"></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
-  <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
+  <button class="toggle theme-toggle" data-action="toggle-theme" aria-label="${ui.ariaToggleTheme}">☀</button>
 
   <div class="layout index-layout">
     <main class="main" id="main-content">
@@ -1140,7 +901,7 @@ function generateIndexHtml(lang, chapters, media) {
 ${generateHomepageMediaToolbar(media, ui)}
       </section>
 
-      <div class="search-box">
+      <div class="search-box" id="search-wrap" data-no-results="${ui.searchNoResults}" data-label-chapter="${ui.chapter}" data-label-glossary="${ui.glossary}">
         <input type="text" class="search-input" placeholder="${ui.searchPlaceholder}" id="site-search" autocomplete="off">
         <div class="search-results" id="search-results" hidden></div>
       </div>
@@ -1172,87 +933,8 @@ ${tocHtml}
     </main>
   </div>
 
-  <script src="/js/theme.js?v=${BUILD_HASH}"></script>
-  <script>
-  (function() {
-    var searchIndex = null;
-    var input = document.getElementById('site-search');
-    var results = document.getElementById('search-results');
-    if (!input || !results) return;
-
-    var debounceTimer;
-    input.addEventListener('input', function() {
-      clearTimeout(debounceTimer);
-      var self = this;
-      debounceTimer = setTimeout(function() { doSearch(self.value); }, 200);
-    });
-
-    // Close on click outside
-    document.addEventListener('click', function(e) {
-      if (!input.contains(e.target) && !results.contains(e.target)) {
-        results.hidden = true;
-      }
-    });
-    input.addEventListener('focus', function() {
-      if (results.children.length > 0) results.hidden = false;
-    });
-
-    // Normalize: lowercase + strip accents
-    function norm(s) {
-      return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    }
-
-    // Word-boundary match: query words must each appear as whole words
-    function escapeRe(s) {
-      return s.replace(/[-.*+?^$|()\\[\\]\\\\]/g, '\\\\' + '$' + '&');
-    }
-    function wordMatch(text, queryWords) {
-      var n = norm(text);
-      var sep = '[^a-z0-9\\u00e0-\\u00ff]';
-      return queryWords.every(function(w) {
-        var re = new RegExp('(^|' + sep + ')' + escapeRe(w) + '(' + sep + '|$)');
-        return re.test(n);
-      });
-    }
-
-    function doSearch(value) {
-      var query = value.trim();
-      if (query.length < 2) { results.hidden = true; results.innerHTML = ''; return; }
-
-      if (!searchIndex) {
-        var lang = document.documentElement.lang || 'en';
-        fetch('/' + lang + '/search-index.json')
-          .then(function(r) { return r.json(); })
-          .then(function(data) { searchIndex = data; renderResults(query); });
-        return;
-      }
-      renderResults(query);
-    }
-
-    function renderResults(query) {
-      var queryWords = norm(query).split(/\s+/).filter(function(w) { return w.length > 0; });
-      var matches = searchIndex.filter(function(item) {
-        return wordMatch(item.title, queryWords) || wordMatch(item.text, queryWords);
-      }).slice(0, 10);
-
-      if (matches.length === 0) {
-        results.innerHTML = '<div class="search-no-results">' + '${ui.searchNoResults}' + '</div>';
-        results.hidden = false;
-        return;
-      }
-
-      var typeLabels = { chapter: '${ui.chapter}', section: '${ui.chapter}', glossary: '${ui.glossary}' };
-      results.innerHTML = matches.map(function(m) {
-        return '<a class="search-result" href="' + m.url + '">' +
-          '<div class="search-result-type">' + (typeLabels[m.type] || m.type) + '</div>' +
-          '<div class="search-result-title">' + m.title + '</div>' +
-          '<div class="search-result-text">' + m.text.substring(0, 100) + '</div>' +
-          '</a>';
-      }).join('');
-      results.hidden = false;
-    }
-  })();
-  </script>
+  <script src="/js/eluno.js?v=${BUILD_HASH}" defer></script>
+  <script src="/js/search.js?v=${BUILD_HASH}" defer></script>
 </body>
 </html>`;
 }
@@ -1310,7 +992,7 @@ function generateAboutHtml(lang, about, allChapters, chapterSlugMap) {
             </div>
             <div class="nav-section">
 ${chapterLinks}            </div>
-            <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+            <div class="nav-back nav-back--footer">
                 <a href="/${lang}/glossary.html" class="nav-link">${ui.glossaryPage}</a>
                 <a href="/${lang}/about.html" class="nav-link current">${ui.about}</a>
             </div>
@@ -1347,12 +1029,13 @@ ${chapterLinks}            </div>
     <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
     ${gaScript()}
+    <script src="/js/theme.js?v=${BUILD_HASH}"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
-    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">☰ ${ui.home}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">☀</button>
-    <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
+    <button class="toggle nav-toggle" data-action="toggle-nav" aria-expanded="false">☰ ${ui.home}</button>
+    <button class="toggle theme-toggle" data-action="toggle-theme" aria-label="${ui.ariaToggleTheme}">☀</button>
+    <div class="overlay" id="overlay" data-action="close-all" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
 
     <div class="layout">
         <main class="main" id="main-content">
@@ -1512,7 +1195,7 @@ ${termsHtml}
             </div>
             <div class="nav-section">
 ${chapterLinks}            </div>
-            <div class="nav-back" style="margin-top:1rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;">
+            <div class="nav-back nav-back--footer">
                 <a href="/${lang}/glossary.html" class="nav-link current">${ui.glossaryPage}</a>
                 <a href="/${lang}/about.html" class="nav-link">${ui.about}</a>
             </div>
@@ -1521,89 +1204,7 @@ ${chapterLinks}            </div>
   const footer = generateFooter(ui, lang);
   const scripts = generateScripts();
 
-  // Inline JS for glossary filter, view toggle, hash navigation
-  const filterJs = `
-    <script>
-    (function() {
-      // View toggle
-      var azView = document.querySelector('.glossary-view-az');
-      var catView = document.querySelector('.glossary-view-cat');
-      var viewBtns = document.querySelectorAll('.glossary-view-btn');
-
-      function setView(mode) {
-        var isAz = mode === 'az';
-        if (azView) azView.style.display = isAz ? '' : 'none';
-        if (catView) catView.style.display = isAz ? 'none' : '';
-        viewBtns.forEach(function(btn) {
-          var active = btn.getAttribute('data-view') === mode;
-          btn.classList.toggle('active', active);
-          btn.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
-        var input = document.getElementById('glossary-filter');
-        if (input && input.value) { input.value = ''; filterEntries(''); }
-      }
-
-      viewBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() { setView(this.getAttribute('data-view')); });
-      });
-
-      // Category tag click
-      document.querySelectorAll('.glossary-cat-tag').forEach(function(tag) {
-        function go() {
-          var cat = tag.getAttribute('data-cat');
-          setView('categories');
-          var target = document.getElementById('cat-' + cat);
-          if (target) setTimeout(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
-        }
-        tag.addEventListener('click', go);
-        tag.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-      });
-
-      // Filter
-      var input = document.getElementById('glossary-filter');
-      if (input) input.addEventListener('input', function() { filterEntries(this.value.toLowerCase().trim()); });
-
-      function filterEntries(query) {
-        var active = document.querySelector('.glossary-view:not([style*="display: none"])');
-        if (!active) return;
-        active.querySelectorAll('.glossary-entry').forEach(function(entry) {
-          var title = entry.querySelector('.glossary-term-title').textContent.toLowerCase();
-          var content = entry.textContent.toLowerCase();
-          entry.style.display = (query === '' || title.indexOf(query) !== -1 || content.indexOf(query) !== -1) ? '' : 'none';
-        });
-        active.querySelectorAll('.glossary-letter, .glossary-category').forEach(function(section) {
-          var visible = section.querySelectorAll('.glossary-entry:not([style*="display: none"])');
-          section.style.display = visible.length > 0 ? '' : 'none';
-        });
-      }
-
-      // Hash navigation
-      function handleHash() {
-        var hash = window.location.hash.substring(1);
-        if (!hash) return;
-        if (hash.startsWith('cat-')) {
-          setView('categories');
-          var ct = document.getElementById(hash);
-          if (ct) setTimeout(function() { ct.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
-          return;
-        }
-        if (hash.startsWith('letter-')) { setView('az'); }
-        var target = document.getElementById(hash) || document.getElementById('term-' + hash);
-        if (target) {
-          setView('az');
-          setTimeout(function() {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            var entry = target.closest('.glossary-entry') || target;
-            entry.style.outline = '2px solid var(--gold)';
-            entry.style.outlineOffset = '4px';
-            setTimeout(function() { entry.style.outline = ''; entry.style.outlineOffset = ''; }, 2500);
-          }, 50);
-        }
-      }
-      handleHash();
-      window.addEventListener('hashchange', handleHash);
-    })();
-    </script>`;
+  const filterJs = `\n    <script src="/js/glossary-page.js?v=${BUILD_HASH}" defer></script>`;
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="ltr">
@@ -1633,45 +1234,14 @@ ${chapterLinks}            </div>
     <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
     ${gaScript()}
+    <script src="/js/theme.js?v=${BUILD_HASH}"></script>
 
-    <style>
-    .glossary-subtitle { font-style: italic; color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
-    .glossary-filter { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body, 'Spectral', Georgia, serif); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--text); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin: 1.5rem 0 1rem; }
-    .glossary-filter::placeholder { color: var(--muted); }
-    .glossary-filter:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
-    .glossary-view-toggle { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem; }
-    .glossary-view-btn { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 0.95rem; padding: 0.5rem 1.25rem; border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 4px; background: transparent; color: var(--text2, #b0b0b0); cursor: pointer; transition: all 0.2s; }
-    .glossary-view-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .glossary-view-btn.active { background: var(--gold); color: var(--bg, #050505); border-color: var(--gold); }
-    .glossary-view-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-    .glossary-index { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); }
-    .glossary-index-letter { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 1rem; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; color: var(--gold); border: 1px solid var(--border, rgba(255,255,255,0.15)); transition: background 0.2s, color 0.2s; }
-    .glossary-index-letter:hover:not(.disabled) { background: var(--gold); color: var(--bg, #050505); }
-    .glossary-index-letter.disabled { opacity: 0.25; cursor: default; }
-    .glossary-cat-nav { gap: 0.5rem; }
-    .glossary-cat-nav-btn { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 0.85rem; padding: 0.35rem 0.75rem; border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 4px; text-decoration: none; color: var(--gold); transition: all 0.2s; white-space: nowrap; }
-    .glossary-cat-nav-btn:hover { background: var(--gold); color: var(--bg, #050505); }
-    .glossary-letter, .glossary-category { margin-bottom: 2rem; }
-    .glossary-letter-heading { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 1.5rem; color: var(--gold); border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); padding-bottom: 0.5rem; margin-bottom: 1rem; }
-    .glossary-entry { margin-bottom: 1.5rem; padding-left: 1rem; scroll-margin-top: 5rem; }
-    .glossary-entry-header { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.3rem; }
-    .glossary-number { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 0.85rem; color: var(--muted); min-width: 2.5rem; flex-shrink: 0; }
-    .glossary-term-title { font-family: var(--font-heading, 'Cormorant Garamond', serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 0; }
-    .glossary-cat-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.5rem; border-radius: 3px; border: 1px solid var(--border, rgba(255,255,255,0.15)); color: var(--muted); font-family: var(--font-body, 'Spectral', Georgia, serif); white-space: nowrap; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
-    .glossary-cat-tag:hover, .glossary-cat-tag:focus-visible { color: var(--gold); border-color: var(--gold); outline: none; }
-    .glossary-entry p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem; color: var(--text2, var(--text)); }
-    @media (max-width: 600px) {
-      .glossary-entry-header { gap: 0.3rem; }
-      .glossary-number { min-width: auto; }
-      .glossary-cat-tag { font-size: 0.65rem; padding: 0.1rem 0.35rem; }
-    }
-    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
-    <button class="toggle nav-toggle" onclick="toggleNav()" aria-expanded="false">\u2630 ${ui.home}</button>
-    <button class="toggle theme-toggle" onclick="toggleTheme()" aria-label="${ui.ariaToggleTheme}">\u2600</button>
-    <div class="overlay" id="overlay" onclick="closeAll()" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
+    <button class="toggle nav-toggle" data-action="toggle-nav" aria-expanded="false">\u2630 ${ui.home}</button>
+    <button class="toggle theme-toggle" data-action="toggle-theme" aria-label="${ui.ariaToggleTheme}">\u2600</button>
+    <div class="overlay" id="overlay" data-action="close-all" role="button" tabindex="-1" aria-label="${ui.closeMenu}"></div>
 
     <div class="layout">
         <main class="main" id="main-content">
@@ -1693,7 +1263,7 @@ ${chapterLinks}            </div>
 ${azEntriesHtml}
                 </div>
 
-                <div class="glossary-view glossary-view-cat" style="display:none;">
+                <div class="glossary-view glossary-view-cat">
                 <nav class="glossary-index glossary-cat-nav" aria-label="Category navigation">${catNavButtons}</nav>
 
 ${catEntriesHtml}
@@ -1851,59 +1421,6 @@ function buildLanguage(lang, chapterSlugMap, glossaryMeta) {
   const glossaryHtml = generateGlossaryHtml(lang, glossary, glossaryMeta, chapters, chapterSlugMap);
   fs.writeFileSync(path.join(langDir, 'glossary.html'), glossaryHtml);
   console.log(`  ✓ glossary.html (${Object.keys(glossary).length} terms)`);
-}
-
-/**
- * Create JS file for glossary tooltips
- */
-function createGlossaryScript() {
-  const jsDir = path.join(CONFIG.outputDir, 'js');
-  ensureDir(jsDir);
-
-  const script = `/**
- * Glossary Tooltips - eluno.org
- */
-(function() {
-  const terms = document.querySelectorAll('.term[data-definition]');
-
-  terms.forEach(term => {
-    term.addEventListener('mouseenter', showTooltip);
-    term.addEventListener('mouseleave', hideTooltip);
-    term.addEventListener('focus', showTooltip);
-    term.addEventListener('blur', hideTooltip);
-  });
-
-  function showTooltip(e) {
-    const term = e.target;
-    const definition = term.getAttribute('data-definition');
-
-    let tooltip = document.getElementById('glossary-tooltip');
-    if (!tooltip) {
-      tooltip = document.createElement('div');
-      tooltip.id = 'glossary-tooltip';
-      tooltip.className = 'glossary-tooltip';
-      document.body.appendChild(tooltip);
-    }
-
-    tooltip.textContent = definition;
-    tooltip.style.display = 'block';
-
-    const rect = term.getBoundingClientRect();
-    tooltip.style.left = rect.left + 'px';
-    tooltip.style.top = (rect.bottom + 8) + 'px';
-  }
-
-  function hideTooltip() {
-    const tooltip = document.getElementById('glossary-tooltip');
-    if (tooltip) {
-      tooltip.style.display = 'none';
-    }
-  }
-})();
-`;
-
-  fs.writeFileSync(path.join(jsDir, 'glossary-tooltips.js'), script);
-  console.log('  ✓ js/glossary-tooltips.js');
 }
 
 /**
@@ -2096,8 +1613,7 @@ function build() {
   console.log('\n📦 Creating shared assets...');
   const jsDir = path.join(CONFIG.outputDir, 'js');
   ensureDir(jsDir);
-  writeExternalJs(jsDir);
-  createGlossaryScript();
+  copyJsFiles(jsDir);
 
   // Generate search indices per language
   console.log('\n🔍 Generating search indices...');
