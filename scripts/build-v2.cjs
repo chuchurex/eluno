@@ -1377,6 +1377,16 @@ function generateGlossaryHtml(lang, glossary, allChapters, chapterSlugMap) {
     grouped[letter].push({ key, ...term });
   }
 
+  // Build letter index (A-Z)
+  const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const letterIndex = allLetters.map(l => {
+    if (grouped[l]) {
+      return `<a href="#letter-${l.toLowerCase()}" class="glossary-index-letter">${l}</a>`;
+    }
+    return `<span class="glossary-index-letter disabled">${l}</span>`;
+  }).join('');
+  const indexHtml = `                <nav class="glossary-index" aria-label="Alphabetical index">${letterIndex}</nav>`;
+
   // Generate HTML for each letter group
   const entriesHtml = Object.entries(grouped)
     .sort(([a], [b]) => a.localeCompare(b))
@@ -1501,6 +1511,10 @@ ${chapterLinks}            </div>
     .glossary-filter { width: 100%; padding: 0.75rem 1rem; font-size: 1rem; font-family: var(--font-body); background: var(--bg-alt, rgba(255,255,255,0.05)); color: var(--fg); border: 1px solid var(--border, rgba(255,255,255,0.15)); border-radius: 6px; margin: 1.5rem 0 2rem; }
     .glossary-filter::placeholder { color: var(--muted); }
     .glossary-filter:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: var(--gold); }
+    .glossary-index { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); }
+    .glossary-index-letter { font-family: var(--font-heading); font-size: 1rem; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; text-decoration: none; color: var(--gold); border: 1px solid var(--border, rgba(255,255,255,0.15)); transition: background 0.2s, color 0.2s; }
+    .glossary-index-letter:hover:not(.disabled) { background: var(--gold); color: var(--bg, #1a1a2e); }
+    .glossary-index-letter.disabled { opacity: 0.25; cursor: default; }
     .glossary-letter { margin-bottom: 2rem; }
     .glossary-letter-heading { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold); border-bottom: 1px solid var(--border, rgba(255,255,255,0.1)); padding-bottom: 0.5rem; margin-bottom: 1rem; }
     .glossary-entry { margin-bottom: 1.5rem; padding-left: 1rem; }
@@ -1522,6 +1536,8 @@ ${chapterLinks}            </div>
                     <p class="glossary-subtitle">${ui.glossaryPageSubtitle} (${sortedTerms.length})</p>
                     <input type="text" class="glossary-filter" placeholder="${ui.searchPlaceholder}" id="glossary-filter">
                 </header>
+
+${indexHtml}
 
 ${entriesHtml}
             </article>
