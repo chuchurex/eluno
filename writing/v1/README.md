@@ -43,3 +43,4 @@ Los capitulos publicados en `i18n/en/chapters/` (01-16.json) son el resultado v1
 - `ai-writing-prompt.md` — El system prompt completo usado en v1
 - `methodology.md` — Decisiones editoriales y lecciones aprendidas
 - `sources.md` — Links a los PDFs fuente y jerarquia de fuentes
+- `audiobook-guide.md` — Guia de generacion TTS original (Fish Audio, estructura pre-pipeline)

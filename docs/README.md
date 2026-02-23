@@ -22,7 +22,6 @@ docs/
 │   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro (16 capítulos)
 │
 ├── audiobook/                  # Generación de audiolibros
-│   ├── AUDIOBOOK_GUIDE.md      # Guía de generación TTS
 │   └── STATUS.md               # Estado del audiobook
 │
 ├── legal/                      # Atribuciones y créditos
