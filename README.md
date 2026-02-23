@@ -1,44 +1,18 @@
-# El Uno / The One — Transparent Distortion 000
+# The One (El Uno)
 
-> A philosophical reinterpretation of the Ra Material (The Law of One) for intellectually-oriented seekers.
+> A philosophical reinterpretation of the Ra Material (The Law of One) as accessible, modern prose.
 
 ## What is this?
 
-This book presents the core cosmology and philosophy of the [Ra Material](https://www.llresearch.org/library/the-ra-contact-teaching-the-law-of-one) — channeled by L/L Research between 1981 and 1984 — in accessible, modern language. It is the philosophical foundation from which all other books in the eluno project are derived.
+The [Ra Material](https://www.llresearch.org/library/the-ra-contact-teaching-the-law-of-one) — channeled by L/L Research between 1981 and 1984 — contains a profound cosmology and philosophy, but its Q&A format and dense language make it difficult to approach. This book rewrites that content as narrative prose organized by theme, preserving the original concepts while making them accessible to contemporary readers.
 
-**Live site**: [eluno.org](https://eluno.org)
+16 chapters cover the full scope: from the nature of the Infinite Creator and the densities of consciousness, through Earth's spiritual history and the mechanics of spiritual evolution, to practical guidance for seekers.
 
-## The Transparent Distortion concept
+Available in English, Spanish, and Portuguese.
 
-This is book **000** — the philosophical core. It presents the teachings using the original Ra terminology (densities, distortions, harvest) without religious framing.
-
-Other books in the [eluno-books](https://github.com/chuchurex/eluno-books) repository adapt this same content for audiences who would otherwise never engage with it:
-
-```
-000 (eluno) ─── The philosophical core ← YOU ARE HERE
- │
- ├── 010 (todo) ─── Agnostic simplification
- │
- ├── 020 (jesus) ─── Christian lens
- │    │
- │    └── 021 (sanacion) ─── Practical healing
- │
- └── 100 (doctrinas) ─── Theological doctrine
-```
-
-Each version removes trigger words that would activate psychological resistance in its target audience, while preserving the complete philosophical message. Nothing is added that isn't in the source. This is what we call a **transparent distortion** — documented, intentional, and traceable.
-
-## What remains constant across all versions
-
-1. Unity of consciousness at source
-2. Apparent separation as sacred and necessary
-3. Free will as fundamental principle
-4. Love as the creative force
-5. Every being is the Creator experiencing itself
+**Read it at [eluno.org](https://eluno.org)**
 
 ## Structure
-
-The book has 16 chapters organized in 5 parts:
 
 | Part | Chapters | Theme                    |
 | ---- | -------- | ------------------------ |
@@ -47,8 +21,6 @@ The book has 16 chapters organized in 5 parts:
 | III  | 8-9      | The veil and death       |
 | IV   | 10-13    | Spiritual mechanics      |
 | V    | 14-16    | Practice and closing     |
-
-Available in English, Spanish, and Portuguese.
 
 ## Development
 
@@ -78,14 +50,10 @@ eluno/
 └── LICENSE                # AGPL-3.0
 ```
 
-## Related repositories
-
-- **[eluno-books](https://github.com/chuchurex/eluno-books)** — The other distortion branches (todo, jesus, sanacion, doctrinas, dormidos)
-- **[eluno-core](https://github.com/chuchurex/eluno-core)** — Shared build tools, styles, and fonts
-
 ## Technical
 
 - **Source**: [L/L Research - The Ra Contact](https://www.llresearch.org/library/the-ra-contact-teaching-the-law-of-one)
-- **Generated with**: Claude (Anthropic) for text, Fish Audio for TTS audiobooks
+- **Written with**: Claude (Anthropic) — see [ai/](ai/) for full methodology
+- **Audiobook**: Edge TTS (Microsoft) — see [docs/audiobook/](docs/audiobook/)
 - **Deployed via**: Cloudflare Pages
 - **License**: AGPL-3.0
