@@ -29,6 +29,7 @@ Thumbs.db
 # Secrets & Credentials
 # ───────────────────────────────────────────────────────────────
 .env
+.env.backup
 .env.local
 .env.*.local
 *.pem
