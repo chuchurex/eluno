@@ -20,6 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 
 // ─────────────────────────────────────────────────────────────
 // Configuration
@@ -34,8 +35,10 @@ const CONFIG = {
   inputDir: path.join(__dirname, '../i18n'),
   outputDir: path.join(__dirname, '../dist'),
   provenanceDir: path.join(__dirname, '../i18n/provenance'),
-  siteUrl: 'https://eluno.org',
-  gaId: 'G-9LDPDW8V6E',
+  siteUrl: process.env.SITE_URL || 'https://eluno.org',
+  get siteDomain() { try { return new URL(this.siteUrl).hostname; } catch { return 'eluno.org'; } },
+  gaId: process.env.GA_ID || '',
+  githubRepo: process.env.GITHUB_REPO || '',
 
   // v3 beta: only build these chapters (add more as they're reviewed)
   enabledChapters: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
@@ -161,6 +164,23 @@ const CONFIG = {
     }
   }
 };
+
+// ─────────────────────────────────────────────────────────────
+// Analytics helpers
+// ─────────────────────────────────────────────────────────────
+
+function gaPreconnect() {
+  if (!CONFIG.gaId) return '';
+  return `<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>`;
+}
+
+function gaScript() {
+  if (!CONFIG.gaId) return '';
+  return `<!-- Google tag (gtag.js) — deferred -->
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
+    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>`;
+}
 
 // ─────────────────────────────────────────────────────────────
 // Markup Parser
@@ -660,13 +680,14 @@ function generateChapterPrevNext(chapter, allChapters, lang, ui) {
  * Generate footer HTML
  */
 function generateFooter(ui, lang) {
+  const githubLink = CONFIG.githubRepo
+    ? `\n                    <span>·</span>\n                    <a href="${CONFIG.githubRepo}" target="_blank" rel="noopener">GitHub</a>`
+    : '';
   return `            <footer class="footer">
                 <div class="footer-links">
                     <a href="/${lang}/about.html">${ui.about}</a>
                     <span>·</span>
-                    <a href="/${lang}/glossary.html">${ui.glossaryPage}</a>
-                    <span>·</span>
-                    <a href="https://github.com/chuchurex/eluno" target="_blank" rel="noopener">GitHub</a>
+                    <a href="/${lang}/glossary.html">${ui.glossaryPage}</a>${githubLink}
                 </div>
                 <div class="footer-attribution">
                     <p>${ui.footerAttribution || 'This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.'}</p>
@@ -961,8 +982,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/chapters/${slug}.html">
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    ${gaPreconnect()}
 
     <!-- OpenGraph -->
     <meta property="og:title" content="${chapter.title} — ${bookTitle}">
@@ -982,9 +1002,7 @@ function generateChapterHtml(chapter, lang, glossary, references, provenance, al
     <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
     <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
-    <!-- Google tag (gtag.js) — deferred -->
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
-    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
+    ${gaScript()}
 </head>
 <body>
     <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
@@ -1060,14 +1078,13 @@ function generateIndexHtml(lang, chapters, media) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${bookTitle} | eluno.org</title>
+  <title>${bookTitle} | ${CONFIG.siteDomain}</title>
   <meta name="description" content="${ui.subtitle}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  ${gaPreconnect()}
 
   <!-- OpenGraph -->
   <meta property="og:title" content="${bookTitle}">
@@ -1099,9 +1116,7 @@ function generateIndexHtml(lang, chapters, media) {
   .search-no-results { padding: 1rem; text-align: center; color: var(--muted); font-style: italic; }
   </style>
 
-  <!-- Google tag (gtag.js) — deferred -->
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
-  window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
+  ${gaScript()}
 </head>
 <body>
   <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
@@ -1141,9 +1156,9 @@ ${tocHtml}
         <div class="footer-links">
           <a href="/${lang}/about.html">${ui.about}</a>
           <span>·</span>
-          <a href="/${lang}/glossary.html">${ui.glossaryPage}</a>
+          <a href="/${lang}/glossary.html">${ui.glossaryPage}</a>${CONFIG.githubRepo ? `
           <span>·</span>
-          <a href="https://github.com/chuchurex/eluno" target="_blank" rel="noopener">GitHub</a>
+          <a href="${CONFIG.githubRepo}" target="_blank" rel="noopener">GitHub</a>` : ''}
         </div>
         <p>${ui.footerAttribution}</p>
         <p>${ui.footerSessions} <a href="https://www.llresearch.org" target="_blank" rel="noopener">llresearch.org</a></p>
@@ -1304,14 +1319,13 @@ ${chapterLinks}            </div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${about.title} — ${bookTitle} | eluno.org</title>
+    <title>${about.title} — ${bookTitle} | ${CONFIG.siteDomain}</title>
     <meta name="description" content="${about.sections[0]?.content[0]?.text?.replace(/<[^>]*>/g, '').substring(0, 160) || ''}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/about.html">
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    ${gaPreconnect()}
 
     <!-- OpenGraph -->
     <meta property="og:title" content="${about.title} — ${bookTitle}">
@@ -1327,9 +1341,7 @@ ${chapterLinks}            </div>
     <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
     <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
-    <!-- Google tag (gtag.js) — deferred -->
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
-    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
+    ${gaScript()}
 </head>
 <body>
     <a href="#main-content" class="skip-link">${ui.skipToContent}</a>
@@ -1479,14 +1491,13 @@ ${chapterLinks}            </div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${ui.glossaryPage} — ${bookTitle} | eluno.org</title>
+    <title>${ui.glossaryPage} — ${bookTitle} | ${CONFIG.siteDomain}</title>
     <meta name="description" content="${ui.glossaryPageSubtitle}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${CONFIG.siteUrl}/${lang}/glossary.html">
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    ${gaPreconnect()}
 
     <!-- OpenGraph -->
     <meta property="og:title" content="${ui.glossaryPage} — ${bookTitle}">
@@ -1502,9 +1513,7 @@ ${chapterLinks}            </div>
     <link rel="stylesheet" href="/fonts/fonts.css?v=${BUILD_HASH}">
     <link rel="stylesheet" href="/css/main.css?v=${BUILD_HASH}">
 
-    <!-- Google tag (gtag.js) — deferred -->
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${CONFIG.gaId}');
-    window.addEventListener('load',function(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=${CONFIG.gaId}';s.async=true;document.head.appendChild(s)});</script>
+    ${gaScript()}
 
     <style>
     .glossary-subtitle { font-style: italic; color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
