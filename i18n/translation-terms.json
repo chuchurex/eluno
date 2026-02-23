@@ -1,0 +1,4 @@
+{
+  "_doc": "Terms that need glossary tooltips only in translations (ES/PT), not in English. These are words where the translated equivalent has different connotations than the English original.",
+  "terms": ["understanding"]
+}

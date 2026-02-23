@@ -399,8 +399,12 @@ function postProcess(translated, en, lang) {
     }
   }
 
-  // Fix phantom {term:} marks
+  // Fix phantom {term:} marks (skip translation-only terms)
   const enTerms = extractTerms(en);
+  const translationTermsPath = path.join(ROOT, 'i18n', 'translation-terms.json');
+  const translationTerms = fs.existsSync(translationTermsPath)
+    ? JSON.parse(fs.readFileSync(translationTermsPath, 'utf8')).terms || []
+    : [];
   let phantomsRemoved = 0;
 
   for (const section of translated.sections) {
@@ -409,8 +413,8 @@ function postProcess(translated, en, lang) {
       const blockTerms = block.text.match(/\{term:[^}]+\}/g) || [];
       for (const mark of blockTerms) {
         if (!enTerms.has(mark)) {
-          // Remove the {term:keyword} mark, leaving just empty space
-          // The translated word should already be in the surrounding text
+          const keyword = mark.match(/\{term:([^}]+)\}/)[1];
+          if (translationTerms.includes(keyword)) continue; // translation-only term
           block.text = block.text.replace(mark, '');
           phantomsRemoved++;
         }

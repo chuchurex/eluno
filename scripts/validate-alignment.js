@@ -19,6 +19,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const I18N_DIR = path.join(__dirname, '../i18n');
 const LANGUAGES = ['en', 'es', 'pt'];
+const TRANSLATION_TERMS_PATH = path.join(I18N_DIR, 'translation-terms.json');
+const TRANSLATION_TERMS = fs.existsSync(TRANSLATION_TERMS_PATH)
+  ? JSON.parse(fs.readFileSync(TRANSLATION_TERMS_PATH, 'utf8')).terms || []
+  : [];
 
 // ─────────────────────────────────────────────────────────────
 // Lookup tables
@@ -215,9 +219,11 @@ function validateChapter(chapterNum) {
       fails.push(`title still in English: "${tr.title}"`);
     }
 
-    // {term:} marks match
+    // {term:} marks match (translation-only terms are allowed in ES/PT but not EN)
     const enTerms = extractMarks(en, /\{term:[^}]+\}/g);
-    const trTerms = extractMarks(tr, /\{term:[^}]+\}/g);
+    const trTermsRaw = extractMarks(tr, /\{term:[^}]+\}/g);
+    const isTranslationTerm = m => TRANSLATION_TERMS.some(t => m === `{term:${t}}`);
+    const trTerms = trTermsRaw.filter(t => !isTranslationTerm(t));
     if (JSON.stringify(enTerms) !== JSON.stringify(trTerms)) {
       const enSet = new Set(enTerms);
       const trSet = new Set(trTerms);
