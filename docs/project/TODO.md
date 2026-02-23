@@ -1,6 +1,6 @@
 # Tareas Pendientes — El Uno
 
-> Actualizado: Febrero 22, 2026
+> Actualizado: Febrero 23, 2026
 
 ---
 
@@ -45,6 +45,7 @@
 - [x] **Limpiar archivos legacy** — Eliminados glossary_chapter4_additions.json y .bak. Todos los capítulos son v3 (Feb 22)
 - [x] **Organizar operador/** — Estructura ya estandarizada: `writing/` (público, prompts+protocolos) + `workspace/` (privado, drafts+sources). Eliminadas refs legacy a `operador/` en README de comandos. Documentación actualizada (Feb 22)
 - [x] **Limpiar branches obsoletas** — Eliminados v3, v2, audiobook, feat/writing-automation. Quedan main + alpha (Feb 22)
+- [x] **Auditoría final del repo** — Eliminados 11 archivos legacy (promts claude desktop/, i18n/chuchu/, ai/docs_ai_README.md, archive/v1-history/). Corregidas 4 configs (validate.yml branch fantasma, build-v2 DEPRECATED falso, eslint ref muerta, deploy script roto). Actualizados CHAPTER_PIPELINE.md (operador/→workspace/) y 5 audiobook commands (packages/eluno/→paths reales). Agregados env-config tests y audiobook slash commands (Feb 23)
 
 ---
 
