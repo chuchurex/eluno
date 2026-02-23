@@ -14,8 +14,7 @@ docs/
 ├── tech/                       # Arquitectura y deploy
 │   ├── ARCHITECTURE.md         # Arquitectura técnica
 │   ├── DEPLOY.md               # Guía de deployment
-│   ├── DEVELOPMENT.md          # Desarrollo local
-│   └── CLOUDFLARE_BUILD.md     # Configuración Cloudflare Pages
+│   └── DEVELOPMENT.md          # Desarrollo local
 │
 ├── writing/                    # Referencia de contenido
 │   ├── CHAPTER_PIPELINE.md     # Pipeline: investigación → deploy

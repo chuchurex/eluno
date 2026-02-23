@@ -99,15 +99,12 @@ eluno.org/
 │   └── templates/          # (future) HTML templates
 │
 ├── scripts/
-│   ├── build.js            # Main HTML generator
-│   ├── translate.js        # Translation with Claude API
-│   ├── translate-chapter.js
-│   ├── build-pdf.js        # PDF generation
-│   └── publish-media.js    # Upload to static server
-│
-├── functions/
-│   └── api/
-│       └── send-feedback.js  # Cloudflare Function
+│   ├── build-v2.cjs        # Main HTML generator
+│   ├── build-pdf.cjs       # PDF generation (Puppeteer)
+│   ├── translate-chapter.js # Translation with Claude API
+│   ├── integrate-chapter.js # Integrate chapter into i18n/
+│   ├── rename-media.cjs    # SEO-friendly media filenames
+│   └── update-mp3-tags.cjs # ID3 tags for audiobooks
 │
 ├── i18n/
 │   ├── en/
@@ -371,12 +368,11 @@ function build() {
 │                          HOSTINGER                                          │
 │                    (static.eluno.org)                                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  ✓ MP3 audio (16 chapters × 3 languages = 48 files)                        │
-│  ✓ PDFs (16 chapters × 3 languages = 48 files)                             │
+│  ✓ MP3 audio (16 chapters × 3 languages + 3 complete = 51 files)           │
 │  ✓ Complete audiobooks                                                      │
 │                                                                             │
-│  Reason: Large files exceeding CF Pages limits                             │
-│  Upload: Via SFTP with scripts/publish-media.js                            │
+│  Reason: MP3 files exceed CF Pages 25MB limit                              │
+│  PDFs: Hosted on CF Pages via static/pdf/ in git                           │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -391,11 +387,9 @@ function build() {
     "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
     "serve": "live-server dist --port=3002",
     "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
-    "build": "npm run sass:build && node scripts/build.js",
-    "translate": "node scripts/translate.js",
+    "build": "node scripts/build-v2.cjs && npm run sass:build",
     "translate:chapter": "node scripts/translate-chapter.js",
-    "build:pdf": "node scripts/build-pdf.js",
-    "publish:media": "node scripts/publish-media.js"
+    "build:pdf": "node scripts/build-pdf.cjs"
   }
 }
 ```
@@ -486,9 +480,7 @@ npm run translate:chapter -- --chapter=08 --lang=es
 
 # Generate PDFs
 npm run build:pdf
-
-# Publish media to static server
-npm run publish:media
+# Then copy to static/pdf/ and commit
 
 # Manual deploy (if CI fails)
 npx wrangler pages deploy dist --project-name=eluno

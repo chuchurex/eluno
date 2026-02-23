@@ -1,8 +1,7 @@
 # PROMPT: The One / El Uno (Original 16 capítulos)
 
-> **Estado:** ✅ Publicado  
-> **Dominio:** `eluno.org`  
-> **Ubicación:** `old_root_files/` (pendiente migrar a packages/)
+> **Estado:** ✅ Publicado
+> **Dominio:** `eluno.org`
 
 ---
 
@@ -78,4 +77,4 @@ L/L Research autorizó la publicación el 10 Enero 2026.
 
 ---
 
-*Ver `docs/writing/WRITING_PROTOCOL.md` para protocolo detallado*
+*Ver `writing/protocol/writing-protocol.md` para protocolo detallado*

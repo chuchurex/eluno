@@ -8,16 +8,16 @@
 
 ## How to Use This Document
 
-1. Create a new Claude Project (or similar AI workspace)
-2. Upload the source documents listed in [Required Documents](#required-documents)
-3. Copy the [System Prompt](#system-prompt) into your project instructions
-4. Begin writing chapters using the [Chapter Writing Workflow](#chapter-writing-workflow)
+1. Place source PDFs in `workspace/sources/` (see [SOURCES.md](./SOURCES.md))
+2. Review the [Required Documents](#required-documents) below
+3. Use the writing pipeline via Claude Code: `/write:chapter N`
+4. See [QUICK_START.md](./QUICK_START.md) for the full workflow
 
 ---
 
 ## Required Documents
 
-Upload these files to your AI project:
+These files are used by the writing pipeline:
 
 ### Primary Sources (Authority)
 | File | Purpose |
@@ -35,16 +35,16 @@ Upload these files to your AI project:
 ### Project Documentation
 | File | Purpose |
 |------|---------|
-| `WRITING_PROTOCOL_V3.md` | Voice, format, and style guidelines (424 lines) |
+| `writing/protocol/writing-protocol.md` | Voice, format, and style guidelines |
 | `BOOK_STRUCTURE_16_CHAPTERS.md` | Book structure and chapter themes (16 chapters) |
 
-**Note**: Spanish versions are available in `docs/es/` folder if preferred.
+**Note**: All documentation is available in `writing/protocol/` and `docs/writing/`.
 
 ---
 
 ## System Prompt
 
-Copy and paste the following into your Claude Project instructions:
+The following system prompt is used by the writing pipeline (loaded automatically by slash commands):
 
 ```
 # PROJECT CONTEXT: THE ONE (eluno.org)

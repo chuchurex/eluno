@@ -49,30 +49,7 @@ The AI served as a writing tool, not as an autonomous author.
 
 ## 🚀 Replicating This Project
 
-### Quick Start (30 minutes)
-
-Follow [QUICK_START.md](./QUICK_START.md) for step-by-step instructions:
-
-1. **Download PDFs** — Get Ra Contact and Q'uo volumes ([SOURCES.md](./SOURCES.md))
-2. **Create Claude Project** — Upload PDFs to Knowledge Base
-3. **Set System Prompt** — Copy from [AI_WRITING_PROMPT.md](./AI_WRITING_PROMPT.md)
-4. **Upload Context Files** — Add writing protocol and book structure
-5. **Start Writing** — Begin with Chapter 1
-
-### Required Files
-
-**In this repository:**
-- ✅ [AI_WRITING_PROMPT.md](./AI_WRITING_PROMPT.md) — Complete system prompt
-- ✅ [METHODOLOGY.md](./METHODOLOGY.md) — Editorial decisions
-- ✅ [writing/protocol/writing-protocol.md](../writing/protocol/writing-protocol.md) — Writing protocol
-- ✅ [docs/writing/BOOK_STRUCTURE_16_CHAPTERS.md](../docs/writing/BOOK_STRUCTURE_16_CHAPTERS.md) — Book structure (16 chapters)
-
-**To download separately:**
-- ⬇️ The Ra Contact PDFs (Volumes 1-2) — See [SOURCES.md](./SOURCES.md)
-- ⬇️ Q'uo Archive PDFs (Volumes 9-11) — See [SOURCES.md](./SOURCES.md)
-
-**Spanish backups available:**
-- 🇪🇸 Spanish documentation preserved in [backups/spanish-docs/](../backups/spanish-docs/) for reference
+Follow [QUICK_START.md](./QUICK_START.md) for setup and usage. The pipeline runs entirely in Claude Code using slash commands (`/write:chapter N`).
 
 ## Questions?
 

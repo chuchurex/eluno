@@ -58,9 +58,8 @@ If you want to contribute to this project or create something similar:
 
 | Tool | Purpose |
 |------|---------|
-| **Claude** (Anthropic) | Primary writing assistant |
-| **Claude Projects** | Context management with source PDFs |
-| **ElevenLabs / Fish Audio** | Audiobook narration |
+| **Claude Code** (Anthropic) | Writing pipeline via slash commands |
+| **Edge TTS** (Microsoft) | Audiobook narration |
 | **Node.js** | Static site generation |
 | **Puppeteer** | PDF generation |
 
