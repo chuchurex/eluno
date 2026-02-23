@@ -4,21 +4,23 @@
 
 ```
 docs/
-├── writing/                    # Pipeline de escritura
-│   ├── CHAPTER_PIPELINE.md     # Pipeline completo: investigación → deploy (8 fases)
-│   ├── WRITING_PROTOCOL.md     # Protocolo de escritura (voz, estilo)
-│   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro (16 capítulos)
-│
 ├── project/                    # Estado y planificación
 │   ├── PROJECT_STATUS.md       # Estado actual del proyecto
 │   ├── ROADMAP.md              # Roadmap de desarrollo
 │   ├── TODO.md                 # Tareas técnicas pendientes
-│   └── CONTRIBUTING.md         # Guía para colaboradores
+│   ├── CONTRIBUTING.md         # Guía para colaboradores
+│   └── UPDATE_PIPELINE.md      # Procedimiento de actualización
 │
 ├── tech/                       # Arquitectura y deploy
-│   ├── ARCHITECTURE.md         # Arquitectura técnica v3
+│   ├── ARCHITECTURE.md         # Arquitectura técnica
 │   ├── DEPLOY.md               # Guía de deployment
-│   └── DEVELOPMENT.md          # Desarrollo local
+│   ├── DEVELOPMENT.md          # Desarrollo local
+│   └── CLOUDFLARE_BUILD.md     # Configuración Cloudflare Pages
+│
+├── writing/                    # Referencia de contenido
+│   ├── CHAPTER_PIPELINE.md     # Pipeline: investigación → deploy
+│   ├── WRITING_PROTOCOL.md     # Protocolo de escritura (voz, estilo)
+│   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro (16 capítulos)
 │
 ├── audiobook/                  # Generación de audiolibros
 │   ├── AUDIOBOOK_GUIDE.md      # Guía de generación TTS
@@ -28,7 +30,6 @@ docs/
 │   └── CREDITS_ATTRIBUTION.md  # Créditos L/L Research
 │
 └── private/                    # (gitignored) Archivos históricos
-    └── archive-v1/             # Docs de la versión 1 del proyecto
 ```
 
 ## Slash Commands disponibles

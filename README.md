@@ -62,15 +62,20 @@ npm run build        # Generate dist/
 
 ```
 eluno/
-├── i18n/
-│   ├── en/chapters/   # 16 English chapters
-│   ├── es/chapters/   # 16 Spanish chapters
-│   └── pt/chapters/   # 16 Portuguese chapters
-├── assets/covers/     # Chapter covers and OG images
-├── docs/              # Technical and writing documentation
-├── ai/                # AI methodology (replication guide)
-├── PROMPT.md          # Writing prompt for this book
-└── README.md
+├── i18n/                  # Content (JSON)
+│   ├── en/chapters/       #   16 English chapters
+│   ├── es/chapters/       #   16 Spanish chapters
+│   ├── pt/chapters/       #   16 Portuguese chapters
+│   └── */glossary.json    #   Glossary per language
+├── scripts/               # Build, translation, PDF generation
+├── src/scss/              # Styles (SASS)
+├── writing/               # Writing pipeline (protocols, prompts, tools)
+├── static/pdf/            # Pre-built PDFs (EN/ES/PT)
+├── docs/                  # Technical and project documentation
+├── ai/                    # AI methodology (replication guide)
+├── .claude/commands/      # Claude Code slash commands
+├── PROMPT.md              # Writing prompt for this book
+└── LICENSE                # AGPL-3.0
 ```
 
 ## Related repositories

@@ -56,7 +56,7 @@
 | Service | Use |
 |----------|-----|
 | Cloudflare Pages | Frontend + Functions |
-| Hostinger | Static assets (audio/pdf) |
+| static.eluno.org | Audiobook MP3s (exceed CF Pages 25MB limit) |
 | GitHub | Repository + CI/CD |
 
 ### External APIs
@@ -103,7 +103,7 @@ eluno.org/
 │   ├── translate.js        # Translation with Claude API
 │   ├── translate-chapter.js
 │   ├── build-pdf.js        # PDF generation
-│   └── publish-media.js    # Upload to Hostinger
+│   └── publish-media.js    # Upload to static server
 │
 ├── functions/
 │   └── api/
@@ -234,7 +234,7 @@ jobs:
     - name: Build HTML from JSON
       run: npm run build
 
-    - name: Remove large files (go to Hostinger)
+    - name: Remove large files (go to static server)
       run: |
         rm -rf dist/audio dist/audiobook dist/books
         find dist -name "*.mp3" -delete
@@ -487,7 +487,7 @@ npm run translate:chapter -- --chapter=08 --lang=es
 # Generate PDFs
 npm run build:pdf
 
-# Publish media to Hostinger
+# Publish media to static server
 npm run publish:media
 
 # Manual deploy (if CI fails)

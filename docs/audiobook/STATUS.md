@@ -17,7 +17,7 @@
 - Assembly: contenido + 2s silencio + outro (atribución L/L Research)
 - Libro completo: tagline intro + 3s silencio + todos los capítulos
 - ID3 tags: título, artista, álbum, copyright, L/L Research
-- Hosting: static.eluno.org (Hostinger)
+- Hosting: static.eluno.org
 - Cache-busting: `?v=4` en media.json
 
 ### Correcciones aplicadas

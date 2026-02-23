@@ -64,8 +64,8 @@ Claude should confirm it can access all five documents.
 Upload these files to the chat (drag and drop):
 
 ### Required
-- [`WRITING_PROTOCOL_V3.md`](../docs/WRITING_PROTOCOL_V3.md) — Writing protocol (424 lines)
-- [`BOOK_STRUCTURE_16_CHAPTERS.md`](../docs/BOOK_STRUCTURE_16_CHAPTERS.md) — Book structure (16 chapters)
+- [`writing-protocol.md`](../writing/protocol/writing-protocol.md) — Writing protocol
+- [`BOOK_STRUCTURE_16_CHAPTERS.md`](../docs/writing/BOOK_STRUCTURE_16_CHAPTERS.md) — Book structure (16 chapters)
 
 ### Recommended
 - [`METHODOLOGY.md`](./METHODOLOGY.md) — Editorial decisions and lessons learned
@@ -213,7 +213,7 @@ This methodology can be adapted for other source materials:
 - [`AI_WRITING_PROMPT.md`](./AI_WRITING_PROMPT.md) — Complete system prompt
 - [`METHODOLOGY.md`](./METHODOLOGY.md) — Editorial decisions and lessons learned
 - [`SOURCES.md`](./SOURCES.md) — Detailed source material information
-- [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) — Technical implementation
+- [`docs/tech/ARCHITECTURE.md`](../docs/tech/ARCHITECTURE.md) — Technical implementation
 
 ### External
 - [L/L Research Website](https://www.llresearch.org) — Original source material
@@ -262,4 +262,4 @@ This methodology is open source. The Ra Material source content is © L/L Resear
 
 ---
 
-*Last updated: January 13, 2026*
+*Last updated: February 23, 2026*

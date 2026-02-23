@@ -37,11 +37,11 @@ This project provides an accessible, modern reinterpretation of the Ra Material 
 ```bash
 # Fork the repository on GitHub
 # Then clone your fork
-git clone https://github.com/YOUR_USERNAME/eluno.org.git
-cd eluno.org
+git clone https://github.com/YOUR_USERNAME/eluno.git
+cd eluno
 
 # Add upstream remote
-git remote add upstream https://github.com/chuchurex/eluno.org.git
+git remote add upstream https://github.com/chuchurex/eluno.git
 ```
 
 ### 3. Set Up Development Environment
@@ -137,7 +137,7 @@ Then create a Pull Request on GitHub with:
 ### Content Style
 
 - **Preserve source authority**: Every concept must trace to Ra Material
-- **Maintain voice consistency**: Follow the Writing Protocol (see `docs/WRITING_PROTOCOL_V3.md`)
+- **Maintain voice consistency**: Follow the Writing Protocol (see `writing/protocol/writing-protocol.md`)
 - **Technical terms**: Use established glossary terms (see `i18n/*/glossary.json`)
 - **References**: Always include `{ref:}` citations for Ra quotes
 
@@ -171,10 +171,10 @@ When suggesting enhancements:
 
 Before contributing, read:
 
-- **[Development Guide](docs/DEVELOPMENT.md)** — Local setup and workflows
-- **[Architecture](docs/ARCHITECTURE.md)** — Technical design decisions
-- **[Writing Protocol](docs/WRITING_PROTOCOL_V3.md)** — Content guidelines
-- **[AI Methodology](ai/README.md)** — How the book was created
+- **[Development Guide](../tech/DEVELOPMENT.md)** — Local setup and workflows
+- **[Architecture](../tech/ARCHITECTURE.md)** — Technical design decisions
+- **[Writing Protocol](../../writing/protocol/writing-protocol.md)** — Content guidelines
+- **[AI Methodology](../../ai/README.md)** — How the book was created
 
 ## 🙏 Recognition
 
@@ -202,4 +202,4 @@ Every contribution, no matter how small, helps make the Ra Material more accessi
 
 ---
 
-*Last updated: January 13, 2026*
+*Last updated: February 23, 2026*

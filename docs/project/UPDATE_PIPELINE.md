@@ -87,7 +87,7 @@ Contenido (JSON)
 
 ### Si cambias... media.json (`i18n/{lang}/media.json`)
 
-Solo rebuild HTML + push. Los archivos media ya están en Hostinger.
+Solo rebuild HTML + push. PDFs se despliegan con el sitio, audiobooks están en static.eluno.org.
 
 ```bash
 node scripts/build-v2.cjs && npm run sass:build
@@ -140,8 +140,8 @@ git add ... && git commit && git push origin main
 
 | Destino | Método | Contenido |
 |---------|--------|-----------|
-| eluno.org | `git push origin main` → Cloudflare Pages | HTML, CSS, JS |
-| static.eluno.org | rsync via SSH (Hostinger) | PDF, MP3 |
+| eluno.org | `git push origin main` → Cloudflare Pages | HTML, CSS, JS, PDF |
+| static.eluno.org | Manual upload | MP3 audiobooks |
 
 ---
 
@@ -196,7 +196,7 @@ Cada capítulo tiene su propia sección de glosario y fuentes al final.
 
 | Variable | Uso |
 |----------|-----|
-| `UPLOAD_HOST` | IP del servidor Hostinger |
+| `UPLOAD_HOST` | IP del servidor de media |
 | `UPLOAD_PORT` | Puerto SSH (65002) |
 | `UPLOAD_USER` | Usuario SSH |
 | `UPLOAD_PASS` | Contraseña SSH |

@@ -1,6 +1,6 @@
 # Estado del Proyecto — El Uno
 
-> **Actualizado:** Febrero 22, 2026
+> **Actualizado:** Febrero 23, 2026
 > **Producción:** https://eluno.org (rama `main`)
 > **Repositorio:** https://github.com/chuchurex/eluno
 
@@ -22,22 +22,22 @@
 
 | Capítulo | Título EN | Estado | Fecha |
 |----------|-----------|--------|-------|
-| 1 | Cosmology and Genesis | Pendiente de reescritura v3 | — |
-| 2 | The Creator and Creation | Pendiente de reescritura v3 | — |
-| 3 | The Densities of Consciousness | Pendiente de reescritura v3 | — |
-| 4 | Earth's Spiritual History | Pendiente de reescritura v3 | — |
-| 5 | Polarity: The Two Paths | Pendiente de reescritura v3 | — |
-| 6 | Wanderers: Those Who Return | Publicado (EN/ES/PT) | 2026-02-15 |
-| 7 | The Harvest | Pendiente de reescritura v3 | — |
-| 8 | The Veil of Forgetting | Pendiente de reescritura v3 | — |
-| 9 | Death and the Journey Between Lives | Pendiente de reescritura v3 | — |
-| 10 | The Energy Centers | Pendiente de reescritura v3 | — |
-| 11 | Catalyst and Experience | Pendiente de reescritura v3 | — |
-| 12 | The Higher Self and Guidance | Pendiente de reescritura v3 | — |
-| 13 | Free Will and the Law of Confusion | Pendiente de reescritura v3 | — |
-| 14 | The Path of the Seeker | Pendiente de reescritura v3 | — |
-| 15 | Balancing and Healing | Pendiente de reescritura v3 | — |
-| 16 | The Mystery Remains | Pendiente de reescritura v3 | — |
+| 1 | Cosmology and Genesis | Publicado (EN/ES/PT) | 2026-02 |
+| 2 | The Creator and Creation | Publicado (EN/ES/PT) | 2026-02 |
+| 3 | The Densities of Consciousness | Publicado (EN/ES/PT) | 2026-02 |
+| 4 | Earth's Spiritual History | Publicado (EN/ES/PT) | 2026-02 |
+| 5 | Polarity: The Two Paths | Publicado (EN/ES/PT) | 2026-02 |
+| 6 | Wanderers: Those Who Return | Publicado (EN/ES/PT) | 2026-02 |
+| 7 | The Harvest | Publicado (EN/ES/PT) | 2026-02 |
+| 8 | The Veil of Forgetting | Publicado (EN/ES/PT) | 2026-02 |
+| 9 | Death and the Journey Between Lives | Publicado (EN/ES/PT) | 2026-02 |
+| 10 | The Energy Centers | Publicado (EN/ES/PT) | 2026-02 |
+| 11 | Catalyst and Experience | Publicado (EN/ES/PT) | 2026-02 |
+| 12 | The Higher Self and Guidance | Publicado (EN/ES/PT) | 2026-02 |
+| 13 | Free Will and the Law of Confusion | Publicado (EN/ES/PT) | 2026-02 |
+| 14 | The Path of the Seeker | Publicado (EN/ES/PT) | 2026-02 |
+| 15 | Balancing and Healing | Publicado (EN/ES/PT) | 2026-02 |
+| 16 | The Mystery Remains | Publicado (EN/ES/PT) | 2026-02 |
 
 ---
 
@@ -60,7 +60,7 @@
 ## PDF
 
 - 16 capítulos + libro completo por idioma (48 + 3 = 51 archivos)
-- Hosting: static.eluno.org
+- Hosting: Cloudflare Pages (en `static/pdf/`, copiado a `dist/pdf/` en build)
 - Generación: Puppeteer via `build-pdf.cjs`
 - Glosario al final de cada capítulo (numeración chapter.N en libro completo)
 - Fuentes: referencias cruzadas con URLs + provenance Ra Material por sección

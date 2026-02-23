@@ -64,8 +64,8 @@ Follow [QUICK_START.md](./QUICK_START.md) for step-by-step instructions:
 **In this repository:**
 - ✅ [AI_WRITING_PROMPT.md](./AI_WRITING_PROMPT.md) — Complete system prompt
 - ✅ [METHODOLOGY.md](./METHODOLOGY.md) — Editorial decisions
-- ✅ [docs/WRITING_PROTOCOL_V3.md](../docs/WRITING_PROTOCOL_V3.md) — Writing protocol (424 lines)
-- ✅ [docs/BOOK_STRUCTURE_16_CHAPTERS.md](../docs/BOOK_STRUCTURE_16_CHAPTERS.md) — Book structure (16 chapters)
+- ✅ [writing/protocol/writing-protocol.md](../writing/protocol/writing-protocol.md) — Writing protocol
+- ✅ [docs/writing/BOOK_STRUCTURE_16_CHAPTERS.md](../docs/writing/BOOK_STRUCTURE_16_CHAPTERS.md) — Book structure (16 chapters)
 
 **To download separately:**
 - ⬇️ The Ra Contact PDFs (Volumes 1-2) — See [SOURCES.md](./SOURCES.md)

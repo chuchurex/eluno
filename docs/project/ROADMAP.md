@@ -1,12 +1,12 @@
 # Roadmap — El Uno
 
-> Actualizado: Febrero 22, 2026
+> Actualizado: Febrero 23, 2026
 
 ---
 
 ## Estado actual
 
-- **v3.eluno.org** live con 1 de 16 capítulos (EN/ES/PT)
+- **eluno.org** live con 16/16 capítulos (EN/ES/PT)
 - Pipeline de escritura automatizado (6 fases, slash commands)
 - Build con `build-v2.cjs`, deploy automático vía Cloudflare Pages
 
@@ -31,23 +31,27 @@
 
 ---
 
-## Q2 2026 — Pulir y expandir
+### Sitio web ✅
+- [x] Búsqueda client-side (search index en build, sin dependencias)
+- [x] Página de glosario completo con índice A-Z
+- [x] Footer mejorado (About, Glossary, GitHub)
+- [x] Sección open-source en About page
+- [x] PDFs en git (`static/pdf/`) para deploy persistente
 
-### Calidad
-- [ ] Tests unitarios para scripts críticos
-- [ ] Extraer JS inline de build-v2.cjs
-- [ ] Test end-to-end del pipeline de escritura
-- [ ] Accesibilidad (WCAG 2.1 AA)
+### Calidad ✅
+- [x] 43 tests unitarios (`node:test`)
+- [x] JS externo (`eluno.js`, `theme.js`)
+- [x] Test end-to-end del pipeline de escritura
+- [x] Accesibilidad (WCAG 2.1 AA)
+
+---
+
+## Q2 2026 — Expandir
 
 ### Expansión
 - [ ] PWA para lectura offline
-- [ ] Búsqueda client-side (lunr.js o similar)
 - [ ] Evaluar voz TTS profesional
-
-### Infraestructura
-- [ ] Evaluar unificación de builds (v1 vs v3)
-- [ ] Limpiar branches obsoletas (v3, alpha, v2)
-- [ ] Organizar workspace de escritura
+- [ ] Idiomas adicionales (FR, DE, IT)
 
 ---
 

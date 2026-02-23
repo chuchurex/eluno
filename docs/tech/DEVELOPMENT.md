@@ -15,7 +15,7 @@ Before starting, make sure you have installed:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/chuchurex/eluno.org.git
+   git clone https://github.com/chuchurex/eluno.git
    cd eluno.org
    ```
 
