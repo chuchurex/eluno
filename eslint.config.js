@@ -9,7 +9,6 @@ export default [
   // CommonJS scripts (legacy)
   {
     files: [
-      'scripts/build-auto.cjs',
       'scripts/build-v2.cjs',
       'scripts/check-links.cjs',
       'scripts/generate-covers.cjs',

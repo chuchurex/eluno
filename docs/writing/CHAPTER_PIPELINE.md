@@ -9,26 +9,26 @@
 
 ```
 FASE 1: Preparación
-  operador/chXX_manifest.json           ← Manifiesto del capítulo (manual)
+  workspace/chapters/chXX/manifest.json        ← Manifiesto del capítulo
 
-FASE 2: Investigación (Claude Desktop — archivos grandes)
-  /research:ra XX                       ← operador/chXX_research_ra.md
-  /research:quo XX                      ← operador/chXX_research_quo.md
+FASE 2: Investigación
+  workspace/chapters/chXX/research-ra.md       ← Citas Ra extraídas
+  workspace/chapters/chXX/research-quo.md      ← Contexto Q'uo extraído
 
 FASE 3: Escritura (Claude Code — slash commands)
-  /write:step1 XX                       ← operador/output/chXX/chXX_draft_first.md
-  /write:step2 XX                       ← operador/output/chXX/chXX_draft_second.md
+  /write:step1 XX                       ← workspace/chapters/chXX/draft-first.md
+  /write:step2 XX                       ← workspace/chapters/chXX/draft-second.md
 
 FASE 4: QA + Ensamblaje
-  /write:qa XX                          ← operador/output/chXX/chXX_EN.json
-                                          operador/output/chXX/chXX_qa_report.md
+  /write:qa XX                          ← workspace/chapters/chXX/en.json
+                                          workspace/chapters/chXX/qa-report.md
 
 FASE 5: Glosario + Proveniencia
-  /write:glossary XX                    ← operador/output/chXX/chXX_glossary.json
-                                          operador/output/chXX/chXX_provenance.json
+  /write:glossary XX                    ← workspace/chapters/chXX/glossary.json
+                                          workspace/chapters/chXX/provenance.json
 
 FASE 6: Integración
-  Copiar EN.json → i18n/en/chapters/XX.json
+  Copiar en.json → i18n/en/chapters/XX.json
   Integrar glossary → i18n/en/glossary.json
 
 FASE 7: Traducción (agentes paralelos)
@@ -36,7 +36,7 @@ FASE 7: Traducción (agentes paralelos)
   EN → PT → i18n/pt/chapters/XX.json + glossary
 
 FASE 8: Build + Deploy
-  npm run sass:build && npx eluno-build
+  npm run build
   git push → Cloudflare Pages
 ```
 
@@ -44,41 +44,39 @@ FASE 8: Build + Deploy
 
 ## Estructura de archivos
 
-### Input (preparados por el operador)
+### Input (preparación)
 
 ```
-operador/
-├── chXX_manifest.json          # Spec del capítulo: secciones, ángulos, word target
-├── chXX_research_ra.md         # Citas Ra extraídas (Fase 2)
-└── chXX_research_quo.md        # Contexto Q'uo extraído (Fase 2)
+workspace/chapters/chXX/
+├── manifest.json               # Spec del capítulo: secciones, ángulos, word target
+├── research-ra.md              # Citas Ra extraídas (Fase 2)
+└── research-quo.md             # Contexto Q'uo extraído (Fase 2)
 ```
 
-### Knowledge files (protocolos estables)
+### Protocolos estables (en git)
 
 ```
-/Users/chuchurex/Sites/local/_operador/
-├── desktop/
-│   ├── 02_WRITING_PROTOCOL.md      # Protocolo de escritura
-│   ├── 04_PROMPT_BOOK_IDENTITY.md  # Identidad del libro
-│   ├── 05_SOURCES.md               # Jerarquía de fuentes
-│   ├── 06_QA_READING_PROTOCOL.md   # Protocolo QA (9 categorías)
-│   └── references.json             # Claves válidas para {ref:}
-├── para el N/
-│   └── PROMPT_CHXX.md              # Spec específica del capítulo
-└── anteriores/
-    └── PROMPT_BASE.md              # Instrucciones estables + reglas {src:}
+writing/protocol/
+├── writing-protocol.md         # Protocolo de escritura
+├── book-identity.md            # Identidad del libro (PROMPT)
+├── source-hierarchy.md         # Jerarquía de fuentes
+├── qa-protocol.md              # Protocolo QA (9 categorías)
+└── prompt-base.md              # Instrucciones estables + reglas {src:}
+
+writing/chapters/chXX/
+└── prompt.md                   # Spec específica del capítulo
 ```
 
 ### Output (generados por el pipeline)
 
 ```
-operador/output/chXX/
-├── chXX_draft_first.md         # Draft con marcas {src:} (Fase 3)
-├── chXX_draft_second.md        # Draft con marcas {src:} (Fase 3)
-├── chXX_qa_report.md           # Reporte QA (Fase 4)
-├── chXX_EN.json                # Capítulo limpio (Fase 4)
-├── chXX_glossary.json          # Términos nuevos (Fase 5)
-└── chXX_provenance.json        # Mapa de fuentes (Fase 5)
+workspace/chapters/chXX/
+├── draft-first.md              # Draft con marcas {src:} (Fase 3)
+├── draft-second.md             # Draft con marcas {src:} (Fase 3)
+├── qa-report.md                # Reporte QA (Fase 4)
+├── en.json                     # Capítulo limpio (Fase 4)
+├── glossary.json               # Términos nuevos (Fase 5)
+└── provenance.json             # Mapa de fuentes (Fase 5)
 ```
 
 ### Destino final (proyecto)
@@ -102,7 +100,7 @@ i18n/
 
 ### Fase 1: Manifiesto
 
-El operador crea `operador/chXX_manifest.json` con:
+Se crea `workspace/chapters/chXX/manifest.json` con:
 
 ```json
 {
@@ -131,15 +129,13 @@ El operador crea `operador/chXX_manifest.json` con:
 
 ### Fase 2: Investigación
 
-Se ejecuta en **Claude Desktop** (proyectos con archivos grandes):
-
-1. **Research Ra**: Cargar los volúmenes de Ra + PROMPT_CHXX + RA_THEMATIC_INDEX.
+1. **Research Ra**: Cargar los volúmenes de Ra + prompt del capítulo + índice temático.
    Extraer citas textuales organizadas por sección del capítulo.
-   Output: `operador/chXX_research_ra.md`
+   Output: `workspace/chapters/chXX/research-ra.md`
 
-2. **Research Q'uo**: Cargar volúmenes Q'uo + research_ra (para contexto).
+2. **Research Q'uo**: Cargar volúmenes Q'uo + research-ra (para contexto).
    Extraer pasajes que iluminen los temas de Ra.
-   Output: `operador/chXX_research_quo.md`
+   Output: `workspace/chapters/chXX/research-quo.md`
 
 > Q'uo nunca aparece en el texto final. Es comprensión para el escritor.
 
@@ -193,13 +189,10 @@ Genera:
 
 ### Fase 6: Integración
 
-Manual o por instrucción al agente:
+Automatizado via `/write:publish XX` o manual:
 
 ```bash
-# Copiar capítulo
-cp operador/output/chXX/chXX_EN.json i18n/en/chapters/XX.json
-
-# Integrar glosario (merge manual de nuevos términos en glossary.json)
+node scripts/integrate-chapter.js --chapter=XX
 ```
 
 ### Fase 7: Traducción
@@ -319,14 +312,14 @@ contener frases casi idénticas. La categoría D del QA las detecta.
 
 ---
 
-## Checklist del operador
+## Checklist
 
 ```
-□ Fase 1: Manifiesto creado (operador/chXX_manifest.json)
-□ Fase 2: Research Ra completado (operador/chXX_research_ra.md)
-□ Fase 2: Research Q'uo completado (operador/chXX_research_quo.md)
-□ Fase 3: /write:step1 XX → draft_first.md
-□ Fase 3: /write:step2 XX → draft_second.md
+□ Fase 1: Manifiesto creado (workspace/chapters/chXX/manifest.json)
+□ Fase 2: Research Ra completado (workspace/chapters/chXX/research-ra.md)
+□ Fase 2: Research Q'uo completado (workspace/chapters/chXX/research-quo.md)
+□ Fase 3: /write:step1 XX → draft-first.md
+□ Fase 3: /write:step2 XX → draft-second.md
 □ Fase 3: Sin marcas [PENDING] en drafts
 □ Fase 4: /write:qa XX → EN.json + qa_report (veredicto PASA)
 □ Fase 5: /write:glossary XX → glossary.json + provenance.json

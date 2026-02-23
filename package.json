@@ -31,7 +31,6 @@
     "sass:build": "sass src/scss/main.scss:dist/css/main.css --style=compressed",
     "sass:watch": "sass --watch src/scss/main.scss:dist/css/main.css",
     "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=4025\"",
-    "deploy": "eluno-deploy",
     "build:pdf": "node scripts/build-pdf.cjs",
     "audio:extract": "node scripts/audiobook/extract-text.cjs",
     "audio:edge": "node scripts/audiobook/generate-edge.cjs",

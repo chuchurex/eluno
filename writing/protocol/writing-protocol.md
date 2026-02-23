@@ -1,5 +1,5 @@
 # WRITING PROTOCOL: LAW OF ONE BOOK IN FIRST PERSON
-## Version 3.0 Ã¢â‚¬â€ December 2025
+## Version 3.0 — December 2025
 
 ---
 
@@ -13,12 +13,12 @@
 ### The "we/you" perspective:
 The book's voice speaks **from outside ordinary human experience**, observing toward it. This is intentional and must be maintained consistently.
 
-Ã¢Å“â€¦ Correct:
+✅ Correct:
 - "The story of your planet is unlike that of most worlds."
 - "You who read these words are in third density, facing the choice."
 - "We watch your harvest with great interest and great love."
 
-Ã¢ÂÅ’ Incorrect:
+❌ Incorrect:
 - "Ra explains that the infinite..."
 - "We, those of Ra, have found..."
 - "We, beings from sixth density..."
@@ -26,12 +26,12 @@ The book's voice speaks **from outside ordinary human experience**, observing to
 ### Neutrality about the author's origin:
 **Critical rule:** The text implies a broader perspective WITHOUT explicitly revealing a non-human origin.
 
-Ã¢ÂÅ’ Avoid:
+❌ Avoid:
 - "although not as humans understand it"
 - "although not as you humans comprehend"
 - "We [explicitly identified as non-human entities] can..."
 
-Ã¢Å“â€¦ Use:
+✅ Use:
 - "although not as consciousness is usually understood"
 - "although not as commonly comprehended"
 - Third person for specific entities: "The Confederation offers..." (not "We of the Confederation offer...")
@@ -59,16 +59,16 @@ The book presents the teachings as **universal philosophical truth**, NOT as cha
 | 3 | **Thematic indices** | Working tool (includes both sources) |
 | 4 | **Final chapter** | Only distilled Ra content, no attributions |
 
-### Ra material Ã¢â‚¬â€ How to use it:
+### Ra material — How to use it:
 
-**DO NOT QUOTE DIRECTLY** Ã¢â‚¬â€ paraphrase with integrity
+**DO NOT QUOTE DIRECTLY** — paraphrase with integrity
 
-Ã¢ÂÅ’ Incorrect:
+❌ Incorrect:
 ```
 "The first known thing in the creation is infinity. The infinity is creation."
 ```
 
-Ã¢Å“â€¦ Correct:
+✅ Correct:
 ```
 The first known thing in creation is the Infinite. The Infinite is creation itself.
 ```
@@ -76,24 +76,24 @@ The first known thing in creation is the Infinite. The Infinite is creation itse
 ### Echoes of Ra's memorable phrases:
 It is permitted to echo Ra's distinctive phrases WITHOUT attribution, as subtle acknowledgment for those familiar with the material.
 
-Ã¢ÂÅ’ Incorrect:
+❌ Incorrect:
 ```
 Ra describes this as "the speed of the turtle to the cheetah."
 ```
 
-Ã¢Å“â€¦ Correct:
+✅ Correct:
 ```
 The pace of learning was that of the turtle, not the cheetah.
 ```
 
-### Q'uo material Ã¢â‚¬â€ Strict policy:
+### Q'uo material — Strict policy:
 
 | In preparation | In final text |
 |----------------|----------------|
-| Ã¢Å“â€¦ Read to understand context | Ã¢ÂÅ’ NEVER quote |
-| Ã¢Å“â€¦ Use to understand practical application | Ã¢ÂÅ’ NEVER mention |
-| Ã¢Å“â€¦ Capture tone and warmth | Ã¢ÂÅ’ NEVER use footnotes |
-| Ã¢Å“â€¦ Include in thematic indices | Ã¢ÂÅ’ NEVER attribute ideas |
+| ✅ Read to understand context | ❌ NEVER quote |
+| ✅ Use to understand practical application | ❌ NEVER mention |
+| ✅ Capture tone and warmth | ❌ NEVER use footnotes |
+| ✅ Include in thematic indices | ❌ NEVER attribute ideas |
 
 **Q'uo helps understand; Ra is the only voice of the book.**
 
@@ -126,9 +126,9 @@ The pace of learning was that of the turtle, not the cheetah.
 - Vary between short paragraphs (emphasis) and long ones (explanation)
 
 ### Transitions:
-Ã¢Å“â€¦ Use transitions Ra uses: "Therefore...", "Thus...", "Yet...", "However..."
-Ã¢Å“â€¦ Use natural bridge phrases
-Ã¢ÂÅ’ Avoid modern academic connectors: "In conclusion...", "Finally...", "To summarize..."
+✅ Use transitions Ra uses: "Therefore...", "Thus...", "Yet...", "However..."
+✅ Use natural bridge phrases
+❌ Avoid modern academic connectors: "In conclusion...", "Finally...", "To summarize..."
 
 ---
 
@@ -136,11 +136,11 @@ The pace of learning was that of the turtle, not the cheetah.
 
 ### The arc toward the practical
 The book naturally progresses from abstract to applicable:
-- **Part I (Ch 1-3):** Metaphysical foundations Ã¢â€ â€™ Minimal application
-- **Part II (Ch 4-7):** History and context Ã¢â€ â€™ Emerging application
-- **Part III (Ch 8-9):** Mechanisms Ã¢â€ â€™ Moderate application
-- **Part IV (Ch 10-13):** Spiritual mechanisms Ã¢â€ â€™ Significant application
-- **Part V (Ch 14-16):** Practice Ã¢â€ â€™ Central application
+- **Part I (Ch 1-3):** Metaphysical foundations → Minimal application
+- **Part II (Ch 4-7):** History and context → Emerging application
+- **Part III (Ch 8-9):** Mechanisms → Moderate application
+- **Part IV (Ch 10-13):** Spiritual mechanisms → Significant application
+- **Part V (Ch 14-16):** Practice → Central application
 
 ### How to integrate practical guidance:
 
@@ -161,8 +161,8 @@ After explaining a concept, add 1-2 application paragraphs organically.
 ```
 [After explaining the red ray in Chapter 10:]
 
-"In practical terms, this means honoring the body's basic needsÃ¢â‚¬â€rest,
-nourishment, safetyÃ¢â‚¬â€as spiritual practice rather than distraction
+"In practical terms, this means honoring the body's basic needs—rest,
+nourishment, safety—as spiritual practice rather than distraction
 from it. The seeker who neglects the red ray in pursuit of 'higher'
 experiences builds upon unstable foundation."
 ```
@@ -174,12 +174,12 @@ Entire sections dedicated to practice, especially in chapters 14-16.
 
 Ra never gives mandates. Use tentative language that respects free will:
 
-Ã¢ÂÅ’ Incorrect:
+❌ Incorrect:
 - "You must meditate daily"
 - "Always practice service"
 - "Never engage in negative thoughts"
 
-Ã¢Å“â€¦ Correct:
+✅ Correct:
 - "The seeker may find useful..."
 - "Regular meditation practice serves the path well"
 - "One approach that has proven effective..."
@@ -213,7 +213,7 @@ Chapters 1-5 tend to close with variations of "mystery remains" or "love". This 
 
 #### Type B: Invitation to the journey
 ```
-"The journey continuesÃ¢â‚¬â€through densities we have discussed and beyond,
+"The journey continues—through densities we have discussed and beyond,
 into mysteries we cannot fathom."
 ```
 
@@ -234,7 +234,7 @@ into mysteries we cannot fathom."
 
 #### Type F: Reader acknowledgment
 ```
-"When this incarnation ends, you will rememberÃ¢â‚¬â€fully, gloriouslyÃ¢â‚¬â€
+"When this incarnation ends, you will remember—fully, gloriously—
 who you are and why you came."
 ```
 
@@ -258,10 +258,10 @@ who you are and why you came."
 - Both polarities serve the Creator
 
 ### Never "resolve" a paradox:
-Ã¢ÂÅ’ "What this really means is..."
-Ã¢ÂÅ’ "The apparent contradiction dissolves when we understand..."
-Ã¢Å“â€¦ Present the paradox as Ra presents it
-Ã¢Å“â€¦ Let the reader integrate it
+❌ "What this really means is..."
+❌ "The apparent contradiction dissolves when we understand..."
+✅ Present the paradox as Ra presents it
+✅ Let the reader integrate it
 
 ---
 
@@ -311,17 +311,17 @@ who you are and why you came."
 ## X. INTEGRATION OF MODERN SCIENCE
 
 ### When to integrate:
-1. **Quantum physics** Ã¢â‚¬â€ relation to photons, observer
-2. **Cosmology** Ã¢â‚¬â€ galaxy structure, black holes
-3. **Neuroscience** Ã¢â‚¬â€ when touching consciousness
-4. **Relativistic physics** Ã¢â‚¬â€ when applying to densities/time
+1. **Quantum physics** — relation to photons, observer
+2. **Cosmology** — galaxy structure, black holes
+3. **Neuroscience** — when touching consciousness
+4. **Relativistic physics** — when applying to densities/time
 
 ### How to integrate:
 ```
 PURE RA PARAGRAPH (establish concept)
-Ã¢â€ â€œ
+↓
 BRIDGE PARAGRAPH (natural connection to science)
-Ã¢â€ â€œ
+↓
 INTEGRATED PARAGRAPH (synthesis)
 ```
 
@@ -408,11 +408,11 @@ Search globally for overused sentence constructions and reduce them to natural f
 
 ### In thematic indices (NOT in final chapters):
 ```
-[Ra: 13.5] Ã¢â‚¬â€ session reference (for internal verification)
-[Q'uo: Vol 10, p. 120] Ã¢â‚¬â€ complementary context (NEVER use in final text)
-[SCIENCE: quantum physics - photon] Ã¢â‚¬â€ mark scientific integration
-[TEMPORAL: needs date context] Ã¢â‚¬â€ data requiring temporal context
-[PRACTICE: opportunity for application] Ã¢â‚¬â€ mark where to add practical guidance
+[Ra: 13.5] — session reference (for internal verification)
+[Q'uo: Vol 10, p. 120] — complementary context (NEVER use in final text)
+[SCIENCE: quantum physics - photon] — mark scientific integration
+[TEMPORAL: needs date context] — data requiring temporal context
+[PRACTICE: opportunity for application] — mark where to add practical guidance
 ```
 
 **IMPORTANT:** These notations are working tools. They are used in indices and drafts. They NEVER appear in final chapters.
@@ -431,16 +431,16 @@ Search globally for overused sentence constructions and reduce them to natural f
 "As Q'uo elaborates, service begins with knowing the self..."
 
 ### Correct version (exposition):
-"The best way of service to others is the constant attempt to share the love of the Creator as it is known to the inner self. This involves self-knowledgeÃ¢â‚¬â€one cannot share what one has not found within."
+"The best way of service to others is the constant attempt to share the love of the Creator as it is known to the inner self. This involves self-knowledge—one cannot share what one has not found within."
 
 ### Correct version with practical application (Level 2):
-"The best way of service to others is the constant attempt to share the love of the Creator as it is known to the inner self. This involves self-knowledgeÃ¢â‚¬â€one cannot share what one has not found within.
+"The best way of service to others is the constant attempt to share the love of the Creator as it is known to the inner self. This involves self-knowledge—one cannot share what one has not found within.
 
-In practical terms, this suggests a priority that may seem counterintuitive: the seeker serves others best by first knowing the self. Time spent in meditation, in honest self-examination, in opening to the love withinÃ¢â‚¬â€this is not selfishness but preparation for genuine service. One cannot give what one does not possess."
+In practical terms, this suggests a priority that may seem counterintuitive: the seeker serves others best by first knowing the self. Time spent in meditation, in honest self-examination, in opening to the love within—this is not selfishness but preparation for genuine service. One cannot give what one does not possess."
 
 ---
 
-## XIV. SUMMARY OF CHANGES V2 Ã¢â€ â€™ V3
+## XIV. SUMMARY OF CHANGES V2 → V3
 
 | Aspect | V2 | V3 |
 |---------|----|-----|

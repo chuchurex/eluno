@@ -151,40 +151,42 @@ eluno.org/
 
 ### `.env` (local, never in git)
 
-```bash
-# DOMAIN CONFIGURATION
-DOMAIN=eluno.org
-STATIC_SUBDOMAIN=static
+The build reads environment variables via `dotenv`. Copy `.env.example` to `.env` and fill in your values.
 
-# HOSTINGER - Static Assets
-UPLOAD_HOST=xxx.xxx.xxx.xxx
-UPLOAD_PORT=xxxxx
+```bash
+# SITE — read by build-v2.cjs
+SITE_URL=https://eluno.org          # Domain for canonicals, hreflang, <title>
+GA_ID=G-9LDPDW8V6E                  # Google Analytics (empty = no tracking)
+GITHUB_REPO=https://github.com/...  # Footer link (empty = no link)
+
+# ANTHROPIC — read by translate-chapter.js
+ANTHROPIC_API_KEY=sk-ant-...
+
+# STATIC SERVER — SSH for audio hosting (MP3 audiobooks)
+UPLOAD_HOST=your-server-ip
+UPLOAD_PORT=22
 UPLOAD_USER=username
 UPLOAD_PASS=password
-UPLOAD_DIR=domains/eluno.org/public_html/static
+UPLOAD_DIR=/path/to/public_html
 
-# CLOUDFLARE
+# CLOUDFLARE — cache purge, DNS management
 CF_API_KEY=your-api-key
 CF_EMAIL=your-email
 CF_ZONE_ID=your-zone-id
-
-# OPTIONAL APIs
-FISH_API_KEY=your-fish-key
-CARTESIA_API_KEY=your-cartesia-key
+CF_ACCOUNT_ID=your-account-id
 ```
 
-### `wrangler.toml` (in git)
+### Build Configuration
 
-```toml
-name = "eluno"
-compatibility_date = "2024-01-01"
+The build script (`scripts/build-v2.cjs`) reads three variables from `.env`:
 
-[site]
-bucket = "./dist"
+| Variable | Default | Effect |
+|----------|---------|--------|
+| `SITE_URL` | `https://eluno.org` | Canonical URLs, hreflang, OpenGraph, `<title>` |
+| `GA_ID` | (empty) | Empty = no Google Analytics scripts injected |
+| `GITHUB_REPO` | (empty) | Empty = no GitHub link in footer |
 
-[vars]
-DOMAIN = "eluno.org"
-```
+All other build settings (languages, book titles, UI strings) are in the `CONFIG` object inside `build-v2.cjs`. Fork the repo and edit that object to customize content.
 
 ### GitHub Secrets
 
