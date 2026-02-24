@@ -32,5 +32,12 @@ jobs:
       - name: Validate JSON
         run: npm run test:json
 
+      - name: Run tests
+        run: npm test
+
+      - name: Validate alignment
+        run: npm run test:alignment
+        continue-on-error: true
+
       - name: Build
         run: npm run build

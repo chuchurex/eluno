@@ -22,38 +22,80 @@ Available in English, Spanish, and Portuguese.
 | IV   | 10-13    | Spiritual mechanics      |
 | V    | 14-16    | Practice and closing     |
 
+## Replicate this project
+
+This isn't just a book — it's a reproducible pipeline. Anyone can fork this repo, modify the prompts, and generate their own version of the book (or an entirely different book using the same framework).
+
+The pipeline uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) slash commands to automate 6 phases: research, writing (two halves), QA, glossary/provenance, and publication (translation + build + deploy).
+
+**To get started:** see [ai/QUICK_START.md](ai/QUICK_START.md)
+
+Requirements: Node.js 20+, Claude Code CLI, source PDFs, Anthropic API key (for translations).
+
+## Tech stack
+
+| Technology           | Role                                    |
+| -------------------- | --------------------------------------- |
+| Node.js              | Build system, scripts                   |
+| SASS                 | Styles (via `@eluno/core`)              |
+| Cloudflare Pages     | Hosting, auto-deploy on push to `main`  |
+| Claude (Anthropic)   | Writing pipeline, automated translation |
+| Edge TTS (Microsoft) | Audiobook generation                    |
+| GitHub Actions       | CI (lint, format, tests, build)         |
+| Husky + lint-staged  | Pre-commit hooks                        |
+
 ## Development
 
 ```bash
 npm install
-npm run dev          # http://127.0.0.1:3001
+npm run dev          # SASS watch + live server at localhost:4025
 npm run build        # Generate dist/
+npm test             # Run tests
+npm run validate     # Lint + format check + JSON validation
 ```
 
 ## Repository structure
 
 ```
 eluno/
-├── i18n/                  # Content (JSON)
-│   ├── en/chapters/       #   16 English chapters
-│   ├── es/chapters/       #   16 Spanish chapters
-│   ├── pt/chapters/       #   16 Portuguese chapters
-│   └── */glossary.json    #   Glossary per language
-├── scripts/               # Build, translation, PDF generation
-├── src/scss/              # Styles (SASS)
-├── writing/               # Writing pipeline (protocols, prompts, tools)
-├── static/pdf/            # Pre-built PDFs (EN/ES/PT)
-├── docs/                  # Technical and project documentation
-├── ai/                    # AI methodology (replication guide)
-├── .claude/commands/      # Claude Code slash commands
-├── PROMPT.md              # Writing prompt for this book
+├── i18n/                  # Content: 16 chapters × 3 languages (JSON)
+│   ├── {en,es,pt}/chapters/
+│   ├── {en,es,pt}/glossary.json
+│   └── provenance/        # Source maps linking sections to Ra Material
+├── scripts/               # Build, translation, integration, validation
+├── src/scss/              # Styles (imports @eluno/core)
+├── writing/               # Writing pipeline
+│   ├── protocol/          #   Stable rules: voice, QA, source hierarchy
+│   ├── reference/         #   Book structure, thematic index
+│   ├── chapters/          #   Per-chapter prompts (in git)
+│   └── tools/             #   Pipeline scripts
+├── ai/                    # AI methodology and replication guide
+├── docs/                  # Technical, project, and audiobook docs
+├── .claude/commands/      # Claude Code slash commands (the pipeline)
+├── static/                # PDFs, favicons, Cloudflare headers
+├── PROMPT.md              # Public writing prompt (transparency)
 └── LICENSE                # AGPL-3.0
 ```
 
-## Technical
+## Contributing
 
-- **Source**: [L/L Research - The Ra Contact](https://www.llresearch.org/library/the-ra-contact-teaching-the-law-of-one)
-- **Written with**: Claude (Anthropic) — see [ai/](ai/) for full methodology
-- **Audiobook**: Edge TTS (Microsoft) — see [docs/audiobook/](docs/audiobook/)
-- **Deployed via**: Cloudflare Pages
-- **License**: AGPL-3.0
+See [Contributing Guide](docs/project/CONTRIBUTING.md) for how to report bugs, propose changes, and submit pull requests.
+
+## Documentation
+
+| If you want to...                    | Start here                                                                   |
+| ------------------------------------ | ---------------------------------------------------------------------------- |
+| Replicate the book or build your own | [ai/QUICK_START.md](ai/QUICK_START.md)                                       |
+| Understand the writing methodology   | [ai/METHODOLOGY.md](ai/METHODOLOGY.md)                                       |
+| Read the writing protocol            | [writing/protocol/writing-protocol.md](writing/protocol/writing-protocol.md) |
+| Understand the architecture          | [docs/tech/ARCHITECTURE.md](docs/tech/ARCHITECTURE.md)                       |
+| Set up local development             | [docs/tech/DEVELOPMENT.md](docs/tech/DEVELOPMENT.md)                         |
+| See project status                   | [docs/project/PROJECT_STATUS.md](docs/project/PROJECT_STATUS.md)             |
+
+## License
+
+AGPL-3.0 — see [LICENSE](LICENSE).
+
+This license ensures that derivative works remain open source. If you fork this project and deploy your own version, your code must also be publicly available under the same terms. This is intentional: the project invites replication, and the license ensures all versions stay open.
+
+Content is derived from the Ra Material by [L/L Research](https://www.llresearch.org/), used with attribution.
