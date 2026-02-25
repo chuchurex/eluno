@@ -10,7 +10,6 @@ This project was created with AI assistance (Claude by Anthropic). In the spirit
 | **[AI_WRITING_PROMPT.md](./AI_WRITING_PROMPT.md)** | Complete system prompt and instructions |
 | **[METHODOLOGY.md](./METHODOLOGY.md)** | Editorial decisions, iterations, and lessons learned |
 | **[SOURCES.md](./SOURCES.md)** | Direct links to source PDFs (Ra Contact, Q'uo) |
-| **[docs_ai_README.md](./docs_ai_README.md)** | Human-AI collaboration model explained |
 
 ## 🎯 Quick Links
 

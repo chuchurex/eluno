@@ -42,7 +42,7 @@ npm run dev
 This command:
 - Compiles `src/scss/main.scss` to CSS.
 - Watches for changes in SCSS files.
-- Starts a local server at `http://127.0.0.1:3002`.
+- Starts a local server at `http://localhost:4025`.
 - Opens the browser automatically (depending on your config).
 
 ## 🛠 Available Commands

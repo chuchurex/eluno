@@ -83,7 +83,7 @@ npm run build
 
 # Check for errors
 npm run dev
-# Navigate to http://127.0.0.1:3002 and test your changes
+# Navigate to http://localhost:4025 and test your changes
 ```
 
 ### 7. Commit Your Changes
