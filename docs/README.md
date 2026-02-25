@@ -19,7 +19,8 @@ docs/
 ├── writing/                    # Referencia de contenido
 │   ├── CHAPTER_PIPELINE.md     # Pipeline: investigación → deploy
 │   ├── WRITING_PROTOCOL.md     # Protocolo de escritura (voz, estilo)
-│   └── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro (16 capítulos)
+│   ├── BOOK_STRUCTURE_16_CHAPTERS.md  # Estructura del libro (16 capítulos)
+│   └── ENCYCLOPEDIA.md         # Referencia completa de términos del glosario
 │
 ├── audiobook/                  # Generación de audiolibros
 │   └── STATUS.md               # Estado del audiobook

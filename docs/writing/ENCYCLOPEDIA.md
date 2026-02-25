@@ -2,7 +2,7 @@
 
 > **Documento de referencia completo** con todos los términos del glosario y referencias utilizadas en el libro.
 >
-> Última actualización: 2026-01-16
+> *Last updated: February 4, 2026*
 
 ---
 

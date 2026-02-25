@@ -452,3 +452,7 @@ This prompt document is released under the same terms as the eluno.org project. 
 ---
 
 *"The book presents universal philosophical truth. The teachings stand on their own."*
+
+---
+
+*Last updated: February 23, 2026*

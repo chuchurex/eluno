@@ -2,6 +2,7 @@
 
 > Guía paso a paso para producir un capítulo completo de El Uno.
 > Generalizada a partir del pipeline ejecutado para Ch01 y Ch02.
+> *Last updated: February 23, 2026*
 
 ---
 

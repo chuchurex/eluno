@@ -1,5 +1,7 @@
 # Deployment Guide
 
+> *Last updated: February 23, 2026*
+
 This guide details the deployment processes for **The One (eluno.org)** to production.
 
 ## Deployment Architecture

@@ -72,3 +72,7 @@ This command:
 2. **Edit Styles:** Modify SCSS files in `src/scss/`.
 3. **Preview:** See changes in real-time with `npm run dev`.
 4. **Test Build:** Run `npm run build` and review `dist/` if you have questions about final generation.
+
+---
+
+*Last updated: February 25, 2026*

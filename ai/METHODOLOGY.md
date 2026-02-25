@@ -300,3 +300,7 @@ This methodology emerged through iterative collaboration between human editor an
 ---
 
 *"Q'uo helps us understand; Ra is the book's only voice."*
+
+---
+
+*Last updated: February 3, 2026*
