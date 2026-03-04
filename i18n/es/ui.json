@@ -1,57 +1,37 @@
 {
-  "siteTitle": "El Uno",
-  "bookTitle": "El Uno",
-  "description": "Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.",
-  "introduction": {
-    "title": "",
-    "content": [
-      "Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA."
-    ]
-  },
-  "nav": {
-    "index": "Índice",
-    "chapter": "Cap.",
-    "notes": "Notas",
-    "about": "Acerca de",
-    "notesPanel": "Notas y Definiciones",
-    "notesEmpty": "Haz clic en cualquier <span class=\"term-hint\">término resaltado</span> en el texto para ver su definición aquí.",
-    "tableOfContents": "Tabla de Contenidos",
-    "previousChapter": "Capítulo Anterior",
-    "nextChapter": "Capítulo Siguiente",
-    "backToIndex": "Volver al Índice",
-    "readChapter": "Leer capítulo",
-    "learnMore": "Saber más"
-  },
-  "media": {
-    "downloadPdf": "Descargar PDF del capítulo",
-    "downloadAudio": "Descargar audio MP3 del capítulo",
-    "download": "Descargar",
-    "labelAudio": "MP3",
-    "labelPdf": "PDF"
-  },
-  "footer": {
-    "draft": "Primera Edición",
-    "date": "2025",
-    "feedbackTitle": "Comentarios",
-    "formName": "Tu Nombre",
-    "formEmail": "Tu Email",
-    "formMessage": "Tu Mensaje",
-    "formSubmit": "Enviar Feedback",
-    "formSuccess": "¡Gracias! Tu feedback ha sido recibido.",
-    "attribution": "Este trabajo es una interpretación del Material Ra, publicado originalmente por L/L Research.",
-    "originalSessions": "Sesiones originales gratis en",
-    "derivedFrom": "Contenido derivado del material de L/L Research"
-  },
-  "meta": {
-    "chapters": "",
-    "version": "v0.2 · Enero 2026"
-  },
-  "footerVersion": "",
-  "disclaimer": {
-    "title": "Sobre Esta Interpretación",
-    "text1": "El Material Ra fue entregado en un formato preciso de pregunta y respuesta, con Ra eligiendo cada palabra intencionalmente. Este proyecto transforma ese formato en prosa narrativa—un proceso que necesariamente involucra interpretación a través de la comprensión del autor.",
-    "text2": "Este trabajo fue creado con asistencia de IA, lo cual puede introducir inexactitudes o inconsistencias. Debe usarse solo como una herramienta complementaria, no como un estudio primario del material.",
-    "text3": "Animamos a todos los buscadores a leer las sesiones originales en",
-    "text3b": "y formar su propia relación con las palabras reales de Ra."
-  }
+  "chapter": "Capítulo",
+  "sources": "Fuentes",
+  "glossary": "Glosario",
+  "previous": "Anterior",
+  "ariaToggleTheme": "Cambiar tema",
+  "ariaChapterNav": "Navegación de capítulos",
+  "ariaToggleSections": "Mostrar secciones",
+  "next": "Siguiente",
+  "home": "Inicio",
+  "downloadPdf": "Descargar PDF",
+  "listenAudio": "Escuchar",
+  "subtitle": "Una reinterpretación filosófica del Material Ra (La Ley del Uno) como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.",
+  "intro": "Enseñanzas recibidas por Don, Carla y Jim a principios de los 80, transformadas en narrativa filosófica accesible. Reescrito con asistencia de IA.",
+  "disclaimerTitle": "Sobre Esta Interpretación",
+  "disclaimer": [
+    "El Material Ra fue entregado en un formato preciso de preguntas y respuestas, con Ra eligiendo cada palabra intencionalmente. Este proyecto transforma ese formato en prosa narrativa—un proceso que necesariamente involucra interpretación a través del entendimiento del autor.",
+    "Este trabajo fue creado con asistencia de IA, lo cual puede introducir inexactitudes o inconsistencias. Debe usarse solo como herramienta complementaria, no como estudio primario del material.",
+    "Animamos a todos los buscadores a leer las sesiones originales en <a href=\"https://www.llresearch.org\" target=\"_blank\" rel=\"noopener\">llresearch.org</a> y formar su propia relación con las palabras reales de Ra."
+  ],
+  "tableOfContents": "Índice",
+  "footerAttribution": "Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research.",
+  "footerSessions": "Sesiones originales gratis en",
+  "footerCopyright": "Contenido derivado del material de L/L Research",
+  "noSources": "Sin citas de fuentes para esta sección.",
+  "notesEmpty": "Haz clic en cualquier <span class=\"term-example\">término destacado</span> para ver su definición.",
+  "about": "Acerca de",
+  "glossaryPage": "Glosario",
+  "glossaryPageSubtitle": "Todos los términos y conceptos",
+  "searchPlaceholder": "Buscar capítulos y glosario...",
+  "searchNoResults": "Sin resultados",
+  "skipToContent": "Ir al contenido",
+  "closeMenu": "Cerrar menú",
+  "glossaryCategories": "Categorías",
+  "glossaryAlphabetical": "A–Z",
+  "glossaryUncategorized": "Otros"
 }

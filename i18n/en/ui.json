@@ -1,60 +1,37 @@
 {
-  "siteTitle": "The One",
-  "bookTitle": "The One",
-  "description": "A philosophical rewrite of the Ra Material (Law of One) as accessible narrative. Explore cosmology, the Creator, densities, and the purpose of existence.",
-  "introduction": {
-    "title": "",
-    "content": [
-      "Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance."
-    ]
-  },
-  "nav": {
-    "index": "Index",
-    "chapter": "Ch",
-    "notes": "Notes",
-    "about": "About",
-    "notesPanel": "Notes & Definitions",
-    "notesEmpty": "Click any <span class=\"term-hint\">highlighted term</span> in the text to see its definition here.",
-    "tableOfContents": "Table of Contents",
-    "previousChapter": "Previous Chapter",
-    "nextChapter": "Next Chapter",
-    "backToIndex": "Back to Index",
-    "readChapter": "Read chapter",
-    "learnMore": "Learn more"
-  },
-  "media": {
-    "downloadPdf": "Download chapter PDF",
-    "downloadAudio": "Download chapter MP3 audio",
-    "download": "Download",
-    "listenAudio": "Listen to chapter audiobook",
-    "listen": "Listen",
-    "labelAudio": "MP3",
-    "labelPdf": "PDF",
-    "labelYoutube": "YouTube"
-  },
-  "footer": {
-    "draft": "First Edition",
-    "date": "2025",
-    "feedbackTitle": "Comments",
-    "formName": "Your Name",
-    "formEmail": "Your Email",
-    "formMessage": "Your Message",
-    "formSubmit": "Send Feedback",
-    "formSuccess": "Thank you! Your feedback has been received.",
-    "attribution": "This work is an interpretation of the Ra Material, originally published by L/L Research.",
-    "originalSessions": "Original sessions free at",
-    "derivedFrom": "Content derived from L/L Research material"
-  },
-  "meta": {
-    "chapters": "",
-    "version": "v0.2 · January 2026"
-  },
-  "footerVersion": "",
-  "disclaimer": {
-    "title": "About This Interpretation",
-    "text1": "The Ra Material was delivered in a precise question-and-answer format, with Ra choosing each word intentionally. This project transforms that format into narrative prose—a process that necessarily involves interpretation through the author's understanding.",
-    "text2": "This work was created with AI assistance, which may introduce inaccuracies or inconsistencies. It should be used only as a supplementary tool, not as a primary study of the material.",
-    "text3": "We encourage all seekers to read the original sessions at",
-    "text3b": "and form their own relationship with Ra's actual words."
-  }
+  "chapter": "Chapter",
+  "sources": "Sources",
+  "glossary": "Glossary",
+  "previous": "Previous",
+  "ariaToggleTheme": "Toggle Theme",
+  "ariaChapterNav": "Chapter navigation",
+  "ariaToggleSections": "Toggle sections",
+  "next": "Next",
+  "home": "Home",
+  "downloadPdf": "Download PDF",
+  "listenAudio": "Listen",
+  "subtitle": "A philosophical reinterpretation of the Ra Material (The Law of One) as accessible narrative. Explore cosmology, the Creator, the densities, and the purpose of existence.",
+  "intro": "Teachings received by Don, Carla, and Jim in the early 80s, transformed into accessible philosophical narrative. Rewritten with AI assistance.",
+  "disclaimerTitle": "About This Interpretation",
+  "disclaimer": [
+    "The Ra Material was delivered in a precise question-and-answer format, with Ra choosing each word intentionally. This project transforms that format into narrative prose—a process that necessarily involves interpretation through the author's understanding.",
+    "This work was created with AI assistance, which may introduce inaccuracies or inconsistencies. It should be used only as a supplementary tool, not as a primary study of the material.",
+    "We encourage all seekers to read the original sessions at <a href=\"https://www.llresearch.org\" target=\"_blank\" rel=\"noopener\">llresearch.org</a> and form their own relationship with Ra's actual words."
+  ],
+  "tableOfContents": "Table of Contents",
+  "footerAttribution": "This work is a philosophical interpretation of the Ra Material, originally published by L/L Research.",
+  "footerSessions": "Original sessions free at",
+  "footerCopyright": "Content derived from L/L Research material",
+  "noSources": "No source citations for this section.",
+  "notesEmpty": "Click any <span class=\"term-example\">highlighted term</span> to see its definition.",
+  "about": "About",
+  "glossaryPage": "Glossary",
+  "glossaryPageSubtitle": "All terms and concepts",
+  "searchPlaceholder": "Search chapters and glossary...",
+  "searchNoResults": "No results found",
+  "skipToContent": "Skip to content",
+  "closeMenu": "Close menu",
+  "glossaryCategories": "Categories",
+  "glossaryAlphabetical": "A–Z",
+  "glossaryUncategorized": "Other"
 }
