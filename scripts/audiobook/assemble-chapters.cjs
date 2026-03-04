@@ -193,7 +193,7 @@ async function main() {
       const seoName = `${BOOK_PREFIX[lang]}-${CH_LABEL[lang]}-${padded}-${slug}`;
 
       // Source content MP3 (the raw chapter without intro/outro)
-      const srcMp3 = path.join(AUDIO_DIR, lang, `${seoName}.mp3`);
+      let srcMp3 = path.join(AUDIO_DIR, lang, `${seoName}.mp3`);
       if (!fs.existsSync(srcMp3)) {
         // Try old naming
         const oldSrc = path.join(AUDIO_DIR, lang, `ch${padded}.mp3`);
@@ -201,6 +201,7 @@ async function main() {
           console.log(`  ⚠️  No source audio for ch${padded}`);
           continue;
         }
+        srcMp3 = oldSrc;
       }
 
       const finalPath = path.join(langFinalDir, `${seoName}.mp3`);
