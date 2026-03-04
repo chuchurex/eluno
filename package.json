@@ -27,7 +27,7 @@
     "prettier": "^3.8.1"
   },
   "scripts": {
-    "build": "eluno-build && npm run sass:build",
+    "build": "eluno-build",
     "sass:build": "sass node_modules/@eluno/core/scss/main.scss:dist/css/main.css --style=compressed",
     "sass:watch": "sass --watch node_modules/@eluno/core/scss/main.scss:dist/css/main.css",
     "dev": "concurrently \"npm run sass:watch\" \"live-server dist --port=4025\"",
