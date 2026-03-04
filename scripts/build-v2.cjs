@@ -1627,15 +1627,15 @@ function build() {
     console.log(`  ✓ ${lang}/search-index.json (${searchIndex.length} entries)`);
   }
 
-  // Copy fonts from @eluno/core
-  const coreFontsDir = path.join(__dirname, '../node_modules/@eluno/core/fonts');
+  // Copy fonts from src/fonts
+  const srcFontsDir = path.join(__dirname, '../src/fonts');
   const distFontsDir = path.join(CONFIG.outputDir, 'fonts');
-  if (fs.existsSync(coreFontsDir)) {
+  if (fs.existsSync(srcFontsDir)) {
     ensureDir(distFontsDir);
-    fs.readdirSync(coreFontsDir).forEach(file => {
-      fs.copyFileSync(path.join(coreFontsDir, file), path.join(distFontsDir, file));
+    fs.readdirSync(srcFontsDir).forEach(file => {
+      fs.copyFileSync(path.join(srcFontsDir, file), path.join(distFontsDir, file));
     });
-    console.log('  ✅ fonts/ (from @eluno/core)');
+    console.log('  ✅ fonts/ (from src/fonts)');
   }
 
   // Generate root index.html with language detection
