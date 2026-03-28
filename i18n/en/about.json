@@ -44,6 +44,16 @@
           "text": "As AI agents become more capable, this project will become easier to maintain and improve. We hope it serves as a useful companion for studying the Law of One."
         }
       ]
+    },
+    {
+      "id": "author",
+      "title": "About the Author",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "<style>.author-dark{display:inline}.author-light{display:none}[data-theme=light] .author-dark{display:none}[data-theme=light] .author-light{display:inline}</style><span style=\"display:flex;gap:1.5rem;align-items:flex-start\"><span style=\"flex-shrink:0;width:180px\"><img class=\"author-dark\" src=\"/img/author-dark.png\" alt=\"Carlos Martínez\" style=\"width:100%;border-radius:12px\"><img class=\"author-light\" src=\"/img/author-light.png\" alt=\"Carlos Martínez\" style=\"width:100%;border-radius:12px\"></span><span><strong>Hi, my name is Carlos Martínez.</strong> I'm a seeker who found in The Law of One the thread that connected everything, even the questions I didn't know how to formulate.<br><br>If this book resonated with you, write me at <a href=\"mailto:carlos@chuchurex.cl\">carlos@chuchurex.cl</a>.</span></span>"
+        }
+      ]
     }
   ],
   "footer": {

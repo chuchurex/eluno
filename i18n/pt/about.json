@@ -44,6 +44,16 @@
           "text": "À medida que os agentes de IA se tornam mais capazes, este projeto será mais fácil de manter e melhorar. Esperamos que sirva como um companheiro útil para o estudo da Lei do Um."
         }
       ]
+    },
+    {
+      "id": "author",
+      "title": "Sobre o Autor",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "<style>.author-dark{display:inline}.author-light{display:none}[data-theme=light] .author-dark{display:none}[data-theme=light] .author-light{display:inline}</style><span style=\"display:flex;gap:1.5rem;align-items:flex-start\"><span style=\"flex-shrink:0;width:180px\"><img class=\"author-dark\" src=\"/img/author-dark.png\" alt=\"Carlos Martínez\" style=\"width:100%;border-radius:12px\"><img class=\"author-light\" src=\"/img/author-light.png\" alt=\"Carlos Martínez\" style=\"width:100%;border-radius:12px\"></span><span><strong>Olá, meu nome é Carlos Martínez.</strong> Sou um buscador que encontrou na Lei do Um o fio que conectava tudo, até as perguntas que não sabia como formular.<br><br>Se este livro ressoou com você, escreva para <a href=\"mailto:carlos@chuchurex.cl\">carlos@chuchurex.cl</a>.</span></span>"
+        }
+      ]
     }
   ],
   "footer": {

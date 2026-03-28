@@ -44,6 +44,16 @@
           "text": "A medida que los agentes de IA se vuelvan más capaces, este proyecto será más fácil de mantener y mejorar. Esperamos que sirva como compañero útil para el estudio de la Ley del Uno."
         }
       ]
+    },
+    {
+      "id": "author",
+      "title": "Sobre el Autor",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "<style>.author-dark{display:inline}.author-light{display:none}[data-theme=light] .author-dark{display:none}[data-theme=light] .author-light{display:inline}</style><span style=\"display:flex;gap:1.5rem;align-items:flex-start\"><span style=\"flex-shrink:0;width:180px\"><img class=\"author-dark\" src=\"/img/author-dark.png\" alt=\"Carlos Martínez\" style=\"width:100%;border-radius:12px\"><img class=\"author-light\" src=\"/img/author-light.png\" alt=\"Carlos Martínez\" style=\"width:100%;border-radius:12px\"></span><span><strong>Hola, mi nombre es Carlos Martínez.</strong> Soy un buscador que encontró en La Ley del Uno el hilo que conectaba todo, hasta las preguntas que no sabía cómo formular.<br><br>Si este libro resonó contigo, escríbeme a <a href=\"mailto:carlos@chuchurex.cl\">carlos@chuchurex.cl</a>.</span></span>"
+        }
+      ]
     }
   ],
   "footer": {
