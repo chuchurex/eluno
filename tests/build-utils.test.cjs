@@ -11,10 +11,13 @@ describe('parseTerms', () => {
     'the-infinite': { title: 'The Infinite', content: ['The boundless unity...'] },
     'el-infinito': { title: 'El Infinito', content: ['La unidad sin límites...'] },
     'os-centros': { title: 'Os Centros de Energia', content: ['Os sete centros...'] },
-    'mind-body-spirit-complex': { title: 'Mind/Body/Spirit Complex', content: ['The unified being...'] },
+    'mind-body-spirit-complex': {
+      title: 'Mind/Body/Spirit Complex',
+      content: ['The unified being...']
+    },
     'original-thought': { title: 'Original Thought (Concept)', content: ['The primal thought...'] },
     'o-veu': { title: 'O Véu do Esquecimento', content: ['O véu...'] },
-    'a-morte': { title: 'A Morte', content: ['A transição...'] },
+    'a-morte': { title: 'A Morte', content: ['A transição...'] }
   };
 
   it('replaces {term:keyword} with HTML span', () => {
@@ -142,7 +145,7 @@ describe('slugify', () => {
 describe('cleanTextForMeta', () => {
   const glossary = {
     'the-infinite': { title: 'The Infinite', content: ['...'] },
-    'el-infinito': { title: 'El Infinito', content: ['...'] },
+    'el-infinito': { title: 'El Infinito', content: ['...'] }
   };
 
   it('resolves terms to plain text (no HTML)', () => {

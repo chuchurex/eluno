@@ -35,25 +35,25 @@ const dryRun = process.argv.includes('--dry-run');
 const BOOK_PREFIX = {
   es: 'el-uno',
   en: 'the-one',
-  pt: 'o-um',
+  pt: 'o-um'
 };
 
 const CHAPTER_LABEL = {
   es: 'cap',
   en: 'ch',
-  pt: 'cap',
+  pt: 'cap'
 };
 
 const COMPLETE_AUDIO = {
   es: 'el-uno-audiolibro-completo',
   en: 'the-one-complete-audiobook',
-  pt: 'o-um-audiolivro-completo',
+  pt: 'o-um-audiolivro-completo'
 };
 
 const COMPLETE_PDF = {
   es: 'el-uno-libro-completo',
   en: 'the-one-complete-book',
-  pt: 'o-um-livro-completo',
+  pt: 'o-um-livro-completo'
 };
 
 // ============================================================================

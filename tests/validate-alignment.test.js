@@ -10,7 +10,9 @@ describe('extractMarks', () => {
   it('counts {term:keyword} marks correctly', () => {
     const chapter = {
       sections: [
-        { content: [{ type: 'paragraph', text: 'The {term:the-infinite} is {term:consciousness}.' }] }
+        {
+          content: [{ type: 'paragraph', text: 'The {term:the-infinite} is {term:consciousness}.' }]
+        }
       ]
     };
     const marks = extractMarks(chapter, /\{term:[^}]+\}/g);
@@ -21,9 +23,7 @@ describe('extractMarks', () => {
 
   it('counts {ref:cat:id} marks correctly', () => {
     const chapter = {
-      sections: [
-        { content: [{ text: 'See {ref:phys:photon} and {ref:phil:plato-cave}.' }] }
-      ]
+      sections: [{ content: [{ text: 'See {ref:phys:photon} and {ref:phil:plato-cave}.' }] }]
     };
     const marks = extractMarks(chapter, /\{ref:[^}]+\}/g);
     assert.equal(marks.length, 2);

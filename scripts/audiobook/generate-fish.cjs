@@ -56,7 +56,9 @@ function parseArgs() {
 
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
-      case '--lang': options.lang = args[++i]; break;
+      case '--lang':
+        options.lang = args[++i];
+        break;
       case '--only': {
         const val = args[++i];
         if (val.includes('-')) {
@@ -68,8 +70,12 @@ function parseArgs() {
         }
         break;
       }
-      case '--dry-run': options.dryRun = true; break;
-      case '--voice': options.voice = args[++i]; break;
+      case '--dry-run':
+        options.dryRun = true;
+        break;
+      case '--voice':
+        options.voice = args[++i];
+        break;
       case '--help':
       case '-h':
         console.log(`
@@ -139,27 +145,30 @@ async function generateChunk(text, voiceId, apiKey) {
       latency: 'normal'
     });
 
-    const req = https.request({
-      hostname: 'api.fish.audio',
-      port: 443,
-      path: '/v1/tts',
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(postData)
-      }
-    }, (res) => {
-      const chunks = [];
-      res.on('data', chunk => chunks.push(chunk));
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          resolve(Buffer.concat(chunks));
-        } else {
-          reject(new Error(`API ${res.statusCode}: ${Buffer.concat(chunks).toString()}`));
+    const req = https.request(
+      {
+        hostname: 'api.fish.audio',
+        port: 443,
+        path: '/v1/tts',
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(postData)
         }
-      });
-    });
+      },
+      res => {
+        const chunks = [];
+        res.on('data', chunk => chunks.push(chunk));
+        res.on('end', () => {
+          if (res.statusCode === 200) {
+            resolve(Buffer.concat(chunks));
+          } else {
+            reject(new Error(`API ${res.statusCode}: ${Buffer.concat(chunks).toString()}`));
+          }
+        });
+      }
+    );
 
     req.on('error', reject);
     req.write(postData);
@@ -218,12 +227,15 @@ async function main() {
     process.exit(1);
   }
 
-  const voiceId = options.voice
-    || process.env[`FISH_VOICE_ID_${options.lang.toUpperCase()}`]
-    || process.env.FISH_VOICE_ID;
+  const voiceId =
+    options.voice ||
+    process.env[`FISH_VOICE_ID_${options.lang.toUpperCase()}`] ||
+    process.env.FISH_VOICE_ID;
 
   if (!voiceId) {
-    console.error(`❌ No voice ID found. Set FISH_VOICE_ID or FISH_VOICE_ID_${options.lang.toUpperCase()} in .env`);
+    console.error(
+      `❌ No voice ID found. Set FISH_VOICE_ID or FISH_VOICE_ID_${options.lang.toUpperCase()} in .env`
+    );
     process.exit(1);
   }
 
@@ -238,7 +250,8 @@ async function main() {
   const outDir = path.join(AUDIO_DIR, options.lang);
   fs.mkdirSync(outDir, { recursive: true });
 
-  const files = fs.readdirSync(textDir)
+  const files = fs
+    .readdirSync(textDir)
     .filter(f => f.match(/^ch\d{2}\.txt$/))
     .sort();
 
@@ -265,8 +278,11 @@ async function main() {
     // Skip if already exists
     if (fs.existsSync(outputPath) && !options.dryRun) {
       const size = fs.statSync(outputPath).size;
-      if (size > 10000) { // > 10KB = probably valid
-        console.log(`\n⏭️  ch${String(num).padStart(2, '0')} already exists (${(size / 1024 / 1024).toFixed(1)} MB), skipping`);
+      if (size > 10000) {
+        // > 10KB = probably valid
+        console.log(
+          `\n⏭️  ch${String(num).padStart(2, '0')} already exists (${(size / 1024 / 1024).toFixed(1)} MB), skipping`
+        );
         continue;
       }
     }

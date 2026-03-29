@@ -91,7 +91,7 @@ describe('ENV: GA_ID', () => {
       'en/index.html',
       'en/chapters/cosmology-and-genesis.html',
       'en/about.html',
-      'en/glossary.html',
+      'en/glossary.html'
     ];
     for (const p of pages) {
       const html = readPage(p);
@@ -107,7 +107,7 @@ describe('ENV: GA_ID', () => {
       'en/index.html',
       'en/chapters/cosmology-and-genesis.html',
       'en/about.html',
-      'en/glossary.html',
+      'en/glossary.html'
     ];
     for (const p of pages) {
       const html = readPage(p);
@@ -124,7 +124,7 @@ describe('ENV: GITHUB_REPO', () => {
     writeEnv({
       SITE_URL: 'https://eluno.org',
       GA_ID: '',
-      GITHUB_REPO: 'https://github.com/test/repo',
+      GITHUB_REPO: 'https://github.com/test/repo'
     });
     build();
     const html = readPage('en/index.html');

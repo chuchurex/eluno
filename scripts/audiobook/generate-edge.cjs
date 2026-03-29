@@ -23,16 +23,16 @@ const AUDIO_DIR = path.join(PROJECT_ROOT, 'audiobook', 'audio');
 
 // Default voices per language (warm, clear narration voices)
 const DEFAULT_VOICES = {
-  en: 'en-US-GuyNeural',        // Male, warm, good for narration
-  es: 'es-MX-JorgeNeural',      // Male, Mexican Spanish, clear
-  pt: 'pt-BR-AntonioNeural',    // Male, Brazilian Portuguese
+  en: 'en-US-GuyNeural', // Male, warm, good for narration
+  es: 'es-MX-JorgeNeural', // Male, Mexican Spanish, clear
+  pt: 'pt-BR-AntonioNeural' // Male, Brazilian Portuguese
 };
 
 // Alternative voices for comparison
 const ALT_VOICES = {
   en: ['en-US-ChristopherNeural', 'en-US-RogerNeural', 'en-GB-RyanNeural'],
   es: ['es-ES-AlvaroNeural', 'es-MX-JorgeNeural', 'es-AR-TomasNeural'],
-  pt: ['pt-BR-AntonioNeural', 'pt-PT-DuarteNeural'],
+  pt: ['pt-BR-AntonioNeural', 'pt-PT-DuarteNeural']
 };
 
 const MAX_CHUNK = 3000; // Edge TTS works well with moderate chunks
@@ -50,14 +50,16 @@ function parseArgs() {
     end: 16,
     dryRun: false,
     voice: null,
-    rate: '-5%',   // Slightly slower for audiobook narration
+    rate: '-5%', // Slightly slower for audiobook narration
     pitch: '+0Hz',
-    listVoices: false,
+    listVoices: false
   };
 
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
-      case '--lang': options.lang = args[++i]; break;
+      case '--lang':
+        options.lang = args[++i];
+        break;
       case '--only': {
         const val = args[++i];
         if (val.includes('-') && !val.startsWith('-')) {
@@ -69,11 +71,21 @@ function parseArgs() {
         }
         break;
       }
-      case '--dry-run': options.dryRun = true; break;
-      case '--voice': options.voice = args[++i]; break;
-      case '--rate': options.rate = args[++i]; break;
-      case '--pitch': options.pitch = args[++i]; break;
-      case '--list-voices': options.listVoices = true; break;
+      case '--dry-run':
+        options.dryRun = true;
+        break;
+      case '--voice':
+        options.voice = args[++i];
+        break;
+      case '--rate':
+        options.rate = args[++i];
+        break;
+      case '--pitch':
+        options.pitch = args[++i];
+        break;
+      case '--list-voices':
+        options.listVoices = true;
+        break;
       case '--help':
       case '-h':
         console.log(`
@@ -166,7 +178,7 @@ async function generateChapter(EdgeTTS, textPath, outputPath, voice, rate, pitch
             outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
             rate,
             pitch,
-            timeout: 60000, // 60s timeout
+            timeout: 60000 // 60s timeout
           });
 
           const start = Date.now();
@@ -207,7 +219,11 @@ async function generateChapter(EdgeTTS, textPath, outputPath, voice, rate, pitch
   fs.writeFileSync(outputPath, combined);
 
   // Cleanup temp files
-  tempFiles.forEach(f => { try { fs.unlinkSync(f); } catch {} });
+  tempFiles.forEach(f => {
+    try {
+      fs.unlinkSync(f);
+    } catch {}
+  });
 
   const sizeMB = (combined.length / 1024 / 1024).toFixed(2);
   console.log(`   💾 Saved: ${sizeMB} MB`);
@@ -238,7 +254,8 @@ async function main() {
   const outDir = path.join(AUDIO_DIR, options.lang);
   fs.mkdirSync(outDir, { recursive: true });
 
-  const files = fs.readdirSync(textDir)
+  const files = fs
+    .readdirSync(textDir)
     .filter(f => f.match(/^ch\d{2}\.txt$/))
     .sort();
 
@@ -267,7 +284,9 @@ async function main() {
     if (fs.existsSync(outputPath)) {
       const size = fs.statSync(outputPath).size;
       if (size > 10000) {
-        console.log(`\n⏭️  ch${String(num).padStart(2, '0')} already exists (${(size / 1024 / 1024).toFixed(1)} MB), skipping`);
+        console.log(
+          `\n⏭️  ch${String(num).padStart(2, '0')} already exists (${(size / 1024 / 1024).toFixed(1)} MB), skipping`
+        );
         continue;
       }
     }
@@ -278,13 +297,22 @@ async function main() {
       const text = fs.readFileSync(textPath, 'utf8');
       const chunks = splitIntoChunks(text);
       const estMin = Math.round(text.split(/\s+/).length / 150);
-      console.log(`   📄 ${text.length.toLocaleString()} chars, ${chunks.length} chunks (~${estMin} min)`);
+      console.log(
+        `   📄 ${text.length.toLocaleString()} chars, ${chunks.length} chunks (~${estMin} min)`
+      );
       success++;
       continue;
     }
 
     try {
-      const size = await generateChapter(EdgeTTS, textPath, outputPath, voice, options.rate, options.pitch);
+      const size = await generateChapter(
+        EdgeTTS,
+        textPath,
+        outputPath,
+        voice,
+        options.rate,
+        options.pitch
+      );
       totalSize += size;
       success++;
     } catch (error) {

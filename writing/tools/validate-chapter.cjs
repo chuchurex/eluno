@@ -19,7 +19,7 @@ const PROHIBITED_TERMS = [
   { pattern: /\b(?<!sub-)God\b/g, correct: 'Logos / Creator / Infinite Creator' },
   { pattern: /\bchallenge\b/gi, correct: 'catalyst' },
   { pattern: /\bjudgment\b/gi, correct: 'harvest' },
-  { pattern: /\brapture\b/gi, correct: 'harvest' },
+  { pattern: /\brapture\b/gi, correct: 'harvest' }
 ];
 
 const PROHIBITED_ATTRIBUTIONS = [
@@ -31,7 +31,7 @@ const PROHIBITED_ATTRIBUTIONS = [
   /\bchanneled material\b/i,
   /\bthe sessions\b/i,
   /\bLaw of One\b/i,
-  /\bthe instrument\b/i,
+  /\bthe instrument\b/i
 ];
 
 const MOJIBAKE_PATTERNS = [
@@ -43,7 +43,7 @@ const MOJIBAKE_PATTERNS = [
   { pattern: /Ã©/g, replacement: '\u00E9' },
   { pattern: /Ã­/g, replacement: '\u00ED' },
   { pattern: /Ã³/g, replacement: '\u00F3' },
-  { pattern: /Ãº/g, replacement: '\u00FA' },
+  { pattern: /Ãº/g, replacement: '\u00FA' }
 ];
 
 function extractText(chapter) {
@@ -89,7 +89,7 @@ function validateRefs(texts, referencesPath) {
   let references = null;
   if (referencesPath && fs.existsSync(referencesPath)) {
     const raw = JSON.parse(fs.readFileSync(referencesPath, 'utf8'));
-    references = Array.isArray(raw) ? raw : (raw.references || []);
+    references = Array.isArray(raw) ? raw : raw.references || [];
   }
 
   const refPattern = /\{ref:([^}]+)\}/g;
@@ -114,7 +114,7 @@ function validateRefs(texts, referencesPath) {
     pass: phantoms.length === 0,
     total: found.length,
     phantoms,
-    note: references ? null : 'No references.json provided — skipped validation',
+    note: references ? null : 'No references.json provided — skipped validation'
   };
 }
 
@@ -141,7 +141,7 @@ function validateTerms(texts) {
   return {
     pass: duplicates.length === 0,
     total: Object.keys(termCounts).length,
-    duplicates,
+    duplicates
   };
 }
 
@@ -156,7 +156,7 @@ function validateTerminology(texts) {
           found: match[0],
           correct,
           section: sectionId,
-          context: text.substring(Math.max(0, match.index - 30), match.index + match[0].length + 30),
+          context: text.substring(Math.max(0, match.index - 30), match.index + match[0].length + 30)
         });
       }
     }
@@ -173,7 +173,7 @@ function validateAttributions(texts) {
         issues.push({
           found: match[0],
           section: sectionId,
-          context: text.substring(Math.max(0, match.index - 30), match.index + match[0].length + 30),
+          context: text.substring(Math.max(0, match.index - 30), match.index + match[0].length + 30)
         });
       }
     }
@@ -191,7 +191,7 @@ function validateEncoding(texts) {
         issues.push({
           found: match[0],
           section: sectionId,
-          position: match.index,
+          position: match.index
         });
       }
     }
@@ -245,7 +245,7 @@ for (let i = 1; i < args.length; i++) {
 if (!referencesPath) {
   const candidates = [
     path.join(process.cwd(), 'writing', 'protocol', 'references.json'),
-    path.join(path.dirname(chapterPath), '..', '..', 'writing', 'protocol', 'references.json'),
+    path.join(path.dirname(chapterPath), '..', '..', 'writing', 'protocol', 'references.json')
   ];
   for (const c of candidates) {
     if (fs.existsSync(c)) {
@@ -273,50 +273,71 @@ const results = {
   attributions: validateAttributions(texts),
   encoding: validateEncoding(texts),
   residualSrc: validateResidualSrc(texts),
-  wordcount: countWords(texts),
+  wordcount: countWords(texts)
 };
 
 // ─── Output ────────────────────────────────────────────────────────
 
-const allPass = results.schema.pass
-  && results.refs.pass
-  && results.terms.pass
-  && results.terminology.pass
-  && results.attributions.pass
-  && results.encoding.pass
-  && results.residualSrc.pass;
+const allPass =
+  results.schema.pass &&
+  results.refs.pass &&
+  results.terms.pass &&
+  results.terminology.pass &&
+  results.attributions.pass &&
+  results.encoding.pass &&
+  results.residualSrc.pass;
 
 console.log(`\n  Validating: ${chapterPath}`);
 console.log(`  Chapter: ${results.chapter} — "${chapter.title || '?'}"\n`);
 
-const icon = (pass) => pass ? '\x1b[32m  PASS\x1b[0m' : '\x1b[31m  FAIL\x1b[0m';
+const icon = pass => (pass ? '\x1b[32m  PASS\x1b[0m' : '\x1b[31m  FAIL\x1b[0m');
 
 console.log(`${icon(results.schema.pass)}  Schema`);
 if (!results.schema.pass) results.schema.errors.forEach(e => console.log(`         - ${e}`));
 
-console.log(`${icon(results.refs.pass)}  References (${results.refs.total} found${results.refs.note ? ', ' + results.refs.note : ''})`);
-if (!results.refs.pass) results.refs.phantoms.forEach(p => console.log(`         - {ref:${p.key}} in ${p.section}`));
+console.log(
+  `${icon(results.refs.pass)}  References (${results.refs.total} found${results.refs.note ? ', ' + results.refs.note : ''})`
+);
+if (!results.refs.pass)
+  results.refs.phantoms.forEach(p => console.log(`         - {ref:${p.key}} in ${p.section}`));
 
 console.log(`${icon(results.terms.pass)}  Terms (${results.terms.total} unique)`);
-if (!results.terms.pass) results.terms.duplicates.forEach(d => console.log(`         - {term:${d.keyword}} appears ${d.occurrences}x in: ${d.sections.join(', ')}`));
+if (!results.terms.pass)
+  results.terms.duplicates.forEach(d =>
+    console.log(
+      `         - {term:${d.keyword}} appears ${d.occurrences}x in: ${d.sections.join(', ')}`
+    )
+  );
 
 console.log(`${icon(results.terminology.pass)}  Terminology`);
-if (!results.terminology.pass) results.terminology.issues.forEach(i => console.log(`         - "${i.found}" → use "${i.correct}" (${i.section})`));
+if (!results.terminology.pass)
+  results.terminology.issues.forEach(i =>
+    console.log(`         - "${i.found}" → use "${i.correct}" (${i.section})`)
+  );
 
 console.log(`${icon(results.attributions.pass)}  Attributions`);
-if (!results.attributions.pass) results.attributions.issues.forEach(i => console.log(`         - "${i.found}" found in ${i.section}`));
+if (!results.attributions.pass)
+  results.attributions.issues.forEach(i =>
+    console.log(`         - "${i.found}" found in ${i.section}`)
+  );
 
 console.log(`${icon(results.encoding.pass)}  Encoding`);
-if (!results.encoding.pass) results.encoding.issues.forEach(i => console.log(`         - Mojibake "${i.found}" in ${i.section}`));
+if (!results.encoding.pass)
+  results.encoding.issues.forEach(i =>
+    console.log(`         - Mojibake "${i.found}" in ${i.section}`)
+  );
 
 console.log(`${icon(results.residualSrc.pass)}  No residual {src:}`);
-if (!results.residualSrc.pass) results.residualSrc.found.forEach(f => console.log(`         - ${f.mark} in ${f.section}`));
+if (!results.residualSrc.pass)
+  results.residualSrc.found.forEach(f => console.log(`         - ${f.mark} in ${f.section}`));
 
 console.log(`\n  Words: ${results.wordcount.total}`);
 for (const [sid, count] of Object.entries(results.wordcount.bySection)) {
   console.log(`    ${sid}: ${count}`);
 }
 
-console.log(`\n  ${allPass ? '\x1b[32mALL CHECKS PASSED\x1b[0m' : '\x1b[31mSOME CHECKS FAILED\x1b[0m'}\n`);
+console.log(
+  `\n  ${allPass ? '\x1b[32mALL CHECKS PASSED\x1b[0m' : '\x1b[31mSOME CHECKS FAILED\x1b[0m'}\n`
+);
 
 process.exit(allPass ? 0 : 1);

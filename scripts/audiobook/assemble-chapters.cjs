@@ -42,19 +42,19 @@ const CHAPTER_LABEL = { es: 'Capítulo', en: 'Chapter', pt: 'Capítulo' };
 const TAGLINE = {
   es: 'Una reinterpretación filosófica del Material Ra, La Ley del Uno, como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.',
   en: 'A philosophical reinterpretation of The Ra Material, The Law of One, as an accessible narrative. It explores cosmology, the Creator, the densities, and the purpose of existence.',
-  pt: 'Uma reinterpretação filosófica do Material Ra, A Lei do Um, como narrativa acessível. Explora a cosmologia, o Criador, as densidades e o propósito da existência.',
+  pt: 'Uma reinterpretação filosófica do Material Ra, A Lei do Um, como narrativa acessível. Explora a cosmologia, o Criador, as densidades e o propósito da existência.'
 };
 
 const OUTRO = {
   es: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L. L. Research. Sesiones originales gratis en L. L. Research punto org',
   en: 'This work is a philosophical interpretation of The Ra Material, originally published by L. L. Research. Original sessions available free at L. L. Research dot org',
-  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L. L. Research. Sessões originais gratuitas em L. L. Research ponto org',
+  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L. L. Research. Sessões originais gratuitas em L. L. Research ponto org'
 };
 
 const VOICES = {
   es: 'es-MX-JorgeNeural',
   en: 'en-US-GuyNeural',
-  pt: 'pt-BR-AntonioNeural',
+  pt: 'pt-BR-AntonioNeural'
 };
 
 const BOOK_PREFIX = { es: 'el-uno', en: 'the-one', pt: 'o-um' };
@@ -63,7 +63,7 @@ const CH_LABEL = { es: 'cap', en: 'ch', pt: 'cap' };
 const COMPLETE_AUDIO_NAME = {
   es: 'el-uno-audiolibro-completo',
   en: 'the-one-complete-audiobook',
-  pt: 'o-um-audiolivro-completo',
+  pt: 'o-um-audiolivro-completo'
 };
 
 // ============================================================================
@@ -71,7 +71,9 @@ const COMPLETE_AUDIO_NAME = {
 // ============================================================================
 
 function slugify(text) {
-  return text.toLowerCase().normalize('NFD')
+  return text
+    .toLowerCase()
+    .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
@@ -98,13 +100,15 @@ async function generateClip(EdgeTTS, text, voice, outputPath, rate = '-5%') {
     outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
     rate,
     pitch: '+0Hz',
-    timeout: 60000,
+    timeout: 60000
   });
   await tts.ttsPromise(text, outputPath);
 }
 
 function generateSilence(outputPath, durationSec) {
-  execSync(`ffmpeg -f lavfi -i anullsrc=r=24000:cl=mono -t ${durationSec} -c:a libmp3lame -b:a 96k -y "${outputPath}" 2>/dev/null`);
+  execSync(
+    `ffmpeg -f lavfi -i anullsrc=r=24000:cl=mono -t ${durationSec} -c:a libmp3lame -b:a 96k -y "${outputPath}" 2>/dev/null`
+  );
 }
 
 function concatMp3s(files, outputPath) {
@@ -186,7 +190,10 @@ async function main() {
       if (only && num !== only) continue;
 
       const title = titles[num];
-      if (!title) { console.log(`  ⚠️  No title for ch${num}`); continue; }
+      if (!title) {
+        console.log(`  ⚠️  No title for ch${num}`);
+        continue;
+      }
 
       const padded = String(num).padStart(2, '0');
       const slug = slugify(title);

@@ -108,7 +108,11 @@ function isCompleteAudiobook(filename) {
 
 function isChapterFile(filename) {
   // Match: ch01.mp3, 01-title.mp3, el-uno-cap-01-*.mp3, the-one-ch-01-*.mp3
-  return /^ch\d{2}\.mp3$/.test(filename) || /^\d{2}-/.test(filename) || /^(el-uno|the-one|o-um)-(cap|ch)-\d{2}-/.test(filename);
+  return (
+    /^ch\d{2}\.mp3$/.test(filename) ||
+    /^\d{2}-/.test(filename) ||
+    /^(el-uno|the-one|o-um)-(cap|ch)-\d{2}-/.test(filename)
+  );
 }
 
 // ============================================================================

@@ -72,9 +72,7 @@ describe('mergeGlossaryTerms', () => {
   });
 
   it('skips terms without title', () => {
-    const newTerms = [
-      { keyword: 'no-title', definition: 'Missing title field' }
-    ];
+    const newTerms = [{ keyword: 'no-title', definition: 'Missing title field' }];
     const result = mergeGlossaryTerms(newTerms, {});
     assert.equal(result.added, 0);
     assert.equal(result.skipped.length, 1);

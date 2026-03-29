@@ -21,6 +21,7 @@ import dotenv from 'dotenv';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.join(__dirname, '..');
+const DEFAULT_I18N_ROOT = path.join(ROOT, 'i18n');
 
 dotenv.config({ path: path.join(ROOT, '.env') });
 
@@ -318,7 +319,7 @@ async function callAPI(systemPrompt, userPrompt, maxTokens = MAX_TOKENS) {
 // Translation
 // ─────────────────────────────────────────────────────────────
 
-function buildChapterPrompt(enChapter, lang) {
+function buildChapterPrompt(enChapter, lang, dynamicChapterMeta) {
   const langName = LANG_NAMES[lang];
   const term = TERMINOLOGY[lang];
 
@@ -343,7 +344,9 @@ FORBIDDEN STRINGS: ${term.forbidden.map(f => `"${f}"`).join(', ')}
 
 OUTPUT: Return ONLY the complete JSON object. No explanations, no markdown fences.`,
 
-    user: `Translate this chapter to ${langName}. Set numberText to "${NUMBER_TEXT[lang][enChapter.number]}" and title to "${TITLES[lang][enChapter.number]}". Translate all section titles and paragraph text.
+    user: dynamicChapterMeta
+      ? `Translate this chapter to ${langName}. Keep the same JSON shape. Translate title, numberText, every section title, and all paragraph text. Preserve id, number, and section ids exactly. Use natural chapter ordinals in ${langName} for numberText (e.g. Spanish: "Capítulo uno").\n\n${JSON.stringify(enChapter, null, 2)}`
+      : `Translate this chapter to ${langName}. Set numberText to "${NUMBER_TEXT[lang][enChapter.number]}" and title to "${TITLES[lang][enChapter.number]}". Translate all section titles and paragraph text.
 
 ${JSON.stringify(enChapter, null, 2)}`
   };
@@ -367,21 +370,23 @@ ${JSON.stringify(terms, null, 2)}`
   };
 }
 
-function postProcess(translated, en, lang) {
+function postProcess(translated, en, lang, i18nRoot, dynamicChapterMeta) {
   const issues = [];
 
-  // Fix numberText
-  const expectedNt = NUMBER_TEXT[lang][en.number];
-  if (translated.numberText !== expectedNt) {
-    issues.push(`Fixed numberText: "${translated.numberText}" → "${expectedNt}"`);
-    translated.numberText = expectedNt;
-  }
+  if (!dynamicChapterMeta) {
+    // Fix numberText
+    const expectedNt = NUMBER_TEXT[lang][en.number];
+    if (translated.numberText !== expectedNt) {
+      issues.push(`Fixed numberText: "${translated.numberText}" → "${expectedNt}"`);
+      translated.numberText = expectedNt;
+    }
 
-  // Fix title
-  const expectedTitle = TITLES[lang][en.number];
-  if (translated.title !== expectedTitle) {
-    issues.push(`Fixed title: "${translated.title}" → "${expectedTitle}"`);
-    translated.title = expectedTitle;
+    // Fix title
+    const expectedTitle = TITLES[lang][en.number];
+    if (translated.title !== expectedTitle) {
+      issues.push(`Fixed title: "${translated.title}" → "${expectedTitle}"`);
+      translated.title = expectedTitle;
+    }
   }
 
   // Fix id
@@ -401,7 +406,11 @@ function postProcess(translated, en, lang) {
 
   // Fix phantom {term:} marks (skip translation-only terms)
   const enTerms = extractTerms(en);
-  const translationTermsPath = path.join(ROOT, 'i18n', 'translation-terms.json');
+  const translationTermsPathAlt = path.join(i18nRoot, 'translation-terms.json');
+  const translationTermsPathMain = path.join(ROOT, 'i18n', 'translation-terms.json');
+  const translationTermsPath = fs.existsSync(translationTermsPathAlt)
+    ? translationTermsPathAlt
+    : translationTermsPathMain;
   const translationTerms = fs.existsSync(translationTermsPath)
     ? JSON.parse(fs.readFileSync(translationTermsPath, 'utf8')).terms || []
     : [];
@@ -453,11 +462,11 @@ function postProcess(translated, en, lang) {
 // Main
 // ─────────────────────────────────────────────────────────────
 
-async function translateChapter(chapterNum, lang, dryRun) {
+async function translateChapter(chapterNum, lang, dryRun, i18nRoot, dynamicChapterMeta) {
   const nn = pad(chapterNum);
   const label = LANG_NAMES[lang].toUpperCase();
-  const enPath = path.join(ROOT, 'i18n', 'en', 'chapters', `${nn}.json`);
-  const destPath = path.join(ROOT, 'i18n', lang, 'chapters', `${nn}.json`);
+  const enPath = path.join(i18nRoot, 'en', 'chapters', `${nn}.json`);
+  const destPath = path.join(i18nRoot, lang, 'chapters', `${nn}.json`);
 
   console.log(`\n   🌐 Translating to ${label}...`);
 
@@ -472,7 +481,7 @@ async function translateChapter(chapterNum, lang, dryRun) {
   }
 
   // Call API
-  const prompt = buildChapterPrompt(en, lang);
+  const prompt = buildChapterPrompt(en, lang, dynamicChapterMeta);
   const result = await callAPI(prompt.system, prompt.user);
 
   if (!result) {
@@ -481,7 +490,7 @@ async function translateChapter(chapterNum, lang, dryRun) {
   }
 
   // Post-process
-  const { translated, issues } = postProcess(result, en, lang);
+  const { translated, issues } = postProcess(result, en, lang, i18nRoot, dynamicChapterMeta);
 
   // Validate structure
   if (translated.sections.length !== en.sections.length) {
@@ -504,14 +513,14 @@ async function translateChapter(chapterNum, lang, dryRun) {
   return true;
 }
 
-async function translateGlossary(chapterNum, lang, dryRun) {
+async function translateGlossary(chapterNum, lang, dryRun, i18nRoot) {
   const nn = pad(chapterNum);
   const label = LANG_NAMES[lang].toUpperCase();
 
   // Find new terms in this chapter
-  const enChapterPath = path.join(ROOT, 'i18n', 'en', 'chapters', `${nn}.json`);
-  const enGlossaryPath = path.join(ROOT, 'i18n', 'en', 'glossary.json');
-  const destGlossaryPath = path.join(ROOT, 'i18n', lang, 'glossary.json');
+  const enChapterPath = path.join(i18nRoot, 'en', 'chapters', `${nn}.json`);
+  const enGlossaryPath = path.join(i18nRoot, 'en', 'glossary.json');
+  const destGlossaryPath = path.join(i18nRoot, lang, 'glossary.json');
 
   const enChapter = loadJSON(enChapterPath);
   const enGlossary = loadJSON(enGlossaryPath);
@@ -583,17 +592,22 @@ for (let i = 0; i < args.length; i++) {
     flags.lang = args[++i].split(',');
   } else if (args[i] === '--dry-run') {
     flags.dryRun = true;
+  } else if (args[i] === '--i18n-root' && args[i + 1]) {
+    flags.i18nRoot = args[++i];
   } else if (!args[i].startsWith('--')) {
     positional.push(args[i]);
   }
 }
 
 if (positional.length === 0) {
-  console.log('Usage: node scripts/translate-chapter.js <chapter> [--lang es,pt] [--dry-run]');
+  console.log(
+    'Usage: node scripts/translate-chapter.js <chapter> [--lang es,pt] [--dry-run] [--i18n-root <path>]'
+  );
   console.log('  node scripts/translate-chapter.js 02');
   console.log('  node scripts/translate-chapter.js 02 --lang es');
   console.log('  node scripts/translate-chapter.js 02 --lang pt');
   console.log('  node scripts/translate-chapter.js 02 --dry-run');
+  console.log('  node scripts/translate-chapter.js 01 --lang es --i18n-root distill/i18n');
   process.exit(0);
 }
 
@@ -602,26 +616,39 @@ const nn = pad(chapterNum);
 const targetLangs = flags.lang || ['es', 'pt'];
 const dryRun = flags.dryRun || false;
 
+const i18nRoot = flags.i18nRoot
+  ? path.resolve(ROOT, flags.i18nRoot)
+  : process.env.ELUNO_I18N_ROOT
+    ? path.resolve(ROOT, process.env.ELUNO_I18N_ROOT)
+    : DEFAULT_I18N_ROOT;
+
+const dynamicChapterMeta = path.resolve(i18nRoot) !== path.resolve(DEFAULT_I18N_ROOT);
+
 // Verify EN chapter exists
-const enPath = path.join(ROOT, 'i18n', 'en', 'chapters', `${nn}.json`);
+const enPath = path.join(i18nRoot, 'en', 'chapters', `${nn}.json`);
 if (!fs.existsSync(enPath)) {
   console.error(`❌ EN chapter not found: ${path.relative(ROOT, enPath)}`);
-  console.error('Run: node scripts/integrate-chapter.js ' + nn);
+  if (!dynamicChapterMeta) {
+    console.error('Run: node scripts/integrate-chapter.js ' + nn);
+  }
   process.exit(2);
 }
 
 console.log('═══════════════════════════════════════════');
 console.log(` Translating Chapter ${chapterNum}${dryRun ? ' (DRY RUN)' : ''}`);
 console.log(` Languages: ${targetLangs.join(', ').toUpperCase()}`);
+console.log(
+  ` i18n: ${path.relative(ROOT, i18nRoot) || '.'}${dynamicChapterMeta ? ' (dynamic titles)' : ''}`
+);
 console.log('═══════════════════════════════════════════');
 
 let allSuccess = true;
 
 // Translate sequentially to avoid rate limits
 for (const lang of targetLangs) {
-  const chapterOk = await translateChapter(chapterNum, lang, dryRun);
+  const chapterOk = await translateChapter(chapterNum, lang, dryRun, i18nRoot, dynamicChapterMeta);
   if (chapterOk && !dryRun) {
-    await translateGlossary(chapterNum, lang, dryRun);
+    await translateGlossary(chapterNum, lang, dryRun, i18nRoot);
   }
   if (!chapterOk) allSuccess = false;
 }

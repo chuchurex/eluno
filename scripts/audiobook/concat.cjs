@@ -76,7 +76,8 @@ function main() {
       continue;
     }
 
-    const files = fs.readdirSync(langDir)
+    const files = fs
+      .readdirSync(langDir)
       .filter(f => f.match(/^ch\d{2}\.mp3$/))
       .sort()
       .map(f => path.join(langDir, f));

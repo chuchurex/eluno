@@ -72,7 +72,7 @@ const PDF_LABELS = {
     raSources: 'Ra Material Sources',
     paragraphs: 'Paragraphs',
     paragraph: 'Paragraph',
-    session: 'Session',
+    session: 'Session'
   },
   es: {
     glossary: 'Glosario',
@@ -81,7 +81,7 @@ const PDF_LABELS = {
     raSources: 'Fuentes del Material Ra',
     paragraphs: 'Párrafos',
     paragraph: 'Párrafo',
-    session: 'Sesión',
+    session: 'Sesión'
   },
   pt: {
     glossary: 'Glossário',
@@ -90,20 +90,20 @@ const PDF_LABELS = {
     raSources: 'Fontes do Material Ra',
     paragraphs: 'Parágrafos',
     paragraph: 'Parágrafo',
-    session: 'Sessão',
-  },
+    session: 'Sessão'
+  }
 };
 
 const TAGLINE = {
   en: 'A philosophical reinterpretation of The Ra Material, The Law of One, as an accessible narrative. It explores cosmology, the Creator, the densities, and the purpose of existence.',
   es: 'Una reinterpretación filosófica del Material Ra, La Ley del Uno, como narrativa accesible. Explora la cosmología, el Creador, las densidades y el propósito de la existencia.',
-  pt: 'Uma reinterpretação filosófica do Material Ra, A Lei do Um, como narrativa acessível. Explora a cosmologia, o Criador, as densidades e o propósito da existência.',
+  pt: 'Uma reinterpretação filosófica do Material Ra, A Lei do Um, como narrativa acessível. Explora a cosmologia, o Criador, as densidades e o propósito da existência.'
 };
 
 const OUTRO = {
   en: 'This work is a philosophical interpretation of The Ra Material, originally published by L/L Research. Original sessions available free at llresearch.org',
   es: 'Este trabajo es una interpretación filosófica del Material Ra, publicado originalmente por L/L Research. Sesiones originales disponibles en llresearch.org',
-  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research. Sessões originais disponíveis em llresearch.org',
+  pt: 'Este trabalho é uma interpretação filosófica do Material Ra, publicado originalmente por L/L Research. Sessões originais disponíveis em llresearch.org'
 };
 
 // ============================================================================
@@ -120,12 +120,20 @@ const OUTRO = {
  * @param {object} opts - { chapterNum, isBook } for numbering
  * Returns processed HTML string
  */
-function processTextWithFootnotes(text, glossary, references, collectedFootnotes, collectedRefs, opts) {
-  const chapterNum = opts && opts.chapterNum || null;
-  const isBook = opts && opts.isBook || false;
+function processTextWithFootnotes(
+  text,
+  glossary,
+  references,
+  collectedFootnotes,
+  collectedRefs,
+  opts
+) {
+  const chapterNum = (opts && opts.chapterNum) || null;
+  const isBook = (opts && opts.isBook) || false;
 
   // Replace optional preceding article + {term:id} or {term:id|text} with superscript number
-  const articleRe = /(?:\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+)?\{term:([^}|]+)(?:\|([^}]+))?\}/gi;
+  const articleRe =
+    /(?:\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+)?\{term:([^}|]+)(?:\|([^}]+))?\}/gi;
 
   let processed = text.replace(articleRe, (match, precedingArt, termId, customText) => {
     const term = glossary[termId];
@@ -139,7 +147,8 @@ function processTextWithFootnotes(text, glossary, references, collectedFootnotes
 
     const localIndex = Array.from(collectedFootnotes.keys()).indexOf(termId) + 1;
     const footnoteLabel = isBook && chapterNum ? `${chapterNum}.${localIndex}` : String(localIndex);
-    const makeSpan = (title) => `<span class="term">${title}<sup class="fn-ref">${footnoteLabel}</sup></span>`;
+    const makeSpan = title =>
+      `<span class="term">${title}<sup class="fn-ref">${footnoteLabel}</sup></span>`;
 
     if (!precedingArt) return makeSpan(displayText);
 
@@ -161,17 +170,47 @@ function processTextWithFootnotes(text, glossary, references, collectedFootnotes
   });
 
   // Fix trailing duplicates: "<span>Véu do Esquecimento...</span> do esquecimento"
-  processed = processed.replace(/(<\/span>)\s+((?:del|do|da|of|dos|das)\s+\w+)(?=[\s.,;:!?]|$)/gi, (match, closeTag, trailing) => {
-    const spanMatch = match.match(/>([^<]+)<\/span>/);
-    if (!spanMatch) return match;
-    const spanText = spanMatch[1].replace(/<[^>]+>/g, '');
-    if (spanText.toLowerCase().endsWith(trailing.toLowerCase())) return closeTag;
-    return match;
-  });
+  processed = processed.replace(
+    /(<\/span>)\s+((?:del|do|da|of|dos|das)\s+\w+)(?=[\s.,;:!?]|$)/gi,
+    (match, closeTag, trailing) => {
+      const spanMatch = match.match(/>([^<]+)<\/span>/);
+      if (!spanMatch) return match;
+      const spanText = spanMatch[1].replace(/<[^>]+>/g, '');
+      if (spanText.toLowerCase().endsWith(trailing.toLowerCase())) return closeTag;
+      return match;
+    }
+  );
 
   // Handle {ref:id} — replace with superscript letter or strip if no collectedRefs
   const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-  const SUPERSCRIPT_LETTERS = { a:'ᵃ', b:'ᵇ', c:'ᶜ', d:'ᵈ', e:'ᵉ', f:'ᶠ', g:'ᵍ', h:'ʰ', i:'ⁱ', j:'ʲ', k:'ᵏ', l:'ˡ', m:'ᵐ', n:'ⁿ', o:'ᵒ', p:'ᵖ', q:'q', r:'ʳ', s:'ˢ', t:'ᵗ', u:'ᵘ', v:'ᵛ', w:'ʷ', x:'ˣ', y:'ʸ', z:'ᶻ' };
+  const SUPERSCRIPT_LETTERS = {
+    a: 'ᵃ',
+    b: 'ᵇ',
+    c: 'ᶜ',
+    d: 'ᵈ',
+    e: 'ᵉ',
+    f: 'ᶠ',
+    g: 'ᵍ',
+    h: 'ʰ',
+    i: 'ⁱ',
+    j: 'ʲ',
+    k: 'ᵏ',
+    l: 'ˡ',
+    m: 'ᵐ',
+    n: 'ⁿ',
+    o: 'ᵒ',
+    p: 'ᵖ',
+    q: 'q',
+    r: 'ʳ',
+    s: 'ˢ',
+    t: 'ᵗ',
+    u: 'ᵘ',
+    v: 'ᵛ',
+    w: 'ʷ',
+    x: 'ˣ',
+    y: 'ʸ',
+    z: 'ᶻ'
+  };
 
   processed = processed.replace(/\{ref:([^}]+)\}/g, (match, refId) => {
     if (!collectedRefs || !references) return '';
@@ -216,13 +255,15 @@ function renderGlossaryHtml(footnotes, lang, chapterNum, isBook) {
   const entries = Array.from(footnotes.entries()).filter(([, item]) => item.type !== 'ref');
   if (entries.length === 0) return '';
 
-  const items = entries.map(([, item], index) => {
-    const num = isBook && chapterNum ? `${chapterNum}.${index + 1}` : String(index + 1);
-    const content = item.content.map(p =>
-      p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    ).join(' ');
-    return `<div class="footnote"><sup>${num}</sup> <strong>${item.title}:</strong> ${content}</div>`;
-  }).join('\n');
+  const items = entries
+    .map(([, item], index) => {
+      const num = isBook && chapterNum ? `${chapterNum}.${index + 1}` : String(index + 1);
+      const content = item.content
+        .map(p => p.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>'))
+        .join(' ');
+      return `<div class="footnote"><sup>${num}</sup> <strong>${item.title}:</strong> ${content}</div>`;
+    })
+    .join('\n');
 
   return `
     <div class="footnotes">
@@ -241,7 +282,34 @@ function renderGlossaryHtml(footnotes, lang, chapterNum, isBook) {
 function renderSourcesHtml(collectedRefs, provenance, lang) {
   const labels = PDF_LABELS[lang] || PDF_LABELS.en;
   const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-  const SUPERSCRIPT_LETTERS = { a:'ᵃ', b:'ᵇ', c:'ᶜ', d:'ᵈ', e:'ᵉ', f:'ᶠ', g:'ᵍ', h:'ʰ', i:'ⁱ', j:'ʲ', k:'ᵏ', l:'ˡ', m:'ᵐ', n:'ⁿ', o:'ᵒ', p:'ᵖ', q:'q', r:'ʳ', s:'ˢ', t:'ᵗ', u:'ᵘ', v:'ᵛ', w:'ʷ', x:'ˣ', y:'ʸ', z:'ᶻ' };
+  const SUPERSCRIPT_LETTERS = {
+    a: 'ᵃ',
+    b: 'ᵇ',
+    c: 'ᶜ',
+    d: 'ᵈ',
+    e: 'ᵉ',
+    f: 'ᶠ',
+    g: 'ᵍ',
+    h: 'ʰ',
+    i: 'ⁱ',
+    j: 'ʲ',
+    k: 'ᵏ',
+    l: 'ˡ',
+    m: 'ᵐ',
+    n: 'ⁿ',
+    o: 'ᵒ',
+    p: 'ᵖ',
+    q: 'q',
+    r: 'ʳ',
+    s: 'ˢ',
+    t: 'ᵗ',
+    u: 'ᵘ',
+    v: 'ᵛ',
+    w: 'ʷ',
+    x: 'ˣ',
+    y: 'ʸ',
+    z: 'ᶻ'
+  };
 
   const hasRefs = collectedRefs && collectedRefs.length > 0;
   const hasProv = provenance && provenance.provenance && provenance.provenance.length > 0;
@@ -272,15 +340,18 @@ function renderSourcesHtml(collectedRefs, provenance, lang) {
       html += `<div class="provenance-section-title">§ ${section.section_title}</div>`;
       section.segments.forEach(seg => {
         if (!seg.sources || seg.sources.length === 0) return;
-        const pLabel = seg.paragraphs.length === 1
-          ? `${labels.paragraph} ${seg.paragraphs[0]}`
-          : `${labels.paragraphs} ${seg.paragraphs[0]}-${seg.paragraphs[seg.paragraphs.length - 1]}`;
-        const sessionsHtml = seg.sources.map((src, i) => {
-          const url = seg.urls && seg.urls[i] ? seg.urls[i] : '';
-          return url
-            ? `${labels.session} ${src} — <span class="source-url">${url}</span>`
-            : `${labels.session} ${src}`;
-        }).join('; ');
+        const pLabel =
+          seg.paragraphs.length === 1
+            ? `${labels.paragraph} ${seg.paragraphs[0]}`
+            : `${labels.paragraphs} ${seg.paragraphs[0]}-${seg.paragraphs[seg.paragraphs.length - 1]}`;
+        const sessionsHtml = seg.sources
+          .map((src, i) => {
+            const url = seg.urls && seg.urls[i] ? seg.urls[i] : '';
+            return url
+              ? `${labels.session} ${src} — <span class="source-url">${url}</span>`
+              : `${labels.session} ${src}`;
+          })
+          .join('; ');
         html += `<div class="provenance-segment">${pLabel} → ${sessionsHtml}</div>`;
       });
       html += `</div>`;
@@ -298,34 +369,43 @@ function renderSourcesHtml(collectedRefs, provenance, lang) {
 function generatePdfHtml(chapter, glossary, references, lang, ui, provenance) {
   const collectedFootnotes = new Map();
   const collectedRefs = [];
-  const chapterNum = chapter.number || parseInt(String(chapter.numberText || '').replace(/\D/g, '')) || null;
+  const chapterNum =
+    chapter.number || parseInt(String(chapter.numberText || '').replace(/\D/g, '')) || null;
 
   // Process all sections and collect footnotes
-  const sectionsHtml = chapter.sections.map((section, index) => {
-    const contentHtml = section.content.map(block => {
-      if (block.type === 'separator') {
-        return '<div class="divider">· · ·</div>';
-      }
-      const processedText = processTextWithFootnotes(
-        block.text, glossary, references, collectedFootnotes, collectedRefs,
-        { chapterNum, isBook: false }
-      );
-      if (block.type === 'paragraph') {
-        return `<p>${processedText}</p>`;
-      } else if (block.type === 'quote') {
-        return `<div class="quote">${processedText}</div>`;
-      }
-      return '';
-    }).join('\n');
+  const sectionsHtml = chapter.sections
+    .map((section, index) => {
+      const contentHtml = section.content
+        .map(block => {
+          if (block.type === 'separator') {
+            return '<div class="divider">· · ·</div>';
+          }
+          const processedText = processTextWithFootnotes(
+            block.text,
+            glossary,
+            references,
+            collectedFootnotes,
+            collectedRefs,
+            { chapterNum, isBook: false }
+          );
+          if (block.type === 'paragraph') {
+            return `<p>${processedText}</p>`;
+          } else if (block.type === 'quote') {
+            return `<div class="quote">${processedText}</div>`;
+          }
+          return '';
+        })
+        .join('\n');
 
-    return `
+      return `
       <section class="section">
         <h2>${section.title}</h2>
         ${contentHtml}
       </section>
       ${index < chapter.sections.length - 1 ? '<div class="divider">· · ·</div>' : ''}
     `;
-  }).join('\n');
+    })
+    .join('\n');
 
   const glossaryHtml = renderGlossaryHtml(collectedFootnotes, lang, chapterNum, false);
   const sourcesHtml = renderSourcesHtml(collectedRefs, provenance, lang);
@@ -473,8 +553,8 @@ function loadUI(lang) {
   const uiPath = path.join(I18N_DIR, lang, 'ui.json');
   const ui = loadJSON(uiPath);
   if (!ui) {
-      // Fallback to English if not found, but we expect it to exist
-      return loadJSON(path.join(I18N_DIR, BASE_LANG, 'ui.json')) || {};
+    // Fallback to English if not found, but we expect it to exist
+    return loadJSON(path.join(I18N_DIR, BASE_LANG, 'ui.json')) || {};
   }
   return ui;
 }
@@ -530,7 +610,8 @@ async function buildAllPdfs(targetLang = null) {
 
   // Get all chapter files
   const chaptersDir = path.join(I18N_DIR, BASE_LANG, 'chapters');
-  const chapterFiles = fs.readdirSync(chaptersDir)
+  const chapterFiles = fs
+    .readdirSync(chaptersDir)
     .filter(f => f.endsWith('.json'))
     .sort();
 
@@ -559,7 +640,8 @@ async function buildCompleteBookPdf(targetLang = null) {
       continue;
     }
 
-    const chapterFiles = fs.readdirSync(chaptersDir)
+    const chapterFiles = fs
+      .readdirSync(chaptersDir)
       .filter(f => f.endsWith('.json'))
       .sort();
 
@@ -585,41 +667,50 @@ async function buildCompleteBookPdf(targetLang = null) {
     }
 
     // Compile sections from all chapters — each chapter gets its own glossary + sources
-    const chaptersHtml = chapters.map((chapter, chIdx) => {
-      const chapterNum = chapter.number || (chIdx + 1);
-      const collectedFootnotes = new Map();
-      const collectedRefs = [];
-      const provenance = loadProvenance(chapterNum);
+    const chaptersHtml = chapters
+      .map((chapter, chIdx) => {
+        const chapterNum = chapter.number || chIdx + 1;
+        const collectedFootnotes = new Map();
+        const collectedRefs = [];
+        const provenance = loadProvenance(chapterNum);
 
-      const sectionsHtml = chapter.sections.map((section) => {
-        const contentHtml = section.content.map(block => {
-          if (block.type === 'separator') {
-            return '<div class="divider">· · ·</div>';
-          }
-          const processedText = processTextWithFootnotes(
-            block.text, glossary, references, collectedFootnotes, collectedRefs,
-            { chapterNum, isBook: true }
-          );
-          if (block.type === 'paragraph') {
-            return `<p>${processedText}</p>`;
-          } else if (block.type === 'quote') {
-            return `<div class="quote">${processedText}</div>`;
-          }
-          return '';
-        }).join('\n');
+        const sectionsHtml = chapter.sections
+          .map(section => {
+            const contentHtml = section.content
+              .map(block => {
+                if (block.type === 'separator') {
+                  return '<div class="divider">· · ·</div>';
+                }
+                const processedText = processTextWithFootnotes(
+                  block.text,
+                  glossary,
+                  references,
+                  collectedFootnotes,
+                  collectedRefs,
+                  { chapterNum, isBook: true }
+                );
+                if (block.type === 'paragraph') {
+                  return `<p>${processedText}</p>`;
+                } else if (block.type === 'quote') {
+                  return `<div class="quote">${processedText}</div>`;
+                }
+                return '';
+              })
+              .join('\n');
 
-        return `
+            return `
           <section class="section">
             <h2>${section.title}</h2>
             ${contentHtml}
           </section>
         `;
-      }).join('\n');
+          })
+          .join('\n');
 
-      const chGlossaryHtml = renderGlossaryHtml(collectedFootnotes, lang, chapterNum, true);
-      const chSourcesHtml = renderSourcesHtml(collectedRefs, provenance, lang);
+        const chGlossaryHtml = renderGlossaryHtml(collectedFootnotes, lang, chapterNum, true);
+        const chSourcesHtml = renderSourcesHtml(collectedRefs, provenance, lang);
 
-      return `
+        return `
         <div class="chapter-wrapper" style="page-break-before: always;">
           <header class="chapter-header">
             <div class="chapter-num">${chapter.numberText}</div>
@@ -630,7 +721,8 @@ async function buildCompleteBookPdf(targetLang = null) {
           ${chSourcesHtml}
         </div>
       `;
-    }).join('\n');
+      })
+      .join('\n');
 
     const html = `<!DOCTYPE html>
 <html lang="${lang}">

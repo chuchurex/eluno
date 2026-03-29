@@ -103,7 +103,8 @@ function cleanForTTS(text, glossary) {
   // ES: "el El Infinito" → "El Infinito", "El El Llamado" → "El Llamado"
   // EN: "the The Infinite" → "The Infinite", "The The Calling" → "The Calling"
   // PT: "o O Infinito" → "O Infinito", "do os Logos" → "dos Logos"
-  const articlePattern = /\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+(el|la|los|las|the|o|a|os|as)\s/gi;
+  const articlePattern =
+    /\b(el|la|los|las|del|al|the|o|a|os|as|do|da|dos|das)\s+(el|la|los|las|the|o|a|os|as)\s/gi;
   text = text.replace(articlePattern, (match, art, termArt) => {
     const al = art.toLowerCase();
     const tl = termArt.toLowerCase();
@@ -115,7 +116,11 @@ function cleanForTTS(text, glossary) {
     if (al === 'do' && tl === 'os') return 'dos ';
     if (al === 'do' && tl === 'as') return 'das ';
     if (al === 'da' && tl === 'a') return 'da ';
-    if ((al === 'do' || al === 'da' || al === 'dos' || al === 'das') && (tl === 'o' || tl === 'a' || tl === 'os' || tl === 'as')) return art + ' ';
+    if (
+      (al === 'do' || al === 'da' || al === 'dos' || al === 'das') &&
+      (tl === 'o' || tl === 'a' || tl === 'os' || tl === 'as')
+    )
+      return art + ' ';
     return match; // Don't modify if no rule matches
   });
 
@@ -158,7 +163,10 @@ function chapterToText(chapter, glossary) {
     }
   }
 
-  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  return lines
+    .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 // ============================================================================
@@ -186,7 +194,8 @@ function main() {
     fs.mkdirSync(outDir, { recursive: true });
 
     // Find chapter files
-    const files = fs.readdirSync(chaptersDir)
+    const files = fs
+      .readdirSync(chaptersDir)
       .filter(f => f.match(/^\d{2}\.json$/))
       .sort();
 
@@ -207,7 +216,9 @@ function main() {
 
       const wordCount = text.split(/\s+/).length;
       const estMinutes = Math.round(wordCount / 150); // ~150 wpm narration
-      console.log(`  ✓ ch${String(num).padStart(2, '0')}.txt — ${wordCount.toLocaleString()} words (~${estMinutes} min)`);
+      console.log(
+        `  ✓ ch${String(num).padStart(2, '0')}.txt — ${wordCount.toLocaleString()} words (~${estMinutes} min)`
+      );
       totalFiles++;
     }
   }
