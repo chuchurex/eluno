@@ -1,6 +1,6 @@
-const { describe, it } = require('node:test');
-const assert = require('node:assert/strict');
-const { parseTerms, parseRefs, slugify, cleanTextForMeta } = require('../scripts/build-v2.cjs');
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
+import { parseTerms, parseRefs, slugify, cleanTextForMeta } from '@eluno/core/content';
 
 // ─────────────────────────────────────────────────────────────
 // parseTerms
@@ -8,14 +8,26 @@ const { parseTerms, parseRefs, slugify, cleanTextForMeta } = require('../scripts
 
 describe('parseTerms', () => {
   const glossary = {
-    'the-infinite': { title: 'The Infinite', content: ['The boundless unity...'] },
-    'el-infinito': { title: 'El Infinito', content: ['La unidad sin límites...'] },
-    'os-centros': { title: 'Os Centros de Energia', content: ['Os sete centros...'] },
+    'the-infinite': {
+      title: 'The Infinite',
+      content: ['The boundless unity...']
+    },
+    'el-infinito': {
+      title: 'El Infinito',
+      content: ['La unidad sin límites...']
+    },
+    'os-centros': {
+      title: 'Os Centros de Energia',
+      content: ['Os sete centros...']
+    },
     'mind-body-spirit-complex': {
       title: 'Mind/Body/Spirit Complex',
       content: ['The unified being...']
     },
-    'original-thought': { title: 'Original Thought (Concept)', content: ['The primal thought...'] },
+    'original-thought': {
+      title: 'Original Thought (Concept)',
+      content: ['The primal thought...']
+    },
     'o-veu': { title: 'O Véu do Esquecimento', content: ['O véu...'] },
     'a-morte': { title: 'A Morte', content: ['A transição...'] }
   };
@@ -43,7 +55,6 @@ describe('parseTerms', () => {
 
   it('dedup article ES: "del {term:el-infinito}" removes redundant El', () => {
     const result = parseTerms('del {term:el-infinito}', glossary);
-    // Should be "del <span>Infinito</span>" not "del <span>El Infinito</span>"
     assert.ok(result.includes('del <span'));
     assert.ok(!result.includes('>El Infinito<'));
     assert.ok(result.includes('>Infinito<'));
@@ -51,9 +62,7 @@ describe('parseTerms', () => {
 
   it('dedup same article: "el {term:el-infinito}" collapses to "El Infinito"', () => {
     const result = parseTerms('el {term:el-infinito}', glossary);
-    // "el" matches first word "El" → returns just the span with full title
     assert.ok(result.includes('>El Infinito<'));
-    // Should NOT have "el El Infinito"
     assert.ok(!result.includes('el <span'));
   });
 
@@ -90,24 +99,24 @@ describe('parseTerms', () => {
 
 describe('parseRefs', () => {
   it('replaces {ref:cat:id} with span element', () => {
-    const result = parseRefs('See {ref:phys:photon} for details.', {});
+    const result = parseRefs('See {ref:phys:photon} for details.');
     assert.ok(result.includes('<span class="ref" data-ref="phys:photon"></span>'));
   });
 
   it('preserves surrounding text', () => {
-    const result = parseRefs('Before {ref:phil:plato-cave} after.', {});
+    const result = parseRefs('Before {ref:phil:plato-cave} after.');
     assert.ok(result.startsWith('Before '));
     assert.ok(result.endsWith(' after.'));
   });
 
   it('handles multiple refs', () => {
-    const result = parseRefs('{ref:phys:photon} and {ref:phil:plato-cave}', {});
+    const result = parseRefs('{ref:phys:photon} and {ref:phil:plato-cave}');
     assert.ok(result.includes('data-ref="phys:photon"'));
     assert.ok(result.includes('data-ref="phil:plato-cave"'));
   });
 
   it('leaves text without refs unchanged', () => {
-    const result = parseRefs('No refs here.', {});
+    const result = parseRefs('No refs here.');
     assert.equal(result, 'No refs here.');
   });
 });

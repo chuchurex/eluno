@@ -1,25 +1,23 @@
-const { describe, it, before, after } = require('node:test');
-const assert = require('node:assert/strict');
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+import { describe, it, before, after } from 'node:test';
+import assert from 'node:assert/strict';
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const ENV_PATH = path.join(ROOT, '.env');
 const ENV_BACKUP = path.join(ROOT, '.env.test-backup');
 
 function build() {
-  execSync('node scripts/build-v2.cjs', { cwd: ROOT, stdio: 'pipe' });
+  execSync('npx eluno-build', { cwd: ROOT, stdio: 'pipe' });
 }
 
 function readPage(relPath) {
   return fs.readFileSync(path.join(DIST, relPath), 'utf8');
 }
-
-// ─────────────────────────────────────────────────────────────
-// Helpers
-// ─────────────────────────────────────────────────────────────
 
 function backupEnv() {
   if (fs.existsSync(ENV_PATH)) {
@@ -44,39 +42,38 @@ function removeEnv() {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Tests
+// siteUrl comes from eluno.config.js (not env vars in v2)
 // ─────────────────────────────────────────────────────────────
 
-describe('ENV: SITE_URL', () => {
+describe('CONFIG: siteUrl', () => {
   before(() => backupEnv());
   after(() => restoreEnv());
 
-  it('uses SITE_URL for canonical URLs', () => {
-    writeEnv({ SITE_URL: 'https://example.com', GA_ID: '', GITHUB_REPO: '' });
-    build();
-    const html = readPage('en/index.html');
-    assert.ok(html.includes('href="https://example.com/en/"'), 'canonical should use SITE_URL');
-  });
-
-  it('uses SITE_URL hostname in <title>', () => {
-    writeEnv({ SITE_URL: 'https://example.com', GA_ID: '', GITHUB_REPO: '' });
-    build();
-    const html = readPage('en/index.html');
-    assert.ok(html.includes('| example.com</title>'), 'title should include domain');
-  });
-
-  it('uses SITE_URL in hreflang alternates', () => {
-    writeEnv({ SITE_URL: 'https://example.com', GA_ID: '', GITHUB_REPO: '' });
-    build();
-    const html = readPage('en/index.html');
-    assert.ok(html.includes('href="https://example.com/es/"'), 'hreflang should use SITE_URL');
-  });
-
-  it('defaults to eluno.org when SITE_URL is absent', () => {
+  it('uses siteUrl from eluno.config.js for canonical URLs', () => {
     writeEnv({ GA_ID: '', GITHUB_REPO: '' });
     build();
     const html = readPage('en/index.html');
-    assert.ok(html.includes('href="https://eluno.org/en/"'), 'should default to eluno.org');
+    assert.ok(
+      html.includes('href="https://eluno.org/en/"'),
+      'canonical should use siteUrl from config'
+    );
+  });
+
+  it('uses siteUrl hostname in <title>', () => {
+    writeEnv({ GA_ID: '', GITHUB_REPO: '' });
+    build();
+    const html = readPage('en/index.html');
+    assert.ok(html.includes('| eluno.org</title>'), 'title should include config domain');
+  });
+
+  it('uses siteUrl in hreflang alternates', () => {
+    writeEnv({ GA_ID: '', GITHUB_REPO: '' });
+    build();
+    const html = readPage('en/index.html');
+    assert.ok(
+      html.includes('href="https://eluno.org/es/"'),
+      'hreflang should use siteUrl from config'
+    );
   });
 });
 
@@ -85,7 +82,7 @@ describe('ENV: GA_ID', () => {
   after(() => restoreEnv());
 
   it('injects GA scripts when GA_ID is set', () => {
-    writeEnv({ SITE_URL: 'https://eluno.org', GA_ID: 'G-TEST123', GITHUB_REPO: '' });
+    writeEnv({ GA_ID: 'G-TEST123', GITHUB_REPO: '' });
     build();
     const pages = [
       'en/index.html',
@@ -101,7 +98,7 @@ describe('ENV: GA_ID', () => {
   });
 
   it('omits GA scripts when GA_ID is empty', () => {
-    writeEnv({ SITE_URL: 'https://eluno.org', GA_ID: '', GITHUB_REPO: '' });
+    writeEnv({ GA_ID: '', GITHUB_REPO: '' });
     build();
     const pages = [
       'en/index.html',
@@ -121,18 +118,14 @@ describe('ENV: GITHUB_REPO', () => {
   after(() => restoreEnv());
 
   it('shows GitHub link in footer when set', () => {
-    writeEnv({
-      SITE_URL: 'https://eluno.org',
-      GA_ID: '',
-      GITHUB_REPO: 'https://github.com/test/repo'
-    });
+    writeEnv({ GA_ID: '', GITHUB_REPO: 'https://github.com/test/repo' });
     build();
     const html = readPage('en/index.html');
     assert.ok(html.includes('https://github.com/test/repo'), 'footer should have GitHub link');
   });
 
   it('hides GitHub link when empty', () => {
-    writeEnv({ SITE_URL: 'https://eluno.org', GA_ID: '', GITHUB_REPO: '' });
+    writeEnv({ GA_ID: '', GITHUB_REPO: '' });
     build();
     const index = readPage('en/index.html');
     const chapter = readPage('en/chapters/cosmology-and-genesis.html');
@@ -147,9 +140,9 @@ describe('ENV: no .env file', () => {
 
   it('builds successfully with defaults when .env is missing', () => {
     removeEnv();
-    build(); // should not throw
+    build();
     const html = readPage('en/index.html');
-    assert.ok(html.includes('https://eluno.org'), 'should default to eluno.org');
+    assert.ok(html.includes('https://eluno.org'), 'should use siteUrl from config');
     assert.ok(!html.includes('googletagmanager'), 'should not have GA without .env');
   });
 });
