@@ -1,25 +1,16 @@
 /**
  * ESLint Configuration — eluno
  * ESLint 9 flat config format
- *
- * Note: Most scripts use CommonJS (require), only validate-json.js uses ESM
  */
 
 export default [
-  // CommonJS scripts (legacy)
+  // CommonJS scripts
   {
-    files: [
-      'scripts/build-v2.cjs',
-      'scripts/check-links.cjs',
-      'scripts/generate-covers.cjs',
-      'scripts/rename-audio-seo.cjs',
-      'scripts/update-mp3-tags.cjs'
-    ],
+    files: ['scripts/**/*.cjs', 'writing/tools/**/*.cjs'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'commonjs',
       globals: {
-        // Node.js CommonJS globals
         console: 'readonly',
         process: 'readonly',
         require: 'readonly',
@@ -45,16 +36,21 @@ export default [
       'no-var': 'warn'
     }
   },
-  // ESM scripts (new)
+  // ESM scripts
   {
-    files: ['scripts/validate-json.js'],
+    files: ['scripts/**/*.js'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
         console: 'readonly',
         process: 'readonly',
-        Buffer: 'readonly'
+        Buffer: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        URL: 'readonly'
       }
     },
     rules: {

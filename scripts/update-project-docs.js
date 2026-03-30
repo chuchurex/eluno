@@ -26,20 +26,21 @@ const dryRun = process.argv.includes('--dry-run');
 // Data collection
 // ─────────────────────────────────────────────────────────────
 
-function getEnabledChapters() {
-  const src = fs.readFileSync(path.join(ROOT, 'scripts', 'build-v2.cjs'), 'utf8');
-  const match = src.match(/enabledChapters:\s*\[([^\]]+)\]/);
-  if (!match) throw new Error('Could not parse enabledChapters from build-v2.cjs');
-  return match[1]
-    .split(',')
-    .map(s => parseInt(s.trim(), 10))
-    .filter(Boolean);
+async function getEnabledChapters() {
+  const configPath = path.join(ROOT, 'eluno.config.js');
+  const config = (await import(configPath)).default;
+  if (!config.enabledChapters) {
+    throw new Error('Could not find enabledChapters in eluno.config.js');
+  }
+  return config.enabledChapters;
 }
 
 function getChapterInfo(n) {
   const nn = String(n).padStart(2, '0');
   const enPath = path.join(ROOT, 'i18n', 'en', 'chapters', `${nn}.json`);
-  if (!fs.existsSync(enPath)) return null;
+  if (!fs.existsSync(enPath)) {
+    return null;
+  }
 
   const chapter = JSON.parse(fs.readFileSync(enPath, 'utf8'));
   const langs = LANGUAGES.filter(lang =>
@@ -137,7 +138,9 @@ function updateProjectStatus(chapters, enabled) {
     const pending = [];
     for (let n = 1; n <= 16; n++) {
       const ch = chapters.find(c => c.number === n);
-      if (!ch || !ch.isV3) pending.push(String(n).padStart(2, '0'));
+      if (!ch || !ch.isV3) {
+        pending.push(String(n).padStart(2, '0'));
+      }
     }
     if (pending.length > 0) {
       content = content.replace(
@@ -149,8 +152,8 @@ function updateProjectStatus(chapters, enabled) {
 
   // 5. Update enabledChapters line
   content = content.replace(
-    /`build-v2\.cjs` tiene `enabledChapters`[^\n]*/,
-    `\`build-v2.cjs\` tiene \`enabledChapters\` que controla qué capítulos se publican. Actualmente: \`[${enabled.join(', ')}]\`.`
+    /`(?:build-v2\.cjs|eluno\.config\.js)` tiene `enabledChapters`[^\n]*/,
+    `\`eluno.config.js\` tiene \`enabledChapters\` que controla qué capítulos se publican. Actualmente: \`[${enabled.join(', ')}]\`.`
   );
 
   return { filePath, content };
@@ -177,7 +180,7 @@ function updateRoadmap(chapters) {
     `## Estado actual\n\n` +
       `- **v3.eluno.org** live con ${v3Count} de 16 capítulos (${langSummary})\n` +
       `- Pipeline de escritura automatizado (6 fases, slash commands)\n` +
-      `- Build con \`build-v2.cjs\`, deploy automático vía Cloudflare Pages\n`
+      `- Build con \`@eluno/core\`, deploy automático vía Cloudflare Pages\n`
   );
 
   // 3. Update chapter checklist
@@ -230,7 +233,9 @@ function updateTodo(chapters) {
   const pending = [];
   for (let n = 1; n <= 16; n++) {
     const ch = chapters.find(c => c.number === n);
-    if (!ch || !ch.isV3) pending.push(n);
+    if (!ch || !ch.isV3) {
+      pending.push(n);
+    }
   }
 
   if (pending.length === 0) {
@@ -256,12 +261,14 @@ console.log('══════════════════════�
 console.log(` Updating project docs${dryRun ? ' (DRY RUN)' : ''}`);
 console.log('═══════════════════════════════════════════\n');
 
-const enabled = getEnabledChapters();
+const enabled = await getEnabledChapters();
 const chapters = [];
 
 for (let n = 1; n <= 16; n++) {
   const info = getChapterInfo(n);
-  if (info) chapters.push(info);
+  if (info) {
+    chapters.push(info);
+  }
 }
 
 const v3Count = chapters.filter(c => c.isV3).length;

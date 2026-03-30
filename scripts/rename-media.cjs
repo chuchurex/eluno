@@ -159,6 +159,7 @@ function main() {
       }
 
       // Build media.json entry
+      // TODO: centralize URLs in eluno.config.js (Phase 2)
       const entry = {};
       entry.pdf = `https://eluno.org/pdf/${lang}/${seoBase}.pdf`;
       if (fs.existsSync(audioDir)) {
@@ -219,4 +220,9 @@ function main() {
   console.log('\n✅ Done!\n');
 }
 
-main();
+try {
+  main();
+} catch (err) {
+  console.error(err);
+  process.exit(1);
+}

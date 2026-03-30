@@ -208,7 +208,11 @@ const LANG_NAMES = { es: 'Spanish', pt: 'Portuguese' };
 // ─────────────────────────────────────────────────────────────
 
 function loadJSON(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch (err) {
+    throw new Error(`Failed to load JSON from ${filePath}: ${err.message}`);
+  }
 }
 
 function writeJSON(filePath, data) {
@@ -268,6 +272,13 @@ async function callAPI(systemPrompt, userPrompt, maxTokens = MAX_TOKENS) {
         messages: [{ role: 'user', content: userPrompt }]
       });
 
+      if (!response.content?.length || !response.content[0]?.text) {
+        console.error('   ❌ Empty or invalid API response');
+        if (attempt < MAX_RETRIES - 1) {
+          continue;
+        }
+        return null;
+      }
       const text = response.content[0].text;
 
       // Extract JSON from response (may be wrapped in markdown fences)
@@ -284,12 +295,9 @@ async function callAPI(systemPrompt, userPrompt, maxTokens = MAX_TOKENS) {
           continue;
         }
         // Last attempt: save raw response for debugging
-        const errorPath = path.join(
-          ROOT,
-          'operador',
-          'output',
-          `translate_error_${Date.now()}.txt`
-        );
+        const errorDir = path.join(ROOT, 'workspace', 'output');
+        fs.mkdirSync(errorDir, { recursive: true });
+        const errorPath = path.join(errorDir, `translate_error_${Date.now()}.txt`);
         fs.writeFileSync(errorPath, text, 'utf8');
         console.error(
           `   ❌ Failed to parse JSON. Raw response saved to ${path.relative(ROOT, errorPath)}`
@@ -403,6 +411,11 @@ function postProcess(translated, en, lang, i18nRoot, dynamicChapterMeta) {
       translated.sections[i].id = en.sections[i].id;
     }
   }
+  if (translated.sections.length !== en.sections.length) {
+    issues.push(
+      `Section count mismatch: EN has ${en.sections.length}, translated has ${translated.sections.length}`
+    );
+  }
 
   // Fix phantom {term:} marks (skip translation-only terms)
   const enTerms = extractTerms(en);
@@ -418,12 +431,16 @@ function postProcess(translated, en, lang, i18nRoot, dynamicChapterMeta) {
 
   for (const section of translated.sections) {
     for (const block of section.content) {
-      if (!block.text) continue;
+      if (!block.text) {
+        continue;
+      }
       const blockTerms = block.text.match(/\{term:[^}]+\}/g) || [];
       for (const mark of blockTerms) {
         if (!enTerms.has(mark)) {
           const keyword = mark.match(/\{term:([^}]+)\}/)[1];
-          if (translationTerms.includes(keyword)) continue; // translation-only term
+          if (translationTerms.includes(keyword)) {
+            continue;
+          } // translation-only term
           block.text = block.text.replace(mark, '');
           phantomsRemoved++;
         }
@@ -650,7 +667,9 @@ for (const lang of targetLangs) {
   if (chapterOk && !dryRun) {
     await translateGlossary(chapterNum, lang, dryRun, i18nRoot);
   }
-  if (!chapterOk) allSuccess = false;
+  if (!chapterOk) {
+    allSuccess = false;
+  }
 }
 
 console.log('\n═══════════════════════════════════════════');

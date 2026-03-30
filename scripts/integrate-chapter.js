@@ -42,7 +42,11 @@ function getPaths(nn) {
 // ─────────────────────────────────────────────────────────────
 
 function loadJSON(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch (err) {
+    throw new Error(`Failed to load JSON from ${filePath}: ${err.message}`);
+  }
 }
 
 function writeJSON(filePath, data) {
@@ -122,6 +126,7 @@ function mergeGlossary(paths, dryRun) {
 
   let added = 0;
   let existing = 0;
+  const addedKeywords = [];
 
   for (const term of newTerms) {
     const { keyword, title, definition } = term;
@@ -138,6 +143,7 @@ function mergeGlossary(paths, dryRun) {
     // Convert array format → object format
     const content = Array.isArray(definition) ? definition : [definition];
     glossary[keyword] = { title, content };
+    addedKeywords.push(keyword);
     added++;
   }
 
@@ -155,16 +161,9 @@ function mergeGlossary(paths, dryRun) {
 
   console.log(`   📚 Glossary merged → ${added} new terms, ${existing} existing`);
   if (added > 0) {
-    for (const term of newTerms) {
-      if (!(term.keyword in loadJSON(paths.srcGlossary).reduce ? {} : glossary)) {
-        // Already added above, just list the new ones
-      }
-    }
-    const addedTerms = newTerms.filter(
-      t => !Object.keys(loadJSON(paths.destGlossary)).includes(t.keyword) === false
-    );
-    for (const term of newTerms) {
-      console.log(`      + ${term.keyword}: "${term.title}"`);
+    for (const kw of addedKeywords) {
+      const term = newTerms.find(t => t.keyword === kw);
+      console.log(`      + ${kw}: "${term.title}"`);
     }
   }
 
@@ -212,7 +211,7 @@ function copyProvenance(paths, dryRun, force) {
 
 function runValidation(paths) {
   try {
-    const result = execSync(`node scripts/validate-json.js "${paths.destChapter}"`, {
+    execSync(`node scripts/validate-json.js "${paths.destChapter}"`, {
       cwd: ROOT,
       encoding: 'utf8',
       stdio: 'pipe'
@@ -294,12 +293,18 @@ if (!isMainModule) {
 
   // Validate inputs exist
   const missing = [];
-  if (!fs.existsSync(paths.srcChapter)) missing.push(path.relative(ROOT, paths.srcChapter));
-  if (!fs.existsSync(paths.srcGlossary)) missing.push(path.relative(ROOT, paths.srcGlossary));
+  if (!fs.existsSync(paths.srcChapter)) {
+    missing.push(path.relative(ROOT, paths.srcChapter));
+  }
+  if (!fs.existsSync(paths.srcGlossary)) {
+    missing.push(path.relative(ROOT, paths.srcGlossary));
+  }
 
   if (missing.length > 0) {
     console.error('❌ Missing required input files:');
-    for (const m of missing) console.error(`   • ${m}`);
+    for (const m of missing) {
+      console.error(`   • ${m}`);
+    }
     console.error('\nRun the pipeline first: /write:qa → /write:glossary');
     process.exit(2);
   }

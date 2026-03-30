@@ -47,6 +47,7 @@ const http = require('http');
 
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 const I18N_DIR = path.join(__dirname, '..', 'i18n');
+// TODO: centralize URLs in eluno.config.js (Phase 2)
 const BASE_URL = 'https://eluno.org';
 const STATIC_URL = 'https://static.eluno.org';
 
@@ -606,4 +607,7 @@ function printSummary() {
 }
 
 // Run the analyzer
-analyze().catch(console.error);
+analyze().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

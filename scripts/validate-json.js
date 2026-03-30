@@ -96,7 +96,8 @@ function validateChapter(result) {
 
   if (terms.length > 0) {
     // Load glossary to verify terms exist
-    const lang = filePath.split('/')[1] || 'en';
+    const langMatch = filePath.match(/i18n\/([a-z]{2})\//);
+    const lang = langMatch ? langMatch[1] : 'en';
     const glossaryPath = path.join(I18N_DIR, lang, 'glossary.json');
 
     if (fs.existsSync(glossaryPath)) {
@@ -107,7 +108,7 @@ function validateChapter(result) {
             logWarning(filePath, `Term not in glossary: {term:${term}}`);
           }
         }
-      } catch (_e) {
+      } catch {
         // Glossary parse error handled separately
       }
     }

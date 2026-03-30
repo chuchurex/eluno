@@ -156,7 +156,7 @@ function chapterToText(chapter, glossary) {
         continue;
       }
 
-      if (block.type === 'paragraph' && block.text) {
+      if ((block.type === 'paragraph' || block.type === 'quote') && block.text) {
         lines.push(cleanForTTS(block.text, glossary));
         lines.push('');
       }
@@ -226,4 +226,9 @@ function main() {
   console.log(`\n✅ ${totalFiles} text files extracted to audiobook/text/\n`);
 }
 
-main();
+try {
+  main();
+} catch (err) {
+  console.error(err);
+  process.exit(1);
+}

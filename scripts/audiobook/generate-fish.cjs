@@ -24,16 +24,7 @@ const https = require('https');
 // ============================================================================
 
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
-const envPath = path.join(PROJECT_ROOT, '.env');
-if (fs.existsSync(envPath)) {
-  const envContent = fs.readFileSync(envPath, 'utf8');
-  envContent.split('\n').forEach(line => {
-    const match = line.match(/^([^=:#]+)=(.*)$/);
-    if (match && !process.env[match[1].trim()]) {
-      process.env[match[1].trim()] = match[2].trim();
-    }
-  });
-}
+require('dotenv').config({ path: path.join(PROJECT_ROOT, '.env') });
 
 const TEXT_DIR = path.join(PROJECT_ROOT, 'audiobook', 'text');
 const AUDIO_DIR = path.join(PROJECT_ROOT, 'audiobook', 'audio');

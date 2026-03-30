@@ -39,6 +39,14 @@ const I18N_DIR = path.join(PROJECT_ROOT, 'i18n');
 const DIST_DIR = path.join(PROJECT_ROOT, 'dist');
 const PDF_DIR = path.join(DIST_DIR, 'pdf');
 
+const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
+const SUPERSCRIPT_LETTERS = {
+  a: 'ᵃ', b: 'ᵇ', c: 'ᶜ', d: 'ᵈ', e: 'ᵉ', f: 'ᶠ', g: 'ᵍ',
+  h: 'ʰ', i: 'ⁱ', j: 'ʲ', k: 'ᵏ', l: 'ˡ', m: 'ᵐ', n: 'ⁿ',
+  o: 'ᵒ', p: 'ᵖ', q: 'q', r: 'ʳ', s: 'ˢ', t: 'ᵗ', u: 'ᵘ',
+  v: 'ᵛ', w: 'ʷ', x: 'ˣ', y: 'ʸ', z: 'ᶻ'
+};
+
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
@@ -182,36 +190,6 @@ function processTextWithFootnotes(
   );
 
   // Handle {ref:id} — replace with superscript letter or strip if no collectedRefs
-  const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-  const SUPERSCRIPT_LETTERS = {
-    a: 'ᵃ',
-    b: 'ᵇ',
-    c: 'ᶜ',
-    d: 'ᵈ',
-    e: 'ᵉ',
-    f: 'ᶠ',
-    g: 'ᵍ',
-    h: 'ʰ',
-    i: 'ⁱ',
-    j: 'ʲ',
-    k: 'ᵏ',
-    l: 'ˡ',
-    m: 'ᵐ',
-    n: 'ⁿ',
-    o: 'ᵒ',
-    p: 'ᵖ',
-    q: 'q',
-    r: 'ʳ',
-    s: 'ˢ',
-    t: 'ᵗ',
-    u: 'ᵘ',
-    v: 'ᵛ',
-    w: 'ʷ',
-    x: 'ˣ',
-    y: 'ʸ',
-    z: 'ᶻ'
-  };
-
   processed = processed.replace(/\{ref:([^}]+)\}/g, (match, refId) => {
     if (!collectedRefs || !references) return '';
 
@@ -281,35 +259,6 @@ function renderGlossaryHtml(footnotes, lang, chapterNum, isBook) {
  */
 function renderSourcesHtml(collectedRefs, provenance, lang) {
   const labels = PDF_LABELS[lang] || PDF_LABELS.en;
-  const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-  const SUPERSCRIPT_LETTERS = {
-    a: 'ᵃ',
-    b: 'ᵇ',
-    c: 'ᶜ',
-    d: 'ᵈ',
-    e: 'ᵉ',
-    f: 'ᶠ',
-    g: 'ᵍ',
-    h: 'ʰ',
-    i: 'ⁱ',
-    j: 'ʲ',
-    k: 'ᵏ',
-    l: 'ˡ',
-    m: 'ᵐ',
-    n: 'ⁿ',
-    o: 'ᵒ',
-    p: 'ᵖ',
-    q: 'q',
-    r: 'ʳ',
-    s: 'ˢ',
-    t: 'ᵗ',
-    u: 'ᵘ',
-    v: 'ᵛ',
-    w: 'ʷ',
-    x: 'ˣ',
-    y: 'ʸ',
-    z: 'ᶻ'
-  };
 
   const hasRefs = collectedRefs && collectedRefs.length > 0;
   const hasProv = provenance && provenance.provenance && provenance.provenance.length > 0;

@@ -222,7 +222,7 @@ async function generateChapter(EdgeTTS, textPath, outputPath, voice, rate, pitch
   tempFiles.forEach(f => {
     try {
       fs.unlinkSync(f);
-    } catch {}
+    } catch {} // best-effort cleanup, ignore errors
   });
 
   const sizeMB = (combined.length / 1024 / 1024).toFixed(2);

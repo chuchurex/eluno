@@ -88,8 +88,12 @@ function validateSchema(chapter) {
 function validateRefs(texts, referencesPath) {
   let references = null;
   if (referencesPath && fs.existsSync(referencesPath)) {
-    const raw = JSON.parse(fs.readFileSync(referencesPath, 'utf8'));
-    references = Array.isArray(raw) ? raw : raw.references || [];
+    try {
+      const raw = JSON.parse(fs.readFileSync(referencesPath, 'utf8'));
+      references = Array.isArray(raw) ? raw : raw.references || [];
+    } catch (err) {
+      console.warn(`  Warning: Could not parse references file ${referencesPath}: ${err.message}`);
+    }
   }
 
   const refPattern = /\{ref:([^}]+)\}/g;
@@ -260,7 +264,13 @@ if (!fs.existsSync(chapterPath)) {
   process.exit(1);
 }
 
-const chapter = JSON.parse(fs.readFileSync(chapterPath, 'utf8'));
+let chapter;
+try {
+  chapter = JSON.parse(fs.readFileSync(chapterPath, 'utf8'));
+} catch (err) {
+  console.error(`\n  \x1b[31mFAIL\x1b[0m  Invalid JSON in ${chapterPath}: ${err.message}\n`);
+  process.exit(1);
+}
 const texts = extractText(chapter);
 
 const results = {

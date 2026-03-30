@@ -4,7 +4,7 @@
   "branch": "main",
   "domain": "eluno.org",
   "created": "2026-02-07",
-  "engine": "build-v2.cjs",
+  "engine": "@eluno/core",
   "changes": [
     "16 chapters rewritten (v3 quality standard)",
     "Trilingual system: EN/ES/PT",

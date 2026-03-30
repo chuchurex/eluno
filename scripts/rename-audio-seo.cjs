@@ -61,7 +61,9 @@ function loadChapterTitles(lang) {
       if (!isNaN(num) && content.title) {
         titles[num] = content.title;
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn(`  Warning: Could not parse ${file}: ${e.message}`);
+    }
   });
 
   return titles;

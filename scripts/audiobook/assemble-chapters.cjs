@@ -88,7 +88,9 @@ function loadChapterTitles(lang) {
       const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
       const num = parseInt(file.replace('.json', ''), 10);
       if (!isNaN(num) && data.title) titles[num] = data.title;
-    } catch {}
+    } catch (err) {
+      console.warn(`  Warning: Could not parse ${file}: ${err.message}`);
+    }
   }
   return titles;
 }
@@ -105,9 +107,19 @@ async function generateClip(EdgeTTS, text, voice, outputPath, rate = '-5%') {
   await tts.ttsPromise(text, outputPath);
 }
 
+function checkFfmpeg() {
+  try {
+    execSync('ffmpeg -version', { stdio: 'pipe' });
+  } catch {
+    console.error('❌ ffmpeg not found in PATH. Install it first.');
+    process.exit(1);
+  }
+}
+
 function generateSilence(outputPath, durationSec) {
   execSync(
-    `ffmpeg -f lavfi -i anullsrc=r=24000:cl=mono -t ${durationSec} -c:a libmp3lame -b:a 96k -y "${outputPath}" 2>/dev/null`
+    `ffmpeg -f lavfi -i anullsrc=r=24000:cl=mono -t ${durationSec} -c:a libmp3lame -b:a 96k -y "${outputPath}"`,
+    { stdio: 'pipe' }
   );
 }
 
@@ -115,8 +127,11 @@ function concatMp3s(files, outputPath) {
   const listPath = outputPath + '.list';
   const listContent = files.map(f => `file '${f}'`).join('\n');
   fs.writeFileSync(listPath, listContent);
-  execSync(`ffmpeg -f concat -safe 0 -i "${listPath}" -c copy -y "${outputPath}" 2>/dev/null`);
-  fs.unlinkSync(listPath);
+  try {
+    execSync(`ffmpeg -f concat -safe 0 -i "${listPath}" -c copy -y "${outputPath}"`, { stdio: 'pipe' });
+  } finally {
+    try { fs.unlinkSync(listPath); } catch {}
+  }
 }
 
 // ============================================================================
@@ -131,12 +146,25 @@ async function main() {
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--lang') {
       const val = args[++i];
+      if (!val || val.startsWith('--')) {
+        console.error('❌ --lang requires a value (es, en, pt, all)');
+        process.exit(1);
+      }
       langs = val === 'all' ? ['es', 'en', 'pt'] : [val];
     }
-    if (args[i] === '--only') only = parseInt(args[++i]);
+    if (args[i] === '--only') {
+      const val = args[++i];
+      if (!val || val.startsWith('--')) {
+        console.error('❌ --only requires a chapter number');
+        process.exit(1);
+      }
+      only = parseInt(val);
+    }
   }
 
   const { EdgeTTS } = require('node-edge-tts');
+
+  checkFfmpeg();
 
   console.log('\n🎬 ASSEMBLE CHAPTERS WITH INTRO + OUTRO\n');
 
