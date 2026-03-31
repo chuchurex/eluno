@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.0",
-    "@eluno/core": "https://github.com/chuchurex/eluno-core#v2",
+    "@eluno/core": "github:chuchurex/eluno-core#v2",
     "dotenv": "^17.0.0",
     "node-edge-tts": "^1.2.10",
     "node-id3": "^0.2.9",
@@ -25,8 +25,8 @@
     "lint-staged": "^15.5.2",
     "live-server": "^1.2.2",
     "pdf-parse": "^2.4.5",
-    "puppeteer": "^24.0.0",
     "prettier": "^3.8.1",
+    "puppeteer": "^24.0.0",
     "wrangler": "^4.28.0"
   },
   "scripts": {
