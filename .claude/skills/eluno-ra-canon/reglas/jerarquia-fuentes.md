@@ -8,12 +8,13 @@
 
 ## Tabla de prioridades
 
-| Prioridad | Fuente | Uso en texto final |
-|---|---|---|
-| 1 | **Ra Contact Vol 1-2** (sesiones 1–106) | ✅ Parafraseado, **nunca citado textualmente** |
-| 2 | **Q'uo Vol 9-11** | ❌ **Nunca aparece en el texto final** (excepto Sanación, ver abajo) |
-| 3 | **Tradiciones cruzadas** (Vedanta, Kabbalah, gnosticismo, hermetismo) | ✅ Como enriquecimiento, vía marcado `{ref:trad:id}` |
-| 4 | **Ciencia moderna** | ✅ Cuando es naturalmente relevante, vía `{ref:phys:id}` o `{ref:astro:id}` |
+| Prioridad | Fuente | Disponible en skill | Uso en texto final |
+|---|---|---|---|
+| 1 | **Ra Contact Vol 1-2** (sesiones 1–106) | ✅ `corpus/sessions/` (106 archivos) | ✅ Parafraseado, **nunca citado textualmente** |
+| 2 | **Q'uo capa 1** (vol 8-18, 1986–2008) | ✅ `corpus-quo/sessions/` (562 archivos) | ❌ **Nunca aparece en el texto final** (excepto Sanación, ver abajo) |
+| 3 | **Otros canalizados Confederation** (Hatonn, Latwii, Aaron, Oxal, Nona, Monka, Laitos) | ⏳ Capa 2, pendiente | ❌ No usar hasta capa 2 |
+| 4 | **Tradiciones cruzadas** (Vedanta, Kabbalah, gnosticismo, hermetismo) | n/a (referencia externa) | ✅ Como enriquecimiento, vía marcado `{ref:trad:id}` |
+| 5 | **Ciencia moderna** | n/a (referencia externa) | ✅ Cuando es naturalmente relevante, vía `{ref:phys:id}` o `{ref:astro:id}` |
 
 ## Uso del marcado por tipo
 

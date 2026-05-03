@@ -41,7 +41,7 @@ fi
 SESSIONS_COUNT=$(find "$REPO_ROOT/writing/sources/ra/sessions" -name "session-*.md" | wc -l | tr -d ' ')
 echo "✓ Corpus Ra encontrado en repo: $SESSIONS_COUNT sesiones."
 
-# ── Paso 2: symlink interno corpus/ ────────────────────────
+# ── Paso 2: symlink interno corpus/ (Ra) ───────────────────
 CORPUS_LINK="$SKILL_DIR/corpus"
 if [[ -e "$CORPUS_LINK" || -L "$CORPUS_LINK" ]]; then
   if [[ -L "$CORPUS_LINK" ]]; then
@@ -54,6 +54,24 @@ if [[ -e "$CORPUS_LINK" || -L "$CORPUS_LINK" ]]; then
 fi
 ln -s "../../../writing/sources/ra" "$CORPUS_LINK"
 echo "✓ Symlink interno creado: corpus/ → ../../../writing/sources/ra"
+
+# ── Paso 2.5: symlink interno corpus-quo/ (Q'uo capa 1) ────
+CORPUS_QUO_LINK="$SKILL_DIR/corpus-quo"
+if [[ -d "$REPO_ROOT/writing/sources/quo/sessions" ]]; then
+  if [[ -e "$CORPUS_QUO_LINK" || -L "$CORPUS_QUO_LINK" ]]; then
+    if [[ -L "$CORPUS_QUO_LINK" ]]; then
+      rm "$CORPUS_QUO_LINK"
+    else
+      echo "✗ ERROR: $CORPUS_QUO_LINK existe y NO es un symlink."
+      exit 1
+    fi
+  fi
+  ln -s "../../../writing/sources/quo" "$CORPUS_QUO_LINK"
+  QUO_COUNT=$(find "$REPO_ROOT/writing/sources/quo/sessions" -name "quo-*.md" | wc -l | tr -d ' ')
+  echo "✓ Symlink corpus-quo/ creado (capa 1: $QUO_COUNT sesiones Q'uo)"
+else
+  echo "  (corpus Q'uo no presente — saltando symlink corpus-quo/)"
+fi
 
 # ── Paso 3: symlink user-level ─────────────────────────────
 mkdir -p "$USER_SKILLS_DIR"

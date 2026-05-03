@@ -64,6 +64,23 @@ NO actives este skill para tareas de escritura no relacionadas con el proyecto.
 
    El índice temático que mapea conceptos a sesiones está en el repo principal en `writing/reference/ra-thematic-index.md` (no dentro del skill por ahora).
 
+3.5. **Para consultar Q'uo (capa 1, solo cuando el libro lo permite — ver jerarquia-fuentes.md):**
+
+   ```bash
+   SKILL_DIR=$(dirname "$(readlink -f .claude/skills/eluno-ra-canon/SKILL.md 2>/dev/null || echo ~/.claude/skills/eluno-ra-canon/SKILL.md)")
+
+   # Buscar sesiones por concepto (Q'uo no tiene mapa temático todavía)
+   grep -l "polarity" "$SKILL_DIR/corpus-quo/sessions/"*.md | head -5
+
+   # Sesión específica por fecha
+   cat "$SKILL_DIR/corpus-quo/sessions/quo-2002-06-14.md"
+
+   # Filtrar por año
+   ls "$SKILL_DIR/corpus-quo/sessions/quo-1990-"*.md
+   ```
+
+   **Recordatorio**: Q'uo aparece en el texto SOLO en libros donde está explícitamente permitido. Para El Uno, Todo, Jesús, Doctrinas, Dormidos: Q'uo es **contexto silencioso del operador**, no fuente que se cita. Solo en Sanación Q'uo puede aparecer parafraseado. Ver `reglas/jerarquia-fuentes.md`.
+
 4. **Para escribir o revisar**, usa las plantillas en `plantillas/`:
    - `plantillas/nuevo-capitulo.md` — capítulo desde cero.
    - `plantillas/revision-editorial.md` — refinar capítulo existente sin perder marcado.
@@ -101,9 +118,9 @@ El skill es asistente del operador, no su reemplazo. El operador (usuario) es el
 
 ## Estado del corpus
 
-- **Ra Vol 1-2** (sesiones 1–106): accesible vía `corpus/sessions/` (symlink relativo al corpus real en el repo). 106 archivos, indexable por `## (N.M)`.
-- **Q'uo Vol 9-11**: pendiente. Cuando se cargue, irá a `corpus-quo/` (otro symlink) y este SKILL.md será extendido con jerarquía cruzada.
-- **Otros canalizados de la Confederation** (Latwii, Hatonn, Aaron, Oxal): no contemplados en esta versión del skill.
+- **Ra Vol 1-2** (sesiones 1–106): accesible vía `corpus/sessions/` (symlink relativo al corpus real en `writing/sources/ra/`). 106 archivos, indexable por `## (N.M)`.
+- **Q'uo (capa 1)** — sesiones donde Q'uo aparece como canalizador (1986–2008): accesible vía `corpus-quo/sessions/` (symlink a `writing/sources/quo/`). 562 archivos en formato `quo-YYYY-MM-DD.md`. Extraídos de los volúmenes 8-18 del archivo L/L Research.
+- **Otros canalizados Confederation (capa 2)** — Hatonn, Latwii, Oxal, Aaron, Nona, Monka, Laitos: pendientes. Procesarán los volúmenes 1-18 completos cuando se aborden los sub-libros que los requieran.
 
 ## Modos de instalación
 
