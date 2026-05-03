@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "description": "Vocabulario prohibido en el texto final de cualquier libro de la familia El Uno. Cada entrada define un patrón regex (con flags), una palabra/frase canónica que debería usarse en su lugar, y una severidad. Términos con doble sentido (dimension, challenge, chakra) están marcados como 'warning' porque su uso metafórico/coloquial es legítimo; el operador descarta los falsos positivos. Términos inequívocos (starseed, rapture) son 'error'. Los patrones EN están consolidados; los de ES/PT son starter — completar al hacer pasada multilingüe.",
+    "schema_version": "1.1",
+    "source": "writing/tools/validate-chapter.cjs",
+    "consumed_by": "scripts/validate-chapter.mjs",
+    "severity_note": "warning = patrón sospechoso, requiere revisión humana. error = patrón que debe eliminarse del texto siempre."
+  },
+  "terms": {
+    "en": [
+      {
+        "id": "dimension",
+        "pattern": "\\bdimension\\b",
+        "flags": "gi",
+        "correct": "density",
+        "severity": "warning",
+        "rationale": "Ra usa 'density' (densidad), no 'dimension'. Cuidado: 'dimension' tiene uso metafórico legítimo ('spiritual dimension', 'metaphysical dimension'); revisar caso por caso."
+      },
+      {
+        "id": "chakra",
+        "pattern": "\\bchakra\\b",
+        "flags": "gi",
+        "correct": "ray / energy center",
+        "severity": "warning",
+        "rationale": "Ra usa 'energy centers' o 'rays' (rojo, naranja, amarillo, etc.). 'Chakra' es vocabulario hindú/yogui que no encaja con la cosmología Ra. Revisar contexto: si se cita explícitamente como tradición externa vía {ref:trad:chakra} es aceptable."
+      },
+      {
+        "id": "starseed",
+        "pattern": "\\bstarseed\\b",
+        "flags": "gi",
+        "correct": "wanderer",
+        "severity": "error",
+        "rationale": "Ra usa 'wanderer' (errante). 'Starseed' es vocabulario New Age genérico sin uso metafórico legítimo en este contexto."
+      },
+      {
+        "id": "god-bare",
+        "pattern": "\\b(?<!sub-)God\\b",
+        "flags": "g",
+        "correct": "Logos / Creator / Infinite Creator",
+        "severity": "warning",
+        "rationale": "El narrador no usa 'God' a secas porque carga teología abrahámica. Excepción: 'sub-Logos' permitido. En libros como Jesús que necesitan vocabulario cristiano, evaluar caso por caso."
+      },
+      {
+        "id": "challenge",
+        "pattern": "\\bchallenge\\b",
+        "flags": "gi",
+        "correct": "catalyst",
+        "severity": "warning",
+        "rationale": "Ra usa 'catalyst' (catalizador) para experiencias que producen crecimiento. 'Challenge' minimiza el sentido cuando se refiere a catalysts, pero tiene uso legítimo en otros contextos ('the challenge of x')."
+      },
+      {
+        "id": "judgment",
+        "pattern": "\\bjudgment\\b",
+        "flags": "gi",
+        "correct": "harvest",
+        "severity": "error",
+        "rationale": "Ra usa 'harvest' (cosecha). 'Judgment' carga teología cristiana de juicio final que contradice la cosmología."
+      },
+      {
+        "id": "rapture",
+        "pattern": "\\brapture\\b",
+        "flags": "gi",
+        "correct": "harvest",
+        "severity": "error",
+        "rationale": "Escatología cristiana específica que contradice la cosmología Ra del harvest."
+      }
+    ],
+    "es": [
+      {
+        "id": "dimension-es",
+        "pattern": "\\bdimensi[oó]n(?:es)?\\b",
+        "flags": "gi",
+        "correct": "densidad / densidades",
+        "rationale": "Equivalente ES de 'dimension' → 'density'.",
+        "status": "starter"
+      },
+      {
+        "id": "chakra-es",
+        "pattern": "\\bchakra(?:s)?\\b",
+        "flags": "gi",
+        "correct": "rayo / centro de energía",
+        "rationale": "Equivalente ES de 'chakra' → 'ray / energy center'.",
+        "status": "starter"
+      }
+    ],
+    "pt": [
+      {
+        "id": "dimension-pt",
+        "pattern": "\\bdimens[ãa]o(?:[ãõe][es])?\\b",
+        "flags": "gi",
+        "correct": "densidade / densidades",
+        "rationale": "Equivalente PT de 'dimension' → 'density'.",
+        "status": "starter"
+      }
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "description": "Nombres, entidades y frases que jamás aparecen en el texto final de los libros de la familia El Uno. La regla es global (no por idioma) salvo donde se indica. Detección por regex case-insensitive cuando aplique.",
+    "schema_version": "1.0",
+    "source": "writing/tools/validate-chapter.cjs",
+    "consumed_by": "scripts/validate-chapter.mjs",
+    "rationale": "El narrador del libro nunca debe ser identificado como Ra, ni como L/L Research, ni como un canalizador. El lector debe poder leer el libro como filosofía sapiencial sin necesidad de aceptar su origen canalizado. Cualquier mención que delate ese origen rompe la voz."
+  },
+  "attributions": [
+    {
+      "id": "ra-bare",
+      "pattern": "\\bRa\\b(?!\\w)",
+      "flags": "",
+      "severity": "error",
+      "rationale": "El nombre de la entidad fuente nunca aparece. Excepciones permitidas: 'sub-Logos', 'Logos', 'Ramayana' (no matchea por word boundary)."
+    },
+    {
+      "id": "quo",
+      "pattern": "\\bQ'uo\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Q'uo es contexto interno del operador, nunca aparece en texto final."
+    },
+    {
+      "id": "don-elkins",
+      "pattern": "\\bDon Elkins\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Investigador de L/L Research. Su nombre no debe aparecer."
+    },
+    {
+      "id": "carla-rueckert",
+      "pattern": "\\bCarla Rueckert\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Instrumento de las sesiones Ra. Su nombre no debe aparecer."
+    },
+    {
+      "id": "jim-mccarty",
+      "pattern": "\\bJim McCarty\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Scribe de las sesiones Ra. Su nombre no debe aparecer."
+    },
+    {
+      "id": "channeled-material",
+      "pattern": "\\bchanneled material\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "El libro no se autopresenta como material canalizado."
+    },
+    {
+      "id": "the-sessions",
+      "pattern": "\\bthe sessions\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Referencia directa al material original. No debe aparecer."
+    },
+    {
+      "id": "law-of-one-title",
+      "pattern": "\\bLaw of One\\b",
+      "flags": "i",
+      "severity": "warning",
+      "rationale": "El título del material original no debe usarse como referencia explícita. Excepción: cuando es nombre técnico del concepto filosófico ('the law of one as principle'), evaluar caso por caso."
+    },
+    {
+      "id": "the-instrument",
+      "pattern": "\\bthe instrument\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Término del Material Ra que delata canal canalizado."
+    },
+    {
+      "id": "channeling-verb",
+      "pattern": "\\bchannel(ing|ed|er)\\b",
+      "flags": "i",
+      "severity": "warning",
+      "rationale": "Verbo y derivados. PRECAUCIÓN: 'channeled into/through/to' suele ser uso metafórico legítimo de canalización energética (red-ray energy channeled into green-ray, etc.). 'channeled material' o 'channeled by [persona]' SÍ es atribución prohibida. Revisar caso por caso."
+    },
+    {
+      "id": "ll-research",
+      "pattern": "\\bL/?L Research\\b",
+      "flags": "i",
+      "severity": "error",
+      "rationale": "Organización detrás del material original. No aparece en el texto."
+    },
+    {
+      "id": "social-memory-complex-self-ref",
+      "pattern": "\\bwe[, ]+(?:those of|of) the [A-Za-z]+\\b",
+      "flags": "i",
+      "severity": "warning",
+      "rationale": "Patrón 'We, those of X' o 'We of X' delata identificación de grupo confederado. Tercera persona OK ('The Confederation offers...'); primera persona identificada NO."
+    }
+  ]
+}
