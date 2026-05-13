@@ -128,9 +128,13 @@ function concatMp3s(files, outputPath) {
   const listContent = files.map(f => `file '${f}'`).join('\n');
   fs.writeFileSync(listPath, listContent);
   try {
-    execSync(`ffmpeg -f concat -safe 0 -i "${listPath}" -c copy -y "${outputPath}"`, { stdio: 'pipe' });
+    execSync(`ffmpeg -f concat -safe 0 -i "${listPath}" -c copy -y "${outputPath}"`, {
+      stdio: 'pipe'
+    });
   } finally {
-    try { fs.unlinkSync(listPath); } catch {}
+    try {
+      fs.unlinkSync(listPath);
+    } catch {}
   }
 }
 

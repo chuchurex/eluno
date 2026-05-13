@@ -41,10 +41,32 @@ const PDF_DIR = path.join(DIST_DIR, 'pdf');
 
 const REF_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
 const SUPERSCRIPT_LETTERS = {
-  a: 'ᵃ', b: 'ᵇ', c: 'ᶜ', d: 'ᵈ', e: 'ᵉ', f: 'ᶠ', g: 'ᵍ',
-  h: 'ʰ', i: 'ⁱ', j: 'ʲ', k: 'ᵏ', l: 'ˡ', m: 'ᵐ', n: 'ⁿ',
-  o: 'ᵒ', p: 'ᵖ', q: 'q', r: 'ʳ', s: 'ˢ', t: 'ᵗ', u: 'ᵘ',
-  v: 'ᵛ', w: 'ʷ', x: 'ˣ', y: 'ʸ', z: 'ᶻ'
+  a: 'ᵃ',
+  b: 'ᵇ',
+  c: 'ᶜ',
+  d: 'ᵈ',
+  e: 'ᵉ',
+  f: 'ᶠ',
+  g: 'ᵍ',
+  h: 'ʰ',
+  i: 'ⁱ',
+  j: 'ʲ',
+  k: 'ᵏ',
+  l: 'ˡ',
+  m: 'ᵐ',
+  n: 'ⁿ',
+  o: 'ᵒ',
+  p: 'ᵖ',
+  q: 'q',
+  r: 'ʳ',
+  s: 'ˢ',
+  t: 'ᵗ',
+  u: 'ᵘ',
+  v: 'ᵛ',
+  w: 'ʷ',
+  x: 'ˣ',
+  y: 'ʸ',
+  z: 'ᶻ'
 };
 
 // ============================================================================
@@ -198,7 +220,7 @@ function processTextWithFootnotes(
 
     // Avoid duplicates
     const existing = collectedRefs.findIndex(r => r.id === refId);
-    let idx = existing >= 0 ? existing : collectedRefs.length;
+    const idx = existing >= 0 ? existing : collectedRefs.length;
     if (existing < 0) {
       collectedRefs.push({ id: refId, ...ref });
     }
