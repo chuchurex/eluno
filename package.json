@@ -5,6 +5,7 @@
   "type": "module",
   "description": "El Uno — The Law of One in a philosophical lens",
   "license": "AGPL-3.0",
+  "packageManager": "pnpm@10.15.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/chuchurex/eluno.git"
@@ -59,6 +60,15 @@
     "test:json": "node scripts/validate-json.js",
     "test:alignment": "node scripts/validate-alignment.js all",
     "prepare": "husky"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "fsevents",
+      "puppeteer",
+      "sharp"
+    ]
   },
   "lint-staged": {
     "scripts/**/*.js": [
