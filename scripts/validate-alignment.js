@@ -187,7 +187,9 @@ function validateChapter(chapterNum) {
         fails.push(`missing section ${i}`);
         continue;
       }
-      if (sEn.id !== sTr.id) fails.push(`section id: ${sEn.id} vs ${sTr.id}`);
+      if (sEn.id !== sTr.id) {
+        fails.push(`section id: ${sEn.id} vs ${sTr.id}`);
+      }
       if (sEn.content.length !== sTr.content.length) {
         fails.push(
           `blocks in ${sEn.id}: ${sEn.content.length} EN vs ${sTr.content.length} ${label}`
@@ -229,8 +231,12 @@ function validateChapter(chapterNum) {
       const trSet = new Set(trTerms);
       const phantom = [...trSet].filter(t => !enSet.has(t));
       const missing = [...enSet].filter(t => !trSet.has(t));
-      if (phantom.length) warns.push(`phantom {term:} in ${label}: ${phantom.join(', ')}`);
-      if (missing.length) warns.push(`missing {term:} in ${label}: ${missing.join(', ')}`);
+      if (phantom.length) {
+        warns.push(`phantom {term:} in ${label}: ${phantom.join(', ')}`);
+      }
+      if (missing.length) {
+        warns.push(`missing {term:} in ${label}: ${missing.join(', ')}`);
+      }
       if (!phantom.length && !missing.length) {
         warns.push(`{term:} count mismatch: EN ${enTerms.length} vs ${label} ${trTerms.length}`);
       }
@@ -259,8 +265,12 @@ function validateChapter(chapterNum) {
     if (fails.length === 0 && warns.length === 0) {
       console.log(`   ${label}: PASS ✅`);
     } else {
-      for (const f of fails) console.log(`   ${label}: FAIL ❌ ${f}`);
-      for (const w of warns) console.log(`   ${label}: WARN ⚠️  ${w}`);
+      for (const f of fails) {
+        console.log(`   ${label}: FAIL ❌ ${f}`);
+      }
+      for (const w of warns) {
+        console.log(`   ${label}: WARN ⚠️  ${w}`);
+      }
     }
 
     totalFails += fails.length;
@@ -311,8 +321,12 @@ if (!isMainModule) {
 
   for (const ch of chapters) {
     const result = validateChapter(ch);
-    if (!result.passed) allPassed = false;
-    if (result.warns) totalWarns += result.warns;
+    if (!result.passed) {
+      allPassed = false;
+    }
+    if (result.warns) {
+      totalWarns += result.warns;
+    }
   }
 
   console.log('\n═══════════════════════════════════════════');
