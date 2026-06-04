@@ -8,9 +8,9 @@ Closes #
 
 ## How was this tested?
 
-- [ ] `npm run build` passes
-- [ ] `npm test` passes
-- [ ] `npm run validate` passes
+- [ ] `pnpm run build` passes
+- [ ] `pnpm test` passes
+- [ ] `pnpm run validate` passes
 - [ ] Tested locally in browser (if visual changes)
 
 ## Notes for reviewers

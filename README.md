@@ -47,11 +47,11 @@ Requirements: Node.js 20+, Claude Code CLI, source PDFs, Anthropic API key (for 
 ## Development
 
 ```bash
-npm install
-npm run dev          # SASS watch + live server at localhost:4025
-npm run build        # Generate dist/
-npm test             # Run tests
-npm run validate     # Lint + format check + JSON validation
+pnpm install
+pnpm run dev          # SASS watch + live server at localhost:4025
+pnpm run build        # Generate dist/
+pnpm test             # Run tests
+pnpm run validate     # Lint + format check + JSON validation
 ```
 
 ## Repository structure
