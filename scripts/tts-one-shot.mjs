@@ -99,7 +99,7 @@ for (let i = 0; i < chunks.length; i++) {
         outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
         rate,
         pitch,
-        timeout: 60000,
+        timeout: 60000
       });
       const start = Date.now();
       await tts.ttsPromise(chunks[i], tempPath);
@@ -124,7 +124,11 @@ for (let i = 0; i < chunks.length; i++) {
 const buffers = tempFiles.map(f => readFileSync(f));
 const combined = Buffer.concat(buffers);
 writeFileSync(outputPath, combined);
-tempFiles.forEach(f => { try { unlinkSync(f); } catch {} });
+tempFiles.forEach(f => {
+  try {
+    unlinkSync(f);
+  } catch {}
+});
 
 const sizeMB = (combined.length / 1024 / 1024).toFixed(2);
 console.log(`\nSaved: ${outputPath} (${sizeMB} MB)`);

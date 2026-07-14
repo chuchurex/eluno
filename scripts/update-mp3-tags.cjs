@@ -13,7 +13,7 @@
  *   node scripts/update-mp3-tags.js en       # Updates English (when available)
  *
  * Requirements:
- *   npm install node-id3
+ *   pnpm add node-id3
  */
 
 const NodeID3 = require('node-id3');

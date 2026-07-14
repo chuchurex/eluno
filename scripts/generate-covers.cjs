@@ -25,7 +25,7 @@
  *   /assets/covers/mp3/cover-{01-16}-es.png
  *
  * REQUIREMENTS:
- *   npm install puppeteer
+ *   pnpm add puppeteer
  *
  * =============================================================================
  */
