@@ -86,3 +86,4 @@ writing/sources/
 # ───────────────────────────────────────────────────────────────
 backups/
 docs/private/
+.gstack/
