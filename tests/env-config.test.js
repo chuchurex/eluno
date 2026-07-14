@@ -77,27 +77,11 @@ describe('CONFIG: siteUrl', () => {
   });
 });
 
-describe('ENV: GA_ID', () => {
+describe('CONFIG: gaId', () => {
   before(() => backupEnv());
   after(() => restoreEnv());
 
-  it('injects GA scripts when GA_ID is set', () => {
-    writeEnv({ GA_ID: 'G-TEST123', GITHUB_REPO: '' });
-    build();
-    const pages = [
-      'en/index.html',
-      'en/chapters/cosmology-and-genesis.html',
-      'en/about.html',
-      'en/glossary.html'
-    ];
-    for (const p of pages) {
-      const html = readPage(p);
-      assert.ok(html.includes('G-TEST123'), `${p} should contain GA ID`);
-      assert.ok(html.includes('googletagmanager'), `${p} should contain GA script`);
-    }
-  });
-
-  it('omits GA scripts when GA_ID is empty', () => {
+  it('injects GA scripts from eluno.config.js gaId', () => {
     writeEnv({ GA_ID: '', GITHUB_REPO: '' });
     build();
     const pages = [
@@ -108,8 +92,17 @@ describe('ENV: GA_ID', () => {
     ];
     for (const p of pages) {
       const html = readPage(p);
-      assert.ok(!html.includes('googletagmanager'), `${p} should NOT contain GA script`);
+      assert.ok(html.includes('G-9LDPDW8V6E'), `${p} should contain GA ID from config`);
+      assert.ok(html.includes('googletagmanager'), `${p} should contain GA script`);
     }
+  });
+
+  it('config gaId takes precedence over GA_ID env var', () => {
+    writeEnv({ GA_ID: 'G-TEST123', GITHUB_REPO: '' });
+    build();
+    const html = readPage('en/index.html');
+    assert.ok(html.includes('G-9LDPDW8V6E'), 'config gaId should win over env');
+    assert.ok(!html.includes('G-TEST123'), 'env GA_ID should not override config');
   });
 });
 
@@ -143,6 +136,6 @@ describe('ENV: no .env file', () => {
     build();
     const html = readPage('en/index.html');
     assert.ok(html.includes('https://eluno.org'), 'should use siteUrl from config');
-    assert.ok(!html.includes('googletagmanager'), 'should not have GA without .env');
+    assert.ok(html.includes('googletagmanager'), 'GA comes from config, not .env');
   });
 });
