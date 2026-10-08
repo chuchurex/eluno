@@ -33,9 +33,14 @@
         },
         {
           "paragraphs": [6],
-          "sources": ["39.10", "15.12"],
-          "urls": ["https://www.lawofone.info/s/39#10", "https://www.lawofone.info/s/15#12"],
-          "note": "Seven centers as a single unified system"
+          "sources": ["39.10", "15.12", "54.27", "54.31"],
+          "urls": [
+            "https://www.lawofone.info/s/39#10",
+            "https://www.lawofone.info/s/15#12",
+            "https://www.lawofone.info/s/54#27",
+            "https://www.lawofone.info/s/54#31"
+          ],
+          "note": "Seven centers as a single system; radiation begins in blue"
         },
         {
           "paragraphs": [7],
@@ -57,9 +62,13 @@
         },
         {
           "paragraphs": [3],
-          "sources": ["41.14", "50.2"],
-          "urls": ["https://www.lawofone.info/s/41#14", "https://www.lawofone.info/s/50#2"],
-          "note": "Survival, body as body, second-density echo"
+          "sources": ["50.2", "31.4", "39.10"],
+          "urls": [
+            "https://www.lawofone.info/s/50#2",
+            "https://www.lawofone.info/s/31#4",
+            "https://www.lawofone.info/s/39#10"
+          ],
+          "note": "Survival, body as body, basic strengthening ray of each density"
         },
         {
           "paragraphs": [4],
@@ -93,8 +102,8 @@
         },
         {
           "paragraphs": [3],
-          "sources": ["15.12"],
-          "urls": ["https://www.lawofone.info/s/15#12"],
+          "sources": ["15.12", "32.2"],
+          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/32#2"],
           "note": "Orange-ray blockages: self-conscious understanding"
         },
         {
@@ -129,8 +138,8 @@
         },
         {
           "paragraphs": [3],
-          "sources": ["39.10"],
-          "urls": ["https://www.lawofone.info/s/39#10"],
+          "sources": ["39.10", "41.14"],
+          "urls": ["https://www.lawofone.info/s/39#10", "https://www.lawofone.info/s/41#14"],
           "note": "Yellow as appropriate color for third density, springboard triad"
         },
         {
@@ -193,8 +202,8 @@
         },
         {
           "paragraphs": [7],
-          "sources": ["32.14"],
-          "urls": ["https://www.lawofone.info/s/32#14"],
+          "sources": ["32.14", "26.38"],
+          "urls": ["https://www.lawofone.info/s/32#14", "https://www.lawofone.info/s/26#38"],
           "note": "Vulnerability to lower-ray distortions"
         },
         {
@@ -239,20 +248,20 @@
         },
         {
           "paragraphs": [6],
-          "sources": ["84.20"],
-          "urls": ["https://www.lawofone.info/s/84#20"],
+          "sources": ["84.20", "26.38"],
+          "urls": ["https://www.lawofone.info/s/84#20", "https://www.lawofone.info/s/26#38"],
           "note": "Blue-ray energy transfer, refined communication"
         },
         {
           "paragraphs": [7],
-          "sources": ["41.25"],
-          "urls": ["https://www.lawofone.info/s/41#25"],
+          "sources": ["41.25", "54.31"],
+          "urls": ["https://www.lawofone.info/s/41#25", "https://www.lawofone.info/s/54#31"],
           "note": "Blue-ray entity as co-Creator"
         },
         {
           "paragraphs": [8],
-          "sources": ["47.3", "39.12"],
-          "urls": ["https://www.lawofone.info/s/47#3", "https://www.lawofone.info/s/39#12"],
+          "sources": ["47.3", "47.4"],
+          "urls": ["https://www.lawofone.info/s/47#3", "https://www.lawofone.info/s/47#4"],
           "note": "Blue ray missing from negative path"
         }
       ]
@@ -275,15 +284,23 @@
         },
         {
           "paragraphs": [4],
-          "sources": ["32.14", "12.31"],
-          "urls": ["https://www.lawofone.info/s/32#14", "https://www.lawofone.info/s/12#31"],
+          "sources": ["32.14", "15.12", "12.31"],
+          "urls": [
+            "https://www.lawofone.info/s/32#14",
+            "https://www.lawofone.info/s/15#12",
+            "https://www.lawofone.info/s/12#31"
+          ],
           "note": "Opened through self-acceptance, unworthiness as blockage"
         },
         {
           "paragraphs": [5],
-          "sources": ["50.9"],
-          "urls": ["https://www.lawofone.info/s/50#9"],
-          "note": "Adept touching intelligent infinity, channeling radiance"
+          "sources": ["39.10", "50.13", "50.9"],
+          "urls": [
+            "https://www.lawofone.info/s/39#10",
+            "https://www.lawofone.info/s/50#13",
+            "https://www.lawofone.info/s/50#9"
+          ],
+          "note": "Indigo as gateway for healing and magical work; adept touching intelligent infinity"
         },
         {
           "paragraphs": [6],
@@ -311,20 +328,24 @@
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["15.12"],
-          "urls": ["https://www.lawofone.info/s/15#12"],
+          "sources": ["15.12", "39.10"],
+          "urls": ["https://www.lawofone.info/s/15#12", "https://www.lawofone.info/s/39#10"],
           "note": "Violet ray cannot be manipulated, total expression"
         },
         {
           "paragraphs": [3],
-          "sources": ["32.7"],
-          "urls": ["https://www.lawofone.info/s/32#7"],
+          "sources": ["32.7", "39.10"],
+          "urls": ["https://www.lawofone.info/s/32#7", "https://www.lawofone.info/s/39#10"],
           "note": "Sum and substance of entity, constant like red ray"
         },
         {
           "paragraphs": [4],
-          "sources": ["41.19"],
-          "urls": ["https://www.lawofone.info/s/41#19"],
+          "sources": ["34.16", "41.19", "48.7"],
+          "urls": [
+            "https://www.lawofone.info/s/34#16",
+            "https://www.lawofone.info/s/41#19",
+            "https://www.lawofone.info/s/48#7"
+          ],
           "note": "Harvest consideration, balance over brilliance"
         },
         {
@@ -367,13 +388,13 @@
           "paragraphs": [4],
           "sources": ["42.9"],
           "urls": ["https://www.lawofone.info/s/42#9"],
-          "note": "Repression is not balance"
+          "note": "Repression dims the centers and depolarizes; feeling without reaction does not"
         },
         {
           "paragraphs": [5],
-          "sources": ["42.2"],
-          "urls": ["https://www.lawofone.info/s/42#2"],
-          "note": "True balance: seeing all things as love"
+          "sources": ["42.2", "5.2"],
+          "urls": ["https://www.lawofone.info/s/42#2", "https://www.lawofone.info/s/5#2"],
+          "note": "Balance as becoming unswayed, not smooth flow; seeing all things as love"
         },
         {
           "paragraphs": [6],
@@ -389,8 +410,8 @@
         },
         {
           "paragraphs": [8],
-          "sources": ["51.5"],
-          "urls": ["https://www.lawofone.info/s/51#5"],
+          "sources": ["51.5", "42.2"],
+          "urls": ["https://www.lawofone.info/s/51#5", "https://www.lawofone.info/s/42#2"],
           "note": "Seven sub-colors, subtle nature of balancing"
         }
       ]
