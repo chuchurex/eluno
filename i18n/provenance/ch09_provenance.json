@@ -8,16 +8,27 @@
       "section_title": "What Happens Upon Dying",
       "segments": [
         {
+          "paragraphs": [1],
+          "sources": ["30.3", "21.9"],
+          "urls": ["https://www.lawofone.info/s/30#3", "https://www.lawofone.info/s/21#9"],
+          "note": "Opening: death is not an end (the complex remains intact); forgetting of past passages. 'A door you have crossed many times' is the book's gloss on reincarnation in general"
+        },
+        {
           "paragraphs": [2],
-          "sources": ["47.9"],
-          "urls": ["https://www.lawofone.info/s/47#9"],
-          "note": "Bodies in potentiation upon death, transition from yellow-ray body"
+          "sources": ["47.9", "30.3"],
+          "urls": ["https://www.lawofone.info/s/47#9", "https://www.lawofone.info/s/30#3"],
+          "note": "Bodies in potentiation; the physical body as manifestation of a denser, intelligently informed body"
         },
         {
           "paragraphs": [3],
-          "sources": ["47.11"],
-          "urls": ["https://www.lawofone.info/s/47#11"],
-          "note": "Form-maker/indigo body activates upon death, the 'ka'"
+          "sources": ["47.11", "30.3", "47.15", "48.7"],
+          "urls": [
+            "https://www.lawofone.info/s/47#11",
+            "https://www.lawofone.info/s/30#3",
+            "https://www.lawofone.info/s/47#15",
+            "https://www.lawofone.info/s/48#7"
+          ],
+          "note": "Form-maker/indigo body activates upon death; denser and intelligently informed; the form maker"
         },
         {
           "paragraphs": [4],
@@ -26,10 +37,16 @@
           "note": "Indigo body offers perspective and place to view recent experience"
         },
         {
+          "paragraphs": [5],
+          "sources": ["47.15", "47.13"],
+          "urls": ["https://www.lawofone.info/s/47#15", "https://www.lawofone.info/s/47#13"],
+          "note": "Normal harmonious passage rests in the indigo body; not all passages are harmonious (concentrated will, sudden death)"
+        },
+        {
           "paragraphs": [6],
-          "sources": ["47.12", "47.13"],
-          "urls": ["https://www.lawofone.info/s/47#12", "https://www.lawofone.info/s/47#13"],
-          "note": "Earth-bound spirits: will concentrated on previous experience, sudden death"
+          "sources": ["47.13"],
+          "urls": ["https://www.lawofone.info/s/47#13"],
+          "note": "Earth-bound spirits: will concentrated on previous experience, sudden death, extreme concern. 'Not evil, not punished' is the book's commentary"
         },
         {
           "paragraphs": [7],
@@ -44,10 +61,20 @@
       "section_title": "The Subtle Bodies",
       "segments": [
         {
+          "paragraphs": [1],
+          "sources": [],
+          "urls": [],
+          "note": "Synthesis: bridge sentence, no doctrine asserted"
+        },
+        {
           "paragraphs": [2, 3, 4, 5, 6, 7, 8],
-          "sources": ["47.8"],
-          "urls": ["https://www.lawofone.info/s/47#8"],
-          "note": "Complete catalog of seven bodies: red through violet ray"
+          "sources": ["47.8", "47.15", "48.7"],
+          "urls": [
+            "https://www.lawofone.info/s/47#8",
+            "https://www.lawofone.info/s/47#15",
+            "https://www.lawofone.info/s/48#7"
+          ],
+          "note": "Catalog of seven bodies: red through violet ray; indigo as gateway body and form maker"
         },
         {
           "paragraphs": [4],
@@ -57,9 +84,15 @@
         },
         {
           "paragraphs": [9],
-          "sources": ["47.8", "48.10"],
-          "urls": ["https://www.lawofone.info/s/47#8", "https://www.lawofone.info/s/48#10"],
-          "note": "Bodies linked to energy centers and densities"
+          "sources": ["47.8", "47.9", "47.11", "30.3", "48.10"],
+          "urls": [
+            "https://www.lawofone.info/s/47#8",
+            "https://www.lawofone.info/s/47#9",
+            "https://www.lawofone.info/s/47#11",
+            "https://www.lawofone.info/s/30#3",
+            "https://www.lawofone.info/s/48#10"
+          ],
+          "note": "Bodies' effect on the complex; each density contains seven centers; indigo activates first at death"
         }
       ]
     },
@@ -68,6 +101,16 @@
       "section_title": "The Incarnation Review",
       "segments": [
         {
+          "paragraphs": [1],
+          "sources": ["47.15", "48.7", "71.6"],
+          "urls": [
+            "https://www.lawofone.info/s/47#15",
+            "https://www.lawofone.info/s/48#7",
+            "https://www.lawofone.info/s/71#6"
+          ],
+          "note": "Rest in indigo body, then the process of seeing the experience in full"
+        },
+        {
           "paragraphs": [2, 3, 4],
           "sources": ["71.6"],
           "urls": ["https://www.lawofone.info/s/71#6"],
@@ -75,21 +118,32 @@
         },
         {
           "paragraphs": [5, 6],
-          "sources": ["30.4"],
-          "urls": ["https://www.lawofone.info/s/30#4"],
-          "note": "Loss of surface mental activity, pure distillation of character, spiritual channel opens"
+          "sources": ["30.4", "71.6"],
+          "urls": ["https://www.lawofone.info/s/30#4", "https://www.lawofone.info/s/71#6"],
+          "note": "Loss of surface mental activity, pure distillation of character, spiritual channel opens; examples are the book's"
         },
         {
           "paragraphs": [7],
-          "sources": ["71.6", "36.1"],
-          "urls": ["https://www.lawofone.info/s/71#6", "https://www.lawofone.info/s/36#1"],
-          "note": "Higher Self guides review until entity becomes conscious of evolution process"
+          "sources": ["71.6", "36.1", "36.2", "70.8"],
+          "urls": [
+            "https://www.lawofone.info/s/71#6",
+            "https://www.lawofone.info/s/36#1",
+            "https://www.lawofone.info/s/36#2",
+            "https://www.lawofone.info/s/70#8"
+          ],
+          "note": "Higher Self guides review until entity becomes conscious of evolution process; mid-sixth density"
         },
         {
           "paragraphs": [8],
           "sources": ["71.6"],
           "urls": ["https://www.lawofone.info/s/71#6"],
           "note": "Advanced entity consciously participates in all decisions"
+        },
+        {
+          "paragraphs": [9],
+          "sources": ["71.6"],
+          "urls": ["https://www.lawofone.info/s/71#6"],
+          "note": "Seeing in full, forgiving self, assessing next necessities"
         }
       ]
     },
@@ -97,6 +151,12 @@
       "section_id": "ch9-healing",
       "section_title": "The Healing Between Lives",
       "segments": [
+        {
+          "paragraphs": [1],
+          "sources": ["71.6", "48.7"],
+          "urls": ["https://www.lawofone.info/s/71#6", "https://www.lawofone.info/s/48#7"],
+          "note": "Review belongs to the process of healing; healings completed before further needs are determined"
+        },
         {
           "paragraphs": [2],
           "sources": ["71.6"],
@@ -110,10 +170,34 @@
           "note": "Helpers available depending on location in time/space"
         },
         {
+          "paragraphs": [4],
+          "sources": ["71.6", "36.2", "30.4"],
+          "urls": [
+            "https://www.lawofone.info/s/71#6",
+            "https://www.lawofone.info/s/36#2",
+            "https://www.lawofone.info/s/30#4"
+          ],
+          "note": "Seeing in full against the total backdrop; higher self aids healing; emotions and biases ignored in life become obvious"
+        },
+        {
           "paragraphs": [5],
-          "sources": ["47.15", "48.7"],
-          "urls": ["https://www.lawofone.info/s/47#15", "https://www.lawofone.info/s/48#7"],
-          "note": "Rest in indigo body, healing before next incarnation planning"
+          "sources": ["47.15", "48.7", "71.6"],
+          "urls": [
+            "https://www.lawofone.info/s/47#15",
+            "https://www.lawofone.info/s/48#7",
+            "https://www.lawofone.info/s/71#6"
+          ],
+          "note": "Rest in indigo body, healing before next incarnation planning; the integration wording is the book's"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["21.9", "48.7", "71.6"],
+          "urls": [
+            "https://www.lawofone.info/s/21#9",
+            "https://www.lawofone.info/s/48#7",
+            "https://www.lawofone.info/s/71#6"
+          ],
+          "note": "Time between incarnations lengthens with lessons of love; healing completed before next needs are determined"
         }
       ]
     },
@@ -122,16 +206,28 @@
       "section_title": "Planning the Next Life",
       "segments": [
         {
+          "paragraphs": [1],
+          "sources": ["48.7", "71.6"],
+          "urls": ["https://www.lawofone.info/s/48#7", "https://www.lawofone.info/s/71#6"],
+          "note": "Bridge: after the healings, next incarnation needs are determined"
+        },
+        {
           "paragraphs": [2],
-          "sources": ["54.23", "54.24"],
-          "urls": ["https://www.lawofone.info/s/54#23", "https://www.lawofone.info/s/54#24"],
-          "note": "Pre-incarnative programming of catalyst, purpose of incarnation is evolution"
+          "sources": ["54.23", "54.24", "36.2", "48.8", "33.6"],
+          "urls": [
+            "https://www.lawofone.info/s/54#23",
+            "https://www.lawofone.info/s/54#24",
+            "https://www.lawofone.info/s/36#2",
+            "https://www.lawofone.info/s/48#8",
+            "https://www.lawofone.info/s/33#6"
+          ],
+          "note": "Programming for the conscious entity; others receive patterns arranged by those under the Guardians; purpose of incarnation"
         },
         {
           "paragraphs": [3],
-          "sources": ["33.6"],
-          "urls": ["https://www.lawofone.info/s/33#6"],
-          "note": "Invisible guidelines shaping events, missed opportunities replaced by new ones"
+          "sources": ["33.6", "50.5"],
+          "urls": ["https://www.lawofone.info/s/33#6", "https://www.lawofone.info/s/50#5"],
+          "note": "Amount of catalyst, invisible guidelines, agreements with family; societal culture as probability/possibility vortices"
         },
         {
           "paragraphs": [4],
@@ -141,9 +237,13 @@
         },
         {
           "paragraphs": [5],
-          "sources": ["36.1", "36.2"],
-          "urls": ["https://www.lawofone.info/s/36#1", "https://www.lawofone.info/s/36#2"],
-          "note": "Higher Self as resource, probability/possibility vortices for life programming"
+          "sources": ["36.1", "36.2", "70.11"],
+          "urls": [
+            "https://www.lawofone.info/s/36#1",
+            "https://www.lawofone.info/s/36#2",
+            "https://www.lawofone.info/s/70#11"
+          ],
+          "note": "Higher Self as resource, parallel developments as probability/possibility vortices; does not manipulate"
         },
         {
           "paragraphs": [6],
@@ -159,9 +259,13 @@
         },
         {
           "paragraphs": [8],
-          "sources": ["33.6"],
-          "urls": ["https://www.lawofone.info/s/33#6"],
-          "note": "System allows for failure, lessons carry forward"
+          "sources": ["33.6", "34.5", "21.9"],
+          "urls": [
+            "https://www.lawofone.info/s/33#6",
+            "https://www.lawofone.info/s/34#5",
+            "https://www.lawofone.info/s/21#9"
+          ],
+          "note": "Missed opportunities replaced by new ones"
         }
       ]
     },
@@ -169,6 +273,12 @@
       "section_id": "ch9-karma",
       "section_title": "Karma and Its Function",
       "segments": [
+        {
+          "paragraphs": [1],
+          "sources": ["34.4"],
+          "urls": ["https://www.lawofone.info/s/34#4"],
+          "note": "Bridge: introduces karma; 'widely misunderstood' is the book's commentary"
+        },
         {
           "paragraphs": [2],
           "sources": ["34.4"],
@@ -183,15 +293,19 @@
         },
         {
           "paragraphs": [4],
-          "sources": ["34.5"],
-          "urls": ["https://www.lawofone.info/s/34#5"],
-          "note": "Resolution at any point through understanding, acceptance, forgiveness"
+          "sources": ["34.5", "18.12"],
+          "urls": ["https://www.lawofone.info/s/34#5", "https://www.lawofone.info/s/18#12"],
+          "note": "Resolution at any point by self and any involved other-self through understanding, acceptance, forgiveness"
         },
         {
           "paragraphs": [5, 6, 7],
-          "sources": ["34.4", "34.5"],
-          "urls": ["https://www.lawofone.info/s/34#4", "https://www.lawofone.info/s/34#5"],
-          "note": "Forgiveness as mechanism, karma in life planning, free will paramount"
+          "sources": ["34.4", "34.5", "70.11"],
+          "urls": [
+            "https://www.lawofone.info/s/34#4",
+            "https://www.lawofone.info/s/34#5",
+            "https://www.lawofone.info/s/70#11"
+          ],
+          "note": "Forgiveness as brake; karma in life planning; free will paramount"
         }
       ]
     },
@@ -200,28 +314,48 @@
       "section_title": "Guides and Helpers",
       "segments": [
         {
+          "paragraphs": [1],
+          "sources": ["71.6", "50.5"],
+          "urls": ["https://www.lawofone.info/s/71#6", "https://www.lawofone.info/s/50#5"],
+          "note": "Bridge: helpers assist the healing process; no entity without help"
+        },
+        {
           "paragraphs": [2],
-          "sources": ["36.1", "70.11"],
-          "urls": ["https://www.lawofone.info/s/36#1", "https://www.lawofone.info/s/70#11"],
-          "note": "Higher Self as mid-sixth density self, protects and guides without manipulation"
+          "sources": ["36.1", "70.11", "70.8"],
+          "urls": [
+            "https://www.lawofone.info/s/36#1",
+            "https://www.lawofone.info/s/70#11",
+            "https://www.lawofone.info/s/70#8"
+          ],
+          "note": "Higher Self as mid-sixth density self; protects when possible and guides when asked"
         },
         {
           "paragraphs": [3],
-          "sources": ["70.12"],
-          "urls": ["https://www.lawofone.info/s/70#12"],
+          "sources": ["70.12", "70.11", "70.8"],
+          "urls": [
+            "https://www.lawofone.info/s/70#12",
+            "https://www.lawofone.info/s/70#11",
+            "https://www.lawofone.info/s/70#8"
+          ],
           "note": "Simultaneous existence of self and Higher Self, cities on a map analogy"
         },
         {
           "paragraphs": [4],
-          "sources": ["48.8"],
-          "urls": ["https://www.lawofone.info/s/48#8"],
-          "note": "Angelic beings under Guardians, no entity without help"
+          "sources": ["48.8", "50.5"],
+          "urls": ["https://www.lawofone.info/s/48#8", "https://www.lawofone.info/s/50#5"],
+          "note": "Angelic beings under Guardians; no entity without help"
         },
         {
           "paragraphs": [5],
-          "sources": ["48.8", "71.6"],
-          "urls": ["https://www.lawofone.info/s/48#8", "https://www.lawofone.info/s/71#6"],
-          "note": "Teachers of appropriate density offer perspective"
+          "sources": ["71.6"],
+          "urls": ["https://www.lawofone.info/s/71#6"],
+          "note": "Helpers according to time/space locus assist the healing process"
+        },
+        {
+          "paragraphs": [6],
+          "sources": ["70.11", "50.5"],
+          "urls": ["https://www.lawofone.info/s/70#11", "https://www.lawofone.info/s/50#5"],
+          "note": "Help is never absent; guidance when asked. 'Deepest in the veil' is the book's adornment"
         }
       ]
     },
@@ -230,34 +364,64 @@
       "section_title": "Why We Do Not Remember",
       "segments": [
         {
+          "paragraphs": [1],
+          "sources": [],
+          "urls": [],
+          "note": "Synthesis: rhetorical question linking to the previous chapter"
+        },
+        {
+          "paragraphs": [2],
+          "sources": ["21.9", "50.7"],
+          "urls": ["https://www.lawofone.info/s/21#9", "https://www.lawofone.info/s/50#7"],
+          "note": "Forgetting is necessary so that free will may operate; the process would carry no weight without it"
+        },
+        {
+          "paragraphs": [3],
+          "sources": ["48.8", "33.6"],
+          "urls": ["https://www.lawofone.info/s/48#8", "https://www.lawofone.info/s/33#6"],
+          "note": "The entity conscious of the mechanism arranges its lessons before the forgetting"
+        },
+        {
           "paragraphs": [4],
-          "sources": ["30.4"],
-          "urls": ["https://www.lawofone.info/s/30#4"],
-          "note": "Entity arrives with pure distillation of character but no explicit knowledge"
+          "sources": ["21.9", "48.8", "36.1", "30.4"],
+          "urls": [
+            "https://www.lawofone.info/s/21#9",
+            "https://www.lawofone.info/s/48#8",
+            "https://www.lawofone.info/s/36#1",
+            "https://www.lawofone.info/s/30#4"
+          ],
+          "note": "Forgetting of third density; distillations of experience; character as pure distillation"
         },
         {
           "paragraphs": [5],
-          "sources": ["54.24"],
-          "urls": ["https://www.lawofone.info/s/54#24"],
-          "note": "Catalyst would not function if purpose visible in advance"
+          "sources": ["50.7", "21.9"],
+          "urls": ["https://www.lawofone.info/s/50#7", "https://www.lawofone.info/s/21#9"],
+          "note": "Forgetting makes choices weigh; open hands in time/space gain little polarity"
         },
         {
           "paragraphs": [6, 7],
-          "sources": [],
-          "urls": [],
-          "note": "Synthesis: forgetting creates faith, spiral pattern of incarnation"
+          "sources": ["21.9", "50.7", "54.24", "48.8", "71.6", "30.4"],
+          "urls": [
+            "https://www.lawofone.info/s/21#9",
+            "https://www.lawofone.info/s/50#7",
+            "https://www.lawofone.info/s/54#24",
+            "https://www.lawofone.info/s/48#8",
+            "https://www.lawofone.info/s/71#6",
+            "https://www.lawofone.info/s/30#4"
+          ],
+          "note": "Forgetting and catalyst; conscious entity plans, others have patterns arranged; review by higher self; early incarnation automatic"
         },
         {
           "paragraphs": [8],
-          "sources": [],
-          "urls": [],
-          "note": "Synthesis: near-death experience as momentary lifting of veil"
+          "sources": ["30.4", "21.9"],
+          "urls": ["https://www.lawofone.info/s/30#4", "https://www.lawofone.info/s/21#9"],
+          "note": "After death forgetting no longer necessary, spiritual channel opens"
         },
         {
           "paragraphs": [9],
-          "sources": [],
-          "urls": [],
-          "note": "Type D bridge closure — connects to Ch10 energy centers"
+          "sources": ["48.7"],
+          "urls": ["https://www.lawofone.info/s/48#7"],
+          "note": "Bridge to Ch10: seven energy centers potentiated before birth"
         }
       ]
     }
