@@ -15,9 +15,15 @@
         },
         {
           "paragraphs": [2, 3, 4],
-          "sources": ["9.6", "20.18"],
-          "urls": ["https://www.lawofone.info/s/9#6", "https://www.lawofone.info/s/20#18"],
-          "note": "Earth as unique gathering place of souls from many origins"
+          "sources": ["9.6", "20.18", "14.3", "6.13", "10.15"],
+          "urls": [
+            "https://www.lawofone.info/s/9#6",
+            "https://www.lawofone.info/s/20#18",
+            "https://www.lawofone.info/s/14#3",
+            "https://www.lawofone.info/s/6#13",
+            "https://www.lawofone.info/s/10#15"
+          ],
+          "note": "Earth as gathering place of souls from many origins; gradual 2D to 3D transition interrupted by Mars; Deneb among the origins"
         },
         {
           "paragraphs": [5, 6],
@@ -39,9 +45,9 @@
       "segments": [
         {
           "paragraphs": [1, 2],
-          "sources": ["10.1"],
-          "urls": ["https://www.lawofone.info/s/10#1"],
-          "note": "Maldek civilization and sincere but drifted belief system"
+          "sources": ["10.1", "6.10"],
+          "urls": ["https://www.lawofone.info/s/10#1", "https://www.lawofone.info/s/6#10"],
+          "note": "Maldek civilization and sincere but drifted belief system; planet within this solar system destroyed by war"
         },
         {
           "paragraphs": [3],
@@ -57,20 +63,25 @@
         },
         {
           "paragraphs": [8, 9],
-          "sources": ["10.1", "21.5"],
-          "urls": ["https://www.lawofone.info/s/10#1", "https://www.lawofone.info/s/21#5"],
-          "note": "Healing process, karma alleviation"
+          "sources": ["10.1", "21.5", "21.7"],
+          "urls": [
+            "https://www.lawofone.info/s/10#1",
+            "https://www.lawofone.info/s/21#5",
+            "https://www.lawofone.info/s/21#7"
+          ],
+          "note": "Healing process in the inner planes, karma alleviation"
         },
         {
           "paragraphs": [10],
-          "sources": ["10.1", "10.2", "10.3", "21.5"],
+          "sources": ["10.1", "10.2", "10.3", "21.5", "21.16"],
           "urls": [
             "https://www.lawofone.info/s/10#1",
             "https://www.lawofone.info/s/10#2",
             "https://www.lawofone.info/s/10#3",
-            "https://www.lawofone.info/s/21#5"
+            "https://www.lawofone.info/s/21#5",
+            "https://www.lawofone.info/s/21#16"
           ],
-          "note": "Incarnation in second-density bodies on Earth"
+          "note": "Incarnation in second-density bodies on Earth; first calling about 46,000 years ago"
         },
         {
           "paragraphs": [11],
@@ -108,32 +119,47 @@
         },
         {
           "paragraphs": [5],
-          "sources": ["9.11", "9.12"],
-          "urls": ["https://www.lawofone.info/s/9#11", "https://www.lawofone.info/s/9#12"],
-          "note": "Beginning of 75,000-year master cycle"
+          "sources": ["9.11", "9.12", "6.15"],
+          "urls": [
+            "https://www.lawofone.info/s/9#11",
+            "https://www.lawofone.info/s/9#12",
+            "https://www.lawofone.info/s/6#15"
+          ],
+          "note": "Beginning of the 75,000-year master cycle; its division into three cycles of 25,000 years"
         },
         {
           "paragraphs": [6, 7, 8],
-          "sources": ["9.9"],
-          "urls": ["https://www.lawofone.info/s/9#9"],
-          "note": "Quarantine established due to free will concerns"
+          "sources": ["9.9", "21.8", "12.3", "12.7", "7.8", "16.2"],
+          "urls": [
+            "https://www.lawofone.info/s/9#9",
+            "https://www.lawofone.info/s/21#8",
+            "https://www.lawofone.info/s/12#3",
+            "https://www.lawofone.info/s/12#7",
+            "https://www.lawofone.info/s/7#8",
+            "https://www.lawofone.info/s/16#2"
+          ],
+          "note": "Light quarantine intensified after the Martian transfer; not absolute: requests, Council approval and windows"
         },
         {
           "paragraphs": [9],
-          "sources": ["20.18", "21.9"],
-          "urls": ["https://www.lawofone.info/s/20#18", "https://www.lawofone.info/s/21#9"],
-          "note": "Population mixture, 900-year lifespan"
+          "sources": ["20.12", "21.9"],
+          "urls": ["https://www.lawofone.info/s/20#12", "https://www.lawofone.info/s/21#9"],
+          "note": "Population mixture, 900-year lifespan (20.12), first needs of the entity (21.9)"
         },
         {
           "paragraphs": [10],
-          "sources": ["21.9"],
-          "urls": ["https://www.lawofone.info/s/21#9"],
-          "note": "Veil of forgetting as design for meaningful choice"
+          "sources": ["21.9", "82.18", "83.3"],
+          "urls": [
+            "https://www.lawofone.info/s/21#9",
+            "https://www.lawofone.info/s/82#18",
+            "https://www.lawofone.info/s/83#3"
+          ],
+          "note": "Veil of forgetting as necessary for free will to operate; state before and after the veil"
         },
         {
           "paragraphs": [11],
-          "sources": ["9.11", "14.4"],
-          "urls": ["https://www.lawofone.info/s/9#11", "https://www.lawofone.info/s/14#4"],
+          "sources": ["9.11", "6.15"],
+          "urls": ["https://www.lawofone.info/s/9#11", "https://www.lawofone.info/s/6#15"],
           "note": "Three major cycles of 25,000 years each"
         }
       ]
@@ -162,9 +188,14 @@
         },
         {
           "paragraphs": [6, 7, 8],
-          "sources": ["21.14", "21.15"],
-          "urls": ["https://www.lawofone.info/s/21#14", "https://www.lawofone.info/s/21#15"],
-          "note": "Zero harvest, Confederation restraint, no calling received"
+          "sources": ["14.15", "21.14", "21.15", "21.16"],
+          "urls": [
+            "https://www.lawofone.info/s/14#15",
+            "https://www.lawofone.info/s/21#14",
+            "https://www.lawofone.info/s/21#15",
+            "https://www.lawofone.info/s/21#16"
+          ],
+          "note": "Zero harvest, Confederation waits for a calling, first calling about 46,000 years ago"
         },
         {
           "paragraphs": [9],
@@ -192,13 +223,14 @@
         },
         {
           "paragraphs": [4, 5, 6],
-          "sources": ["21.28", "22.7", "22.8"],
+          "sources": ["21.28", "22.3", "22.7", "22.8"],
           "urls": [
             "https://www.lawofone.info/s/21#28",
+            "https://www.lawofone.info/s/22#3",
             "https://www.lawofone.info/s/22#7",
             "https://www.lawofone.info/s/22#8"
           ],
-          "note": "South American group: 900-year lifespan, harvestable through isolation"
+          "note": "South American group: life span stretching toward 900 years, harvestable through isolation"
         },
         {
           "paragraphs": [7],
@@ -208,9 +240,9 @@
         },
         {
           "paragraphs": [8, 9],
-          "sources": ["22.5"],
-          "urls": ["https://www.lawofone.info/s/22#5"],
-          "note": "Principle of shortening: lessons rejected, barter to money"
+          "sources": ["20.17", "22.5"],
+          "urls": ["https://www.lawofone.info/s/20#17", "https://www.lawofone.info/s/22#5"],
+          "note": "Shortening of life span from lack of positive orientation; lessons rejected in practice"
         },
         {
           "paragraphs": [10],
@@ -220,9 +252,16 @@
         },
         {
           "paragraphs": [11, 12],
-          "sources": ["22.9", "22.10"],
-          "urls": ["https://www.lawofone.info/s/22#9", "https://www.lawofone.info/s/22#10"],
-          "note": "150 harvestable out of 345,000 — vanishingly small"
+          "sources": ["22.9", "22.10", "22.11", "22.12", "22.13", "14.16"],
+          "urls": [
+            "https://www.lawofone.info/s/22#9",
+            "https://www.lawofone.info/s/22#10",
+            "https://www.lawofone.info/s/22#11",
+            "https://www.lawofone.info/s/22#12",
+            "https://www.lawofone.info/s/22#13",
+            "https://www.lawofone.info/s/14#16"
+          ],
+          "note": "150 harvestable out of 345,000; the 150 were visited and stayed to aid the planetary consciousness"
         },
         {
           "paragraphs": [13],
@@ -256,19 +295,24 @@
         },
         {
           "paragraphs": [5, 6],
-          "sources": ["22.19", "22.21"],
-          "urls": ["https://www.lawofone.info/s/22#19", "https://www.lawofone.info/s/22#21"],
-          "note": "Confederation responds through channels; mystery of unity"
+          "sources": ["22.19", "22.21", "23.1"],
+          "urls": [
+            "https://www.lawofone.info/s/22#19",
+            "https://www.lawofone.info/s/22#21",
+            "https://www.lawofone.info/s/23#1"
+          ],
+          "note": "Confederation acts through channels and appears to Atlanteans of philosophical understanding; no action over Egypt"
         },
         {
           "paragraphs": [7, 8],
-          "sources": ["22.21", "22.22", "22.23"],
+          "sources": ["22.21", "22.22", "22.23", "10.15"],
           "urls": [
             "https://www.lawofone.info/s/22#21",
             "https://www.lawofone.info/s/22#22",
-            "https://www.lawofone.info/s/22#23"
+            "https://www.lawofone.info/s/22#23",
+            "https://www.lawofone.info/s/10#15"
           ],
-          "note": "Temples of learning, crystal technology high point"
+          "note": "Temples of learning, crystals by request; parallel technological path and creation of life forms"
         },
         {
           "paragraphs": [9],
@@ -326,9 +370,14 @@
         },
         {
           "paragraphs": [7, 8],
-          "sources": ["22.26"],
-          "urls": ["https://www.lawofone.info/s/22#26"],
-          "note": "Confederation acknowledges responsibility, commits to remain"
+          "sources": ["22.23", "22.25", "22.26", "24.4"],
+          "urls": [
+            "https://www.lawofone.info/s/22#23",
+            "https://www.lawofone.info/s/22#25",
+            "https://www.lawofone.info/s/22#26",
+            "https://www.lawofone.info/s/24#4"
+          ],
+          "note": "Responsibility and commitment belong to those naive members who taught; crystal weapons"
         }
       ]
     },
@@ -338,9 +387,13 @@
       "segments": [
         {
           "paragraphs": [1],
-          "sources": ["24.4"],
-          "urls": ["https://www.lawofone.info/s/24#4"],
-          "note": "Greater caution after Atlantis lesson"
+          "sources": ["22.21", "23.1", "24.4"],
+          "urls": [
+            "https://www.lawofone.info/s/22#21",
+            "https://www.lawofone.info/s/23#1",
+            "https://www.lawofone.info/s/24#4"
+          ],
+          "note": "Egypt approached at about the same time as Atlantis; caution after Atlantis"
         },
         {
           "paragraphs": [2],
@@ -374,13 +427,15 @@
         },
         {
           "paragraphs": [7],
-          "sources": ["2.4", "3.15", "3.16"],
+          "sources": ["2.4", "3.15", "3.16", "2.3", "4.2"],
           "urls": [
             "https://www.lawofone.info/s/2#4",
             "https://www.lawofone.info/s/3#15",
-            "https://www.lawofone.info/s/3#16"
+            "https://www.lawofone.info/s/3#16",
+            "https://www.lawofone.info/s/2#3",
+            "https://www.lawofone.info/s/4#2"
           ],
-          "note": "Initiation purpose: mind first, then body"
+          "note": "Initiation purpose: mind first, then body; alignment with planetary fields and geometry of the pyramid"
         },
         {
           "paragraphs": [8],
@@ -436,15 +491,25 @@
         },
         {
           "paragraphs": [3],
-          "sources": ["18.21", "18.22"],
-          "urls": ["https://www.lawofone.info/s/18#21", "https://www.lawofone.info/s/18#22"],
-          "note": "Unintended superiority complex, foothold for negative influence"
+          "sources": ["18.20", "18.21", "18.22", "24.6", "24.9"],
+          "urls": [
+            "https://www.lawofone.info/s/18#20",
+            "https://www.lawofone.info/s/18#21",
+            "https://www.lawofone.info/s/18#22",
+            "https://www.lawofone.info/s/24#6",
+            "https://www.lawofone.info/s/24#9"
+          ],
+          "note": "Anak and isolated experiments, elitism as foothold for Orion"
         },
         {
           "paragraphs": [4, 5],
-          "sources": ["24.6"],
-          "urls": ["https://www.lawofone.info/s/24#6"],
-          "note": "Orion group usurps Yahweh's name, philosophy of the elite"
+          "sources": ["24.6", "24.8", "18.24"],
+          "urls": [
+            "https://www.lawofone.info/s/24#6",
+            "https://www.lawofone.info/s/24#8",
+            "https://www.lawofone.info/s/18#24"
+          ],
+          "note": "Orion group enters through a weak window; mixed effect of Yahweh's interaction"
         },
         {
           "paragraphs": [6],
@@ -459,9 +524,14 @@
         },
         {
           "paragraphs": [7, 8],
-          "sources": ["24.8"],
-          "urls": ["https://www.lawofone.info/s/24#8"],
-          "note": "Positive vs negative dynamics, squaring of collective desire"
+          "sources": ["24.8", "16.2", "7.1", "7.2"],
+          "urls": [
+            "https://www.lawofone.info/s/24#8",
+            "https://www.lawofone.info/s/16#2",
+            "https://www.lawofone.info/s/7#1",
+            "https://www.lawofone.info/s/7#2"
+          ],
+          "note": "Orion also works only according to its call, much smaller; the square measures the service offered"
         },
         {
           "paragraphs": [9],
@@ -477,25 +547,25 @@
       "segments": [
         {
           "paragraphs": [1, 2, 3],
-          "sources": ["13.22", "13.23"],
-          "urls": ["https://www.lawofone.info/s/13#22", "https://www.lawofone.info/s/13#23"],
-          "note": "Master cycle complete, scattered thought-forms"
+          "sources": ["6.15", "13.22", "13.23"],
+          "urls": [
+            "https://www.lawofone.info/s/6#15",
+            "https://www.lawofone.info/s/13#22",
+            "https://www.lawofone.info/s/13#23"
+          ],
+          "note": "Master cycle drawing to its close, scattered thought-forms"
         },
         {
           "paragraphs": [4],
-          "sources": ["63.8", "63.9", "63.22"],
-          "urls": [
-            "https://www.lawofone.info/s/63#8",
-            "https://www.lawofone.info/s/63#9",
-            "https://www.lawofone.info/s/63#22"
-          ],
-          "note": "New fourth-density sphere forming"
+          "sources": ["63.8", "63.22"],
+          "urls": ["https://www.lawofone.info/s/63#8", "https://www.lawofone.info/s/63#22"],
+          "note": "New fourth-density sphere forming; fourth-density entities incarnating in less dense vehicles"
         },
         {
           "paragraphs": [5],
-          "sources": ["40.11"],
-          "urls": ["https://www.lawofone.info/s/40#11"],
-          "note": "True-color green overlaid with orange ray"
+          "sources": ["40.11", "41.14"],
+          "urls": ["https://www.lawofone.info/s/40#11", "https://www.lawofone.info/s/41#14"],
+          "note": "True-color green overlaid with orange ray; reversion to consideration of self"
         },
         {
           "paragraphs": [6],
@@ -505,9 +575,9 @@
         },
         {
           "paragraphs": [7],
-          "sources": ["13.23"],
-          "urls": ["https://www.lawofone.info/s/13#23"],
-          "note": "Few to harvest, proportionally similar to second cycle"
+          "sources": ["13.23", "65.15"],
+          "urls": ["https://www.lawofone.info/s/13#23", "https://www.lawofone.info/s/65#15"],
+          "note": "Few to harvest; counting the numbers is without virtue"
         },
         {
           "paragraphs": [8, 9],
