@@ -106,9 +106,19 @@ for (const seg of patch.provenance || []) {
   if (!section) {
     fail(`provenance: section ${seg.section} not found`);
   }
-  const target = section.segments.find(s => s.paragraphs.join() === seg.paragraphs.join());
+  let target = section.segments.find(s => s.paragraphs.join() === seg.paragraphs.join());
   if (!target) {
-    fail(`provenance: ${seg.section} P${seg.paragraphs} has no matching segment`);
+    // New segment: only for paragraphs that no other segment covers, and it needs a note.
+    const taken = section.segments.flatMap(s => s.paragraphs);
+    if (seg.paragraphs.some(p => taken.includes(p))) {
+      fail(`provenance: ${seg.section} P${seg.paragraphs} overlaps an existing segment`);
+    }
+    if (!seg.note) {
+      fail(`provenance: ${seg.section} P${seg.paragraphs} is a new segment and needs a note`);
+    }
+    target = { paragraphs: seg.paragraphs };
+    section.segments.push(target);
+    section.segments.sort((a, b) => a.paragraphs[0] - b.paragraphs[0]);
   }
   target.sources = seg.sources;
   target.urls = seg.sources
