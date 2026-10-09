@@ -31,9 +31,13 @@
         },
         {
           "paragraphs": [10, 11, 12],
-          "sources": ["78.8"],
-          "urls": ["https://www.lawofone.info/s/78#8"],
-          "note": "Galactic evolution extending free will to every scale; synthesis concluding the section"
+          "sources": ["78.8", "79.10", "79.11"],
+          "urls": [
+            "https://www.lawofone.info/s/78#8",
+            "https://www.lawofone.info/s/79#10",
+            "https://www.lawofone.info/s/79#11"
+          ],
+          "note": "First Distortion not extended past the sub-Logos early in the galaxy; veil as first tool of the extension"
         }
       ]
     },
@@ -43,38 +47,45 @@
       "segments": [
         {
           "paragraphs": [1, 2, 3],
-          "sources": ["36.20", "27.10", "78.9", "78.10"],
+          "sources": ["3.14", "27.10", "72.7", "79.10", "79.11", "82.29"],
           "urls": [
-            "https://www.lawofone.info/s/36#20",
+            "https://www.lawofone.info/s/3#14",
             "https://www.lawofone.info/s/27#10",
-            "https://www.lawofone.info/s/78#9",
-            "https://www.lawofone.info/s/78#10"
+            "https://www.lawofone.info/s/72#7",
+            "https://www.lawofone.info/s/79#10",
+            "https://www.lawofone.info/s/79#11",
+            "https://www.lawofone.info/s/82#29"
           ],
-          "note": "Law of Confusion defined; veil of forgetting as mechanism"
+          "note": "Law of Confusion as the Law of Free Will; veil as first tool and separation of conscious from unconscious"
         },
         {
           "paragraphs": [4, 5, 6, 7],
-          "sources": ["78.10", "78.11"],
-          "urls": ["https://www.lawofone.info/s/78#10", "https://www.lawofone.info/s/78#11"],
-          "note": "Pre-veil transparency and stagnation; introduction of forgetting; faith under uncertainty"
+          "sources": ["82.12", "82.29", "79.10", "79.11"],
+          "urls": [
+            "https://www.lawofone.info/s/82#12",
+            "https://www.lawofone.info/s/82#29",
+            "https://www.lawofone.info/s/79#10",
+            "https://www.lawofone.info/s/79#11"
+          ],
+          "note": "No veil or forgetting at first; threshold between densities; faculty of faith or will; veil introduced"
         },
         {
           "paragraphs": [8, 9, 10],
-          "sources": ["65.19"],
-          "urls": ["https://www.lawofone.info/s/65#19"],
-          "note": "Law of Confusion in daily life; confusion as path, not obstacle; synthesis on choosing within confusion"
+          "sources": ["72.7", "54.7"],
+          "urls": ["https://www.lawofone.info/s/72#7", "https://www.lawofone.info/s/54#7"],
+          "note": "Law of Confusion paramount; variety and misunderstanding as condition of experience; synthesis on choosing within confusion"
         },
         {
           "paragraphs": [11, 12],
           "sources": ["65.19"],
           "urls": ["https://www.lawofone.info/s/65#19"],
-          "note": "Wanderers submitting to the law; the sacrifice of forgetting; synthesis on standing alongside beginners"
+          "note": "Wanderers volunteer for third-density DNA connection; forgetting can be penetrated to a degree but not to activate denser bodies"
         },
         {
           "paragraphs": [13],
           "sources": ["36.7"],
           "urls": ["https://www.lawofone.info/s/36#7"],
-          "note": "Higher Self's role: programming lessons but not choosing; balance of known and unknown"
+          "note": "Higher Self programs only for lessons and certain predisposing limitations; balance of known and unknown"
         }
       ]
     },
@@ -84,13 +95,15 @@
       "segments": [
         {
           "paragraphs": [1, 2, 3, 4],
-          "sources": ["7.1", "7.2", "7.3"],
+          "sources": ["1.0", "60.27", "7.1", "7.2", "7.3"],
           "urls": [
+            "https://www.lawofone.info/s/1#0",
+            "https://www.lawofone.info/s/60#27",
             "https://www.lawofone.info/s/7#1",
             "https://www.lawofone.info/s/7#2",
             "https://www.lawofone.info/s/7#3"
           ],
-          "note": "Confederation position: one essential statement, proportional response to calling"
+          "note": "Confederation single statement; waits for the call; service available is the square of the calling"
         },
         {
           "paragraphs": [5],
@@ -117,15 +130,19 @@
         },
         {
           "paragraphs": [10],
-          "sources": ["16.8", "16.9"],
-          "urls": ["https://www.lawofone.info/s/16#8", "https://www.lawofone.info/s/16#9"],
-          "note": "Why mass contact would collapse free will at planetary scale"
+          "sources": ["16.9", "53.7"],
+          "urls": ["https://www.lawofone.info/s/16#9", "https://www.lawofone.info/s/53#7"],
+          "note": "Mass landing infringes free will and loses polarization (Orion); infringement greatly undesired"
         },
         {
           "paragraphs": [11, 12],
-          "sources": ["53.7", "53.8"],
-          "urls": ["https://www.lawofone.info/s/53#7", "https://www.lawofone.info/s/53#8"],
-          "note": "Subtle contact methods: thought projections, inner promptings; synthesis on teaching without coercion"
+          "sources": ["53.7", "53.8", "53.12"],
+          "urls": [
+            "https://www.lawofone.info/s/53#7",
+            "https://www.lawofone.info/s/53#8",
+            "https://www.lawofone.info/s/53#12"
+          ],
+          "note": "Subtle contact with wanderers: thought projections, inner voice, sleep and waking hours without fear"
         }
       ]
     },
@@ -135,21 +152,20 @@
       "segments": [
         {
           "paragraphs": [1, 2, 3, 4],
-          "sources": ["18.5", "24.6", "24.7", "24.8", "24.9"],
-          "urls": [
-            "https://www.lawofone.info/s/18#5",
-            "https://www.lawofone.info/s/24#6",
-            "https://www.lawofone.info/s/24#7",
-            "https://www.lawofone.info/s/24#8",
-            "https://www.lawofone.info/s/24#9"
-          ],
-          "note": "Genetic intervention story: gift received as proof of superiority, exploited by negative entities"
+          "sources": ["24.6", "24.9"],
+          "urls": ["https://www.lawofone.info/s/24#6", "https://www.lawofone.info/s/24#9"],
+          "note": "Yahweh: genetic cloning set biases of elitism; Orion used the name; philosophy and Anak"
         },
         {
           "paragraphs": [5, 6, 7],
-          "sources": ["60.16", "60.17"],
-          "urls": ["https://www.lawofone.info/s/60#16", "https://www.lawofone.info/s/60#17"],
-          "note": "Law of responsibility; karma from intervention; sacred technologies misused"
+          "sources": ["24.6", "24.9", "60.16", "60.17"],
+          "urls": [
+            "https://www.lawofone.info/s/24#6",
+            "https://www.lawofone.info/s/24#9",
+            "https://www.lawofone.info/s/60#16",
+            "https://www.lawofone.info/s/60#17"
+          ],
+          "note": "Yahweh felt great responsibility; Law of Responsibility with training aids; pyramid; Ark designed by negative entities"
         },
         {
           "paragraphs": [8],
@@ -159,13 +175,14 @@
         },
         {
           "paragraphs": [9, 10],
-          "sources": ["67.7", "67.8", "67.9"],
+          "sources": ["67.7", "67.8", "67.9", "72.7"],
           "urls": [
             "https://www.lawofone.info/s/67#7",
             "https://www.lawofone.info/s/67#8",
-            "https://www.lawofone.info/s/67#9"
+            "https://www.lawofone.info/s/67#9",
+            "https://www.lawofone.info/s/72#7"
           ],
-          "note": "Negative interference and its limits; fifth-density attacks neutralized by maintained orientation"
+          "note": "Negative tempting away from service to others; limits and neutralization by love; Law of Confusion paramount"
         },
         {
           "paragraphs": [11],
@@ -187,15 +204,15 @@
         },
         {
           "paragraphs": [2, 3, 4],
-          "sources": ["36.7", "54.7"],
-          "urls": ["https://www.lawofone.info/s/36#7", "https://www.lawofone.info/s/54#7"],
-          "note": "Weight of choice; gift of freedom and burden of responsibility; choosing in darkness"
+          "sources": ["36.7"],
+          "urls": ["https://www.lawofone.info/s/36#7"],
+          "note": "Destination known, roads mapped, choices belong to the entity"
         },
         {
           "paragraphs": [5, 6, 7],
-          "sources": ["78.8"],
-          "urls": ["https://www.lawofone.info/s/78#8"],
-          "note": "Faculty of will; consciousness orienting by its own light; synthesis on the alternative of no free will"
+          "sources": ["79.42", "82.29"],
+          "urls": ["https://www.lawofone.info/s/79#42", "https://www.lawofone.info/s/82#29"],
+          "note": "Faculty of will and faith; mind as actor possessed of free will and will"
         },
         {
           "paragraphs": [8, 9],
@@ -223,14 +240,14 @@
         },
         {
           "paragraphs": [3, 4, 5],
-          "sources": ["53.7", "7.3", "12.3", "12.5"],
+          "sources": ["60.27", "12.3", "12.5", "12.7"],
           "urls": [
-            "https://www.lawofone.info/s/53#7",
-            "https://www.lawofone.info/s/7#3",
+            "https://www.lawofone.info/s/60#27",
             "https://www.lawofone.info/s/12#3",
-            "https://www.lawofone.info/s/12#5"
+            "https://www.lawofone.info/s/12#5",
+            "https://www.lawofone.info/s/12#7"
           ],
-          "note": "Nature of the calling; paradox that it must arise within confusion; quarantine as illustration"
+          "note": "Call and response limited to what is useful to the caller; Guardians hail approaching entities; request in love and light"
         },
         {
           "paragraphs": [6, 7],
@@ -240,9 +257,14 @@
         },
         {
           "paragraphs": [8, 9],
-          "sources": ["7.3", "53.7"],
-          "urls": ["https://www.lawofone.info/s/7#3", "https://www.lawofone.info/s/53#7"],
-          "note": "Proportional response to calling; synthesis on those who wait"
+          "sources": ["7.1", "7.2", "7.3", "60.27"],
+          "urls": [
+            "https://www.lawofone.info/s/7#1",
+            "https://www.lawofone.info/s/7#2",
+            "https://www.lawofone.info/s/7#3",
+            "https://www.lawofone.info/s/60#27"
+          ],
+          "note": "Calling squared opens service; those who serve wait for the call"
         }
       ]
     },
@@ -282,9 +304,14 @@
       "segments": [
         {
           "paragraphs": [1, 2, 3],
-          "sources": ["36.7", "42.6"],
-          "urls": ["https://www.lawofone.info/s/36#7", "https://www.lawofone.info/s/42#6"],
-          "note": "Synthesis on difficulty of respecting others' freedom; sovereignty of every entity; tension of watching suffering"
+          "sources": ["73.12", "73.14", "60.27", "53.7"],
+          "urls": [
+            "https://www.lawofone.info/s/73#12",
+            "https://www.lawofone.info/s/73#14",
+            "https://www.lawofone.info/s/60#27",
+            "https://www.lawofone.info/s/53#7"
+          ],
+          "note": "Free will paramount in service to others; restraint and response to the call"
         },
         {
           "paragraphs": [4, 5],
@@ -300,9 +327,9 @@
         },
         {
           "paragraphs": [9],
-          "sources": ["53.7", "73.14"],
-          "urls": ["https://www.lawofone.info/s/53#7", "https://www.lawofone.info/s/73#14"],
-          "note": "Active service vs passive detachment; responding to genuine calls"
+          "sources": ["60.27", "73.14"],
+          "urls": ["https://www.lawofone.info/s/60#27", "https://www.lawofone.info/s/73#14"],
+          "note": "Responding to a genuine call with information useful to the caller; service without ascribing authorship to self"
         },
         {
           "paragraphs": [10, 11, 12],
