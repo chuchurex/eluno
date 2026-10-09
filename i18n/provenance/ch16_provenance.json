@@ -17,19 +17,23 @@
           "paragraphs": [3],
           "sources": ["28.16"],
           "urls": ["https://www.lawofone.info/s/28#16"],
-          "note": "Things beyond the reach of any mind, even vast ones — Ra's own admission of limited knowledge"
+          "note": "Ra no puede hablar con conocimiento firme de todas las creaciones; solo sabe que son infinitas"
         },
         {
           "paragraphs": [4],
-          "sources": ["82.5"],
-          "urls": ["https://www.lawofone.info/s/82#5"],
-          "note": "Infinite octaves with no counting — Ra's statement on the infinite creation"
+          "sources": ["28.16", "82.4", "82.5"],
+          "urls": [
+            "https://www.lawofone.info/s/28#16",
+            "https://www.lawofone.info/s/82#4",
+            "https://www.lawofone.info/s/82#5"
+          ],
+          "note": "Octavas infinitas asumidas (28.16), el infinito había experimentado octavas previas (82.4), no hay conteo (82.5)"
         },
         {
           "paragraphs": [5],
           "sources": ["28.16"],
           "urls": ["https://www.lawofone.info/s/28#16"],
-          "note": "Mystery-clad unity of creation, all consciousness periodically merging"
+          "note": "Unidad de la creación velada en misterio donde toda conciencia se reúne y recomienza periódicamente; progresión infinita de naturaleza cíclica"
         },
         {
           "paragraphs": [6],
@@ -39,9 +43,9 @@
         },
         {
           "paragraphs": [7],
-          "sources": ["13.11"],
-          "urls": ["https://www.lawofone.info/s/13#11"],
-          "note": "Steps are simultaneous and infinite — creation occurs at once"
+          "sources": ["13.11", "13.12"],
+          "urls": ["https://www.lawofone.info/s/13#11", "https://www.lawofone.info/s/13#12"],
+          "note": "Pasos simultáneos e infinitos en el punto de la pregunta (13.11); exploración libre de continuar en un presente eterno (13.12)"
         },
         {
           "paragraphs": [8],
@@ -63,15 +67,15 @@
         },
         {
           "paragraphs": [3],
-          "sources": ["39.4"],
-          "urls": ["https://www.lawofone.info/s/39#4"],
-          "note": "Some things beyond the abilities of language itself"
+          "sources": ["27.4", "39.4"],
+          "urls": ["https://www.lawofone.info/s/27#4", "https://www.lawofone.info/s/39#4"],
+          "note": "Lenguaje como aproximación y definir como tarea frustrante (27.4); explicar un concepto puntual excede el lenguaje y aun así se intenta (39.4)"
         },
         {
           "paragraphs": [4],
-          "sources": ["65.19"],
-          "urls": ["https://www.lawofone.info/s/65#19"],
-          "note": "The veil as functional limit — forgetting as condition for meaningful choice"
+          "sources": ["77.14", "54.7"],
+          "urls": ["https://www.lawofone.info/s/77#14", "https://www.lawofone.info/s/54#7"],
+          "note": "Los velos como parte integral del proceso de elegir en tercera densidad (77.14); sin potencial de malentendido no habría experiencia (54.7)"
         },
         {
           "paragraphs": [5],
@@ -105,15 +109,20 @@
         },
         {
           "paragraphs": [2],
-          "sources": ["28.16", "13.4"],
-          "urls": ["https://www.lawofone.info/s/28#16", "https://www.lawofone.info/s/13#4"],
-          "note": "Humble messenger — Ra's self-description; speaking of experiences while acknowledging limits"
+          "sources": ["28.16", "13.4", "13.3", "14.19"],
+          "urls": [
+            "https://www.lawofone.info/s/28#16",
+            "https://www.lawofone.info/s/13#4",
+            "https://www.lawofone.info/s/13#3",
+            "https://www.lawofone.info/s/14#19"
+          ],
+          "note": "Humilde mensajero (13.3, 13.4, 28.16); Ra se ubica en sexta densidad, buscando la séptima (14.19)"
         },
         {
           "paragraphs": [3],
-          "sources": ["82.5"],
-          "urls": ["https://www.lawofone.info/s/82#5"],
-          "note": "Even advanced intelligence bows before the infinite creation"
+          "sources": ["14.19", "82.5"],
+          "urls": ["https://www.lawofone.info/s/14#19", "https://www.lawofone.info/s/82#5"],
+          "note": "Perfil de un complejo de memoria social de sexta densidad (14.19); no hay conteo en una creación infinita (82.5)"
         },
         {
           "paragraphs": [4],
@@ -123,9 +132,9 @@
         },
         {
           "paragraphs": [5],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Not-knowing as kinship shared by all beings"
+          "sources": ["28.16", "14.19"],
+          "urls": ["https://www.lawofone.info/s/28#16", "https://www.lawofone.info/s/14#19"],
+          "note": "Solo saben que las creaciones son infinitas (28.16); la cosecha de Ra aún está por delante (14.19)"
         },
         {
           "paragraphs": [6],
@@ -155,13 +164,13 @@
           "paragraphs": [3],
           "sources": ["28.15"],
           "urls": ["https://www.lawofone.info/s/28#15"],
-          "note": "Eighth density as first density of next octave — the door that opens"
+          "note": "La octava densidad funciona también como la primera de la siguiente octava"
         },
         {
           "paragraphs": [4, 5],
-          "sources": ["40.1"],
-          "urls": ["https://www.lawofone.info/s/40#1"],
-          "note": "Transition into timelessness; all creations attaining spiritual mass to coalesce into unity"
+          "sources": ["40.1", "82.10"],
+          "urls": ["https://www.lawofone.info/s/40#1", "https://www.lawofone.info/s/82#10"],
+          "note": "Transición de octava en una atemporalidad que no se mide con el tiempo; unidad central que espera potenciación por libre albedrío (40.1); el Pensamiento Original como cosecha de la experiencia previa (82.10)"
         },
         {
           "paragraphs": [6],
@@ -177,9 +186,13 @@
         },
         {
           "paragraphs": [8],
-          "sources": ["28.16"],
-          "urls": ["https://www.lawofone.info/s/28#16"],
-          "note": "The journey does not end — it enters into mystery"
+          "sources": ["13.12", "39.4", "28.16"],
+          "urls": [
+            "https://www.lawofone.info/s/13#12",
+            "https://www.lawofone.info/s/39#4",
+            "https://www.lawofone.info/s/28#16"
+          ],
+          "note": "El ser de séptima densidad se compacta en el Creador Único (39.4); no hay final para la multiplicidad (13.12); unidad cíclica velada en misterio (28.16)"
         }
       ]
     },
@@ -195,21 +208,21 @@
         },
         {
           "paragraphs": [3],
-          "sources": ["synthesis"],
-          "urls": [],
-          "note": "Invitation to test teachings against personal experience"
+          "sources": ["4.20", "12.10"],
+          "urls": ["https://www.lawofone.info/s/4#20", "https://www.lawofone.info/s/12#10"],
+          "note": "Todas las cosas son una (4.20); discernimiento libre desde el todo-ser en el corazón del complejo mente, cuerpo y espíritu (12.10)"
         },
         {
           "paragraphs": [4],
-          "sources": ["42.2"],
-          "urls": ["https://www.lawofone.info/s/42#2"],
-          "note": "Practices as experiments — meditation, balancing, service"
+          "sources": ["12.10"],
+          "urls": ["https://www.lawofone.info/s/12#10"],
+          "note": "Solo la invitación a usar el discernimiento propio tiene ancla; la invitación a experimentar es puente del libro"
         },
         {
           "paragraphs": [5],
-          "sources": ["54.7"],
-          "urls": ["https://www.lawofone.info/s/54#7"],
-          "note": "Variety as hallmark; multiple valid paths"
+          "sources": ["54.7", "12.10"],
+          "urls": ["https://www.lawofone.info/s/54#7", "https://www.lawofone.info/s/12#10"],
+          "note": "Variedad como sello de un creador infinito (54.7); discernimiento libre (12.10)"
         },
         {
           "paragraphs": [6, 7],
