@@ -11,52 +11,50 @@
 - **Decoration level:** Minimal — typography and whitespace do all the work
 - **Mood:** Like opening a beautifully typeset book from an independent press. Quiet confidence. The text speaks for itself. Reading by a window at 3pm, not by candlelight in a temple.
 - **Reference sites:** aeon.co (editorial clarity), themarginalian.org (literary depth)
-- **Anti-patterns:** No mandalas, sacred geometry, cosmic gradients, nebula backgrounds, or mystical decoration. The content already carries metaphysical weight.
+- **Anti-patterns:** No mandalas, sacred geometry, cosmic gradients, nebula backgrounds, or mystical decoration. The content already carries metaphysical weight. Also no cream + terracotta + sans UI: that combination reads as Claude/Anthropic's brand, not as a book. No white app panels for the sidebars, no stacked cards, no tracked-uppercase labels.
 
 ## Typography
-- **Display/Hero:** Fraunces (Google Fonts, variable) — Old-style soft serif with personality. Variable optical sizing. Says "this was chosen on purpose." Not generic.
-- **Body:** Source Serif 4 (Google Fonts, Adobe, variable) — Designed for long-form reading. Disappears into the background and lets you read.
-- **UI/Labels:** JetBrains Mono — For chapter numbers, language toggle, metadata. Clean, legible, structural.
-- **Data/Tables:** JetBrains Mono (supports tabular-nums natively)
-- **Code:** JetBrains Mono
-- **Loading:** Google Fonts CDN, variable fonts for performance. Preconnect to fonts.googleapis.com and fonts.gstatic.com.
-- **Scale:**
-  - Display XL: 72px / 1.08 (homepage title)
-  - Display: 48px / 1.15 (chapter titles)
-  - H2: 36px / 1.2
-  - H3: 24px / 1.3
-  - Body: 19px / 1.75 (larger than standard — this is a book)
-  - Small: 15px / 1.6
-  - Caption: 13px / 1.5
-  - Mono UI: 12-14px / 1.6, letter-spacing 0.06-0.12em
+- **One family for everything:** Source Serif 4 (Google Fonts, variable, opsz 8-60, weights 300-800, roman + italic). Body, headings, navigation, side panel, labels and icon captions all use it. Mixing families read as anarchy.
+- **Hierarchy comes only from size, weight and italic:**
+  - Titles: weight 500, letter-spacing -0.015em
+  - Section headings: weight 600, text color (not accent)
+  - Secondary labels ("Capítulo uno", "Fuentes", current chapter above the side panel): italic, muted, normal case. No uppercase tracking.
+  - Active nav item and glossary term title: weight 600
+- **Loading:** Google Fonts CDN, one request (`lib/build/head.js`).
+- **Scale (root 19px):**
+  - Display XL: 4.5rem (homepage title)
+  - Display: 3rem / 1.15 (chapter titles)
+  - Section heading: 1.4rem / 1.3
+  - Body: 1rem / 1.75 (this is a book)
+  - Nav: 0.9rem
+  - Side panel definition: 0.8rem / 1.55 (a margin note, it must not compete with the text)
+  - Labels: 0.8-1rem italic
+  - Icon captions (MP3/PDF): 0.68rem, weight 700, uppercase (acronyms only)
 
 ## Color
-- **Approach:** Restrained — warm neutrals + single earthy accent. Terracotta, not gold. Earth, not cosmos.
+- **Approach:** Restrained. Cool white paper, near-black ink, one indigo accent ("A1"). Ink, not earth and not cosmos.
 - **Light mode (default):**
-  - Background: #f8f5f0 (warm cream, like unbleached paper)
-  - Surface: #ffffff (cards, elevated elements)
-  - Text: #2a2523 (warm dark brown)
-  - Text muted: #8a7e76 (metadata, secondary text)
-  - Accent: #c45d35 (terracotta/rust — earthy, confident)
-  - Accent hover: #a84d2b
-  - Border: #e5e0d8 (subtle sand)
-  - Shadow: rgba(42, 37, 35, 0.08)
-  - Selection: rgba(196, 93, 53, 0.15)
+  - Background: #fbfbf8 (cool white paper)
+  - Surface: #ffffff
+  - Text: #1a1c22 (near-black ink)
+  - Text muted: #5b606b (metadata, secondary text; 6:1 on paper)
+  - Accent: #2f3a9e (indigo, a touch toward violet; 9:1 on paper)
+  - Accent hover: #222b7a
+  - Border: #e3e4e8 / #cfd1d8
+  - Selection: rgba(47, 58, 158, 0.14)
 - **Dark mode (available, NOT default):**
-  - Background: #191716 (warm near-black)
-  - Surface: #242120 (elevated)
-  - Text: #ddd8d2 (warm light gray)
-  - Text muted: #8a817a
-  - Accent: #e07950 (terracotta, lighter for contrast)
-  - Accent hover: #ee8d66
-  - Border: rgba(221, 216, 210, 0.12)
-  - Shadow: rgba(0, 0, 0, 0.3)
-  - Selection: rgba(224, 121, 80, 0.2)
+  - Background: #14161b
+  - Surface: #1b1e24
+  - Text: #dfe1e6
+  - Text muted: #9aa0ab
+  - Accent: #a9b0f7 (lavender of the same hue)
+  - Accent hover: #d6d2fb
+  - Border: rgba(223, 225, 230, 0.12)
+  - Selection: rgba(169, 176, 247, 0.2)
+- **Where the accent goes:** links, glossary terms, drop cap, icons (MP3/PDF, theme toggle, section info), active states. Headings stay in text color.
 - **Semantic colors:**
   - Success: #4c8d5c
-  - Warning: #c45d35 (same as accent)
   - Error: #b43c32
-  - Info: #4682b4
 
 ## Spacing
 - **Base unit:** 8px
@@ -73,7 +71,9 @@
 - **Border radius:** sm: 4px, md: 6px, lg: 8px, xl: 12px
 
 ## Navigation
-- **Structure:** Minimal fixed top bar. Left: site title ("The One" / "El Uno"). Right: language toggle (EN | ES | PT).
+- **Structure:** Desktop: left chapter nav and right side panel (current section, glossary definition, sources) sit on the page background, not on white panels. Tablet/mobile: a solid top bar holds the menu, theme and glossary buttons so text never scrolls under bare buttons.
+- **Sources:** comma-separated session numbers; an external-link icon fades in on hover/focus in reserved space after the comma (nothing shifts).
+- **Icons:** drawn SVG only (no unicode glyphs). Theme toggle is a moon/sun SVG in the accent color.
 - **Chapter nav:** Previous/Next links at bottom of each chapter.
 - **Progress:** 2px accent-colored bar at top of viewport showing reading progress.
 - **Theme toggle:** Button in header to switch light/dark.
@@ -91,14 +91,14 @@
 ### Light mode as default
 Every spiritual/philosophy site defaults to dark. El Uno inverts this. The book is about illumination. The design should feel like reading by natural light. Dark mode is available for preference, but the identity is warm and bright.
 
-### Terracotta accent instead of gold
-Nobody in the Law of One / spiritual category uses earth tones. Everyone goes gold, purple, or cosmic blue. Terracotta says "grounded" not "mystical." It anchors the philosophy in the tangible.
+### Indigo accent, not terracotta
+The first system used cream + terracotta. In practice it read as Claude/Anthropic's palette, so the site looked machine-made. Indigo on cool white reads as ink on paper from an independent press and belongs to no tech brand.
 
 ### Zero cosmic decoration
 No mandalas, sacred geometry, nebula images, or mystical patterns. Only typography, whitespace, and one accent color. The writing carries the metaphysical weight. Adding cosmic visuals would be redundant.
 
 ### Drop cap on first paragraph
-Each chapter opens with a Fraunces drop cap in accent color. A nod to manuscript tradition without being heavy-handed.
+Each chapter opens with a Source Serif 4 drop cap in accent color. A nod to manuscript tradition without being heavy-handed.
 
 ## Decisions Log
 | Date | Decision | Rationale |
@@ -107,3 +107,4 @@ Each chapter opens with a Fraunces drop cap in accent color. A nod to manuscript
 | 2026-03-31 | Light mode as default | Departure from category norm (dark-first). Aligns with "accessible philosophy" positioning. |
 | 2026-03-31 | Terracotta accent (#c45d35) | Unique in category. Earth tones vs cosmic tones to signal grounded philosophy. |
 | 2026-03-31 | Fraunces + Source Serif 4 + JetBrains Mono | All free (Google Fonts). Fraunces for personality, Source Serif 4 for readability, JetBrains Mono for structure. |
+| 2026-10-12 | Indigo A1 + Source Serif 4 everywhere | Cream + terracotta + sans read as Claude's brand. Compared 3 directions (ink blue, olive, black and white) and 3 violet-blue tones; chose A1 (#2f3a9e). One typeface for all text after the mixed families felt chaotic. Sidebars on page background, book-style contents list, no tracked caps, hover-only external icons on sources. |
