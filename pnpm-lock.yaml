@@ -13,7 +13,7 @@ importers:
         version: 0.71.2(zod@3.25.76)
       '@eluno/core':
         specifier: github:chuchurex/eluno-core#v2
-        version: https://codeload.github.com/chuchurex/eluno-core/tar.gz/a6d6c3a33739a5d5a287bfa8d2e5bd23d9027c41(node-edge-tts@1.2.10)(node-id3@0.2.9)(sass@1.97.3)
+        version: https://codeload.github.com/chuchurex/eluno-core/tar.gz/fad473c0037c403e67c2907d912941cee085ef73(node-edge-tts@1.2.10)(node-id3@0.2.9)(sass@1.97.3)
       dotenv:
         specifier: ^17.0.0
         version: 17.2.4
@@ -128,9 +128,9 @@ packages:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
 
-  '@eluno/core@https://codeload.github.com/chuchurex/eluno-core/tar.gz/a6d6c3a33739a5d5a287bfa8d2e5bd23d9027c41':
-    resolution: {tarball: https://codeload.github.com/chuchurex/eluno-core/tar.gz/a6d6c3a33739a5d5a287bfa8d2e5bd23d9027c41}
-    version: 2.2.1
+  '@eluno/core@https://codeload.github.com/chuchurex/eluno-core/tar.gz/fad473c0037c403e67c2907d912941cee085ef73':
+    resolution: {tarball: https://codeload.github.com/chuchurex/eluno-core/tar.gz/fad473c0037c403e67c2907d912941cee085ef73}
+    version: 2.2.3
     hasBin: true
     peerDependencies:
       node-edge-tts: ^1.2.0
@@ -2347,7 +2347,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
 
-  '@eluno/core@https://codeload.github.com/chuchurex/eluno-core/tar.gz/a6d6c3a33739a5d5a287bfa8d2e5bd23d9027c41(node-edge-tts@1.2.10)(node-id3@0.2.9)(sass@1.97.3)':
+  '@eluno/core@https://codeload.github.com/chuchurex/eluno-core/tar.gz/fad473c0037c403e67c2907d912941cee085ef73(node-edge-tts@1.2.10)(node-id3@0.2.9)(sass@1.97.3)':
     dependencies:
       dotenv: 17.2.4
       sass: 1.97.3
